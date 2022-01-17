@@ -9,7 +9,7 @@ use Evo\View;
  *
  * PHP version 7.0
  */
-//class Items extends Evo\Controller
+
 class Items extends Authenticated
 {
 

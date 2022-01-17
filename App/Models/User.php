@@ -9,29 +9,13 @@ use \App\Token;
 use \App\Mail;
 use Evo\View;
 
-/**
- * User model
- *
- * PHP version 7.0
- */
 class User extends Model
 {
 
-    /**
-     * Error messages
-     *
-     * @var array
-     */
-    public $errors = [];
+    public array $errors = [];
 
-    /**
-     * Class constructor
-     *
-     * @param array $data  Initial property values (optional)
-     *
-     * @return void
-     */
-    public function __construct($data = [])
+
+    public function __construct(array $data = [])
     {
         foreach ($data as $key => $value) {
             $this->$key = $value;
@@ -40,10 +24,8 @@ class User extends Model
 
     /**
      * Save the user model with the current property values
-     *
-     * @return boolean  True if the user was saved, false otherwise
      */
-    public function save()
+    public function save(): bool
     {
         $this->validate();
 
@@ -88,7 +70,7 @@ class User extends Model
         if (filter_var($this->email, FILTER_VALIDATE_EMAIL) === false) {
             $this->errors[] = 'Invalid email';
         }
-        if (static::emailExists($this->email, $this->id ?? null)) {
+        if (static::doesEmailExist($this->email, $this->id ?? null)) {
             $this->errors[] = 'email already taken';
         }
 
@@ -110,15 +92,8 @@ class User extends Model
         }
     }
 
-    /**
-     * See if a user record already exists with the specified email
-     *
-     * @param string $email email address to search for
-     * @param string|null $ignore_id Return false anyway if the record found has this ID
-     *
-     * @return boolean  True if a record already exists with the specified email, false otherwise
-     */
-    public static function emailExists(string $email, string $ignore_id = null): bool
+
+    public static function doesEmailExist(string $email, string $ignore_id = null): bool
     {
         $user = static::findByEmail($email);
 
@@ -131,9 +106,6 @@ class User extends Model
         return false;
     }
 
-    /**
-     * Find a user model by email address
-     */
     public static function findByEmail(string $email)
     {
         $sql = 'SELECT * FROM users WHERE email = :email';
@@ -298,16 +270,12 @@ class User extends Model
         }
     }
 
-    /**
-     * Reset the password
-     */
     public function resetPassword(string $password): bool
     {
         $this->password = $password;
 
         $this->validate();
 
-        //return empty($this->errors);
         if (empty($this->errors)) {
 
             $password_hash = password_hash($this->password, PASSWORD_DEFAULT);
@@ -330,9 +298,6 @@ class User extends Model
         return false;
     }
 
-    /**
-     * Email the user containing the activation link
-     */
     public function sendActivationEmail()
     {
         $url = 'http://' . $_SERVER['HTTP_HOST'] . '/signup/activate/' . $this->activation_token;
@@ -343,11 +308,7 @@ class User extends Model
         Mail::sendMessage($this->email, 'Account activation', $text, $html);
     }
 
-    /**
-     * Activate the user account with the specified activation token
-     * @throws Exception
-     */
-    public static function activate(string $activation_token)
+    public static function activateAccount(string $activation_token)
     {
         $token = new Token($activation_token);
         $hashed_token = $token->getHash();
@@ -364,10 +325,7 @@ class User extends Model
 
         $stmt->execute();
     }
-    
-    /**
-     * Update the user's profile
-     */
+
     public function updateProfile(array $data): bool
     {
         $this->name = $data['name'];
