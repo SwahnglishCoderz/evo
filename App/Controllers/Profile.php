@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use \Core\View;
+use Evo\View;
 use \App\Auth;
 use \App\Flash;
 

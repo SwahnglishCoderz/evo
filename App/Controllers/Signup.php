@@ -2,7 +2,8 @@
 
 namespace App\Controllers;
 
-use \Core\View;
+use Evo\Controller;
+use Evo\View;
 use \App\Models\User;
 use Exception;
 
@@ -11,7 +12,7 @@ use Exception;
  *
  * PHP version 7.0
  */
-class Signup extends \Core\Controller
+class Signup extends Controller
 {
 
     /**

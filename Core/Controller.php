@@ -1,6 +1,6 @@
 <?php
 
-namespace Core;
+namespace Evo;
 
 use \App\Auth;
 use \App\Flash;
@@ -17,7 +17,7 @@ abstract class Controller
     /**
      * Parameters from the matched route
      */
-    protected $route_params = [];
+    protected array $route_params = [];
 
     /**
      * Class constructor

@@ -2,18 +2,19 @@
 
 namespace App\Models;
 
+use Evo\Model;
 use Exception;
 use PDO;
 use \App\Token;
 use \App\Mail;
-use \Core\View;
+use Evo\View;
 
 /**
  * User model
  *
  * PHP version 7.0
  */
-class User extends \Core\Model
+class User extends Model
 {
 
     /**
@@ -261,7 +262,7 @@ class User extends \Core\Model
         $text = View::getTemplate('Password/reset_email.txt', ['url' => $url]);
         $html = View::getTemplate('Password/reset_email.html', ['url' => $url]);
 
-        Mail::send($this->email, 'Password reset', $text, $html);
+        Mail::sendMessage($this->email, 'Password reset', $text, $html);
     }
 
     /**
@@ -339,7 +340,7 @@ class User extends \Core\Model
         $text = View::getTemplate('Signup/activation_email.txt', ['url' => $url]);
         $html = View::getTemplate('Signup/activation_email.html', ['url' => $url]);
 
-        Mail::send($this->email, 'Account activation', $text, $html);
+        Mail::sendMessage($this->email, 'Account activation', $text, $html);
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace Core;
+namespace Evo;
 
 use Exception;
 
@@ -15,12 +15,12 @@ class Router
     /**
      * Associative array of routes (the routing table)
      */
-    protected $routes = [];
+    protected array $routes = [];
 
     /**
      * Parameters from the matched route
      */
-    protected $params = [];
+    protected array $params = [];
 
     /**
      * Add a route to the routing table

@@ -1,23 +1,28 @@
 <?php
-
-/**
- * Front controller
+/*
+ * This file is part of the evo package.
  *
- * PHP version 7.0
+ * (c) John Andrew <simplygenius78@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
+
+declare(strict_types = 1);
 
 /**
- * Composer
+ * Load the composer autoloader library which enables us to bootstrap the application
+ * and initialize the necessary components.
  */
-require dirname(__DIR__) . '/vendor/autoload.php';
 
+require_once 'include.php';
 
 /**
  * Error and Exception handling
  */
 error_reporting(E_ALL);
-set_error_handler('Core\Error::errorHandler');
-set_exception_handler('Core\Error::exceptionHandler');
+set_error_handler('Evo\Error::errorHandler');
+set_exception_handler('Evo\Error::exceptionHandler');
 
 
 /**
@@ -29,9 +34,8 @@ session_start();
 /**
  * Routing
  */
-$router = new Core\Router();
+$router = new Evo\Router();
 
-// Add the routes
 $router->add('', ['controller' => 'Home', 'action' => 'index']);
 $router->add('login', ['controller' => 'Login', 'action' => 'new']);
 $router->add('logout', ['controller' => 'Login', 'action' => 'destroy']);

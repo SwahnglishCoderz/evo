@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Evo\Model;
 use Exception;
 use PDO;
 use \App\Token;
@@ -11,7 +12,7 @@ use \App\Token;
  *
  * PHP version 7.0
  */
-class RememberedLogin extends \Core\Model
+class RememberedLogin extends Model
 {
 
     /**

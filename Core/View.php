@@ -1,6 +1,6 @@
 <?php
 
-namespace Core;
+namespace Evo;
 
 use App\Auth;
 use App\Flash;

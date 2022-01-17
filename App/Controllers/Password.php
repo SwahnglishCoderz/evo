@@ -2,7 +2,8 @@
 
 namespace App\Controllers;
 
-use \Core\View;
+use Evo\Controller;
+use Evo\View;
 use \App\Models\User;
 
 /**
@@ -10,7 +11,7 @@ use \App\Models\User;
  *
  * PHP version 7.0
  */
-class Password extends \Core\Controller
+class Password extends Controller
 {
 
     /**

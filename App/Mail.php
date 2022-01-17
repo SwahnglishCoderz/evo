@@ -5,36 +5,28 @@ namespace App;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-/**
- * Mail
- *
- * PHP version 7.0
- */
+
 class Mail
 {
 
-    /**
-     * Send a message
-     */
-    public static function send($to, $subject, $text, $html)
+    public static function sendMessage($to, $subject, $text, $html)
     {
-        // Instantiation and passing `true` enables exceptions
         $mail = new PHPMailer(true);
 
         try {
             //Server settings
             $mail->SMTPDebug = SMTP::DEBUG_SERVER;
             $mail->isSMTP();
-            $mail->Host       = 'mailtrap_host';
+            $mail->Host       = Config::SMTP_HOST;
             $mail->SMTPAuth   = true;
-            $mail->Username   = 'sample';
-            $mail->Password   = 'sample';
+            $mail->Username   = Config::SMTP_USERNAME;
+            $mail->Password   = Config::SMTP_PASSWORD;
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-            $mail->Port       = 1234;
+            $mail->Port       = Config::SMTP_PORT;
 
             //Recipients
             $mail->setFrom('from@example.com', 'Mailer');
-            $mail->addAddress($to, 'New User');     // Add a recipient
+            $mail->addAddress($to, 'New User');
 
             // Content
             $mail->isHTML(true);

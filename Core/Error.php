@@ -1,6 +1,6 @@
 <?php
 
-namespace Core;
+namespace Evo;
 
 use App\Config;
 use ErrorException;
@@ -28,7 +28,7 @@ class Error
     /**
      * Exception handler.
      */
-    public static function exceptionHandler(Exception $exception)
+    public static function exceptionHandler(/*Exception*/ $exception)
     {
         // Code is 404 (not found) or 500 (general error)
         $code = $exception->getCode();

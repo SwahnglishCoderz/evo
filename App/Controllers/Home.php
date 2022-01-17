@@ -2,8 +2,8 @@
 
 namespace App\Controllers;
 
-use Core\Controller;
-use \Core\View;
+use Evo\Controller;
+use Evo\View;
 use \App\Auth;
 
 /**

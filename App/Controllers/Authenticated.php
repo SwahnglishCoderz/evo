@@ -2,12 +2,9 @@
 
 namespace App\Controllers;
 
-/**
- * Authenticated base controller
- *
- * PHP version 7.0
- */
-abstract class Authenticated extends \Core\Controller
+use Evo\Controller;
+
+abstract class Authenticated extends Controller
 {
     /**
      * Require the user to be authenticated before giving access to all methods in the controller

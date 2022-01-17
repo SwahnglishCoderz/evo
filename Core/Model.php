@@ -1,6 +1,6 @@
 <?php
 
-namespace Core;
+namespace Evo;
 
 use PDO;
 use App\Config;
@@ -16,7 +16,7 @@ abstract class Model
     /**
      * Get the PDO database connection
      */
-    protected static function getDB()
+    protected static function getDB(): ?PDO
     {
         static $db = null;
 
