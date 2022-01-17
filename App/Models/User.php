@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Evo\Model;
+use Evo\Status;
 use Exception;
 use PDO;
 use \App\Token;
@@ -37,27 +38,26 @@ class User extends Model
             $hashed_token = $token->getHash();
             $this->activation_token = $token->getValue();
 
-            $sql = 'INSERT INTO users (name, email, password_hash, activation_hash)
-                    VALUES (:name, :email, :password_hash, :activation_hash)';
+            $sql = 'INSERT INTO users (name, email, password_hash, activation_hash, status_id)
+                    VALUES (:name, :email, :password_hash, :activation_hash, :status_id)';
 
             $db = static::getDB();
-            $stmt = $db->prepare($sql);
+            $statement = $db->prepare($sql);
 
-            $stmt->bindValue(':name', $this->name, PDO::PARAM_STR);
-            $stmt->bindValue(':email', $this->email, PDO::PARAM_STR);
-            $stmt->bindValue(':password_hash', $password_hash, PDO::PARAM_STR);
-            $stmt->bindValue(':activation_hash', $hashed_token, PDO::PARAM_STR);
+            $statement->bindValue(':name', $this->name, PDO::PARAM_STR);
+            $statement->bindValue(':email', $this->email, PDO::PARAM_STR);
+            $statement->bindValue(':password_hash', $password_hash, PDO::PARAM_STR);
+            $statement->bindValue(':activation_hash', $hashed_token, PDO::PARAM_STR);
+            $statement->bindValue(':status_id', Status::INACTIVE, PDO::PARAM_INT);
 
-            return $stmt->execute();
+            return $statement->execute();
         }
 
         return false;
     }
 
     /**
-     * Validate current property values, adding valiation error messages to the errors array property
-     *
-     * @return void
+     * Validate current property values, adding validation error messages to the errors array property
      */
     public function validate()
     {

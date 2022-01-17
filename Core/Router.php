@@ -25,6 +25,7 @@ class Router
     /**
      * Add a route to the routing table
      */
+    // see if it's possible to set 'index' as the default method if a URL is passed with just the controller name
     public function add(string $route, array $params = [])
     {
         // Convert the route to a regular expression: escape forward slashes
@@ -89,6 +90,9 @@ class Router
     public function dispatch(string $url)
     {
         $url = $this->removeQueryStringVariables($url);
+//        echo $url;
+//        print_r($this->params['controller']);
+//        exit;
 
         if ($this->isRouteInRoutingTable($url)) {
             $controller = $this->params['controller'];
