@@ -4,43 +4,118 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/styles.css" />
+<!--    <script src="https://cdn.tailwindcss.com"></script>-->
+    <script src="/js/tailwind_cdn.js"></script>
 </head>
 
 <body>
+<!--<div class="container">-->
 
-    <div class="container">
+    <!-- navbar goes here -->
+<nav class="bg-gray-200">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="flex justify-between">
 
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <ul class="nav navbar-nav">
-                    <li><a href="/">Home</a></li>
+            <div class="flex space-x-4">
+                <!-- logo -->
+                <div>
+                    <a href="#" class="flex items-center py-5 px-2 text-gray-600 hover:text-gray-900">
+                        <svg class="h-6 w-6 mr-1 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                        </svg>
+                        <span class="font-bold">evo</span>
+                    </a>
+                </div>
+
+                <!-- primary nav -->
+                <div class="hidden md:flex items-center space-x-1">
+                    <a href="/" class="py-5 px-3 text-gray-500 hover:text-gray-900">Home</a>
                     {% if current_user %}
-                    <li><a href="/dashboard/index">Dashboard</a></li>
+                        <a href="/dashboard/index" class="py-5 px-3 text-gray-500 hover:text-gray-900">Dashboard</a>
                     {% endif %}
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    {% if current_user %}
-                    <li><a href="/profile/show">Profile</a></li>
-                    <li><a href="/logout">Log out</a></li>
-                    {% endif %}
-                </ul>
+                </div>
             </div>
-        </nav>
 
-        {% for message in flash_messages %}
-        <div class="alert alert-{{ message.type }}">
-            {{ message.body }}
+            <!-- secondary nav -->
+            <div class="hidden md:flex items-center space-x-1">
+                {% if current_user %}
+                    <a href="/profile/show" class="py-2 px-3 text-gray-500 hover:text-gray-900">Profile</a>
+                    <a href="/logout" class="py-2 px-3 text-gray-500 hover:text-gray-900">Logout</a>
+                {% else %}
+                    <a href="/login" class="py-2 px-3 text-gray-500 hover:text-gray-900">Login</a>
+                    <a href="/signup/new" class="py-2 px-3 text-gray-500 hover:text-gray-900">Signup</a>
+                {% endif %}
+            </div>
+
+            <!-- mobile button goes here -->
+            <div class="md:hidden flex items-center">
+                <button class="mobile-menu-button">
+                    <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+
         </div>
-        {% endfor %} {% block body %} {% endblock %}
-
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
+    <!-- mobile menu -->
+    <div class="mobile-menu hidden md:hidden">
+        <a href="/" class="block py-2 px-4 text-sm hover:bg-gray-200">Home</a>
+        <a href="/dashboard/index" class="block py-2 px-4 text-sm hover:bg-gray-200">Dashboard</a>
+    </div>
+</nav>
 
-    {% block footer %} {% endblock %}
+    <!-- content goes here -->
+    <div class="py-32 text-center">
+        {% for message in flash_messages %}
+            <div class="alert alert-{{ message.type }}">
+                {{ message.body }}
+            </div>
+
+<!--            {% if message.type == 'success' %}green{% endif %} // need some help here-->
+
+<!--            <div class="bg-{{ message.color }}-50 border-b border-{{ message.color }}-400 text-{{ message.color }}-800 text-sm p-4 flex justify-between">-->
+<!--                <div>-->
+<!--                    <div class="flex items-center">-->
+<!--                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 20 20" fill="currentColor">-->
+<!--                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />-->
+<!--                        </svg>-->
+<!--                        <p>-->
+<!--                            <span class="font-bold">{{ message.type }}:</span> {{ message.body }}-->
+<!--                        </p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">-->
+<!--                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />-->
+<!--                    </svg>-->
+<!--                </div>-->
+<!--            </div>-->
+        {% endfor %}
+    </div>
+
+
+
+    <div>
+        {% block body %} {% endblock %}
+    </div>
+
+    <div class="py-32 text-center">
+        {% block footer %} {% endblock %}
+    </div>
+
+    <script>
+        // grab everything we need
+        const btn = document.querySelector("button.mobile-menu-button");
+        const menu = document.querySelector(".mobile-menu");
+
+        // add event listeners
+        btn.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+        });
+    </script>
 </body>
 
 </html>
