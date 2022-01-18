@@ -13,6 +13,7 @@ class View
 
     /**
      * Render a view file
+     * @throws Exception
      */
     public static function render(string $view, array $optional_view_data = [])
     {
