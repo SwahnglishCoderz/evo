@@ -29,10 +29,11 @@
 
 </head>
 
-<body class="<!--bg-black-alt--> font-sans leading-normal tracking-normal">
+<body class="font-sans leading-normal tracking-normal">
     <div class="flex min-h-screen">
         {% if current_user %}
-            <div class="w-64 bg-gray-100 border-r border-gray-300 z-10">
+            <div class="w-64 bg-gray-100 border-r overflow-none border-gray-300 z-10">
+                <!-- logo-->
                 <div class="py-4 px-6">
                     <div class="w-full pl-2 md:pl-0 text-gray-400 hover:text-gray-600 ">
                         <a class="text-base xl:text-xl no-underline hover:no-underline font-bold" {% if current_user %} href="/dashboard/index"{% else %} href="/"{% endif %}>
@@ -40,10 +41,35 @@
                         </a>
                     </div>
                 </div>
+
+                <!-- menus-->
+                <h3 class="mx-6 mb-2 mt-3 text-xs text-gray-400 uppercase tracking-widest">Menu 1</h3>
+                <a class="flex items-center px-6 py-1 text-gray-500 hover:text-orange-600 group" href="/">
+                    <div class="h-5 w-full ml-5 text-gray-400 mr-2 group-hover:text-orange-500">Menu Item 1</div>
+                </a>
+                <a class="flex items-center px-6 py-1 text-gray-500 hover:text-orange-600 group" href="/">
+                    <div class="h-5 w-full ml-5 text-gray-400 mr-2 group-hover:text-orange-500">Menu Item 2</div>
+                </a>
+
+                <h3 class="mx-6 mb-2 mt-3 text-xs text-gray-400 uppercase tracking-widest">Menu 2</h3>
+                <a class="flex items-center px-6 py-1 text-gray-500 hover:text-orange-600 group" href="/">
+                    <div class="h-5 w-full ml-5 text-gray-400 mr-2 group-hover:text-orange-500">Menu Item 1</div>
+                </a>
+                <a class="flex items-center px-6 py-1 text-gray-500 hover:text-orange-600 group" href="/">
+                    <div class="h-5 w-full ml-5 text-gray-400 mr-2 group-hover:text-orange-500">Menu Item 2</div>
+                </a>
+
+                <h3 class="mx-6 mb-2 mt-3 text-xs text-gray-400 uppercase tracking-widest">Menu 3</h3>
+                <a class="flex items-center px-6 py-1 text-gray-500 hover:text-orange-600 group" href="/">
+                    <div class="h-5 w-full ml-5 text-gray-400 mr-2 group-hover:text-orange-500">Menu Item 1</div>
+                </a>
+                <a class="flex items-center px-6 py-1 text-gray-500 hover:text-orange-600 group" href="/">
+                    <div class="h-5 w-full ml-5 text-gray-400 mr-2 group-hover:text-orange-500">Menu Item 2</div>
+                </a>
             </div>
         {% endif %}
 
-       <div class="flex-1">
+       <div class="flex-1 overflow-scroll">
            <!--    nav-->
            <nav id="header" class="bg-gray-900 fixed w-full z-10 top-0 shadow">
                <div class="w-full container mx-auto flex flex-wrap items-center mt-0 pt-3 pb-3 md:pb-0">
