@@ -16,4 +16,7 @@ class Status
 {
     const ACTIVE = 1;
     const INACTIVE = 2;
+
+    const ACTIVE_COLOR = 'green';
+    const INACTIVE_COLOR = 'red';
 }
