@@ -6,8 +6,6 @@ use Exception;
 
 /**
  * Unique random tokens
- *
- * PHP version 7.0
  */
 class Token
 {

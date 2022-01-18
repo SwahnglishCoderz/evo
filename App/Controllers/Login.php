@@ -1,4 +1,14 @@
 <?php
+/*
+ * This file is part of the Nnaire package.
+ *
+ * (c) John Andrew <simplygenius78@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+declare (strict_types = 1);
 
 namespace App\Controllers;
 
@@ -8,11 +18,6 @@ use \App\Models\User;
 use \App\Auth;
 use \App\Flash;
 
-/**
- * Login controller
- *
- * PHP version 7.0
- */
 class Login extends Controller
 {
 

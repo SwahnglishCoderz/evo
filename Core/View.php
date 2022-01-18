@@ -8,17 +8,11 @@ use Exception;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
-/**
- * View
- *
- * PHP version 7.0
- */
 class View
 {
 
     /**
      * Render a view file
-     * @throws Exception
      */
     public static function render(string $view, array $optional_view_data = [])
     {

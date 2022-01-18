@@ -5,8 +5,6 @@ namespace App;
 /**
  * Flash notification messages: messages for one-time display using the session
  * for storage between requests.
- *
- * PHP version 7.0
  */
 class Flash
 {
@@ -14,6 +12,7 @@ class Flash
     const SUCCESS = 'success';
     const INFO = 'info';
     const WARNING = 'warning';
+    const DANGER = 'danger';
 
     public static function addMessageToFlashNotifications(string $message, string $message_type = 'success')
     {
@@ -25,7 +24,8 @@ class Flash
         // Append the message to the array
         $_SESSION['flash_notifications'][] = [
             'body' => $message,
-            'type' => $message_type
+            'type' => $message_type,
+            'color' => self::getMessageTypeColor($message_type)
         ];
     }
 
@@ -36,6 +36,24 @@ class Flash
             unset($_SESSION['flash_notifications']);
 
             return $messages;
+        }
+    }
+
+    private static function getMessageTypeColor(string $message_type): string
+    {
+        switch ($message_type) {
+            case 'danger':
+                return 'red';
+                break;
+            case 'warning':
+                return 'orange';
+                break;
+            case 'info':
+                return 'blue';
+                break;
+            default:
+                return 'green';
+                break;
         }
     }
 }

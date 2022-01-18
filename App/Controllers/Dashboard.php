@@ -4,12 +4,6 @@ namespace App\Controllers;
 
 use Evo\View;
 
-/**
- * Items controller (example)
- *
- * PHP version 7.0
- */
-
 class Dashboard extends Authenticated
 {
 

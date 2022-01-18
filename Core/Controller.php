@@ -6,11 +6,6 @@ use \App\Auth;
 use \App\Flash;
 use Exception;
 
-/**
- * Base controller
- *
- * PHP version 7.0
- */
 abstract class Controller
 {
 
