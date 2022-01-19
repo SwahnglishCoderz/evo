@@ -387,7 +387,7 @@ class ClientRepository implements ClientRepositoryInterface
     }
 
     /**
-     * @return object|null
+     * @return ?object
      */
     public function or404(): ?object
     {

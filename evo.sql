@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 19, 2022 at 07:35 AM
+-- Generation Time: Jan 19, 2022 at 02:50 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.23
 
@@ -57,6 +57,14 @@ CREATE TABLE `section` (
   `position` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `section`
+--
+
+INSERT INTO `section` (`id`, `name`, `position`) VALUES
+(1, 'users', 1),
+(2, 'utility', 99);
+
 -- --------------------------------------------------------
 
 --
@@ -103,7 +111,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `password_hash`, `created_at`, `updated_at`, `activation_hash`, `status_id`, `is_active`, `password_reset_hash`, `password_reset_expires_at`) VALUES
 (20, 'John Andrew', 'john@example.com', '$2y$10$MOb5mkUXsJ8DsRBJQwlPluMKk47/4LRvSQIkDmS/EZPF1zxW91OAO', '2022-01-17 14:46:31', '0000-00-00 00:00:00', NULL, 2, 1, NULL, NULL),
-(21, 'Sarah Kishindo', 'sarah@example.com', '$2y$10$PwTaIneiKpKisoC.rl83L.uy4LlL2xh3DyQ64mIxJh6zPRNaZZ1gK', '2022-01-17 14:50:45', '0000-00-00 00:00:00', NULL, 2, 1, NULL, NULL);
+(21, 'Sarah Kishindo', 'sarah@example.com', '$2y$10$PwTaIneiKpKisoC.rl83L.uy4LlL2xh3DyQ64mIxJh6zPRNaZZ1gK', '2022-01-17 14:50:45', '0000-00-00 00:00:00', NULL, 2, 1, NULL, NULL),
+(32, 'Sige Pianist', 'sige@example.com', '$2y$10$Kocvp28vlK240z1sFG6oWODhQfDEigjm/rr/UwOI90W6V1BZRMgjS', '2022-01-19 09:52:25', '0000-00-00 00:00:00', NULL, 2, 1, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -121,6 +130,12 @@ ALTER TABLE `access`
 ALTER TABLE `remembered_logins`
   ADD PRIMARY KEY (`token_hash`),
   ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `section`
+--
+ALTER TABLE `section`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `status`
@@ -147,6 +162,12 @@ ALTER TABLE `access`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `section`
+--
+ALTER TABLE `section`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `status`
 --
 ALTER TABLE `status`
@@ -156,7 +177,7 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- Constraints for dumped tables

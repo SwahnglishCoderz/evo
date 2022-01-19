@@ -21,7 +21,7 @@ interface ClientRepositoryValidationInterface
      * the entity return valid email and password fields
      * 
      * @param Collection $entityCollection - collection object
-     * @param object|null $dataRepository - the repository for the entity
+     * @param ?object $dataRepository - the repository for the entity
      * @return array
      */
     public function validateBeforePersist(Collection $entityCollection, ?object $dataRepository = null): array;
@@ -60,7 +60,7 @@ interface ClientRepositoryValidationInterface
      * your validation rules for your submitted data.
      *
      * @param Collection $entityCollection
-     * @param object|null $dataRepository
+     * @param ?object $dataRepository
      * @return void
      */
     public function validate(Collection $entityCollection, ?object $dataRepository = null): void;

@@ -45,8 +45,8 @@ trait ClientRepositoryTrait
      *
      * @param Collection $entityCollection
      * @param string $entityObject - use to create the validation object namespace
-     * @param object|null $dataRepository
-     * @param object|null $controller - the controller representing this repository
+     * @param ?object $dataRepository
+     * @param ?object $controller - the controller representing this repository
      * @return ClientRepositoryTrait|ClientRepository
      * @throws DataLayerException
      */

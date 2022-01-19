@@ -21,8 +21,7 @@ class Collection implements CollectionInterface
 
     use CollectionTrait;
 
-    /** @var array - collection items */
-    protected $items = [];
+    protected array $items = [];
 
 
     public function __construct($items = [])
@@ -32,8 +31,6 @@ class Collection implements CollectionInterface
 
     /**
      * Returns all the items within the collection
-     *
-     * @return void
      */
     public function all(): array
     {
@@ -42,9 +39,6 @@ class Collection implements CollectionInterface
 
     /**
      * Checks whether a given key exists within the collection
-     *
-     * @param string $key
-     * @return boolean
      */
     public function has(string $key): bool
     {
@@ -53,8 +47,6 @@ class Collection implements CollectionInterface
 
     /**
      * Returns all the keys of the collection items
-     *
-     * @return array
      */
     public function keys(): array
     {
@@ -63,11 +55,8 @@ class Collection implements CollectionInterface
 
     /**
      * Run a map over each items
-     *
-     * @param Callable $callback
-     * @return static
      */
-    public function map(callable $callback): static
+    public function map(callable $callback)
     {
         $items = array_map($callback, $this->items, $this->keys());
         return new static(array_combine($this->keys(), $items));
@@ -84,11 +73,8 @@ class Collection implements CollectionInterface
 
     /**
      * Calculates the sum of values within the specified array
-     *
-     * @param array $array
-     * @return static
      */
-    public function sum(): static
+    public function sum()
     {
         return new static(array_sum($this->items));
     }
@@ -102,43 +88,31 @@ class Collection implements CollectionInterface
     }
 
     /**
-     * Create an collection with the specified ranges
-     *
-     * @param $from
-     * @param $to
-     * @return static
+     * Create a collection with the specified ranges
      */
-    public function  range($from, $to): static
+    public function  range($from, $to)
     {
         return new static(range($from, $to));
     }
 
     /**
-     * Merge the collection with the given argument 
-     *
-     * @param $items
-     * @return static
+     * Merge the collection with the given argument
      */
-    public function merge($items): static
+    public function merge($items)
     {
         return new static(array_merge($this->items, $items));
     }
 
     /**
      * Recursively merge the collection with the given argument
-     *
-     * @param $items
-     * @return static
      */
-    public function mergeRecursive($items): static
+    public function mergeRecursive($items)
     {
         return new static(array_merge_recursive($this->items, $items));
     }
 
     /**
      * Pop an element off the end of the item collection
-     *
-     * @return mixed
      */
     public function pop()
     {
@@ -147,9 +121,6 @@ class Collection implements CollectionInterface
 
     /**
      * Push elements on the end of the collection items
-     *
-     * @param ...$values
-     * @return self
      */
     public function push(...$values): self
     {
@@ -158,11 +129,9 @@ class Collection implements CollectionInterface
     }
 
     /**
-     * Returns the items collection in reverse order
-     *
-     * @return static
+     * Returns the item collection in reverse order
      */
-    public function reverse(): static
+    public function reverse()
     {
         return new static(array_reverse($this->items, true));
     }
@@ -172,37 +141,29 @@ class Collection implements CollectionInterface
      *
      * @return mixed
      */
-    public function shift(): mixed
+    public function shift()
     {
         return array_shift($this->items);
     }
 
     /**
      * Extract a slice of the collection items
-     *
-     * @param [type] $offset
-     * @param [type] $length
-     * @return static
      */
-    public function slice(int $offset, $length = null): static
+    public function slice(int $offset, $length = null)
     {
         return new static(array_slice($this->items, $offset, $length, true));
     }
 
     /**
      * Returns the values of the collection items
-     *
-     * @return static
      */
-    public function values(): static
+    public function values()
     {
         return new static(array_values($this->items));
     }
 
     /**
      * Count the number of items within the collection items
-     *
-     * @return integer
      */
     public function size(): int
     {
@@ -211,9 +172,6 @@ class Collection implements CollectionInterface
 
     /**
      * Add an item to the collection
-     *
-     * @param $item
-     * @return self
      */
     public function add($item): self
     {
@@ -223,9 +181,6 @@ class Collection implements CollectionInterface
 
     /**
      * Remove the item from the collection
-     *
-     * @param string $key
-     * @return void
      */
     public function remove(string $key): void
     {
@@ -234,32 +189,24 @@ class Collection implements CollectionInterface
 
     /**
      * Removes duplicate entry from the collection items
-     *
-     * @return static
      */
-    public function unique(): static
+    public function unique()
     {
         return new static(array_unique($this->items));
     }
 
     /**
      * Returns the items in the collection which is not within the specified index array
-     *
-     * @param $items
-     * @return static
      */
-    public function diff($items): static
+    public function diff($items)
     {
         return new static(array_diff($this->items, $items));
     }
 
     /**
      * Returns the items in the collection which is not within the the specified associative array
-     *
-     * @param $items
-     * @return static
      */
-    public function diffAssoc($items): static
+    public function diffAssoc($items)
     {
         return new static(array_diff_assoc($this->items, $items));
     }
@@ -267,12 +214,8 @@ class Collection implements CollectionInterface
     /**
      * Returns the items in the collection whose keys and values is not within the 
      * specified associative array, using the callback
-     *
-     * @param $items
-     * @param Callable $callback
-     * @return static
      */
-    public function diffAssocUsing($items, callable $callback): static
+    public function diffAssocUsing($items, callable $callback)
     {
         return new static(array_diff_uassoc($this->items, $items, $callback));
     }
@@ -280,11 +223,8 @@ class Collection implements CollectionInterface
     /**
      * Returns the items in the collection whose keys in not within the specified 
      * index array
-     *
-     * @param $items
-     * @return static
      */
-    public function diffKeys($items): static
+    public function diffKeys($items)
     {
         return new static(array_diff_key($this->items, $items));
     }
@@ -292,23 +232,16 @@ class Collection implements CollectionInterface
     /**
      * Returns the items in the collection whose keys in not within the specified 
      * index array, using the callback
-     *
-     * @param $items
-     * @param Callable $callback
-     * @return static
      */
-    public function diffKeysUsing($items, callable $callback): static
+    public function diffKeysUsing($items, callable $callback)
     {
         return new static(array_diff_ukey($this->items, $items, $callback));
     }
 
     /**
      * Run a filter over each of the collection item
-     * 
-     * @param Callable $callback
-     * @return static
      */
-    public function filter(callable $callback = null): static
+    public function filter(callable $callback = null)
     {
         if ($callback) {
             return new static($this->where($this->items, $callback));
@@ -318,20 +251,14 @@ class Collection implements CollectionInterface
 
     /**
      * Get the first item from the collection passing the given truth test.
-     *
-     * @param  callable|null  $callback
-     * @param   $default
-     * @return mixed
      */
-    public function first(callable|null $callback = null, $default = null)
+    public function first(?callable $callback = null, $default = null)
     {
         return $this->first($this->items, $callback, $default);
     }
 
     /**
      * Get the collection of items as a plain array.
-     *
-     * @return array
      */
     public function toArray()
     {
@@ -370,9 +297,7 @@ class Collection implements CollectionInterface
     }
 
     /**
-     * Aliase of $this->size method
-     *
-     * @return void
+     * Alias of $this->size method
      */
     public function count(): int
     {

@@ -8,12 +8,12 @@ trait UtilityTrait
 {
     
 
-    public function security(string $key): mixed
+    public function security(string $key)
     {
         return Yaml::file('app')['security'][$key];
     }
 
-    public static function appSecurity(string $key): mixed
+    public static function appSecurity(string $key)
     {
         return Yaml::file('app')['security'][$key];
     }

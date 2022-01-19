@@ -21,192 +21,127 @@ interface CollectionInterface extends Countable, IteratorAggregate, ArrayAccess
 
     /**
      * Returns all the items within the collection
-     *
-     * @return void
      */
     public function all(): array;
 
     /**
      * Checks whether a given key exists within the collection
-     *
-     * @param string $key
-     * @return boolean
      */
     public function has(string $key): bool;
 
     /**
      * Returns all the keys of the collection items
-     *
-     * @return array
      */
     public function keys(): array;
 
     /**
      * Run a map over each items
-     *
-     * @param Callable $callback
-     * @return static
      */
-    public function map(callable $callback): static;
+    public function map(callable $callback);
 
     public function avg();
 
     /**
      * Calculates the sum of values within the specified array
-     *
-     * @param array $array
-     * @return static
      */
-    public function sum(): static;
+    public function sum();
 
     public function min();
 
     public function max();
 
     /**
-     * Create an collection with the specified ranges
-     *
-     * @param $from
-     * @param $to
-     * @return static
+     * Create a collection with the specified ranges
      */
-    public function  range($from, $to): static;
+    public function  range($from, $to);
 
     /**
-     * Merge the collection with the given argument 
-     *
-     * @param $items
-     * @return static
+     * Merge the collection with the given argument
      */
-    public function merge($items): static;
+    public function merge($items);
 
     /**
      * Recursively merge the collection with the given argument
-     *
-     * @param $items
-     * @return static
      */
-    public function mergeRecursive($items): static;
+    public function mergeRecursive($items);
 
     /**
      * Pop an element off the end of the item collection
-     *
-     * @return mixed
      */
     public function pop();
 
     /**
      * Push elements on the end of the collection items
-     *
-     * @param ...$values
-     * @return self
      */
     public function push(...$values): self;
 
     /**
-     * Returns the items collection in reverse order
-     *
-     * @return static
+     * Returns the item collection in reverse order
      */
-    public function reverse(): static;
+    public function reverse();
 
     /**
      * Shift the first element of the collection items
-     *
-     * @return mixed
      */
-    public function shift(): mixed;
+    public function shift();
 
     /**
      * Extract a slice of the collection items
-     *
-     * @param [type] $offset
-     * @param [type] $length
-     * @return static
      */
-    public function slice(int $offset, $length = null): static;
+    public function slice(int $offset, $length = null);
 
     /**
      * Returns the values of the collection items
-     *
-     * @return static
      */
-    public function values(): static;
+    public function values();
 
     /**
      * Count the number of items within the collection items
-     *
-     * @return integer
      */
     public function size(): int;
 
     /**
      * Add an item to the collection
-     *
-     * @param $item
-     * @return self
      */
     public function add($item): self;
 
     /**
      * Remove the item from the collection
-     *
-     * @param string $key
-     * @return void
      */
     public function remove(string $key): void;
 
     /**
      * Removes duplicate entry from the collection items
-     *
-     * @return static
      */
-    public function unique(): static;
+    public function unique();
 
     /**
      * Returns the items in the collection which is not within the specified index array
-     *
-     * @param $items
-     * @return static
      */
-    public function diff($items): static;
+    public function diff($items);
 
     /**
-     * Returns the items in the collection which is not within the the specified associative array
-     *
-     * @param $items
-     * @return static
+     * Returns the items in the collection which is not within the specified associative array
      */
-    public function diffAssoc($items): static;
+    public function diffAssoc($items);
 
     /**
      * Returns the items in the collection whose keys and values is not within the 
      * specified associative array, using the callback
-     *
-     * @param $items
-     * @param Callable $callback
-     * @return static
      */
-    public function diffAssocUsing($items, callable $callback): static;
+    public function diffAssocUsing($items, callable $callback);
 
     /**
      * Returns the items in the collection whose keys in not within the specified 
      * index array
-     *
-     * @param $items
-     * @return static
      */
-    public function diffKeys($items): static;
+    public function diffKeys($items);
 
     /**
      * Returns the items in the collection whose keys in not within the specified 
      * index array, using the callback
-     *
-     * @param $items
-     * @param Callable $callback
-     * @return static
      */
-    public function diffKeysUsing($items, callable $callback): static;
+    public function diffKeysUsing($items, callable $callback);
 
     public function filter(callable $callback = null);
 
@@ -221,9 +156,7 @@ interface CollectionInterface extends Countable, IteratorAggregate, ArrayAccess
     public function getIterator();
 
     /**
-     * Aliase of $this->size method
-     *
-     * @return void
+     * Alias of $this->size method
      */
     public function count(): int;
 }

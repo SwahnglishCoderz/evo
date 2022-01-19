@@ -30,21 +30,13 @@ class Home extends Controller
      */
     public function indexAction()
     {
-        $dotenv = new Dotenv();
-//        echo ROOT_PATH . '/.env';
-        $dotenv->load(ROOT_PATH . '\.env');
+//        $factory = new DataRepositoryFactory('application_data_access', 'sections', 'id');
+//        $repository = $factory->create(DataRepository::class);
+////        return $repository;
 //        echo '<pre>';
-//        print_r($dotenv);
+//        print_r($repository);
 //        echo '</pre>';
 //        exit;
-
-        $factory = new DataRepositoryFactory('application_data_access', 'users', 'id');
-        $repository = $factory->create(DataRepository::class);
-//        return $repository;
-        echo '<pre>';
-        print_r($repository);
-        echo '</pre>';
-        exit;
         View::renderTemplate('Home/index.html');
     }
 }

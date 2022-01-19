@@ -60,9 +60,6 @@ trait CollectionTrait
 
     /**
      * add a method to the array of proxies
-     *
-     * @param string $method
-     * @return void
      */
     public function proxy(string $method) : void
     {
@@ -71,9 +68,6 @@ trait CollectionTrait
 
     /**
      * Cast $items
-     *
-     * @param $items
-     * @return array
      */
     public function arrayableItems($items): array
     {
@@ -82,20 +76,15 @@ trait CollectionTrait
 
     /**
      * Checks whether the input array is of an associative array type
-     *
-     * @param array $inputArray
-     * @return boolean
      */
-    public static function isAssoc(array $inputArray)
+    public static function isAssoc(array $inputArray): bool
     {
         $keys = array_keys($inputArray);
         return array_keys($keys) !== $keys;
     }   
 
     /**
-     * Return a instance of the collection object
-     *
-     * @return Collection
+     * Return an instance of the collection object
      */
     public function collect(): Collection
     {
@@ -104,8 +93,6 @@ trait CollectionTrait
 
     /**
      * Get the collection of items as a plain array
-     *
-     * @return array
      */
     public function toArrays(): array
     {
@@ -114,11 +101,8 @@ trait CollectionTrait
         });
     }
 
-/**
+    /**
      * Return the default value of the given value.
-     *
-     * @param   $value
-     * @return mixed
      */
     function value($value, ...$args)
     {
@@ -126,13 +110,8 @@ trait CollectionTrait
     }
 
 
-/**
+    /**
      * Return the first element in an array passing a given truth test.
-     *
-     * @param  iterable  $array
-     * @param  callable|null  $callback
-     * @param   $default
-     * @return mixed
      */
     public function first($array, callable $callback = null, $default = null)
     {
@@ -157,12 +136,8 @@ trait CollectionTrait
 
     /**
      * Filter the array using the given callback
-     *
-     * @param array $input
-     * @param Callable $callback
-     * @return void
      */
-    public function where(array $input, Callable $callback)
+    public function where(array $input, Callable $callback): array
     {
         return array_filter($input, $callback, ARRAY_FILTER_USE_BOTH);
     }

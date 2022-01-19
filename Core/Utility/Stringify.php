@@ -29,7 +29,7 @@ class Stringify
      * @param $text
      * @return string|string[]
      */
-    public static function slugify($text): array|string
+    public static function slugify($text)
     {
         $text = preg_replace('~[^\\pL\d]+~u', '-', $text); // replace non letter or digits by -
         $text = trim($text, '-');

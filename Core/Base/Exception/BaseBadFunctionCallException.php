@@ -9,12 +9,7 @@ use BadFunctionCallException;
 class BaseBadFunctionCallException  extends BadFunctionCallException 
 { 
     /**
-     * Exception thrown if a callback refers to an undefined function or if some arguments are missing. 
-     *
-     * @param string $message
-     * @param integer $code
-     * @param BadFunctionCallException $previous
-     * @throws LogicException
+     * Exception thrown if a callback refers to an undefined function or if some arguments are missing.
      */
     public function __construct(string $message, int $code = 0, BadFunctionCallException  $previous = null)
     {

@@ -28,7 +28,7 @@ Abstract class AbstractClientRepositoryValidation implements ClientRepositoryVal
      * @inheritdoc
      * 
      * @param Collection $entityCollection - the incoming data as a collection object
-     * @param object|null $dataRepository - the repository for the entity
+     * @param ?object $dataRepository - the repository for the entity
      * @return mixed
      */
     abstract public function validateBeforePersist(Collection $entityCollection, ?object $dataRepository = null): array;
@@ -112,7 +112,7 @@ Abstract class AbstractClientRepositoryValidation implements ClientRepositoryVal
      * @param mixed $default
      * @return mixed
      */
-    public function setDefaultValue(array $cleanData, string $field, mixed $default): mixed
+    public function setDefaultValue(array $cleanData, string $field, mixed $default)
     {
         $value = $default;
         if (isset($cleanData[$field]) && $cleanData[$field] !='') {
@@ -157,7 +157,7 @@ Abstract class AbstractClientRepositoryValidation implements ClientRepositoryVal
      * @param mixed $dataRepository
      * @return mixed
      */
-    public function isSet(string $key, mixed $cleanData, mixed $dataRepository = null): mixed
+    public function isSet(string $key, mixed $cleanData, mixed $dataRepository = null)
     {
         if (is_object($cleanData)) {
             return $cleanData->$key ?? (($dataRepository !== null) ? $dataRepository->$key : null);
@@ -203,7 +203,7 @@ Abstract class AbstractClientRepositoryValidation implements ClientRepositoryVal
      * @param string $key
      * @return mixed
      */
-    private function appSecurity(string $key): mixed
+    private function appSecurity(string $key)
     {
         $app = Yaml::file('app');
         if ($app) {

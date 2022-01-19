@@ -9,12 +9,7 @@ use LengthException;
 class BaseLengthException   extends LengthException  
 { 
     /**
-     * Exception thrown if a length is invalid. 
-     *
-     * @param string $message
-     * @param integer $code
-     * @param LengthException  $previous
-     * @throws LogicException
+     * Exception thrown if a length is invalid.
      */
     public function __construct(string $message, int $code = 0, LengthException   $previous = null)
     {
