@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the Nnaire package.
+ * This file is part of the Evo package.
  *
  * (c) John Andrew <simplygenius78@gmail.com>
  *
@@ -13,22 +13,38 @@ declare (strict_types = 1);
 namespace App\Controllers;
 
 use Evo\Controller;
+use Evo\Orm\DataLayerConfiguration;
+use Evo\Orm\DataLayerEnvironment;
+use Evo\Orm\DataLayerFactory;
+use Evo\Orm\DataRepository\DataRepository;
+use Evo\Orm\DataRepository\DataRepositoryFactory;
+use Evo\Orm\Drivers\MysqlDatabaseConnection;
 use Evo\View;
 use \App\Auth;
+use Symfony\Component\Dotenv\Dotenv;
 
-/**
- * Home controller
- *
- * PHP version 7.0
- */
 class Home extends Controller
 {
-
     /**
      * Show the index page
      */
     public function indexAction()
     {
+        $dotenv = new Dotenv();
+//        echo ROOT_PATH . '/.env';
+        $dotenv->load(ROOT_PATH . '\.env');
+//        echo '<pre>';
+//        print_r($dotenv);
+//        echo '</pre>';
+//        exit;
+
+        $factory = new DataRepositoryFactory('application_data_access', 'users', 'id');
+        $repository = $factory->create(DataRepository::class);
+//        return $repository;
+        echo '<pre>';
+        print_r($repository);
+        echo '</pre>';
+        exit;
         View::renderTemplate('Home/index.html');
     }
 }

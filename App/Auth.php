@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the Nnaire package.
+ * This file is part of the Evo package.
  *
  * (c) John Andrew <simplygenius78@gmail.com>
  *

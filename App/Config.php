@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the Nnaire package.
+ * This file is part of the Evo package.
  *
  * (c) John Andrew <simplygenius78@gmail.com>
  *
@@ -38,5 +38,20 @@ class Config
     const SMTP_SECURE = 'tls';
 
     const SMTP_AUTH = true;
+
+    const DATABASE = [
+        "default_driver" => "mysql",
+        "drivers" => [
+            "mysql" => [
+                "class" => "\\Evo\\Orm\\Drivers\\MysqlDatabaseConnection"
+            ],
+            "pgsql" => [
+                "class" => "\\Evo\\Orm\\Drivers\\PgsqlDatabaseConnection"
+            ],
+            "sqlite" => [
+                "class" => "\\Evo\\Orm\\Drivers\\SqliteDatabaseConnection"
+            ]
+        ]
+    ];
 
 }

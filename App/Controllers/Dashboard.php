@@ -6,15 +6,6 @@ use Evo\View;
 
 class Dashboard extends Authenticated
 {
-
-    /**
-     * Require the user to be authenticated before giving access to all methods in the controller
-     */
-//    protected function before()
-//    {
-//        $this->requireLogin();
-//    }
-
     public function indexAction()
     {
         View::renderTemplate('Dashboard/index.html');
