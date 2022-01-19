@@ -33,12 +33,12 @@ class Error
         http_response_code($code);
 
         if (Config::SHOW_ERRORS) {
-            self::errorFancyDisplay($exception);
-//            echo "<h1>Fatal error</h1>";
-//            echo "<p>Uncaught exception: '" . get_class($exception) . "'</p>";
-//            echo "<p>Message: '" . $exception->getMessage() . "'</p>";
-//            echo "<p>Stack trace:<pre>" . $exception->getTraceAsString() . "</pre></p>";
-//            echo "<p>Thrown in '" . $exception->getFile() . "' on line " . $exception->getLine() . "</p>";
+//            self::errorFancyDisplay($exception);
+            echo "<h1>Fatal error</h1>";
+            echo "<p>Uncaught exception: '" . get_class($exception) . "'</p>";
+            echo "<p>Message: '" . $exception->getMessage() . "'</p>";
+            echo "<p>Stack trace:<pre>" . $exception->getTraceAsString() . "</pre></p>";
+            echo "<p>Thrown in '" . $exception->getFile() . "' on line " . $exception->getLine() . "</p>";
         } else {
             $log = dirname(__DIR__) . '/logs/' . date('Y-m-d') . '.txt';
             ini_set('error_log', $log);
@@ -54,27 +54,27 @@ class Error
         }
     }
 
-    private static function errorFancyDisplay($exception)
-    {
-//        echo '<pre>';
-//        print_r($exception);
-//        echo '</pre>';
-//        exit;
-
-        $exception = [
-            'message' => $exception->getMessage(),
-            'class' => get_class($exception),
-            'trace' => $exception->getTraceAsString(),
-            'file' => $exception->getFile(),
-            'line' => $exception->getLine(),
-            'code' => $exception->getCode(),
-        ];
-
-//        echo '<pre>';
-//        print_r($exception);
-//        echo '</pre>';
-//        exit;
-
-        View::renderTemplate('error.html', $exception);
-    }
+//    private static function errorFancyDisplay($exception)
+//    {
+////        echo '<pre>';
+////        print_r($exception);
+////        echo '</pre>';
+////        exit;
+//
+//        $exception = [
+//            'message' => $exception->getMessage(),
+//            'class' => get_class($exception),
+//            'trace' => $exception->getTraceAsString(),
+//            'file' => $exception->getFile(),
+//            'line' => $exception->getLine(),
+//            'code' => $exception->getCode(),
+//        ];
+//
+////        echo '<pre>';
+////        print_r($exception);
+////        echo '</pre>';
+////        exit;
+//
+//        View::renderTemplate('error.html', $exception);
+//    }
 }

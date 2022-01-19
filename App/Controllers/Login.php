@@ -34,7 +34,16 @@ class Login extends Controller
      */
     public function createAction()
     {
+//        echo '<pre>';
+//        print_r($_POST);
+//        echo '</pre>';
+//        exit;
         $user = User::authenticate($_POST['email'], $_POST['password']);
+
+//        echo '<pre>';
+//        print_r($user);
+//        echo '</pre>';
+//        exit;
         
         $remember_me = isset($_POST['remember_me']);
 

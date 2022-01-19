@@ -138,6 +138,11 @@ class User extends Model
     {
         $user = static::findByEmail($email);
 
+//        echo '<pre>';
+//        print_r($user);
+//        echo '</pre>';
+//        exit;
+
         //if ($user) {
         if ($user && $user->is_active) {
             if (password_verify($password, $user->password_hash)) {
