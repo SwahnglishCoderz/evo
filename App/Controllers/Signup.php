@@ -23,7 +23,7 @@ class Signup extends Controller
     /**
      * Show the signup page
      */
-    public function newAction()
+    public function new()
     {
         View::renderTemplate('Signup/new.html');
     }
@@ -31,7 +31,7 @@ class Signup extends Controller
     /**
      * Sign up a new user
      */
-    public function createAction()
+    public function create()
     {
         $user = new User($_POST);
 
@@ -53,7 +53,7 @@ class Signup extends Controller
     /**
      * Show the signup success page
      */
-    public function successAction()
+    public function success()
     {
         View::renderTemplate('Signup/success.html');
     }
@@ -62,7 +62,7 @@ class Signup extends Controller
      * Activate a new account
      * @throws Exception
      */
-    public function activateAction()
+    public function activate()
     {
         User::activateAccount($this->route_params['token']);
 
@@ -72,7 +72,7 @@ class Signup extends Controller
     /**
      * Show the activation success page
      */
-    public function activatedAction()
+    public function activated()
     {
         View::renderTemplate('Signup/activated.html');
     }

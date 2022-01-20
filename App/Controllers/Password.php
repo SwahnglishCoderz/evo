@@ -22,7 +22,7 @@ class Password extends Controller
     /**
      * Show the forgotten password page
      */
-    public function forgotAction()
+    public function forgot()
     {
         View::renderTemplate('Password/forgot.html');
     }
@@ -30,7 +30,7 @@ class Password extends Controller
     /**
      * Send the password reset link to the supplied email
      */
-    public function requestResetAction()
+    public function requestReset()
     {
         User::sendPasswordReset($_POST['email']);
 
@@ -40,7 +40,7 @@ class Password extends Controller
     /**
      * Show the reset password form
      */
-    public function resetAction()
+    public function reset()
     {
         $token = $this->route_params['token'];
 
@@ -54,7 +54,7 @@ class Password extends Controller
     /**
      * Reset the user's password
      */
-    public function resetPasswordAction()
+    public function resetPassword()
     {
         $token = $_POST['token'];
 

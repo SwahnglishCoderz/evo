@@ -28,7 +28,7 @@ class Home extends Controller
     /**
      * Show the index page
      */
-    public function indexAction()
+    public function index()
     {
 //        $factory = new DataRepositoryFactory('application_data_access', 'sections', 'id');
 //        $repository = $factory->create(DataRepository::class);

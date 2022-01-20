@@ -24,7 +24,7 @@ class Login extends Controller
     /**
      * Show the login page
      */
-    public function newAction()
+    public function new()
     {
         View::renderTemplate('Login/new.html');
     }
@@ -32,7 +32,7 @@ class Login extends Controller
     /**
      * Log in a user
      */
-    public function createAction()
+    public function create()
     {
 //        echo '<pre>';
 //        print_r($_POST);
@@ -69,7 +69,7 @@ class Login extends Controller
     /**
      * Log out a user
      */
-    public function destroyAction()
+    public function destroy()
     {
         Auth::logout();
 
@@ -78,12 +78,12 @@ class Login extends Controller
 
     /**
      * Show a "logged out" flash message and redirect to the homepage. Necessary to use the flash messages
-     * as they use the session and at the end of the logout method (destroyAction) the session is destroyed
-     * so a new action needs to be called in order to use the session.
+     * as they use the session and at the end of the logout method (destroy) the session is destroyed
+     * so a new  needs to be called in order to use the session.
      *
      * @return void
      */
-    public function showLogoutMessageAction()
+    public function showLogoutMessage()
     {
         Flash::addMessageToFlashNotifications('Logout successful');
 

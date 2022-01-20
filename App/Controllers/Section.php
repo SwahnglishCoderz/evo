@@ -16,43 +16,42 @@ use Evo\View;
 
 class Section extends Authenticated
 {
-    public function indexAction()
+    public function index()
     {
         // retrieve details of all sections from the DB
         View::renderTemplate('Sections/index.html');
     }
 
-    public function newAction()
+    public function new()
     {
         // display a form to create a new section
         View::renderTemplate('Sections/create.html');
     }
 
-    public function showAction()
+    public function show()
     {
         // retrieve details of a single section from the DB
         View::renderTemplate('Sections/show.html');
     }
 
-    public function addAction()
+    public function add()
     {
         // add new section to DB
     }
 
-    public function editAction()
+    public function edit()
     {
         // display a form to update a section
         View::renderTemplate('Sections/edit.html');
     }
 
-    public function updateAction()
+    public function update()
     {
         // updates a section in the DB
     }
 
-    public function deleteAction()
+    public function delete()
     {
         // deletes a section from the DB
     }
-
 }

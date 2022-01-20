@@ -21,23 +21,10 @@ use Symfony\Component\Dotenv\Dotenv;
 
 class ClientRepositoryFactory
 {
-
-    /** @var string */
     protected string $tableSchema;
-
-    /** @var string */
     protected string $tableSchemaID;
-
-    /** @var string */
     protected string $crudIdentifier;
 
-    /**
-     * Main class constructor
-     *
-     * @param string $crudIdentifier
-     * @param string $tableSchema
-     * @param string $tableSchemaID
-     */
     public function __construct(string $crudIdentifier, string $tableSchema, string $tableSchemaID)
     {
         $this->crudIdentifier = $crudIdentifier;
@@ -50,11 +37,6 @@ class ClientRepositoryFactory
      * the application using this framework. The data repository object will have 
      * the required dependency injected by default. Which is the data layer facade object
      * which is simple passing in the entity manager object which expose the crud methods
-     *
-     * @param string $dataRepositoryString
-     * @param array|null $dataLayerConfiguration
-     * @return ClientRepositoryInterface
-     * @throws DataLayerUnexpectedValueException
      */
     public function create(string $dataRepositoryString, ?array $dataLayerConfiguration = null) : ClientRepositoryInterface
     {
@@ -70,9 +52,6 @@ class ClientRepositoryFactory
      * Build entity manager which creates the data layer factory and passing in the
      * environment configuration array and symfony dotenv component. Which is used 
      * to set the database environment config.
-     *
-     * @param array|null $dataLayerConfiguration
-     * @return Object
      */
     public function buildEntityManager(?array $dataLayerConfiguration = null) : Object
     {

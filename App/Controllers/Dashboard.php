@@ -6,17 +6,17 @@ use Evo\View;
 
 class Dashboard extends Authenticated
 {
-    public function indexAction()
+    public function index()
     {
         View::renderTemplate('Dashboard/index.html');
     }
 
-    public function newAction()
+    public function new()
     {
         echo "new action";
     }
 
-    public function showAction()
+    public function show()
     {
         echo "show action";
     }

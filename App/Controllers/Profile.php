@@ -19,12 +19,13 @@ use \App\Flash;
 
 class Profile extends Authenticated
 {
-
     /**
-     * Before filter - called before each action method
+     * Before filter - called before each  method
      */
     protected function before()
     {
+//        echo "in before() method...";
+//        exit;
         parent::before();
 
         $this->user = Auth::getUser();
@@ -33,11 +34,12 @@ class Profile extends Authenticated
     /**
      * Show the profile
      */
-    public function showAction()
+    public function show()
     {
 //        echo '<pre>';
 //        print_r($this->user);
 //        echo '</pre>';
+//        exit;
 
         $this->user->is_active_color = self::isUserActive($this->user->is_active)['color'];
         $this->user->is_active_name = self::isUserActive($this->user->is_active)['name'];
@@ -55,7 +57,7 @@ class Profile extends Authenticated
     /**
      * Show the form for editing the profile
      */
-    public function editAction()
+    public function edit()
     {
         View::renderTemplate('Profile/edit.html', [
             'user' => $this->user
@@ -65,7 +67,7 @@ class Profile extends Authenticated
     /**
      * Update the profile
      */
-    public function updateAction()
+    public function update()
     {
         if ($this->user->updateProfile($_POST)) {
 
