@@ -19,7 +19,6 @@ use \App\Token;
 
 class RememberedLogin extends Model
 {
-
     /**
      * Find a remembered login model by the token
      * @throws Exception
@@ -46,9 +45,9 @@ class RememberedLogin extends Model
     /**
      * Get the user model associated with this remembered login
      */
-    public function getUser(): User
+    public function getUser(): UserModel
     {
-        return User::findByID($this->user_id);
+        return (new UserModel)->getNameForSelectField($_SESSION['user_id']);
     }
 
     /**

@@ -53,10 +53,8 @@ class ClientRepository implements ClientRepositoryInterface
 
     /**
      * Returns the entityManager object
-     *
-     * @return object|false
      */
-    public function getEm(): EntityManager|false
+    public function getEm()
     {
         return $this->em;
     }
@@ -74,9 +72,6 @@ class ClientRepository implements ClientRepositoryInterface
 
     /**
      * Checks whether the argument is set else throw an exception
-     *
-     * @param integer $id
-     * @return void
      */
     private function isEmpty(int $id): void
     {
@@ -89,8 +84,6 @@ class ClientRepository implements ClientRepositoryInterface
      * class, the getSchemaID method is part of the crud interface method. We
      * are simple just referencing that method which will give all controller
      * access to the primary key of the relevant database table.
-     *
-     * @return string
      */
     public function getSchemaID(): string
     {
@@ -109,13 +102,6 @@ class ClientRepository implements ClientRepositoryInterface
         return $this->em->getCrud()->join($selectors, $joinSelectors, $joinTo, $joinType, $conditions, $parameters, $extras);
     }
 
-    /**
-     * @inheritDoc
-     *
-     * @param integer $id
-     * @return array
-     * @throws DataLayerInvalidArgumentException|Throwable
-     */
     public function find(int $id): array
     {
         $this->isEmpty($id);
@@ -126,12 +112,6 @@ class ClientRepository implements ClientRepositoryInterface
         }
     }
 
-    /**
-     * @inheritDoc
-     *
-     * @return array
-     * @throws Throwable
-     */
     public function findAll(): array
     {
         try {
@@ -141,16 +121,6 @@ class ClientRepository implements ClientRepositoryInterface
         }
     }
 
-    /**
-     * @inheritDoc
-     *
-     * @param array $selectors
-     * @param array $conditions
-     * @param array $parameters
-     * @param array $optional
-     * @return array
-     * @throws Throwable
-     */
     public function findBy(array $selectors = [], array $conditions = [], array $parameters = [], array $optional = []): array
     {
         try {
@@ -160,13 +130,6 @@ class ClientRepository implements ClientRepositoryInterface
         }
     }
 
-    /**
-     * @inheritDoc
-     *
-     * @param array $conditions
-     * @return array
-     * @throws DataLayerInvalidArgumentException|Throwable
-     */
     public function findOneBy(array $conditions): array
     {
         $this->isArray($conditions);
@@ -177,33 +140,16 @@ class ClientRepository implements ClientRepositoryInterface
         }
     }
 
-    /**
-     * @inheritDoc
-     *
-     * @param array $conditions
-     * @param array $selectors
-     * @return Object|null
-     */
-    public function findObjectBy(array $conditions = [], array $selectors = []): Null|Object
+    public function findObjectBy(array $conditions = [], array $selectors = []): ?Object
     {
         $this->isArray($conditions);
         try {
             return $this->em->getCrud()->get($selectors, $conditions);
-        } catch (Throwable) {
+        } catch (Throwable $ex) {
             throw new DataLayerNoValueException('The method should have returned an object. But instead nothing has come back. Check that your source contains values.');
         }
     }
 
-    /**
-     * @inheritDoc
-     *
-     * @param array $selectors
-     * @param array $conditions
-     * @param array $parameters
-     * @param array $optional
-     * @return array
-     * @throws BaseInvalidArgumentException|Throwable
-     */
     public function findBySearch(array $selectors = [], array $conditions = [], array $parameters = [], array $optional = []): array
     {
         $this->isArray($conditions);
@@ -217,9 +163,6 @@ class ClientRepository implements ClientRepositoryInterface
     /**
      * Delete bulk item from a database table by simple providing an array of IDs to
      * which you want to delete.
-     *
-     * @param array $items
-     * @return boolean
      * @throws Throwable
      */
     public function findAndDelete(array $items = []): bool
@@ -235,13 +178,6 @@ class ClientRepository implements ClientRepositoryInterface
         return false;
     }
 
-    /**
-     * @inheritDoc
-     *
-     * @param array $conditions
-     * @return boolean
-     * @throws DataLayerInvalidArgumentException|Throwable
-     */
     public function findByIdAndDelete(array $conditions): bool
     {
         $this->isArray($conditions);
@@ -259,14 +195,6 @@ class ClientRepository implements ClientRepositoryInterface
         return false;
     }
 
-    /**
-     * @inheritDoc
-     *
-     * @param array $fields
-     * @param integer $id
-     * @return boolean
-     * @throws BaseInvalidArgumentException|Throwable
-     */
     public function findByIdAndUpdate(array $fields, int $id): bool
     {
         $this->isArray($fields);
@@ -285,15 +213,7 @@ class ClientRepository implements ClientRepositoryInterface
         return false;
     }
 
-    /**
-     * @inheritDoc
-     *
-     * @param array $args
-     * @param Object $request
-     * @return array|false
-     * @throws Throwable
-     */
-    public function findWithSearchAndPaging(Object $request, array $args = [], array $relationship = []): array|false
+    public function findWithSearchAndPaging(Object $request, array $args = [], array $relationship = [])
     {
         list($conditions, $totalRecords) = $this->getCurrentQueryStatus($request, $args);
 
@@ -330,12 +250,8 @@ class ClientRepository implements ClientRepositoryInterface
 
     /**
      * Query the database and returns the relevant amount of results based on the set query.
-     *
-     * @param Object $request
-     * @param array $args
-     * @return array|false
      */
-    private function getCurrentQueryStatus(Object $request, array $args): array|false
+    private function getCurrentQueryStatus(Object $request, array $args): array
     {
         $totalRecords = 0;
         $req = $request->query;
@@ -363,15 +279,6 @@ class ClientRepository implements ClientRepositoryInterface
         ];
     }
 
-
-    /**
-     * @inheritDoc
-     *
-     * @param integer $id
-     * @param array $selectors
-     * @return self
-     * @throws Throwable
-     */
     public function findAndReturn(int $id, array $selectors = []): self
     {
         // if (empty($id) || $id === 0) {
@@ -386,9 +293,6 @@ class ClientRepository implements ClientRepositoryInterface
         }
     }
 
-    /**
-     * @return ?object
-     */
     public function or404(): ?object
     {
         if ($this->findAndReturn != null) {
@@ -403,9 +307,6 @@ class ClientRepository implements ClientRepositoryInterface
 
     /**
      * Return the amount of item from the specified argument conditions
-     * @param array $conditions
-     * @param string|null $field
-     * @return mixed
      */
     public function count(array $conditions = [], ?string $field = 'id')
     {
@@ -423,10 +324,6 @@ class ClientRepository implements ClientRepositoryInterface
 
     /**
      * Undocumented function
-     *
-     * @param integer $quantity
-     * @param string $orderBy
-     * @return void
      */
     public function findLatestByQuantity(int $quantity = 5, $orderBy = 'id')
     {

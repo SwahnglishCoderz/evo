@@ -12,6 +12,8 @@ declare (strict_types = 1);
 
 namespace App\Models;
 
+use App\Entity\UserEntity;
+use Evo\Base\AbstractBaseModel;
 use Evo\Model;
 use Evo\Status;
 use Exception;
@@ -19,6 +21,7 @@ use PDO;
 use \App\Token;
 use \App\Mail;
 use Evo\View;
+use Throwable;
 
 class User extends Model
 {
@@ -102,10 +105,10 @@ class User extends Model
         }
     }
 
-
     public static function doesEmailExist(string $email, string $ignore_id = null): bool
     {
-        $user = static::findByEmail($email);
+//        $user = static::findByEmail($email);
+        $user = UserModel::findByEmail($email);
 
         if ($user) {
             if ($user->id != $ignore_id) {

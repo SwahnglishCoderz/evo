@@ -13,7 +13,11 @@ declare (strict_types = 1);
 namespace App;
 
 use App\Models\User;
+use App\Models\UserModel;
 use App\Models\RememberedLogin;
+use Evo\Base\AbstractBaseModel;
+use Evo\Base\BaseModel;
+use Exception;
 
 class Auth
 {
@@ -34,6 +38,9 @@ class Auth
         }
     }
 
+    /**
+     * @throws Exception
+     */
     public static function logout()
     {
         // Unset all the session variables
@@ -80,15 +87,13 @@ class Auth
      * Get the current logged-in user, from the session or the remember-me cookie
      *
      * returns the user model or null if not logged in
+     * @throws Exception
      */
     public static function getUser()
     {
         if (isset($_SESSION['user_id'])) {
-
-            return User::findByID($_SESSION['user_id']);
-
+            return (new Models\UserModel)->getNameForSelectField($_SESSION['user_id']);
         } else {
-
             return static::loginFromRememberCookie();
         }
     }
@@ -97,6 +102,7 @@ class Auth
      * Login the user from a remembered login cookie
      *
      * returns the user model if login cookie found; null otherwise
+     * @throws Exception
      */
     protected static function loginFromRememberCookie()
     {
@@ -120,6 +126,7 @@ class Auth
 
     /**
      * Forget the remembered login, if present
+     * @throws Exception
      */
     protected static function forgetLogin()
     {

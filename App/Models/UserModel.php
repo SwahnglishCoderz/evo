@@ -12,14 +12,20 @@ declare (strict_types = 1);
 
 namespace App\Models;
 
-use App\Entity\SectionEntity;
+use App\Entity\UserEntity;
 use Evo\Base\AbstractBaseModel;
-use Evo\Base\Exception\BaseInvalidArgumentException;
+use Evo\Model;
+use Evo\Status;
+use Exception;
+use PDO;
+use \App\Token;
+use \App\Mail;
+use Evo\View;
 use Throwable;
 
-class SectionModel extends AbstractBaseModel
+class UserModel extends AbstractBaseModel
 {
-    protected const TABLESCHEMA = 'section';
+    protected const TABLESCHEMA = 'users';
     protected const TABLESCHEMAID = 'id';
 
     /**
@@ -30,7 +36,7 @@ class SectionModel extends AbstractBaseModel
      */
     public function __construct()
     {
-        parent::__construct(self::TABLESCHEMA, self::TABLESCHEMAID, SectionEntity::class);
+        parent::__construct(self::TABLESCHEMA, self::TABLESCHEMAID, UserEntity::class);
     }
 
     /**
@@ -41,9 +47,8 @@ class SectionModel extends AbstractBaseModel
         return [];
     }
 
-    public function getNameForSelectField($id)
+    public function getNameForSelectField($id, $field_names = [])
     {
-        $name = $this->getCurrentRepository()->findObjectBy(['id' => $id], ['name']);
-        return $name->name;
+        return $this->getCurrentRepository()->findObjectBy(['id' => $id], $field_names);
     }
 }

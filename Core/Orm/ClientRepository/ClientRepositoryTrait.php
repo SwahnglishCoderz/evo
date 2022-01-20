@@ -78,10 +78,7 @@ trait ClientRepositoryTrait
 
     /**
      * Save the data once it goes through validation. post data would have already
-     * been sanitize through the entity object
-     *
-     * @param array $fields
-     * @return boolean
+     * been sanitized through the entity object
      */
     public function saveAfterValidation(array $fields) : bool
     {
@@ -103,9 +100,6 @@ trait ClientRepositoryTrait
      * along with the validated data. The user activation hash is already part of the returned data array
      * from the validation class.
      * Return all data for the event dispatcher
-     *
-     * @param array $fields
-     * @return boolean
      */
     public function persistAfterValidation(array $fields = []) : bool
     { 
@@ -127,10 +121,8 @@ trait ClientRepositoryTrait
     /**
      * Returns an array of validated data which can be passed back to the controller 
      * classes which can then be injected within an event dispatcher
-     *
-     * @return array|null
      */
-    public function validatedDataBag() : array|null
+    public function validatedDataBag() : ?array
     {
         if (is_array($this->cleanData) && count($this->cleanData) > 0) {
             return $this->dataBag;
@@ -140,10 +132,8 @@ trait ClientRepositoryTrait
 
     /**
      * return an array validation errors from any App/Validation/*Validate class
-     *
-     * @return array|null
      */
-    public function getValidationErrors() : array|null
+    public function getValidationErrors() : ?array
     {
         if (count($this->validationErrors) > 0) {
             return $this->validationErrors;

@@ -20,34 +20,14 @@ use \App\Flash;
 class Profile extends Authenticated
 {
     /**
-     * Before filter - called before each  method
-     */
-    protected function before()
-    {
-//        echo "in before() method...";
-//        exit;
-        parent::before();
-
-        $this->user = Auth::getUser();
-    }
-
-    /**
      * Show the profile
      */
     public function show()
     {
-//        echo '<pre>';
-//        print_r($this->user);
-//        echo '</pre>';
-//        exit;
+        $this->user = Auth::getUser();
 
         $this->user->is_active_color = self::isUserActive($this->user->is_active)['color'];
         $this->user->is_active_name = self::isUserActive($this->user->is_active)['name'];
-
-//        echo '<pre>';
-//        print_r($this->user);
-//        echo '</pre>';
-//        exit;
 
         View::renderTemplate('profile/show.html', [
             'user' => $this->user
