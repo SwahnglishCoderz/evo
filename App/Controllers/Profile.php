@@ -49,7 +49,7 @@ class Profile extends Authenticated
 //        echo '</pre>';
 //        exit;
 
-        View::renderTemplate('Profile/show.html', [
+        View::renderTemplate('profile/show.html', [
             'user' => $this->user
         ]);
     }
@@ -59,7 +59,7 @@ class Profile extends Authenticated
      */
     public function edit()
     {
-        View::renderTemplate('Profile/edit.html', [
+        View::renderTemplate('profile/edit.html', [
             'user' => $this->user
         ]);
     }
@@ -77,14 +77,14 @@ class Profile extends Authenticated
 
         } else {
 
-            View::renderTemplate('Profile/edit.html', [
+            View::renderTemplate('profile/edit.html', [
                 'user' => $this->user
             ]);
 
         }
     }
 
-    private static function isUserActive($is_active): array
+    protected static function isUserActive($is_active): array
     {
         $active_status = [];
         // search for status; return name and color and pass it back - all this goes to Model

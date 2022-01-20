@@ -30,13 +30,6 @@ class Home extends Controller
      */
     public function index()
     {
-//        $factory = new DataRepositoryFactory('application_data_access', 'sections', 'id');
-//        $repository = $factory->create(DataRepository::class);
-////        return $repository;
-//        echo '<pre>';
-//        print_r($repository);
-//        echo '</pre>';
-//        exit;
-        View::renderTemplate('Home/index.html');
+        View::renderTemplate('home/index.html');
     }
 }

@@ -15,6 +15,7 @@ namespace App\Controllers;
 use Evo\Controller;
 use Evo\View;
 use \App\Models\User;
+use Exception;
 
 class Password extends Controller
 {
@@ -24,7 +25,7 @@ class Password extends Controller
      */
     public function forgot()
     {
-        View::renderTemplate('Password/forgot.html');
+        View::renderTemplate('password/forgot.html');
     }
 
     /**
@@ -34,11 +35,12 @@ class Password extends Controller
     {
         User::sendPasswordReset($_POST['email']);
 
-        View::renderTemplate('Password/reset_requested.html');
+        View::renderTemplate('password/reset_requested.html');
     }
 
     /**
      * Show the reset password form
+     * @throws Exception
      */
     public function reset()
     {
@@ -46,13 +48,14 @@ class Password extends Controller
 
         $user = $this->getUserOrExit($token);
 
-        View::renderTemplate('Password/reset.html', [
+        View::renderTemplate('password/reset.html', [
             'token' => $token
         ]);
     }
 
     /**
      * Reset the user's password
+     * @throws Exception
      */
     public function resetPassword()
     {
@@ -63,11 +66,11 @@ class Password extends Controller
         if ($user->resetPassword($_POST['password'])) {
 
             //echo "password valid";
-            View::renderTemplate('Password/reset_success.html');
+            View::renderTemplate('password/reset_success.html');
         
         } else {
 
-            View::renderTemplate('Password/reset.html', [
+            View::renderTemplate('password/reset.html', [
                 'token' => $token,
                 'user' => $user
             ]);
@@ -76,7 +79,7 @@ class Password extends Controller
 
     /**
      * Find the user model associated with the password reset token, or end the request with a message
-     * @throws \Exception
+     * @throws Exception
      */
     protected function getUserOrExit(string $token)
     {
@@ -88,7 +91,7 @@ class Password extends Controller
 
         } else {
 
-            View::renderTemplate('Password/token_expired.html');
+            View::renderTemplate('password/token_expired.html');
             exit;
         }
     }

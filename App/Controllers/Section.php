@@ -19,19 +19,19 @@ class Section extends Authenticated
     public function index()
     {
         // retrieve details of all sections from the DB
-        View::renderTemplate('Sections/index.html');
+        View::renderTemplate('section/index.html');
     }
 
     public function new()
     {
         // display a form to create a new section
-        View::renderTemplate('Sections/create.html');
+        View::renderTemplate('section/create.html');
     }
 
     public function show()
     {
         // retrieve details of a single section from the DB
-        View::renderTemplate('Sections/show.html');
+        View::renderTemplate('section/show.html');
     }
 
     public function add()
@@ -42,7 +42,7 @@ class Section extends Authenticated
     public function edit()
     {
         // display a form to update a section
-        View::renderTemplate('Sections/edit.html');
+        View::renderTemplate('section/edit.html');
     }
 
     public function update()

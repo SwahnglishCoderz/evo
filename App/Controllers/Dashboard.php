@@ -8,7 +8,7 @@ class Dashboard extends Authenticated
 {
     public function index()
     {
-        View::renderTemplate('Dashboard/index.html');
+        View::renderTemplate('dashboard/index.html');
     }
 
     public function new()

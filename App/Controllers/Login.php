@@ -20,18 +20,11 @@ use \App\Flash;
 
 class Login extends Controller
 {
-
-    /**
-     * Show the login page
-     */
     public function new()
     {
-        View::renderTemplate('Login/new.html');
+        View::renderTemplate('login/new.html');
     }
 
-    /**
-     * Log in a user
-     */
     public function create()
     {
 //        echo '<pre>';
@@ -57,18 +50,15 @@ class Login extends Controller
 
         } else {
 
-            Flash::addMessageToFlashNotifications('Login unsuccessful, please try again', Flash::WARNING);
+            Flash::addMessageToFlashNotifications('login unsuccessful, please try again', Flash::WARNING);
 
-            View::renderTemplate('Login/new.html', [
+            View::renderTemplate('login/new.html', [
                 'email' => $_POST['email'],
                 'remember_me' => $remember_me
             ]);
         }
     }
 
-    /**
-     * Log out a user
-     */
     public function destroy()
     {
         Auth::logout();
@@ -80,8 +70,6 @@ class Login extends Controller
      * Show a "logged out" flash message and redirect to the homepage. Necessary to use the flash messages
      * as they use the session and at the end of the logout method (destroy) the session is destroyed
      * so a new  needs to be called in order to use the session.
-     *
-     * @return void
      */
     public function showLogoutMessage()
     {

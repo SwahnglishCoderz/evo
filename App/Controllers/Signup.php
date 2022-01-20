@@ -25,7 +25,7 @@ class Signup extends Controller
      */
     public function new()
     {
-        View::renderTemplate('Signup/new.html');
+        View::renderTemplate('signup/new.html');
     }
 
     /**
@@ -43,7 +43,7 @@ class Signup extends Controller
 
         } else {
 
-            View::renderTemplate('Signup/new.html', [
+            View::renderTemplate('signup/new.html', [
                 'user' => $user
             ]);
 
@@ -55,7 +55,7 @@ class Signup extends Controller
      */
     public function success()
     {
-        View::renderTemplate('Signup/success.html');
+        View::renderTemplate('signup/success.html');
     }
 
     /**
@@ -74,6 +74,6 @@ class Signup extends Controller
      */
     public function activated()
     {
-        View::renderTemplate('Signup/activated.html');
+        View::renderTemplate('signup/activated.html');
     }
 }
