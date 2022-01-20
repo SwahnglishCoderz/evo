@@ -51,4 +51,67 @@ class UserModel extends AbstractBaseModel
     {
         return $this->getCurrentRepository()->findObjectBy(['id' => $id], $field_names);
     }
+
+    /**
+     * Validate current property values, adding validation error messages to the errors array property
+     */
+    public function validate()
+    {
+        // Name
+        if ($this->name == '') {
+            $this->errors[] = 'Name is required';
+        }
+
+        // email address
+        if (filter_var($this->email, FILTER_VALIDATE_EMAIL) === false) {
+            $this->errors[] = 'Invalid email';
+        }
+        if (static::doesEmailExist($this->email, $this->id ?? null)) {
+            $this->errors[] = 'email already taken';
+        }
+
+        // Password
+        if (isset($this->password)) {
+
+            if (strlen($this->password) < 6) {
+                $this->errors[] = 'Please enter at least 6 characters for the password';
+            }
+
+            if (preg_match('/.*[a-z]+.*/i', $this->password) == 0) {
+                $this->errors[] = 'Password needs at least one letter';
+            }
+
+            if (preg_match('/.*\d+.*/i', $this->password) == 0) {
+                $this->errors[] = 'Password needs at least one number';
+            }
+
+        }
+    }
+
+    public static function doesEmailExist(string $email, string $ignore_id = null): bool
+    {
+        $user = static::findByEmail($email);
+
+        if ($user) {
+            if ($user->id != $ignore_id) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static function findByEmail(string $email)
+    {
+        return (new UserModel)->getCurrentRepository()->findObjectBy(['email' => $email]);
+    }
+
+    public function updateProfile(array $data, $id): bool
+    {
+//        print_r(intval($id));
+//        exit;
+//        return $this->repository->getEm()->getCrud()->update([$_SESSION['id']], ['name', 'email']);
+//        return $this->repository->save();
+        return $this->repository->findByIdAndUpdate($data, intval($id));
+    }
 }

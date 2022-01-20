@@ -12,6 +12,8 @@ declare (strict_types = 1);
 
 namespace App\Controllers;
 
+use App\Models\UserModel;
+use Evo\Base\BaseController;
 use Evo\Controller;
 use Evo\Orm\DataLayerConfiguration;
 use Evo\Orm\DataLayerEnvironment;
@@ -23,13 +25,14 @@ use Evo\View;
 use \App\Auth;
 use Symfony\Component\Dotenv\Dotenv;
 
-class Home extends Controller
+class Home extends BaseController
 {
     /**
      * Show the index page
      */
     public function index()
     {
+        $sections = (new \App\Models\SectionModel())->getEntity();
         View::renderTemplate('home/index.html');
     }
 }

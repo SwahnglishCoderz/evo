@@ -41,9 +41,8 @@ class SectionModel extends AbstractBaseModel
         return [];
     }
 
-    public function getNameForSelectField($id)
+    public function index()
     {
-        $name = $this->getCurrentRepository()->findObjectBy(['id' => $id], ['name']);
-        return $name->name;
+        $sections = $this->repository;
     }
 }

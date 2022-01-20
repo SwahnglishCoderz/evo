@@ -22,7 +22,7 @@ class Token
     /**
      * Class constructor. Create a new random token or assign an existing one if passed in.
      *
-     * @param string|null $tokenValue
+     * @param ?string $tokenValue
      * @param int $bytes
      * @throws Exception
      */

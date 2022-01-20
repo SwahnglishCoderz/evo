@@ -18,9 +18,15 @@ class BaseModel
     /**
      * @throws Throwable
      */
-    public function __construct(string $tableSchema = null, string $tableSchemaID = null, string $entity = null)
+    public function __construct(string $tableSchema = null, string $tableSchemaID = null, $entity = null)
     {
         $this->throwExceptionIfNotExisting($tableSchema, $tableSchemaID);
+        if ($entity !== null) {
+            $this->entity  = BaseApplication::diGet($entity);
+            if (!$this->entity instanceof BaseEntity) {
+                throw new BaseInvalidArgumentException($entity . ' is not an instance of BaseEntity::class');
+            }
+        }
         $this->tableSchema = $tableSchema;
         $this->tableSchemaID = $tableSchemaID;
 //        $this->casting(self::ALLOWED_CASTING_TYPES);

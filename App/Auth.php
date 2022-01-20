@@ -92,7 +92,7 @@ class Auth
     public static function getUser()
     {
         if (isset($_SESSION['user_id'])) {
-            return (new Models\UserModel)->getNameForSelectField($_SESSION['user_id']);
+            return (new UserModel)->getNameForSelectField($_SESSION['user_id'], ['name', 'email']);
         } else {
             return static::loginFromRememberCookie();
         }

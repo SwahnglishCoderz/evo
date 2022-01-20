@@ -2,20 +2,23 @@
 
 namespace Evo\Base;
 
+use App\Auth;
+use App\Flash;
 use Evo\Base\Exception\BaseBadMethodCallException;
 
 class BaseController extends AbstractBaseController
 {
-    public function __construct()
+    protected array $routeParams;
+
+    public function __construct(array $routeParams, array $menuItems = [])
     {
-        parent::__construct();
-//        $this->routeParams = $routeParams;
+        parent::__construct($routeParams);
+        $this->routeParams = $routeParams;
 //        $this->templateEngine = new BaseView();
 
 //        $this->diContainer(Yaml::file('providers'));
 //        $this->initEvents();
 //        $this->buildControllerMenu($routeParams);
-
     }
 
     /**
@@ -43,11 +46,39 @@ class BaseController extends AbstractBaseController
      * Before filter - called before an action method.
      */
     protected function before()
-    {}
+    {
+    }
 
     /**
      * After filter - called after an action method.
      */
     protected function after()
-    {}
+    {
+    }
+
+    /**
+     * Redirect to a different page
+     */
+    public function redirect(string $url)
+    {
+        header('Location: http://' . $_SERVER['HTTP_HOST'] . $url, true, 303);
+        exit;
+    }
+
+    /**
+     * Require the user to be logged in before giving access to the requested page.
+     * Remember the requested page for later, then redirect to the login page.
+     */
+    public function requireLogin()
+    {
+        if (! Auth::getUser()) {
+
+            //Flash::addMessage('Please log in to access that page');
+            Flash::addMessageToFlashNotifications('Please log in to access that page', Flash::INFO);
+
+            Auth::rememberRequestedPage();
+
+            $this->redirect('/login');
+        }
+    }
 }
