@@ -32,7 +32,9 @@ class Home extends BaseController
      */
     public function index()
     {
-        $sections = (new \App\Models\SectionModel())->getEntity();
-        View::renderTemplate('home/index.html');
+        $sections = (new \App\Models\SectionModel())->getCurrentRepository()->findAll();
+//        print_r($sections);
+//        exit;
+        View::renderTemplate('home/index.html', ['sections' => $sections]);
     }
 }

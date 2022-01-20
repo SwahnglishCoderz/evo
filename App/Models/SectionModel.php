@@ -15,6 +15,7 @@ namespace App\Models;
 use App\Entity\SectionEntity;
 use Evo\Base\AbstractBaseModel;
 use Evo\Base\Exception\BaseInvalidArgumentException;
+use Evo\View;
 use Throwable;
 
 class SectionModel extends AbstractBaseModel
@@ -43,6 +44,6 @@ class SectionModel extends AbstractBaseModel
 
     public function index()
     {
-        $sections = $this->repository;
+        print_r($this->getEntity());
     }
 }
