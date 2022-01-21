@@ -41,9 +41,4 @@ class SectionModel extends AbstractBaseModel
     {
         return [];
     }
-
-    public function index()
-    {
-        print_r($this->getEntity());
-    }
 }

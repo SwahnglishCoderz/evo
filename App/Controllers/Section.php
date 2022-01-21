@@ -12,6 +12,7 @@ declare (strict_types = 1);
 
 namespace App\Controllers;
 
+use App\Models\SectionModel;
 use Evo\View;
 
 class Section extends Authenticated
@@ -19,7 +20,10 @@ class Section extends Authenticated
     public function index()
     {
         // retrieve details of all sections from the DB
-        View::renderTemplate('section/index.html');
+        $sections = (new \App\Models\SectionModel)->getCurrentRepository()->findAll();
+//        print_r($sections);
+//        exit;
+        View::renderTemplate('section/index.html', ['sections' => $sections]);
     }
 
     public function new()

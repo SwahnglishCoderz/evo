@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 19, 2022 at 02:50 PM
+-- Generation Time: Jan 21, 2022 at 08:53 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.23
 
@@ -54,6 +54,7 @@ CREATE TABLE `remembered_logins` (
 CREATE TABLE `section` (
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
+  `description` varchar(500) NOT NULL DEFAULT 'Section description',
   `position` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -61,9 +62,9 @@ CREATE TABLE `section` (
 -- Dumping data for table `section`
 --
 
-INSERT INTO `section` (`id`, `name`, `position`) VALUES
-(1, 'users', 1),
-(2, 'utility', 99);
+INSERT INTO `section` (`id`, `name`, `description`, `position`) VALUES
+(1, 'users', 'Section description', 1),
+(2, 'utility', 'Section description', 99);
 
 -- --------------------------------------------------------
 
@@ -110,9 +111,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password_hash`, `created_at`, `updated_at`, `activation_hash`, `status_id`, `is_active`, `password_reset_hash`, `password_reset_expires_at`) VALUES
-(20, 'John Andrew', 'john@example.com', '$2y$10$MOb5mkUXsJ8DsRBJQwlPluMKk47/4LRvSQIkDmS/EZPF1zxW91OAO', '2022-01-17 14:46:31', '0000-00-00 00:00:00', NULL, 2, 1, NULL, NULL),
+(20, 'Jean Kyle', 'john@example.com', '$2y$10$MOb5mkUXsJ8DsRBJQwlPluMKk47/4LRvSQIkDmS/EZPF1zxW91OAO', '2022-01-17 14:46:31', '0000-00-00 00:00:00', NULL, 2, 1, NULL, NULL),
 (21, 'Sarah Kishindo', 'sarah@example.com', '$2y$10$PwTaIneiKpKisoC.rl83L.uy4LlL2xh3DyQ64mIxJh6zPRNaZZ1gK', '2022-01-17 14:50:45', '0000-00-00 00:00:00', NULL, 2, 1, NULL, NULL),
-(32, 'Sige Pianist', 'sige@example.com', '$2y$10$Kocvp28vlK240z1sFG6oWODhQfDEigjm/rr/UwOI90W6V1BZRMgjS', '2022-01-19 09:52:25', '0000-00-00 00:00:00', NULL, 2, 1, NULL, NULL);
+(32, 'Sige Pianist', 'sige@example.com', '$2y$10$Kocvp28vlK240z1sFG6oWODhQfDEigjm/rr/UwOI90W6V1BZRMgjS', '2022-01-19 09:52:25', '0000-00-00 00:00:00', NULL, 2, 1, NULL, NULL),
+(33, 'Ismail Thabit', 'isma@example.com', '$2y$10$YG/cVZinn0f2pj.9LrRO7u63jK4NJWXiMyB3V1lkq3WLuZ7OriDMG', '2022-01-19 17:32:54', '0000-00-00 00:00:00', 'd281e9ad192e4066188828ce1aa28151b62a11d9923613807551748593938acc', 2, 0, NULL, NULL),
+(34, 'usz', 'usz@example.com', '$2y$10$Vnjgu8njL6fGkDqYLiVOauMcVKDlMmDKGw/D4PwW075NCQVozqeSq', '2022-01-20 10:36:19', '0000-00-00 00:00:00', '5e362ebeada909b29d483bb22e8a6d4bf7957352aae6afe7a79dbf16dfefae49', 2, 0, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -177,7 +180,7 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- Constraints for dumped tables
