@@ -12,12 +12,15 @@ declare (strict_types = 1);
 
 namespace App\Controllers;
 
+use App\Models\UserModel;
+use Evo\Base\BaseController;
 use Evo\Controller;
 use Evo\View;
 use \App\Models\User;
 use Exception;
+use Throwable;
 
-class Signup extends Controller
+class Signup extends BaseController
 {
 
     /**
@@ -30,10 +33,11 @@ class Signup extends Controller
 
     /**
      * Sign up a new user
+     * @throws Throwable
      */
     public function create()
     {
-        $user = new User($_POST);
+        $user = new UserModel($_POST);
 
         if ($user->save()) {
 
@@ -64,7 +68,7 @@ class Signup extends Controller
      */
     public function activate()
     {
-        User::activateAccount($this->route_params['token']);
+        UserModel::activateAccount($this->route_params['token']);
 
         $this->redirect('/signup/activated');
     }

@@ -61,7 +61,7 @@ class BaseModel
         }
     }
 
-    public function getCurrentRepository(): object
+    public function getRepository(): object
     {
         return $this->repository;
     }

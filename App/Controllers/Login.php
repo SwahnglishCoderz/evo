@@ -2,39 +2,39 @@
 
 namespace App\Controllers;
 
+use Evo\Base\BaseController;
 use Evo\Controller;
 use Evo\View;
-use App\Models\User;
+use App\Models\UserModel;
 use App\Auth;
 use App\Flash;
+use Exception;
+use Throwable;
 
-/**
- * Login controller
- *
- * PHP version 7.0
- */
-class Login extends Controller
+class Login extends BaseController
 {
-
-    /**
-     * Show the login page
-     */
     public function new()
     {
         View::renderTemplate('Login/new.html');
     }
 
     /**
-     * Log in a user
+     * @throws Throwable
      */
     public function create()
     {
-        $user = User::authenticate($_POST['email'], $_POST['password']);
+        $user = new UserModel($_POST);
+//        print_r($_POST);
+//        exit;
+        $auth = $user->authenticate($_POST['email'], $_POST['password']);
+//        print_r($auth);
+//        exit;
+        if ($auth)
+            $user->id = $auth->id;
 
         $remember_me = isset($_POST['remember_me']);
 
         if ($user) {
-
             Auth::login($user, $remember_me);
 
             Flash::addMessageToFlashNotifications('Login successful');
@@ -53,7 +53,7 @@ class Login extends Controller
     }
 
     /**
-     * Log out a user
+     * @throws Exception
      */
     public function destroy()
     {
@@ -66,8 +66,6 @@ class Login extends Controller
      * Show a "logged out" flash message and redirect to the homepage. Necessary to use the flash messages
      * as they use the session and at the end of the logout method (destroyAction) the session is destroyed
      * so a new action needs to be called in order to use the session.
-     *
-     * @return void
      */
     public function showLogoutMessage()
     {

@@ -12,29 +12,28 @@ declare (strict_types = 1);
 
 namespace App\Controllers;
 
-use App\Models\UserModel;
+use App\Models\MenuModel;
+use App\Models\SectionModel;
 use Evo\Base\BaseController;
-use Evo\Controller;
-use Evo\Orm\DataLayerConfiguration;
-use Evo\Orm\DataLayerEnvironment;
-use Evo\Orm\DataLayerFactory;
-use Evo\Orm\DataRepository\DataRepository;
-use Evo\Orm\DataRepository\DataRepositoryFactory;
-use Evo\Orm\Drivers\MysqlDatabaseConnection;
 use Evo\View;
-use \App\Auth;
-use Symfony\Component\Dotenv\Dotenv;
 
 class Home extends BaseController
 {
-    /**
-     * Show the index page
-     */
     public function index()
     {
-        $sections = (new \App\Models\SectionModel())->getCurrentRepository()->findAll();
+        $sections = (new SectionModel())->getRepository()->findAll();
+        $menus = (new MenuModel())->getRepository()->findAll();
+
+//        echo '<pre>';
 //        print_r($sections);
+//
+//        echo '<pre>';
+//        print_r($menus);
 //        exit;
-        View::renderTemplate('home/index.html', ['sections' => $sections]);
+
+        View::renderTemplate('home/index.html', [
+            'sections' => $sections,
+            'menus' => $menus,
+        ]);
     }
 }

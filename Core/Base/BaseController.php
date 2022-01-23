@@ -73,7 +73,6 @@ class BaseController extends AbstractBaseController
     {
         if (! Auth::getUser()) {
 
-            //Flash::addMessage('Please log in to access that page');
             Flash::addMessageToFlashNotifications('Please log in to access that page', Flash::INFO);
 
             Auth::rememberRequestedPage();

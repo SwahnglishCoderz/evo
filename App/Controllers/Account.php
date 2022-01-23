@@ -13,6 +13,7 @@ declare (strict_types = 1);
 namespace App\Controllers;
 
 use \App\Models\User;
+use App\Models\UserModel;
 use Evo\Controller;
 
 
@@ -30,7 +31,7 @@ class Account extends Controller
      */
     public function validateEmailAction()
     {
-        $is_valid = ! User::doesEmailExist($_GET['email'], $_GET['ignore_id'] ?? null);
+        $is_valid = ! UserModel::doesEmailExist($_GET['email'], $_GET['ignore_id'] ?? null);
         
         header('Content-Type: application/json');
         echo json_encode($is_valid);

@@ -22,7 +22,7 @@ use Exception;
 class Auth
 {
 
-    public static function login(User $user, bool $remember_me)
+    public static function login(object $user, bool $remember_me, int $id = null)
     {
         session_regenerate_id(true);
 

@@ -39,6 +39,8 @@ class QueryBuilder extends AbstractQueryBuilder
                 $index = array_keys($this->key['fields']);
                 $value = array(implode(', ', $index), ":" . implode(', :', $index));
                 $this->sqlQuery = "INSERT INTO {$this->key['table']} ({$value[0]}) VALUES({$value[1]})";
+//                print_r($this->sqlQuery);
+//                exit;
                 return $this->sqlQuery;
             }
         }

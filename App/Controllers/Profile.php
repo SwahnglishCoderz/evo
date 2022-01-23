@@ -41,6 +41,7 @@ class Profile extends Authenticated
 
     /**
      * Show the form for editing the profile
+     * @throws Exception
      */
     public function edit()
     {
@@ -64,7 +65,7 @@ class Profile extends Authenticated
         if ((new \App\Models\UserModel)->updateProfile($_POST, $_SESSION['user_id'])) {
             Flash::addMessageToFlashNotifications('Changes saved');
 //
-//            $this->redirect('/profile/show');
+            $this->redirect('/profile/show');
 //
         } else {
             echo "Imefeli";

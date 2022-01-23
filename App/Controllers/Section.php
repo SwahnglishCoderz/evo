@@ -20,9 +20,7 @@ class Section extends Authenticated
     public function index()
     {
         // retrieve details of all sections from the DB
-        $sections = (new \App\Models\SectionModel)->getCurrentRepository()->findAll();
-//        print_r($sections);
-//        exit;
+        $sections = (new SectionModel)->getRepository()->findAll();
         View::renderTemplate('section/index.html', ['sections' => $sections]);
     }
 

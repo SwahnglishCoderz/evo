@@ -12,12 +12,14 @@ declare (strict_types = 1);
 
 namespace App\Controllers;
 
+use App\Models\UserModel;
+use Evo\Base\BaseController;
 use Evo\Controller;
 use Evo\View;
 use \App\Models\User;
 use Exception;
 
-class Password extends Controller
+class Password extends BaseController
 {
 
     /**
@@ -33,7 +35,7 @@ class Password extends Controller
      */
     public function requestReset()
     {
-        User::sendPasswordReset($_POST['email']);
+        UserModel::sendPasswordReset($_POST['email']);
 
         View::renderTemplate('password/reset_requested.html');
     }
@@ -83,7 +85,7 @@ class Password extends Controller
      */
     protected function getUserOrExit(string $token)
     {
-        $user = User::findByPasswordReset($token);
+        $user = UserModel::findByPasswordReset($token);
 
         if ($user) {
 
