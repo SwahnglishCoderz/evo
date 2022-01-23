@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 23, 2022 at 12:25 PM
+-- Generation Time: Jan 23, 2022 at 03:25 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.23
 
@@ -56,9 +56,9 @@ CREATE TABLE `menu` (
 --
 
 INSERT INTO `menu` (`id`, `name`, `description`, `link`, `title_tag`, `icon`, `position`, `parent`, `section_id`) VALUES
-(1, 'group', 'All groups available, to which users are assigned', 'group/index', 'Groups', 'fas fa-users', 1, NULL, 2),
-(2, 'permissions', 'All available permissions, that can be assigned to specific groups.', '/permission/index', 'Permissions', 'fas fa-lock', 2, NULL, 2),
-(4, 'all users', 'This the users index page', '/users/index', 'Users', 'fas fa-users', 0, NULL, 1);
+(1, 'role', 'All roles available, to which users are assigned', '/role/index', 'Roles', 'fas fa-tasks', 1, NULL, 2),
+(2, 'permissions', 'All available permissions, that can be assigned to specific roles.', '/permission/index', 'Permissions', 'fas fa-lock', 2, NULL, 2),
+(4, 'all users', 'This the users index page', '/user/index', 'Users', 'fas fa-users', 0, NULL, 1);
 
 -- --------------------------------------------------------
 
