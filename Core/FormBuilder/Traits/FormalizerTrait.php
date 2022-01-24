@@ -46,7 +46,7 @@ trait FormalizerTrait
      * @param string $fieldName
      * @return mixed
      */
-    #[Pure] public function hasValue(string $fieldName)
+    public function hasValue(string $fieldName)
     {
         if (is_array($arrayRepo = $this->getRepository())) {
             return empty($arrayRepo[$fieldName]) ? '' : $arrayRepo[$fieldName];

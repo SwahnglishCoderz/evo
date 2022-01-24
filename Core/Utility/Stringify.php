@@ -91,7 +91,7 @@ class Stringify
      * @param bool $full
      * @return bool|string
      */
-    #[Pure] public static function capitalize($string, bool $full = false): bool|string
+    public static function capitalize($string, bool $full = false): bool|string
     {
         if (!empty($string)) {
             // transliterate

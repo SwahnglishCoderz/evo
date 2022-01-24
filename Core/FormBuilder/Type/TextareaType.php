@@ -40,7 +40,7 @@ class TextareaType implements FormBuilderTypeInterface
      * @param mixed|null $options
      * @param array $settings
      */
-    #[Pure] public function __construct(array $fields, $options = null, array $settings = [])
+    public function __construct(array $fields, $options = null, array $settings = [])
     {
         $this->fields = $fields;
         $this->options = ($options !=null) ? $options : null;
@@ -141,7 +141,7 @@ class TextareaType implements FormBuilderTypeInterface
      * 
      * @return - return the filtered or unfiltered string
      */
-    #[Pure] public function filtering(): string
+    public function filtering(): string
     {
         return  $this->renderHtmlElement($this->attr);
     }
