@@ -11,6 +11,8 @@ declare(strict_types = 1);
 
 namespace Evo\Utility;
 
+use Exception;
+
 class Singleton
 {
 
@@ -27,11 +29,11 @@ class Singleton
     protected final function __clone(){}
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public final function __wakeup()
     { 
-        throw new \Exception("Cannot unserialize a singleton.");
+        throw new Exception("Cannot unserialize a singleton.");
     }
     
     /**

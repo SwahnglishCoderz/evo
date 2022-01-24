@@ -17,6 +17,7 @@ declare(strict_types = 1);
 
 defined('ROOT_PATH') or
 define('ROOT_PATH', realpath(dirname(__FILE__, 2)));
+defined('LOG_PATH') or define('LOG_PATH', ROOT_PATH . '/Storage/logs');
 //echo ROOT_PATH;
 
 /**

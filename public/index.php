@@ -50,3 +50,48 @@ $router->add('signup/activate/{token:[\da-f]+}', ['controller' => 'Signup', 'act
 $router->add('{controller}/{action}');
 
 $router->dispatch($_SERVER['QUERY_STRING']);
+
+
+/**
+ * END OF mothercode
+ */
+
+use Evo\Utility\Yaml;
+use Evo\Logger\LogLevel;
+use Evo\Base\BaseApplication;
+
+//try {
+//    /* Attempting to run a single instance of the application */
+//    BaseApplication::getInstance()
+//        ->setPath(ROOT_PATH)
+//        ->setConfig(\App\Config::APP)
+//        ->setErrorHandler(\App\Config::ERROR_HANDLER, E_ALL)
+//        ->setSession(\App\Config::SESSION, null, true)
+//        ->setCookie([])
+//        ->setCache(\App\Config::CACHE, null, true)
+////        ->setRoutes(Yaml::file('routes'))
+//        ->setLogger(LOG_PATH, \App\Config::LOGGER_HANDLER['file'], LogLevel::DEBUG, [])
+//        ->setContainerProviders(\App\Config::PROVIDERS)
+////        ->setThemeBuilder(Yaml::file('app')['theme_builder'])
+//        ->run();
+//} catch (Exception $e) {
+//    echo $e->getMessage();
+//}
+
+
+/**
+ * AREA FOR TESTING BaseApplication LOADED COMPONENTS ABOVE
+ * JUST COMMENT THE mothercode LINES TO EXECUTE THIS
+ */
+//echo '<pre>';
+//print_r(
+//    BaseApplication::getInstance()
+//    ->setPath(ROOT_PATH)
+//    ->setConfig(\App\Config::APP)
+//        ->setErrorHandler(\App\Config::ERROR_HANDLER, E_ALL)
+//        ->setSession(\App\Config::SESSION, null, true)
+//    ->setCookie([])
+//    ->setCache(\App\Config::CACHE, null, true)
+//    ->setLogger(LOG_PATH, \App\Config::LOGGER_HANDLER['file'], LogLevel::DEBUG, [])
+//    ->setContainerProviders(\App\Config::PROVIDERS)
+//);
