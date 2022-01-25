@@ -1,0 +1,69 @@
+{% extends 'layout.html' %} {% block title %}Assigned Role{% endblock %} {% block description %}Evo assigned role{% endblock %} {% block keywords %}assigned-role{% endblock %}
+
+<!-- start content-->
+{% block content %}
+<section uk-grid class="uk-height-viewport">
+    <div class="uk-width-1-2@m">
+        <div>
+            <div class="uk-card uk-card-default">
+                <div class="uk-card-body">
+                    {{ $form }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="uk-width-1-2@m">
+        <div>
+            <div class="uk-card uk-card-body uk-padding-remove">
+                <dl class="uk-description-list">
+                    <dt>{@ locale('role') @}</dt>
+                    <dd>{{{ $role['role_name'] }}}
+                        <small class="uk-text-primary">
+                            Created: {@ formatDate($role['created_at'], true) @}
+                        </small>
+                    </dd>
+                    <dt>{@ locale('permission_assigned') @}</dt>
+                    <dd>
+                        {% if (isset($privi_user)) : %} {% echo sizeof($privi_user) %} {% else : %} 0 {% endif; %}
+                    </dd>
+
+                    <dt>{@ locale('assigned_to') @} <span class="uk-text-primary uk-text-bolder">({% echo count($user_role_id) %} users)</span></dt>
+                    <dd>{@ getUserOrderedListsFromRoles($user_role_id) @}</dd>
+
+                    <dt>{@ locale('permissions') @}</dt>
+                    <dd>
+                        <div class="uk-height-1-1">
+                            <ul class="uk-panel uk-panel-scrollable">
+                                {% if (isset($privi_user)) : %} {% foreach (array_keys($privi_user) as $permission) : %}
+                                <li>{{ $permission }}
+                                    <a class="uk-text-danger" href="/admin/role/{@ getPermissionIDFromName($permission) @}/unassign-permission?role_id={{ $role['id'] }}">
+                                        <ion-icon name="trash-outline"></ion-icon>
+                                    </a>
+                                </li>
+                                {% endforeach; %} {% else : %} No Permission {% endif; %}
+                            </ul>
+                        </div>
+
+                    </dd>
+                </dl>
+
+            </div>
+        </div>
+    </div>
+    </form>
+
+</section>
+
+{% endblock %}
+<!--  -->
+{% block scripts %}
+<script>
+    addEventListener("turbo:submit-start", ({
+        target
+    }) => {
+        for (const field of target.elements) {
+            field.disabled = true
+        }
+    })
+</script>
+{% endblock %}

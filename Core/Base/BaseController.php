@@ -5,10 +5,42 @@ namespace Evo\Base;
 use App\Auth;
 use App\Flash;
 use Evo\Base\Exception\BaseBadMethodCallException;
+use Evo\Base\BaseApplication;
+//use Evo\Base\Events\BeforeRenderActionEvent;
+//use Evo\Base\Events\BeforeControllerActionEvent;
+use Evo\Base\Traits\ControllerMenuTrait;
+use Evo\Base\Traits\ControllerPrivilegeTrait;
+use Evo\Utility\Yaml;
+use Evo\Base\BaseView;
+use Evo\Auth\Authorized;
+use Evo\Base\BaseRedirect;
+//use Evo\Session\Flash\Flash;
+use Evo\Session\SessionTrait;
+use Evo\Ash\TemplateExtension;
+use Evo\Middleware\Middleware;
+use Evo\Session\Flash\FlashType;
+use Evo\Base\Exception\BaseLogicException;
+use Evo\Base\Traits\ControllerCastingTrait;
+use Evo\Auth\Roles\PrivilegedUser;
+use Evo\UserManager\UserModel;
+use Evo\UserManager\Rbac\Permission\PermissionModel;
+use Exception;
 
 class BaseController extends AbstractBaseController
 {
+    use SessionTrait;
+    use ControllerCastingTrait;
+    use ControllerPrivilegeTrait;
+    use ControllerMenuTrait;
+
     protected array $routeParams;
+
+    protected Object $templateEngine;
+    protected object $template;
+
+    protected array $callBeforeMiddlewares = [];
+    protected array $callAfterMiddlewares = [];
+    protected array $controllerContext = [];
 
     public function __construct(array $routeParams, array $menuItems = [])
     {
@@ -16,7 +48,7 @@ class BaseController extends AbstractBaseController
         $this->routeParams = $routeParams;
 //        $this->templateEngine = new BaseView();
 
-//        $this->diContainer(Yaml::file('providers'));
+//        $this->diContainer(Config::PROVIDERS);
 //        $this->initEvents();
 //        $this->buildControllerMenu($routeParams);
     }
@@ -29,8 +61,8 @@ class BaseController extends AbstractBaseController
      */
     public function __call(string $name, array $args)
     {
-//        $method = $name . 'Action';
-        $method = $name;
+        $method = $name . 'Action';
+//        $method = $name;
 
         if (method_exists($this, $method)) {
             if ($this->before() !== false) {

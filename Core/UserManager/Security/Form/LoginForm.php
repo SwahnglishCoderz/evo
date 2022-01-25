@@ -20,16 +20,8 @@ use Evo\FormBuilder\FormBuilderBlueprintInterface;
 
 class LoginForm extends ClientFormBuilder implements ClientFormBuilderInterface
 {
-
-    /** @var FormBuilderBlueprintInterface $blueprint */
     private FormBuilderBlueprintInterface $blueprint;
 
-    /**
-     * Main class constructor
-     *
-     * @param FormBuilderBlueprint $blueprint
-     * @return void
-     */
     public function __construct(FormBuilderBlueprint $blueprint)
     {
         $this->blueprint = $blueprint;
@@ -40,12 +32,6 @@ class LoginForm extends ClientFormBuilder implements ClientFormBuilderInterface
      * Construct the security login form. The attribute name='{string}' must match
      * the string name pass to the $this->form->isSubmittable() method within the
      * any method checking if the form canHandleRequest and isSubmittable
-     *
-     * @param string $action
-     * @param ?object $dataRepository
-     * @param ?object $callingController
-     * @return string
-     * @throws Exception
      */
     public function createForm(string $action, ?object $dataRepository = null, ?object $callingController = null): string
     {

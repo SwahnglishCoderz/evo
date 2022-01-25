@@ -119,10 +119,10 @@ class UserController extends \Evo\Administrator\Controller\AdminController
         $logCriticalCount = $this->userLogRepo->getRepo()->count(['level' => 500]);
 
         $this->indexAction
-            ?->setAccess($this, Access::CAN_VIEW)
-            ?->execute($this, NULL, NULL, UserSchema::class, __METHOD__)
-            ?->render()
-            ?->with(
+            ->setAccess($this, Access::CAN_VIEW)
+            ->execute($this, NULL, NULL, UserSchema::class, __METHOD__)
+            ->render()
+            ->with(
                 [
                     'table_tabs' => [
                         'primary' => ['tab' => 'Primary', 'icon' => 'person', 'value' => $activeCount, 'data' => "{$pendingCount} New", 'meta' => "{$activeCount} active user"],

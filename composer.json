@@ -1,6 +1,6 @@
 {
   "name": "evo/evo",
-  "description": "A Small modular PHP framework Build for web applications",
+  "description": "The future of web applications.",
   "keywords": [
     "php",
     "framework",
@@ -10,14 +10,14 @@
   "type": "library",
   "license": "MIT",
   "time": "2022-01-25",
-  "readme": "https://github.com/jeankyle/Evo__/blob/main/README.md",
+  "readme": "https://github.com/jeankyle/evo/blob/main/README.md",
   "support": {
     "email": "simplygenius78@gmail.com",
-    "source": "https://github.com/jeankyle/Evo__.git",
-    "wiki": "https://github.com/jeankyle/Evo__/wiki",
-    "issues": "https://github.com/jeankyle/Evo__/issues"
+    "source": "https://github.com/jeankyle/evo.git",
+    "wiki": "https://github.com/jeankyle/evo/wiki",
+    "issues": "https://github.com/jeankyle/evo/issues"
   },
-  "homepage": "https://jeankyle.github.io/Evo__/",
+  "homepage": "https://jeankyle.github.io/evo/",
   "authors": [
     {
       "name": "jeankyle",
@@ -41,7 +41,10 @@
     "flatbase/flatbase": "^0.4.1",
     "symfony/serializer-pack": "^1.0",
     "symfony/console": "^5.3",
-    "phpmailer/phpmailer": "^6.2"
+    "phpmailer/phpmailer": "^6.2",
+    "twig/twig": "~2.0",
+    "php-http/guzzle6-adapter": "^1.1",
+    "php-http/message": "^1.4"
   },
   "autoload": {
     "psr-4": {

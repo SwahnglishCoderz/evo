@@ -22,7 +22,7 @@ use Evo\Auth\Authenticator;
 use Evo\Base\BaseController;
 use Evo\Base\Domain\Actions\LoginAction;
 use Evo\Base\Domain\Actions\LogoutAction;
-use Evo\Base\Domain\Actions\SessionExpiredAction;
+//use Evo\Base\Domain\Actions\SessionExpiredAction;
 use Evo\Base\Exception\BaseInvalidArgumentException;
 
 class SecurityController extends BaseController
@@ -34,10 +34,6 @@ class SecurityController extends BaseController
      * Class dependency can be loaded within the constructor by calling the
      * container method and passing in an associative array of dependency to use within
      * the class
-     *
-     * @param array $routeParams
-     * @return void
-     * @throws BaseInvalidArgumentException
      */
     public function __construct(array $routeParams)
     {
@@ -51,10 +47,10 @@ class SecurityController extends BaseController
             [
                 'loginForm' => LoginForm::class,
                 'logoutForm' => LogoutForm::class,
-                'sessionExpiredAction' => SessionExpiredAction::class,
+//                'sessionExpiredAction' => SessionExpiredAction::class,
                 'authenticator' => Authenticator::class,
                 'loginAction' => LoginAction::class,
-                'logoutAction' => LogoutAction::class,
+//                'logoutAction' => LogoutAction::class,
             ]
         );
     }
@@ -65,14 +61,12 @@ class SecurityController extends BaseController
      * array keys should represent the name of the actual class its loading ie
      * upper camel case for array keys. alternatively array can be defined as
      * an index array omitting the key entirely
-     *
-     * @return array
      */
     protected function callBeforeMiddlewares(): array
     {
         return [
-            'isUserAccountActivated' => isUserAccountActivated::class,
-            'isAlreadyLogin' => isAlreadyLogin::class,
+//            'isUserAccountActivated' => isUserAccountActivated::class,
+//            'isAlreadyLogin' => isAlreadyLogin::class,
         ];
     }
 

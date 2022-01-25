@@ -31,8 +31,9 @@ class Authenticator
     private ?object $validatedUser;
 
     /**
-     * Get the framework UserModel. We are also checking that the class exists. else it 
+     * Get the framework UserModel. We are also checking that the class exists. else it
      * will throw an exception
+     * @throws BaseException
      */
     private function getUserModel(): ?UserModel
     {
@@ -73,8 +74,8 @@ class Authenticator
     }
 
     /**
-     * Returned the validatedd user object. If the credentials passed in matches
-     * a database record. else will generate a erorr from the validate() method
+     * Returned the validated user object. If the credentials passed in matches
+     * a database record. else will generate an error from the validate() method
      * below.
      */
     public function getValidatedUser(object $object, ?string $email = null, ?string $password = null): ?object

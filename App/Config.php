@@ -314,6 +314,184 @@ class Config
         ]
     ];
 
+    const CONTROLLER = [
+        "user" => [
+            "status_choices" => [
+                "active => Active",
+                "pending => Pending",
+                "lock => Lock",
+                "trash => Trash"
+            ],
+            "additional_conditions" => [
+                "status" => "active"
+            ],
+            "selectors" => [],
+            "records_per_page" => 5,
+            "query" => "status",
+            "filter_by" => [
+                "lastname"
+            ],
+            "filter_alias" => "s",
+            "sort_columns" => [
+                "firstname",
+                "created_at",
+                "modified_at"
+            ],
+            "commander" => [
+                "index" => [
+                    "import" => [
+                        "name" => "Import",
+                        "icon" => "upload-outline",
+                        "nav_header" => "WorkFlow",
+                        "path" => ""
+                    ],
+                    "export" => [
+                        "name" => "Export",
+                        "icon" => "download-outline",
+                        "path" => ""
+                    ]
+                ]
+            ]
+        ],
+        "message" => [
+            "status_choices" => [
+                "inbox => Inbox",
+                "draft => Draft",
+                "sent => Sent",
+                "trash => Trash"
+            ],
+            "additional_conditions" => [
+                "status" => "inbox"
+            ],
+            "selectors" => [],
+            "records_per_page" => 15,
+            "query" => "status",
+            "filter_by" => [
+                "receiver"
+            ],
+            "filter_alias" => "s",
+            "sort_columns" => [
+                "user_id",
+                "created_at"
+            ]
+        ],
+        "role" => [
+            "status_choices" => [],
+            "additional_conditions" => [],
+            "selectors" => [],
+            "records_per_page" => 5,
+            "query" => "",
+            "filter_by" => [
+                "role_name"
+            ],
+            "filter_alias" => "s",
+            "sort_columns" => [
+                "role_name",
+                "created_at",
+                "modified_at"
+            ]
+        ],
+        "permission" => [
+            "status_choices" => [],
+            "additional_conditions" => [],
+            "selectors" => [],
+            "records_per_page" => 5,
+            "query" => "",
+            "filter_by" => [
+                "permission_name"
+            ],
+            "filter_alias" => "s",
+            "sort_columns" => [
+                "permission_name",
+                "created_at",
+                "modified_at"
+            ]
+        ],
+        "setting" => [
+            "status_choices" => [],
+            "additional_conditions" => [],
+            "selectors" => [],
+            "records_per_page" => 5,
+            "query" => "",
+            "filter_by" => [
+                "setting_name"
+            ],
+            "filter_alias" => "s",
+            "sort_columns" => [
+                "setting_name"
+            ]
+        ],
+        "plugin" => [
+            "status_choices" => [],
+            "additional_conditions" => [],
+            "selectors" => [],
+            "records_per_page" => 5,
+            "query" => "",
+            "filter_by" => [
+                "plugin_name"
+            ],
+            "filter_alias" => "s",
+            "sort_columns" => [
+                "plugin_name",
+                "created_at",
+                "modified_at",
+                null
+            ]
+        ],
+        "project" => [
+            "status_choices" => [],
+            "additional_conditions" => [],
+            "selectors" => [],
+            "records_per_page" => 5,
+            "query" => "",
+            "filter_by" => [
+                "type",
+                "status",
+                "coordinator"
+            ],
+            "filter_alias" => "s",
+            "sort_columns" => [
+                "type",
+                "created_at",
+                "modified_at",
+                null
+            ]
+        ],
+        "menu" => [
+            "status_choices" => [],
+            "additional_conditions" => [],
+            "selectors" => [],
+            "records_per_page" => 5,
+            "query" => "",
+            "filter_by" => [
+                "menu_name",
+                "parent_menu"
+            ],
+            "filter_alias" => "s",
+            "sort_columns" => [
+                "menu_name",
+                "created_at",
+                "modified_at",
+                null
+            ]
+        ],
+        "system" => [
+            "status_choices" => [],
+            "additional_conditions" => [],
+            "selectors" => [],
+            "records_per_page" => 10,
+            "query" => "",
+            "filter_by" => [
+                "event_log_name"
+            ],
+            "filter_alias" => "s",
+            "sort_columns" => [
+                "event_type",
+                "created_at"
+            ]
+        ]
+    ];
+
     const ERROR = [
         "err_unchange" => "No changes",
         "err_account_not_active" => "Your account was found. But is not activated.",
