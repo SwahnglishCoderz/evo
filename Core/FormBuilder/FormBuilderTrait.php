@@ -47,7 +47,7 @@ trait FormBuilderTrait
      * @param array $options
      * @return bool|string
      */
-    protected function renderSelectOptions(array $options): bool|string
+    protected function renderSelectOptions(array $options)
     {
         $output = '';
         if (is_array($options) && count($options) > 0) {
@@ -81,7 +81,7 @@ trait FormBuilderTrait
      * @param null $options
      * @return bool|string
      */
-    protected function renderInputOptions(array $attr, $options = null, $displayLabel = null): bool|string
+    protected function renderInputOptions(array $attr, $options = null, $displayLabel = null)
     {
         if (!is_array($options)) {
             $options = array();

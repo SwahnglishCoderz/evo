@@ -91,7 +91,7 @@ class Stringify
      * @param bool $full
      * @return bool|string
      */
-    public static function capitalize($string, bool $full = false): bool|string
+    public static function capitalize($string, bool $full = false)
     {
         if (!empty($string)) {
             // transliterate
@@ -123,7 +123,7 @@ class Stringify
      * @param string $str - the string to convert
      * @return bool|string
      */
-    public static function slugToUrl(string $str): bool|string
+    public static function slugToUrl(string $str)
     {
         if (empty($str)) {
             return false;

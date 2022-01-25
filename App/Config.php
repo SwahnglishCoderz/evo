@@ -14,7 +14,6 @@ namespace App;
 
 class Config
 {
-
     const DB_HOST = '127.0.0.1';
 
     const DB_NAME = 'evo';
@@ -39,16 +38,10 @@ class Config
 
     const SMTP_AUTH = true;
 
-    const ACTIVATION = [
-        "title" => "Activate Your Account!",
-        "message" => "Thanks for registering on 51mp1yG3n1u5. Please click the activation button below to activate your account in order to access your profile page.",
-        "call_to_action" => "Activate Now"
-    ];
-
     const APP = [
         "app" => [
-            "app_name" => "51mp1yG3n1u5",
-            "core_name" => "Evo",
+            "app_name" => "tajybb",
+            "core_name" => "Nnaire",
             "app_version" => "1.0.0",
             "core_version" => "1.0.0",
             "app_email" => "simplygenius78@gmail.com",
@@ -63,12 +56,200 @@ class Config
             "secret_key" => "",
             "googleAnalytics" => "UA-XXXXX-Y"
         ],
-        'logger_handler' => [
-            "file" => "\\Evo\\Logger\\Handler\\NativeLoggerHandler",
-            "array" => "\\Evo\\Logger\\Handler\\ArrayLoggerHandler",
-            "database" => "\\Evo\\Logger\\Handler\\PdoLoggerHandler",
-            "console" => "\\Evo\\Logger\\Handler\\ConsoleLoggerHandler",
-            "echo" => "\\Evo\\Logger\\Handler\\EchoLoggerHandler"
+        "theme_builder" => [
+            "libraries" => [
+                "uikit" => [
+                    "class" => "\\Nnaire\\Themes\\Library\\Uikit\\Uikit",
+                    "default" => true,
+                    "version" => 1
+                ],
+                "bootstrap" => [
+                    "class" => "\\Nnaire\\Themes\\Library\\Bootstrap\\Bootstrap",
+                    "default" => false,
+                    "version" => 1
+                ],
+                "tailwind" => [
+                    "class" => "\\Nnaire\\Themes\\Library\\Tailwind",
+                    "default" => false,
+                    "version" => 1
+                ]
+            ]
+        ],
+        "session" => [
+            "session_name" => "51mp1yG3n1u5",
+            "idle_time" => 600,
+            "lifetime" => 3600,
+            "path" => "/",
+            "domain" => "localhost",
+            "secure" => false,
+            "httponly" => true,
+            "gc_maxlifetime" => "1800",
+            "gc_probability" => "1000",
+            "gc_divisor" => "1",
+            "use_cookies" => "1",
+            "globalized" => false,
+            "default_driver" => "native_storage",
+            "drivers" => [
+                "native_storage" => [
+                    "class" => "\\Nnaire\\Session\\Storage\\NativeSessionStorage",
+                    "default" => true
+                ],
+                "array_storage" => [
+                    "class" => "\\Nnaire\\Session\\Storage\\ArraySessionStorage",
+                    "default" => false
+                ],
+                "pdo_storage" => [
+                    "class" => "\\Nnaire\\Session\\Storage\\PdoSessionStorage"
+                ]
+            ]
+        ],
+        "cache" => [
+            "cache_name" => "system_cache",
+            "use_cache" => true,
+            "storage" => "file",
+            "key" => "auto",
+            "cache_path" => "/Storage/cache/",
+            "cache_expires" => 3600,
+            "default_driver" => "native_storage",
+            "drivers" => [
+                "native_storage" => [
+                    "class" => "\\Nnaire\\Cache\\Storage\\NativeCacheStorage",
+                    "default" => true
+                ],
+                "array_storage" => [
+                    "class" => "\\Nnaire\\Cache\\Storage\\ArrayCacheStorage",
+                    "default" => false
+                ],
+                "pdo_storage" => [
+                    "class" => "\\Nnaire\\Cache\\Storage\\PdoCacheStorage",
+                    "default" => false
+                ]
+            ]
+        ],
+        "system" => [
+            "use_resolvable_action" => false,
+            "use_session" => true,
+            "use_cookie" => true,
+            "logger" => [
+                "use_logger" => true,
+                "log" => [
+                    "warnings",
+                    "errors",
+                    "critical",
+                    "exceptions"
+                ],
+                "log_path" => "/Storage/Logs/"
+            ],
+            "use_translations" => true,
+            "use_csrf" => true,
+            "use_honeypot" => true,
+            "use_hash_cost_factor" => 10,
+            "use_auto_password" => "false,",
+            "use_auth" => true,
+            "activation_token_expiration" => 3600,
+            "default_status" => "pending",
+            "super_role" => [
+                "props" => [
+                    "name" => "Super",
+                    "id" => 1,
+                    "description" => "Roles which contains all priviledges"
+                ]
+            ],
+            "default_role" => [
+                "props" => [
+                    "name" => "Subscriber",
+                    "id" => 2,
+                    "description" => "Role which allows basic user access"
+                ]
+            ]
+        ],
+        "gravatar" => [
+            "rating" => "R",
+            "size" => 200,
+            "default" => "mystery"
+        ],
+        "security" => [
+            "password_pattern" => "(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).[8,]",
+            "url_pattern" => "https? =>//.+",
+            "search_pattern" => "[^'\"]+",
+            "email_pattern" => "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z][2,]$",
+            "tel_pattern" => "[0-9][3]-[0-9][3]-[0-9][4]",
+            "random_pass_char" => 9,
+            "login_timeout" => 30,
+            "login_attempts" => 3,
+            "hash_cost_factor" => [
+                "cost" => 10
+            ],
+            "encript_password" => true,
+            "password_algo" => [
+                "default" => "PASSWORD_DEFAULT",
+                "bcrypt" => "PASSWORD_BCRYPT",
+                "argon2i" => "PASSWORD_ARGON2I",
+                "argon2id" => "PASSWORD_ARGON2ID]"
+            ]
+        ],
+        "database" => [
+            "default_driver" => "mysql",
+            "drivers" => [
+                "mysql" => [
+                    "class" => "\\Nnaire\\DataObjectLayer\\Drivers\\MysqlDatabaseConnection"
+                ],
+                "pgsql" => [
+                    "class" => "\\Nnaire\\DataObjectLayer\\Drivers\\PgsqlDatabaseConnection"
+                ],
+                "sqlite" => [
+                    "class" => "\\Nnaire\\DataObjectLayer\\Drivers\\SqliteDatabaseConnection"
+                ]
+            ]
+        ],
+        "debug_error" => [
+            "mode" => "dev"
+        ],
+        "error_handler" => [
+            "error" => "\\Nnaire\\ErrorHandler\\ErrorHandler => =>errorHandle",
+            "exception" => "\\Nnaire\\ErrorHandler\\ErrorHandler => =>exceptionHandle",
+            "log_path" => ""
+        ],
+        "logger_handler" => [
+            "file" => "\\Nnaire\\Logger\\Handler\\NativeLoggerHandler",
+            "array" => "\\Nnaire\\Logger\\Handler\\ArrayLoggerHandler",
+            "database" => "\\Nnaire\\Logger\\Handler\\PdoLoggerHandler",
+            "console" => "\\Nnaire\\Logger\\Handler\\ConsoleLoggerHandler",
+            "echo" => "\\Nnaire\\Logger\\Handler\\EchoLoggerHandler"
+        ],
+        "disallowed_controllers" => [
+            "home",
+            "security",
+            "password",
+            "activation",
+            "registration",
+            "profile",
+            "account",
+            "install",
+            "accessDenied",
+            "admin",
+            "event",
+            "notification",
+            "userRole",
+            "logout"
+        ],
+        "activation" => [
+            "title" => "Activate Your Account!",
+            "message" => "Thanks for registering on LavaStudio. Please click the activation button below to activate your account in order to access your profile page.",
+            "call_to_action" => "Activate Now"
+        ],
+        "password_recovery" => [
+            "title" => "Password Reset Requested",
+            "message" => "You've requested to reset your password. Please click the link below to reset your password. However if you didn't make this request please click here. Password reset will expire in 30min.",
+            "call_to_action" => "Reset Password!"
+        ],
+        "token_expired" => [
+            "title" => "Token Expired",
+            "message" => "Its seem the requested token has expired. Possible reasons could be.",
+            "reasons" => [
+                "The token was already use to reset the password",
+                "The token has pass the expiration time."
+            ]
         ]
     ];
 
@@ -98,42 +279,39 @@ class Config
         ]
     ];
 
-    const COMMANDS = [];
-
-    const DATABASE = [
-        "default_driver" => "mysql",
-        "drivers" => [
-            "mysql" => [
-                "class" => "\\Evo\\Orm\\Drivers\\MysqlDatabaseConnection"
+    const COMMANDS = [
+        "make" => [
+            "name" => "magma =>make",
+            "class" => "\\Evo\\Console\\Commands\\MakeCommand",
+            "help" => "help for making controller",
+            "description" => "describe the make controller command",
+            "argument" => [
+                "stub",
+                "name"
             ],
-            "pgsql" => [
-                "class" => "\\Evo\\Orm\\Drivers\\PgsqlDatabaseConnection"
+            "options" => [
+                "crud",
+                "-c"
             ],
-            "sqlite" => [
-                "class" => "\\Evo\\Orm\\Drivers\\SqliteDatabaseConnection"
+            "stubs" => [
+                "controller",
+                "column",
+                "entity",
+                "fillable",
+                "form",
+                "model",
+                "repository",
+                "schema",
+                "validate",
+                "commander",
+                "event",
+                "event-listener",
+                "event-subscriber",
+                "before-middleware",
+                "after-middleware",
+                null
             ]
         ]
-    ];
-
-    const DEBUG_ERROR = [
-        "mode" => "dev"
-    ];
-
-    const DISALLOWED_CONTROLLERS = [
-        "home",
-        "security",
-        "password",
-        "activation",
-        "registration",
-        "profile",
-        "account",
-        "install",
-        "accessDenied",
-        "admin",
-        "event",
-        "notification",
-        "userRole",
-        "logout"
     ];
 
     const ERROR = [
@@ -163,11 +341,7 @@ class Config
         "err_password_force" => "You've entered your password incorrectly too many times. Please wait 30 seconds"
     ];
 
-    const ERROR_HANDLER = [
-        "error" => "\\Evo\\ErrorHandler\\ErrorHandler => =>errorHandler",
-        "exception" => "\\Evo\\ErrorHandler\\ErrorHandler => =>exceptionHandler",
-        "log_path" => ""
-    ];
+    const EVENTS = [];
 
     const LOCALE = [
         "en" => [
@@ -250,20 +424,6 @@ class Config
         ]
     ];
 
-    const LOGGER_HANDLER = [
-        "file" => "\\Evo\\Logger\\Handler\\NativeLoggerHandler",
-        "array" => "\\Evo\\Logger\\Handler\\ArrayLoggerHandler",
-        "database" => "\\Evo\\Logger\\Handler\\PdoLoggerHandler",
-        "console" => "\\Evo\\Logger\\Handler\\ConsoleLoggerHandler",
-        "echo" => "\\Evo\\Logger\\Handler\\EchoLoggerHandler"
-    ];
-
-    const PASSWORD_RECOVERY = [
-        "title" => "Password Reset Requested",
-        "message" => "You've requested to reset your password. Please click the link below to reset your password. However if you didn't make this request please click here. Password reset will expire in 30min.",
-        "call_to_action" => "Reset Password!"
-    ];
-
     const PROVIDERS = [
         "request" => "\\Evo\\Http\\RequestHandler",
         "response" => "\\Evo\\Http\\ResponseHandler",
@@ -280,7 +440,57 @@ class Config
         "settings" => "\\Evo\\Settings\\Settings"
     ];
 
-    const ROUTES = [];
+    const ROUTES = [
+        "client_dir" => "client",
+        "template_dir" => "Templates",
+        "" => [
+            "controller" => "home",
+            "action" => "index"
+        ],
+        "login" => [
+            "controller" => "security",
+            "action" => "index"
+        ],
+        "logout" => [
+            "controller" => "logout",
+            "action" => "logout"
+        ],
+        "register" => [
+            "controller" => "registration",
+            "action" => "register"
+        ],
+        "password/reset/[token =>[\\da-f]+]" => [
+            "controller" => "password",
+            "action" => "reset"
+        ],
+        "activation/activate/[token =>[\\da-f]+]" => [
+            "controller" => "activation",
+            "action" => "activate"
+        ],
+        "profile/[controller]/[action]" => [
+            "namespace" => "profile"
+        ],
+        "profile/[controller]/[id =>[\\da-f]+]/[action]" => [
+            "namespace" => "profile"
+        ],
+        "admin/[controller]/[action]" => [
+            "namespace" => "Admin"
+        ],
+        "admin/[controller]/[id =>[\\da-f]+]/[action]" => [
+            "namespace" => "Admin"
+        ],
+        "api/[controller]/[action]" => [
+            "namespace" => "API"
+        ],
+        "api/[controller]/[id =>[\\da-f]+]/[action]" => [
+            "namespace" => "API"
+        ],
+        "installer/[controller]/[action]" => [
+            "namespace" => "Installer",
+            "controller" => "install",
+            "action" => "index"
+        ]
+    ];
 
     const SESSION = [
         "session_name" => "51mp1yG3n1u5",
@@ -330,15 +540,6 @@ class Config
         "template_cache" => [
             "enable" => false,
             "path" => "cache/"
-        ]
-    ];
-
-    const TOKEN_EXPIRED = [
-        "title" => "Token Expired",
-        "message" => "Its seem the requested token has expired. Possible reasons could be.",
-        "reasons" => [
-            "The token was already use to reset the password",
-            "The token has pass the expiration time."
         ]
     ];
 

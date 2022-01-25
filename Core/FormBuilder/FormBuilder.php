@@ -114,7 +114,7 @@ class FormBuilder extends AbstractFormBuilder
      * @return string|bool
      * @throws Exception
      */
-    public function build(array $args = []): string|bool
+    public function build(array $args = [])
     { 
         if ($args) {
             $this->htmlAttr = array_merge(self::HTML_ELEMENT_PARTS, $args);

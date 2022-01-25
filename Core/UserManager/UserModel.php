@@ -89,7 +89,7 @@ class UserModel extends AbstractBaseModel implements UserSecurityInterface
      * See if a user record already exists with the specified email
      *
      * @param string $email email address to search for
-     * @param int|null $ignoreID
+     * @param ?int $ignoreID
      * @return boolean  True if a record already exists with the specified email, false otherwise
      */
     public function emailExists(string $email, int $ignoreID = null): bool
