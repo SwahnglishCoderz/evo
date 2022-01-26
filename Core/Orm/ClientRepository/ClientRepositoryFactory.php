@@ -60,15 +60,13 @@ class ClientRepositoryFactory
             Dotenv::class,
             ($dataLayerConfiguration !==null) ? $dataLayerConfiguration : NULL,
             ),
-//            Yaml::file('app')['database']['default_driver'] /* second argument */
-            Config::DATABASE['default_driver'] /* second argument */
+            Config::APP['database']['default_driver'] /* second argument */
 
         );
         $factory = new DataLayerFactory($dataLayerEnvironment, $this->tableSchema, $this->tableSchemaID);
         if ($factory) {
             return $factory->dataEntityManagerObject();
         }
-
     }
 
 }

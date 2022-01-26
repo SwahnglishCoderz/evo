@@ -2,24 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c275ede-d842-4bd5-89bf-c02fd23aab03" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/App/Controller/RegistrationController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Config.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Config.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Base/BaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/BaseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/FormBuilder/AbstractFormBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/FormBuilder/AbstractFormBuilder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/FormBuilder/ClientFormBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/FormBuilder/ClientFormBuilder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/FormBuilder/ClientFormBuilderInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/FormBuilder/ClientFormBuilderInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/FormBuilder/Exception/FormBuilderInvalidArgumentException.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/FormBuilder/Exception/FormBuilderInvalidArgumentException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/FormBuilder/Exception/FormBuilderOutOfBoundsException.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/FormBuilder/Exception/FormBuilderOutOfBoundsException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/FormBuilder/Exception/FormBuilderUnexpectedValueException.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/FormBuilder/Exception/FormBuilderUnexpectedValueException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/FormBuilder/FormBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/FormBuilder/FormBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Models/UserModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Models/UserModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/home/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/home/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/login/new.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/login/new.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/signup/new.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/signup/new.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Base/Domain/DomainTraits.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/Domain/DomainTraits.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/FormBuilder/FormBuilderBlueprint.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/FormBuilder/FormBuilderBlueprint.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/FormBuilder/FormBuilderBlueprintInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/FormBuilder/FormBuilderBlueprintInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/FormBuilder/FormBuilderInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/FormBuilder/FormBuilderInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/FormBuilder/FormBuilderTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/FormBuilder/FormBuilderTrait.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/FormBuilder/FormBuilderTypeInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/FormBuilder/FormBuilderTypeInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/FormBuilder/FormExtensionTypeInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/FormBuilder/FormExtensionTypeInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/FormBuilder/Traits/FormalizerTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/FormBuilder/Traits/FormalizerTrait.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/FormBuilder/Type/CheckboxType.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/FormBuilder/Type/CheckboxType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Orm/ClientRepository/ClientRepositoryFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/ClientRepository/ClientRepositoryFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Orm/DataMapper/DataMapperFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/DataMapper/DataMapperFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Router/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Router/Router.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,14 +130,15 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/App" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/App/Controller" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\mbonea\App" />
       <recent name="C:\xampp\htdocs\mbonea\App\Controller" />
+      <recent name="C:\xampp\htdocs\mbonea\App" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\mbonea\Core\Base" />
@@ -157,7 +156,7 @@
       <updated>1643104755276</updated>
       <workItem from="1643111592476" duration="2248000" />
       <workItem from="1643113909839" duration="6357000" />
-      <workItem from="1643173356688" duration="2174000" />
+      <workItem from="1643173356688" duration="8965000" />
     </task>
     <servers />
   </component>
@@ -175,5 +174,20 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/Core/Router/Router.php</url>
+          <line>86</line>
+          <properties>
+            <option name="className" value="\Evo\Router\Router" />
+            <option name="methodName" value="dispatchWithException" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -37,8 +37,7 @@ class DataMapperFactory
      */
     private function resolvedDatabaseParameters(): array
     {
-//        $database = Yaml::file('app')['database'];
-        $database = Config::DATABASE;
+        $database = Config::APP['database'];
         if (is_array($database) && count($database) > 0) {
             foreach ($database['drivers'] as $driver => $class) {
                 if (isset($driver) && $driver === $database['default_driver']) {

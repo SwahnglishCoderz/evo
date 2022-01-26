@@ -12,7 +12,6 @@ declare (strict_types = 1);
 
 namespace App;
 
-use App\Models\User;
 use App\Models\UserModel;
 use App\Models\RememberedLogin;
 use Evo\Base\AbstractBaseModel;
@@ -24,6 +23,10 @@ class Auth
 
     public static function login(object $user, bool $remember_me, int $id = null)
     {
+        echo '<pre>';
+        echo "About to login<br />";
+//        print_r($_SESSION);
+//        exit;
         session_regenerate_id(true);
 
         $_SESSION['user_id'] = $user->id;
@@ -33,7 +36,7 @@ class Auth
             if ($user->rememberLogin()) {
 
                 setcookie('remember_me', $user->remember_token, $user->expiry_timestamp, '/');
-                
+
             }
         }
     }

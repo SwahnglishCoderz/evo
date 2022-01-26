@@ -40,7 +40,7 @@ interface FormBuilderBlueprintInterface
         $id = null,
         ?string $placeholder = null,
         int $rows = 5,
-        int $cols = 33,
+        int $cols = 33
     ): array;
 
     public function email(
@@ -85,8 +85,7 @@ interface FormBuilderBlueprintInterface
         array $class = [],
         string $id = null,
         $value = null,
-        bool $multiple = false,
-
+        bool $multiple = false
     ): array;
 
     public function multipleCheckbox(

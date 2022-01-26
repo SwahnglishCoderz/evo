@@ -80,7 +80,7 @@ trait DomainTraits
     }
 
     /**
-     * Get the template file extension from the twig config file. note [2]. this
+     * Get the template file extension from the twig config file. note [2]. This
      * referrers to the current index of our template file extension. Which is
      * defined in the config index in position 2
      *
@@ -416,7 +416,7 @@ trait DomainTraits
         }
         if (is_array($a) && empty($a)) {
 //            $arg = Yaml::file('controller')[$controller->thisRouteController()];
-            $arg = Yaml::file('controller')[$controller->thisRouteController()];
+            $arg = Config::CONTROLLER[$controller->thisRouteController()];
         }
 
         return [
@@ -459,14 +459,6 @@ trait DomainTraits
         return $this;
     }
 
-    /**
-     * @param object $controller
-     * @param string $eventDispatcher
-     * @param string $method
-     * @param array $context
-     * @param array $additionalContext
-     * @return void
-     */
     public function dispatchSingleActionEvent(object $controller, string $eventDispatcher, string $method, array $context = [], array $additionalContext = []): void
     {
         if ($controller->eventDispatcher) {
@@ -493,10 +485,10 @@ trait DomainTraits
     }
 
     /**
-     * Return the array argument if the value is indeed an array and the it has atleast 1 element
+     * Return the array argument if the value is indeed an array, and it has at least 1 element
      * for iteration.|false
      */
-    public function isArrayGood(array $array, int $count = 0): array|false
+    public function isArrayGood(array $array, int $count = 0)
     {
         if (is_array($array) && count($array) > $count) {
             return $array;
@@ -515,7 +507,6 @@ trait DomainTraits
 
     /**
      * Clear a directory of its files
-     * @param string $directory
      */
     public function clear(string $directory): void
     {
@@ -529,11 +520,8 @@ trait DomainTraits
 
     /**
      * Returns a modified clone array modifying the selected elements within the item object
-     * which was return by concatinating the a clone string to create a clone but unique item
+     * which was return by concatenating the clone string to create a clone but unique item
      * which will be re-inserted within the database.
-     *
-     * @param string $value
-     * @return string
      */
     private function resolvedCloning(string $value): string
     {

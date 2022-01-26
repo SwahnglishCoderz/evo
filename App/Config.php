@@ -41,7 +41,7 @@ class Config
     const APP = [
         "app" => [
             "app_name" => "tajybb",
-            "core_name" => "Nnaire",
+            "core_name" => "Evo",
             "app_version" => "1.0.0",
             "core_version" => "1.0.0",
             "app_email" => "simplygenius78@gmail.com",
@@ -59,17 +59,17 @@ class Config
         "theme_builder" => [
             "libraries" => [
                 "uikit" => [
-                    "class" => "\\Nnaire\\Themes\\Library\\Uikit\\Uikit",
+                    "class" => "\\Evo\\Themes\\Library\\Uikit\\Uikit",
                     "default" => true,
                     "version" => 1
                 ],
                 "bootstrap" => [
-                    "class" => "\\Nnaire\\Themes\\Library\\Bootstrap\\Bootstrap",
+                    "class" => "\\Evo\\Themes\\Library\\Bootstrap\\Bootstrap",
                     "default" => false,
                     "version" => 1
                 ],
                 "tailwind" => [
-                    "class" => "\\Nnaire\\Themes\\Library\\Tailwind",
+                    "class" => "\\Evo\\Themes\\Library\\Tailwind",
                     "default" => false,
                     "version" => 1
                 ]
@@ -91,15 +91,15 @@ class Config
             "default_driver" => "native_storage",
             "drivers" => [
                 "native_storage" => [
-                    "class" => "\\Nnaire\\Session\\Storage\\NativeSessionStorage",
+                    "class" => "\\Evo\\Session\\Storage\\NativeSessionStorage",
                     "default" => true
                 ],
                 "array_storage" => [
-                    "class" => "\\Nnaire\\Session\\Storage\\ArraySessionStorage",
+                    "class" => "\\Evo\\Session\\Storage\\ArraySessionStorage",
                     "default" => false
                 ],
                 "pdo_storage" => [
-                    "class" => "\\Nnaire\\Session\\Storage\\PdoSessionStorage"
+                    "class" => "\\Evo\\Session\\Storage\\PdoSessionStorage"
                 ]
             ]
         ],
@@ -113,15 +113,15 @@ class Config
             "default_driver" => "native_storage",
             "drivers" => [
                 "native_storage" => [
-                    "class" => "\\Nnaire\\Cache\\Storage\\NativeCacheStorage",
+                    "class" => "\\Evo\\Cache\\Storage\\NativeCacheStorage",
                     "default" => true
                 ],
                 "array_storage" => [
-                    "class" => "\\Nnaire\\Cache\\Storage\\ArrayCacheStorage",
+                    "class" => "\\Evo\\Cache\\Storage\\ArrayCacheStorage",
                     "default" => false
                 ],
                 "pdo_storage" => [
-                    "class" => "\\Nnaire\\Cache\\Storage\\PdoCacheStorage",
+                    "class" => "\\Evo\\Cache\\Storage\\PdoCacheStorage",
                     "default" => false
                 ]
             ]
@@ -192,13 +192,13 @@ class Config
             "default_driver" => "mysql",
             "drivers" => [
                 "mysql" => [
-                    "class" => "\\Nnaire\\DataObjectLayer\\Drivers\\MysqlDatabaseConnection"
+                    "class" => "\\Evo\\Orm\\Drivers\\MysqlDatabaseConnection"
                 ],
                 "pgsql" => [
-                    "class" => "\\Nnaire\\DataObjectLayer\\Drivers\\PgsqlDatabaseConnection"
+                    "class" => "\\Evo\\Orm\\Drivers\\PgsqlDatabaseConnection"
                 ],
                 "sqlite" => [
-                    "class" => "\\Nnaire\\DataObjectLayer\\Drivers\\SqliteDatabaseConnection"
+                    "class" => "\\Evo\\Orm\\Drivers\\SqliteDatabaseConnection"
                 ]
             ]
         ],
@@ -206,16 +206,16 @@ class Config
             "mode" => "dev"
         ],
         "error_handler" => [
-            "error" => "\\Nnaire\\ErrorHandler\\ErrorHandler => =>errorHandle",
-            "exception" => "\\Nnaire\\ErrorHandler\\ErrorHandler => =>exceptionHandle",
+            "error" => "\\Evo\\ErrorHandler\\ErrorHandler => =>errorHandle",
+            "exception" => "\\Evo\\ErrorHandler\\ErrorHandler => =>exceptionHandle",
             "log_path" => ""
         ],
         "logger_handler" => [
-            "file" => "\\Nnaire\\Logger\\Handler\\NativeLoggerHandler",
-            "array" => "\\Nnaire\\Logger\\Handler\\ArrayLoggerHandler",
-            "database" => "\\Nnaire\\Logger\\Handler\\PdoLoggerHandler",
-            "console" => "\\Nnaire\\Logger\\Handler\\ConsoleLoggerHandler",
-            "echo" => "\\Nnaire\\Logger\\Handler\\EchoLoggerHandler"
+            "file" => "\\Evo\\Logger\\Handler\\NativeLoggerHandler",
+            "array" => "\\Evo\\Logger\\Handler\\ArrayLoggerHandler",
+            "database" => "\\Evo\\Logger\\Handler\\PdoLoggerHandler",
+            "console" => "\\Evo\\Logger\\Handler\\ConsoleLoggerHandler",
+            "echo" => "\\Evo\\Logger\\Handler\\EchoLoggerHandler"
         ],
         "disallowed_controllers" => [
             "home",
@@ -635,7 +635,7 @@ class Config
         ],
         "register" => [
             "controller" => "registration",
-            "action" => "register"
+            "action" => "index"
         ],
         "password/reset/[token =>[\\da-f]+]" => [
             "controller" => "password",

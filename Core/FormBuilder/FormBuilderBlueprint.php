@@ -132,7 +132,7 @@ class FormBuilderBlueprint implements FormBuilderBlueprintInterface
         $id = null,
         ?string $placeholder = null,
         int $rows = 5,
-        int $cols = 33,
+        int $cols = 33
     ): array {
         return [
             TextareaType::class => [
@@ -215,7 +215,7 @@ class FormBuilderBlueprint implements FormBuilderBlueprintInterface
         array $class = [],
         string $id = null,
         $size = null,
-        bool $multiple = false,
+        bool $multiple = false
     ): array
     {
 

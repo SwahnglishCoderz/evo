@@ -105,6 +105,8 @@ class Router implements RouterInterface
     public function dispatch(string $url)
     {
         list($controller) = $this->dispatchWithException($url);
+//        print_r($url);
+//        exit;
         $controllerObject = new $controller($this->params);
         $action = $this->createAction();
         if (preg_match('/action$/i', $action) == 0) {
