@@ -17,6 +17,6 @@ use Evo\Base\BaseActionEvent;
 class LoginActionEvent extends BaseActionEvent
 {
 
-    /** @var string - name of the event */
+    /** name of the event */
     public const NAME = 'evo.usermanager.security.event.login_action_event';
 }

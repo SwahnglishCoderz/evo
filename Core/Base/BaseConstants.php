@@ -22,8 +22,6 @@ final class BaseConstants
 
     /**
      * Defined common constants which are commonly used throughout the framework
-     *
-     * @return void
      */
     public static function load($app): void
     {
@@ -53,8 +51,6 @@ final class BaseConstants
 
     /**
      * Return the vendor directory source path
-     *
-     * @return string
      */
     public static function getVendorSrcDir(): string
     {

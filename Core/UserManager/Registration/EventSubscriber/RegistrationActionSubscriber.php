@@ -16,7 +16,7 @@ use Evo\UserManager\Registration\Event\RegistrationActionEvent;
 use Evo\UserManager\Model\UserMetaDataModel;
 use Evo\UserManager\Model\UserRoleModel;
 use Exception;
-use JetBrains\PhpStorm\ArrayShape;
+//use JetBrains\PhpStorm\ArrayShape;
 use Evo\Base\BaseView;
 use Evo\Base\Contracts\BaseActionEventInterface;
 use Evo\EventDispatcher\EventDispatcherTrait;
@@ -69,8 +69,6 @@ class RegistrationActionSubscriber implements EventSubscriberInterface
      * Subscribe multiple listeners to listen for the NewActionEvent. This will fire
      * each time a new user is added to the database. Listeners can then perform
      * additional tasks on that return object.
-     *
-     * @return array
      */
     #[ArrayShape([RegistrationActionEvent::NAME => "array"])] public static function getSubscribedEvents(): array
     {

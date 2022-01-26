@@ -7,6 +7,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 declare(strict_types = 1);
 
 namespace Evo\FormBuilder;
@@ -16,7 +17,7 @@ use Evo\FormBuilder\Exception\FormBuilderInvalidArgumentException;
 abstract class AbstractFormBuilder implements FormBuilderInterface
 {
 
-    /** @var array - constants which defines the various parts the form element */
+    /** constants which defines the various parts the form element */
     const FORM_PARTS = [
         'action' => '',
         'method' => 'post',
@@ -25,7 +26,7 @@ abstract class AbstractFormBuilder implements FormBuilderInterface
         'id' => '',
         'class' => ['uk-form-horizontal'],
         'rel' => '',
-        'target' => '_self', /* defaults loads into itself */
+        'target' => '_self', /* loads into itself by default */
         'novalidate' => false,
         "autocomplete" => false,
         "leave_form_open" => false,
@@ -61,7 +62,7 @@ abstract class AbstractFormBuilder implements FormBuilderInterface
         'week',
         'hidden'
     ];
-    /** @var array */
+
     const HTML_ELEMENT_PARTS = [
         'before' => '',
         'after' => '',
@@ -71,22 +72,12 @@ abstract class AbstractFormBuilder implements FormBuilderInterface
         'element_style' => ''
     ];
 
-    /** @var array */
     protected array $inputs = [];
-    /** @var array */
     protected array $formAttr = [];
 
-    /**
-     * Main class constructor
-     */
     public function __construct()
     { }
 
-    /**
-     * @param string $key
-     * @param $value
-     * @return bool
-     */
     protected function setAttributes(string $key, $value): bool
     {
         if (empty($key)) {
@@ -134,12 +125,8 @@ abstract class AbstractFormBuilder implements FormBuilderInterface
     }
 
     /**
-     * Set the form input attributes if any attribute if left empty
+     * Set the form input attributes if any attribute is left empty
      * then it will use the default if any is set
-     *
-     * @param string $key
-     * @param $value
-     * @return bool
      */
     public function set(string $key, $value): bool
     {

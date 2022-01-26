@@ -12,7 +12,7 @@ declare(strict_types = 1);
 
 namespace Evo\Session;
 
-//use JetBrains\PhpStorm\Pure;
+////use JetBrains\PhpStorm\Pure;
 
 /**
  * SessionEnvironment handles the session configuration from the application

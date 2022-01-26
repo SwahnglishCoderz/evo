@@ -19,7 +19,7 @@ use Evo\Auth\Authenticator;
 use Evo\Base\BaseController;
 use Evo\Base\Domain\Actions\LogoutAction;
 use Evo\Base\Exception\BaseInvalidArgumentException;
-use JetBrains\PhpStorm\ArrayShape;
+//use JetBrains\PhpStorm\ArrayShape;
 
 class LogoutController extends BaseController
 {
@@ -58,8 +58,6 @@ class LogoutController extends BaseController
      * array keys should represent the name of the actual class its loading ie
      * upper camel case for array keys. alternatively array can be defined as
      * an index array omitting the key entirely
-     *
-     * @return array
      */
     protected function callAfterMiddlewares(): array
     {
@@ -71,8 +69,6 @@ class LogoutController extends BaseController
     /**
      * Authorized logging out the current user. This will destroy the entire user
      * session and clear the remembered_logins database table of any cookies
-     *
-     * @return void
      */
     protected function logoutAction()
     {

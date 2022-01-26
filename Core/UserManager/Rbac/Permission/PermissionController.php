@@ -105,8 +105,6 @@ class PermissionController extends \Evo\Administrator\Controller\AdminController
      * The edit action request. is responsible for updating a user record within
      * the database. User data will be sanitized and validated before upon re
      * submitting new data. An event will be dispatched on this action
-     *
-     * @return void
      */
     protected function editAction(): void
     {

@@ -13,7 +13,7 @@ declare(strict_types = 1);
 namespace Evo\UserManager\Repository;
 
 use Evo\UserManager\Model\UserRoleModel;
-use JetBrains\PhpStorm\ArrayShape;
+//use JetBrains\PhpStorm\ArrayShape;
 
 class UserRoleRepository extends UserRoleModel
 {

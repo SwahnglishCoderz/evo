@@ -17,6 +17,6 @@ use Evo\Base\BaseActionEvent;
 class RegistrationActionEvent extends BaseActionEvent
 {
 
-    /** @var string - name of the event */
+    /** name of the event */
     public const NAME = 'evo.usermanager.registration.event.registration_action_event';
 }

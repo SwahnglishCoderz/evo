@@ -57,8 +57,6 @@ class RegistrationController extends BaseController
      * array keys should represent the name of the actual class its loading ie
      * upper camel case for array keys. alternatively array can be defined as
      * an index array omitting the key entirely
-     *
-     * @return array
      */
     protected function callBeforeMiddlewares(): array
     {
@@ -71,8 +69,6 @@ class RegistrationController extends BaseController
      * array keys should represent the name of the actual class its loading ie
      * upper camel case for array keys. alternatively array can be defined as
      * an index array omitting the key entirely
-     *
-     * @return array
      */
     protected function callAfterMiddlewares(): array
     {
@@ -98,8 +94,6 @@ class RegistrationController extends BaseController
 
     /**
      * Rendered the user message after successfully registering their account
-     *
-     * @return void
      */
     protected function registeredAction()
     {

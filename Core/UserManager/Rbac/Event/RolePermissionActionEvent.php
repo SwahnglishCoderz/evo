@@ -17,7 +17,7 @@ use Evo\Base\BaseActionEvent;
 class RolePermissionActionEvent extends BaseActionEvent
 {
 
-    /** @var string - name of the event */
+    /** name of the event */
     public const NAME = 'evo.usermanager.rbac.event.role_permission_action_event';
 }
 

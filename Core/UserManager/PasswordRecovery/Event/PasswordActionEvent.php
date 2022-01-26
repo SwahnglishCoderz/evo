@@ -17,6 +17,6 @@ use Evo\Base\BaseActionEvent;
 class PasswordActionEvent extends BaseActionEvent
 {
 
-    /** @var string - name of the event */
+    /** name of the event */
     public const NAME = 'evo.usermanager.passwordrecovery.event.password_action_event';
 }

@@ -17,7 +17,7 @@ class CollectionProxy
 
     /** @var - the collection being used */
     protected CollectionInterface $collection;
-    /** @var string - the method being proxied */
+    /** the method being proxied */
     protected string $method;
 
     /**

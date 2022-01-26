@@ -7,20 +7,18 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 declare(strict_types = 1);
 
 namespace Evo\FormBuilder\Traits;
 
-use JetBrains\PhpStorm\Pure;
+////use JetBrains\PhpStorm\Pure;
 
 trait FormalizerTrait
 {
 
     /**
      * Add a model repository the form builder object
-     *
-     * @param ?object $repository
-     * @return static
      */
     public function addRepository(object $repository = null)
     {
@@ -32,8 +30,6 @@ trait FormalizerTrait
 
     /**
      * Expose the model repository to the form builder object
-     *
-     * @return mixed
      */
     public function getRepository()
     {
@@ -42,9 +38,6 @@ trait FormalizerTrait
 
     /**
      * Undocumented function
-     *
-     * @param string $fieldName
-     * @return mixed
      */
     public function hasValue(string $fieldName)
     {

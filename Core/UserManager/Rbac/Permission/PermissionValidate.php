@@ -19,9 +19,9 @@ use Evo\ValidationRule\ValidationRule;
 class PermissionValidate extends AbstractDataRepositoryValidation
 {
 
-    /** @var array $errors */
+    /** $errors */
     protected array $errors = [];
-    /** @var array $dataBag */
+    /** $dataBag */
     protected array $dataBag = [];
     /** @var ValidationRule $rules */
     protected ValidationRule $rules;
@@ -81,8 +81,6 @@ class PermissionValidate extends AbstractDataRepositoryValidation
 
     /**
      * Returns the error if any was generated
-     *
-     * @return array
      */
     public function getErrors(): array
     {
@@ -96,8 +94,6 @@ class PermissionValidate extends AbstractDataRepositoryValidation
 
     /**
      * Returns the redirect path for the validation
-     *
-     * @return string
      */
     public function validationRedirect(): string
     {

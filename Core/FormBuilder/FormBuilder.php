@@ -7,6 +7,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 declare(strict_types = 1);
 
 namespace Evo\FormBuilder;
@@ -37,11 +38,6 @@ class FormBuilder extends AbstractFormBuilder
     protected Object $error;
     private ?object $dataRepository = null;
 
-    /**
-     * Main class constructor
-     * 
-     * @return void
-     */
     public function __construct(Error $error)
     {
         parent::__construct();
@@ -50,9 +46,6 @@ class FormBuilder extends AbstractFormBuilder
 
     /**
      * Returns the request/response object
-     *
-     * @param string $url
-     * @return Request
      */
     public function getRequest(): Request
     {
@@ -60,10 +53,7 @@ class FormBuilder extends AbstractFormBuilder
     }
 
     /**
-     * Use to customzied the HTML form attributes
-     *
-     * @param array $args
-     * @return FormBuilder
+     * Use to customize the HTML form attributes
      */
     public function form(array $args = []) : self
     {
@@ -86,10 +76,6 @@ class FormBuilder extends AbstractFormBuilder
     /**
      * This method allows us to chain multiple input types together to build the required
      * form structure
-     *
-     * @param array $args - optional argument to modified the values of the input wrapping tag
-     * @param null $options
-     * @return mixed
      */
     public function add(array $args = [], $options = null, array $settings = []) : self
     { 
@@ -106,13 +92,9 @@ class FormBuilder extends AbstractFormBuilder
     }
 
     /**
-     * This methods get chain at the very end after each add() method. And will attempt to build
-     * the required input based on each add() method arguments. Theres an option to have
+     * This method gets a chain at the very end after each add() method. And will attempt to build
+     * the required input based on each add() method arguments. There's an option to have
      * HTML elements wrap around each input tag for better styling of each element
-     *
-     * @param array $args
-     * @return string|bool
-     * @throws Exception
      */
     public function build(array $args = [])
     { 
@@ -146,9 +128,6 @@ class FormBuilder extends AbstractFormBuilder
 
     /**
      * Build the form HTML element
-     *
-     * @param Object $objectType
-     * @return string
      */
     private function processFormFields(Object $objectType) : string
     {
@@ -206,7 +185,7 @@ class FormBuilder extends AbstractFormBuilder
                             $html .= (isset($before_after_wrapper) && $before_after_wrapper == true) ? "{$after}\n" : false;
  
                         }
-                    } else { /* else we can render the form field outside of a container */
+                    } else { /* else we can render the form field outside a container */
                         $html .= $objectType->view();
                     }
 
@@ -220,9 +199,6 @@ class FormBuilder extends AbstractFormBuilder
 
     /**
      * Check the form can be submitted and the request if correct
-     *
-     * @param string $submit
-     * @return boolean
      * @throws Throwable
      */
     public function isFormValid(string $submit): bool
@@ -234,10 +210,7 @@ class FormBuilder extends AbstractFormBuilder
     }
 
     /**
-     * Throw an error if the csrf validation fails. 
-     *
-     * @param object $controller
-     * @return void
+     * Throw an error if the csrf validation fails.
      */
     public function validateCsrf(object $controller)
     {
@@ -250,9 +223,6 @@ class FormBuilder extends AbstractFormBuilder
 
     /**
      * Check whether the request can be handled
-     * 
-     * @return array
-     * @throws Throwable
      */
     public function canHandleRequest() : array
     { 
@@ -336,7 +306,6 @@ class FormBuilder extends AbstractFormBuilder
 
     /**
      * Is the request an ajax request
-     * @return boolean
      */
     public function isAjax(): bool
     {
@@ -346,9 +315,6 @@ class FormBuilder extends AbstractFormBuilder
     /**
      * Check whether the form is submittable. Submit button should represent
      * the argument name
-     *
-     * @param string $name - default to <input type="submit" name="submit">
-     * @return bool
      */
     public function isSubmittable(string $name = 'submit') : bool
     {
@@ -357,9 +323,6 @@ class FormBuilder extends AbstractFormBuilder
 
     /**
      * Instantiate the external csrf fields
-     *
-     * @param mixed|null $lock
-     * @return string
      * @throws Exception
      */
     public function csrfForm($lock = null): string
@@ -375,8 +338,6 @@ class FormBuilder extends AbstractFormBuilder
 
     /**
      * Wrapper function for validating csrf token
-     *
-     * @return bool
      */
     public function csrfValidate(): bool
     { 

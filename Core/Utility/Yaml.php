@@ -21,7 +21,7 @@ use Exception;
 
 class Yaml
 {
-    /* @var array returns a list of protected config filename application config must not use. */
+    /* returns a list of protected config filename application config must not use. */
     private const PROTECTED_CONFIG_FILE_NAMES = [
         'events',
     ];

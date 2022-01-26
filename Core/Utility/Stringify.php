@@ -12,7 +12,7 @@ declare(strict_types = 1);
 
 namespace Evo\Utility;
 
-use JetBrains\PhpStorm\Pure;
+//use JetBrains\PhpStorm\Pure;
 
 class Stringify
 {

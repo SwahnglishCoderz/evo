@@ -29,12 +29,12 @@ class UserModel extends AbstractBaseModel implements UserSecurityInterface
     protected const TABLESCHEMA = 'users';
     /** @var string */
     protected const TABLESCHEMAID = 'id';
-    /** @var array - field casting */
+    /** field casting */
     protected array $cast = ['firstname' => 'array_json'];
-    /* @var array COLUMN_STATUS */
+    /* COLUMN_STATUS */
     public const COLUMN_STATUS = ['status' => ['pending', 'active', 'trash', 'lock', '']];
 
-    /** @var array $fillable - an array of fields that should not be null */
+    /** $fillable - an array of fields that should not be null */
     protected array $fillable = [
         'firstname',
         'lastname',
@@ -47,7 +47,7 @@ class UserModel extends AbstractBaseModel implements UserSecurityInterface
     protected ?string $validatedHashPassword;
     protected ?object $tokenRepository;
 
-    /** @var array - bulk action array properties */
+    /** bulk action array properties */
     protected array $unsettableClone = ['id', 'created_at', 'activation_token', 'password_reset_hash'];
     protected array $cloneableKeys = ['firstname', 'lastname', 'email'];
 
@@ -55,8 +55,6 @@ class UserModel extends AbstractBaseModel implements UserSecurityInterface
      * Main constructor class which passes the relevant information to the
      * base model parent constructor. This allows the repository to fetch the
      * correct information from the database based on the model/entity
-     *
-     * @return void
      * @throws BaseInvalidArgumentException
      */
     public function __construct()
@@ -67,8 +65,6 @@ class UserModel extends AbstractBaseModel implements UserSecurityInterface
 
     /**
      * Guard these IDs from being deleted etc..
-     *
-     * @return array
      */
     public function guardedID(): array
     {
@@ -77,8 +73,6 @@ class UserModel extends AbstractBaseModel implements UserSecurityInterface
 
     /**
      * Return an array of column values if table supports the column field
-     *
-     * @return array
      */
     public function getColumnStatus(): array
     {

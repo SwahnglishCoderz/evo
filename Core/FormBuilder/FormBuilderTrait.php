@@ -14,12 +14,8 @@ trait FormBuilderTrait
     /**
      * Render the HTML input tags. the first argument accepts the key value pair
      * html attribute. and the second argument is of a data type define
-     * within the controller. ie. can be the content for the textarea or
+     * within the controller. i.e. can be the content for the textarea or
      * choices array of looping select, radio or multi-checkbox options
-     *
-     * @param array $attr
-     * @param mixed|null $options
-     * @return string
      */
     protected function renderHtmlElement(array $attr, $options = null): string
     {
@@ -43,10 +39,6 @@ trait FormBuilderTrait
         }
     }
 
-    /**
-     * @param array $options
-     * @return bool|string
-     */
     protected function renderSelectOptions(array $options)
     {
         $output = '';
@@ -76,11 +68,6 @@ trait FormBuilderTrait
         return false;
     }
 
-    /**
-     * @param array $attr
-     * @param null $options
-     * @return bool|string
-     */
     protected function renderInputOptions(array $attr, $options = null, $displayLabel = null)
     {
         if (!is_array($options)) {
@@ -113,13 +100,8 @@ trait FormBuilderTrait
 
     /**
      * this method will automatically try and fetch the ID from the HTML input
-     * its associated with to the populate its for="" tag. it will also use
+     * its associated with to populate its for="" tag. it will also use
      * the name tag from the input as the title for the label
-     *
-     * @param array $objectTypeOptions
-     * @param ?string $class
-     * @param ?string $label
-     * @return string
      */
     protected function formLabel(
         array $objectTypeOptions, 
@@ -149,11 +131,6 @@ trait FormBuilderTrait
     /**
      * Throw an out of bound exception if we are passing a key which isn't part of the object
      * type default options
-     *
-     * @param array $fields - array option from controller
-     * @param array $extensionOptions
-     * @param string $extensionObjectName - the name of the object the exception been thrown in
-     * @return void
      */
     protected function throwExceptionOnBadInvalidKeys(array $fields, array $extensionOptions, string $extensionObjectName)
     {
@@ -183,6 +160,4 @@ trait FormBuilderTrait
         }
 
     }
-
-
 }

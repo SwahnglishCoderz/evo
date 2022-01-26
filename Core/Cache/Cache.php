@@ -12,7 +12,7 @@ declare(strict_types = 1);
 
 namespace Evo\Cache;
 
-use JetBrains\PhpStorm\Pure;
+//use JetBrains\PhpStorm\Pure;
 use Evo\Cache\Exception\CacheException;
 use Evo\Cache\Storage\CacheStorageInterface;
 use Throwable;

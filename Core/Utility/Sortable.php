@@ -16,7 +16,7 @@ use InvalidArgumentException;
 class Sortable
 {
 
-    /** @var array */
+    /** */
     protected array $columns;
 
     /** @var string */

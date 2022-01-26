@@ -57,8 +57,6 @@ class PermissionActionSubscriber implements EventSubscriberInterface
      * Subscribe multiple listeners to listen for the NewActionEvent. This will fire
      * each time a new user is added to the database. Listeners can then perform
      * additional tasks on that return object.
-     *
-     * @return array
      */
     public static function getSubscribedEvents(): array
     {

@@ -172,8 +172,6 @@ class AdminController extends BaseController
 
     /**
      * Global 
-     *
-     * @return void
      */
     protected function changeRowsAction()
     {

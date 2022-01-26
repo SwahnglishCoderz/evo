@@ -19,9 +19,9 @@ use Evo\ValidationRule\ValidationRule;
 class RoleValidate extends AbstractDataRepositoryValidation
 {
 
-    /** @var array $errors */
+    /** $errors */
     protected array $errors = [];
-    /** @var array $dataBag */
+    /** $dataBag */
     protected array $dataBag = [];
     /** @var ValidationRule $rules */
     protected ValidationRule $rules;
@@ -87,8 +87,6 @@ class RoleValidate extends AbstractDataRepositoryValidation
 
     /**
      * Returns the error if any was generated
-     *
-     * @return array
      */
     public function getErrors(): array
     {
@@ -97,8 +95,6 @@ class RoleValidate extends AbstractDataRepositoryValidation
 
     /**
      * Add additional fields
-     *
-     * @return array
      */
     public function fields(): array
     {
@@ -107,8 +103,6 @@ class RoleValidate extends AbstractDataRepositoryValidation
 
     /**
      * Provides a redirect path for the validation class to use.
-     *
-     * @return string
      */
     public function validationRedirect(): string
     {

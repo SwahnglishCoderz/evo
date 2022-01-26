@@ -13,7 +13,7 @@ declare(strict_types = 1);
 namespace Evo\Cache\Storage;
 
 use Exception;
-use JetBrains\PhpStorm\Pure;
+//use JetBrains\PhpStorm\Pure;
 use Evo\Cache\Exception\CacheException;
 use Evo\Utility\Files;
 

@@ -494,9 +494,7 @@ trait DomainTraits
 
     /**
      * Return the array argument if the value is indeed an array and the it has atleast 1 element
-     * for iteration.
-     *
-     * @return array|false
+     * for iteration.|false
      */
     public function isArrayGood(array $array, int $count = 0): array|false
     {

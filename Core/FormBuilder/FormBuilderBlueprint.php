@@ -265,7 +265,7 @@ class FormBuilderBlueprint implements FormBuilderBlueprintInterface
         ];
     }
 
-    public function choices(array $choices, string|int|array $default = null, object $form = null): array
+    public function choices(array $choices, $default = null, object $form = null): array
     {
         return [
             'choices' => $choices,

@@ -2,179 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c275ede-d842-4bd5-89bf-c02fd23aab03" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Controller/SecurityController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Entity/UserProfileEntity.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/_partials/_header_profile_dropdown.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/_partials/_nav_header.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/_partials/_profile_nav.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/_partials/_sidebar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/_partials/_sidebar_bottom_profile.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/_partials/_sidebar_profile.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/accessDenied/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/bulk_action/bulk.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/dashboard/_parts/current_site_links.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/dashboard/_parts/current_theme.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/dashboard/_parts/dash_mail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/dashboard/_parts/dash_notifications.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/dashboard/_parts/loop_wrap.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/dashboard/app/app_table.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/dashboard/block_activities.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/dashboard/block_github.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/dashboard/block_health_status.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/dashboard/block_main.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/dashboard/block_notifications.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/dashboard/block_project.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/dashboard/block_session.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/dashboard/block_ticket.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/dashboard/commander_bar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/dashboard/dashboard_toggle.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/dashboard/health/critical.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/dashboard/health/error_warning.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/dashboard/health/healthy.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/dashboard/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/dashboard/nav_switcher.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/menu/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/menu/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/menu/new.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/message/_partials/show_profile.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/message/_partials/sidebar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/message/forward.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/message/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/message/new.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/message/reply.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/message/show.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/no_database_record.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/notification/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/notification/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/notification/new.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/permission/bulk.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/permission/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/permission/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/permission/new.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/permission/view_bulk_actions.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/plugin/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/profile/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/project/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/project/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/project/new.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/role/assigned.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/role/bulk.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/role/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/role/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/role/log.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/role/new.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/role/role_permissions.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/role/view_bulk_actions.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/search/search.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/setting/_parts/add_button.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/setting/_parts/application.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/setting/_parts/backup.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/setting/_parts/general.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/setting/_parts/go_back.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/setting/_parts/restore.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/setting/_parts/services.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/setting/_parts/update.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/setting/application.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/setting/branding.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/setting/extension.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/setting/general.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/setting/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/setting/localisation.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/setting/purge.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/setting/security.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/setting/tools.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/system/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/team/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/user/bulk.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/user/clone.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/user/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/user/hardDelete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/user/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/user/log.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/user/new.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/user/notes.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/user/personal.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/user/personal_activities.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/user/personal_connect.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/user/personal_events.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/user/personal_followers.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/user/preferences.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/user/privilege.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/user/show.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/user/trash.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/user/user_privilege_modal.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/user/view_bulk_actions.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/user/view_lock.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/user/view_log.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/user/view_pending.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/user/view_table.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/admin/user/view_trash.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/client/activation/activate.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/client/activation/activation_failed.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/client/home/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/client/logout/logout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/client/password/forgot.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/client/password/reset.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/client/registration/email_template.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/client/registration/register.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/client/registration/registered.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/client/security/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/client/security/logout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/client/security/session.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/components/notification_panel.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/frontend_layout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/layout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/loader.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/profile/account/email.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/profile/account/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/profile/account/name.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Templates/profile/account/password.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Base/Access.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Base/BaseProtectedRoutes.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Base/Traits/BaseReflectionTrait.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Base/Traits/ControllerCastingTrait.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Base/Traits/ControllerMenuTrait.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Base/Traits/ControllerPrivilegeTrait.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Base/Traits/ControllerTrait.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Base/Traits/ModelCastingTrait.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Base/Traits/TableSettingsTrait.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/mbonea.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mbonea.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Config.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controller/Account.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/Account.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controller/Authenticated.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/Authenticated.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controller/Items.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/Sample.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controller/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/Login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controller/Password.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/Password.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controller/Permission.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/Permission.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controller/Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/Profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controller/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/Role.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controller/Section.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/Section.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controller/Signup.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/Signup.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controller/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers - Old/Account.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers - Old/Authenticated.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers - Old/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/Home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers - Old/Items.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers - Old/Login.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers - Old/Password.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers - Old/Permission.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers - Old/Profile.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers - Old/Role.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers - Old/Section.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers - Old/Signup.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers - Old/User.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Auth/Authenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Auth/Authenticator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controller/SecurityController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Base/BaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/BaseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/UserManager/Security/Form/LoginForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/UserManager/Security/Form/LoginForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/UserManager/Security/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/UserManager/Security/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/UserManager/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/UserManager/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/FormBuilder/AbstractFormBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/FormBuilder/AbstractFormBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/FormBuilder/ClientFormBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/FormBuilder/ClientFormBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/FormBuilder/ClientFormBuilderInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/FormBuilder/ClientFormBuilderInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/FormBuilder/Exception/FormBuilderInvalidArgumentException.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/FormBuilder/Exception/FormBuilderInvalidArgumentException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/FormBuilder/Exception/FormBuilderOutOfBoundsException.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/FormBuilder/Exception/FormBuilderOutOfBoundsException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/FormBuilder/Exception/FormBuilderUnexpectedValueException.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/FormBuilder/Exception/FormBuilderUnexpectedValueException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/FormBuilder/FormBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/FormBuilder/FormBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/FormBuilder/FormBuilderBlueprint.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/FormBuilder/FormBuilderBlueprint.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/FormBuilder/FormBuilderBlueprintInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/FormBuilder/FormBuilderBlueprintInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/FormBuilder/FormBuilderInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/FormBuilder/FormBuilderInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/FormBuilder/FormBuilderTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/FormBuilder/FormBuilderTrait.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/FormBuilder/FormBuilderTypeInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/FormBuilder/FormBuilderTypeInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/FormBuilder/FormExtensionTypeInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/FormBuilder/FormExtensionTypeInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/FormBuilder/Traits/FormalizerTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/FormBuilder/Traits/FormalizerTrait.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/FormBuilder/Type/CheckboxType.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/FormBuilder/Type/CheckboxType.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -311,7 +156,8 @@
       <option name="presentableId" value="Default" />
       <updated>1643104755276</updated>
       <workItem from="1643111592476" duration="2248000" />
-      <workItem from="1643113909839" duration="5621000" />
+      <workItem from="1643113909839" duration="6357000" />
+      <workItem from="1643173356688" duration="2174000" />
     </task>
     <servers />
   </component>

@@ -16,7 +16,7 @@ use Evo\UserManager\Activation\Event\ActivationActionEvent;
 use Evo\EventDispatcher\EventDispatcherDefaulter;
 use Evo\EventDispatcher\EventDispatcherTrait;
 use Evo\EventDispatcher\EventSubscriberInterface;
-use JetBrains\PhpStorm\ArrayShape;
+//use JetBrains\PhpStorm\ArrayShape;
 use Exception;
 
 /**
@@ -35,8 +35,6 @@ class ActivationActionSubscriber extends EventDispatcherDefaulter implements Eve
      * Subscribe multiple listeners to listen for the NewActionEvent. This will fire
      * each time a new user is added to the database. Listeners can then perform
      * additional tasks on that return object.
-     *
-     * @return array
      */
     #[ArrayShape([ActivationActionEvent::NAME => "array[]"])] public static function getSubscribedEvents(): array
     {

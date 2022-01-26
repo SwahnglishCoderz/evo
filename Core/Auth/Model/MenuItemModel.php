@@ -38,8 +38,6 @@ class MenuItemModel extends AbstractBaseModel
 
     /**
      * Guard these IDs from being deleted etc..
-     *
-     * @return array
      */
     public function guardedID(): array
     {

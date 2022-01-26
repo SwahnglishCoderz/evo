@@ -19,7 +19,7 @@ use Evo\Base\Exception\BaseUnexpectedValueException;
 class PrivilegedUser
 {
 
-    /** @var array  */
+    /**  */
     protected array $roles = [];
 
     /**

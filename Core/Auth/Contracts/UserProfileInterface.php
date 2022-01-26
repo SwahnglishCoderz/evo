@@ -36,8 +36,6 @@ interface UserProfileInterface
 
     /**
      * Return an array of user profile errors
-     *
-     * @return array
      */
     public function getProfileErrors(): array;
 

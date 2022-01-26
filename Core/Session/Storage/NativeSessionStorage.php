@@ -12,7 +12,7 @@ declare(strict_types = 1);
 
 namespace Evo\Session\Storage;
 
-//use JetBrains\PhpStorm\Pure;
+////use JetBrains\PhpStorm\Pure;
 use Evo\Cookie\CookieFacade;
 
 class NativeSessionStorage extends AbstractSessionStorage

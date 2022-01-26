@@ -14,15 +14,8 @@ namespace Evo\FormBuilder;
 
 interface FormBuilderBlueprintInterface
 {
-
     /**
      * Undocumented function
-     *
-     * @param string $name
-     * @param array $class
-     * @param $value
-     * @param ?string $placeholder
-     * @return array
      */
     public function text(
         string $name,
@@ -34,11 +27,6 @@ interface FormBuilderBlueprintInterface
 
     /**
      * Undocumented function
-     *
-     * @param string $name
-     * @param $value
-     * @param array $class
-     * @return array
      */
     public function hidden(
         string $name,
@@ -77,10 +65,6 @@ interface FormBuilderBlueprintInterface
 
     /**
      * Undocumented function
-     *
-     * @param string $name
-     * @param array $class
-     * @return void
      */
     public function radio(string $name, array $class = [], $value = null): array;
 
@@ -113,21 +97,11 @@ interface FormBuilderBlueprintInterface
 
     /**
      * Undocumented function
-     *
-     * @param array $choices
-     * @return array
      */
-    public function choices(array $choices, string|int|array $default = null, object $form = null): array;
+    public function choices(array $choices, $default = null, object $form = null): array;
 
     /**
      * Undocumented function
-     *
-     * @param boolean $inlineIcon
-     * @param string $icon
-     * @param boolean $showLabel
-     * @param string $newLabel
-     * @param boolean $wrapper
-     * @return array
      */
     public function settings(
         bool $inlineIcon = false,

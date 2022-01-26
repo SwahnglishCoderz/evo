@@ -16,7 +16,7 @@ use Evo\UserManager\Event\UserActionEvent;
 use Evo\UserManager\Event\UserRoleActionEvent;
 use Evo\UserManager\Model\UserRoleModel;
 use Evo\UserManager\Rbac\Model\TemporaryRoleModel;
-use JetBrains\PhpStorm\ArrayShape;
+//use JetBrains\PhpStorm\ArrayShape;
 use Evo\EventDispatcher\EventDispatcherTrait;
 use Evo\EventDispatcher\EventSubscriberInterface;
 use Exception;

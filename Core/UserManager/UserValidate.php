@@ -28,15 +28,15 @@ class UserValidate extends AbstractDataRepositoryValidation
 
     use UtilityTrait;
 
-    /** @var array $errors */
+    /** $errors */
     protected array $errors = [];
-    /** @var array $dataBag */
+    /** $dataBag */
     protected array $dataBag = [];
     /** @var ValidationRule $rules */
     protected ValidationRule $rules;
     protected ?string $randomPassword = null;
 
-    /** @var string - empty string will redirect on the same request */
+    /** empty string will redirect on the same request */
     protected const REDIRECT_BACK_TO = '';
 
     /**

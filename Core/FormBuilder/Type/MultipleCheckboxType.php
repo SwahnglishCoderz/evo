@@ -7,6 +7,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 declare(strict_types = 1);
 
 namespace Evo\FormBuilder\Type;
@@ -15,31 +16,14 @@ use Evo\FormBuilder\FormExtensionTypeInterface;
 
 class MultipleCheckboxType extends CheckboxType
 {
-
-    /** @var string - this is the text type extension */
     protected string $type = 'multiple_checkbox';
-    /** @var array - returns the defaults for the input type */
     protected array $defaults = [];
 
-    /**
-     * @inheritdoc
-     *
-     * @param array $fields
-     * @param $options
-     * @param array $settings
-     */
     public function __construct(array $fields, $options = null, array $settings = [])
     {
-        /* Assigned arguments to parent InputType constructor */
         parent::__construct($fields, $options, $settings);
     }
 
-    /**
-     * @inheritdoc
-     *
-     * @param array $options
-     * @return void
-     */
     public function configureOptions(array $options = []): void
     {
         $this->defaults = [
@@ -50,11 +34,6 @@ class MultipleCheckboxType extends CheckboxType
         parent::configureOptions($this->defaults);
     }
 
-    /**
-     * @inheritdoc
-     *
-     * @return array
-     */
     public function getExtensionDefaults() : array
     {
         return $this->defaults;
@@ -62,8 +41,6 @@ class MultipleCheckboxType extends CheckboxType
 
     /**
      * Publicize the default object options to the base class
-     *
-     * @return array
      */
     public function getOptions() : array
     {
@@ -73,8 +50,6 @@ class MultipleCheckboxType extends CheckboxType
     /**
      * Return the third argument from the add() method. This array can be used
      * to modify and filter the final output of the input and HTML wrapper
-     *
-     * @return array
      */
     public function getSettings() : array
     {

@@ -18,7 +18,7 @@ use Evo\DataSchema\DataSchemaTypeInterface;
 class DatetimeType extends DataSchemaBaseType implements DataSchemaTypeInterface
 {
 
-    /** @var array - datetime schema types */
+    /** datetime schema types */
     protected array $types = [
         'date',
         'datetime',

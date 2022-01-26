@@ -12,7 +12,7 @@ declare(strict_types = 1);
 
 namespace Evo\FormBuilder\EventSubscriber;
 
-use JetBrains\PhpStorm\ArrayShape;
+//use JetBrains\PhpStorm\ArrayShape;
 use Evo\EventDispatcher\EventDispatcherTrait;
 use Evo\EventDispatcher\EventDispatcherDefaulter;
 use Evo\EventDispatcher\EventSubscriberInterface;
@@ -31,8 +31,6 @@ class FormBuilderValidationSubscriber extends EventDispatcherDefaulter implement
      * Subscribe multiple listeners to listen for the NewActionEvent. This will fire
      * each time a new user is added to the database. Listeners can then perform
      * additional tasks on that return object.
-     *
-     * @return array
      */
     #[ArrayShape([ValidateRuleEvent::NAME => "\string[][]"])] public static function getSubscribedEvents(): array
     {

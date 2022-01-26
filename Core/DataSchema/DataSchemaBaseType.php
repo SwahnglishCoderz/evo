@@ -20,7 +20,7 @@ class DataSchemaBaseType implements DataSchemaTypeInterface
 
     use DataSchemaTypesTrait;
 
-    /** @var array */
+    /** */
     protected const SCHEMA_COLUMNS = [
         'name',
         'type',

@@ -16,7 +16,7 @@ use Evo\UserManager\PasswordRecovery\Event\PasswordActionEvent;
 use Evo\EventDispatcher\EventDispatcherDefaulter;
 use Evo\EventDispatcher\EventDispatcherTrait;
 use Evo\EventDispatcher\EventSubscriberInterface;
-use JetBrains\PhpStorm\ArrayShape;
+//use JetBrains\PhpStorm\ArrayShape;
 use Exception;
 
 /**
@@ -36,8 +36,6 @@ class PasswordActionSubscriber extends EventDispatcherDefaulter implements Event
      * Subscribe multiple listeners to listen for the NewActionEvent. This will fire
      * each time a new user is added to the database. Listeners can then perform
      * additional tasks on that return object.
-     *
-     * @return array
      */
     #[ArrayShape([PasswordActionEvent::NAME => "array[]"])] public static function getSubscribedEvents(): array
     {

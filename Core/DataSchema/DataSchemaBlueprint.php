@@ -12,7 +12,7 @@ declare (strict_types = 1);
 
 namespace Evo\DataSchema;
 
-//use JetBrains\PhpStorm\ArrayShape;
+////use JetBrains\PhpStorm\ArrayShape;
 use Evo\DataSchema\Types\JsonType;
 use Evo\DataSchema\Types\StringType;
 use Evo\DataSchema\Types\NumericType;

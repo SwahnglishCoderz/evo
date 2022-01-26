@@ -23,13 +23,13 @@ use ReflectionParameter;
 class Container implements ContainerInterface, SettableInterface
 {
 
-    /** @var array */
+    /** */
     protected array $instance = [];
-    /** @var array */
+    /** */
     protected array $services = [];
     /** @var Object */
     protected object $service;
-    /** @var array */
+    /** */
     protected array $unregister = [];
 
     /**

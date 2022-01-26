@@ -144,8 +144,6 @@ class RoleController extends \Evo\Administrator\Controller\AdminController
      * the database. This method is not a submittable method hence why this check has
      * been omitted. This a simple click based action. which is triggered within the
      * datatable. An event will be dispatch by this action
-     *
-     * @return void
      */
     protected function deleteAction(): void
     {
@@ -215,8 +213,6 @@ class RoleController extends \Evo\Administrator\Controller\AdminController
 
     /**
      * Assigned role route
-     *
-     * @return void
      */
     protected function assignedAction()
     {

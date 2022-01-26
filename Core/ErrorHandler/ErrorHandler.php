@@ -41,13 +41,13 @@ class ErrorHandler
     
     public static function isMode()
     {
-        $mode = Config::APP['debug_error'];
-        return $mode;
+        return Config::APP['debug_error'];
     }
 
     /**
-     * Error Handler. Convert all errors to exception by throwing an 
+     * Error Handler. Convert all errors to exception by throwing an
      * ErrorException
+     * @throws ErrorException
      */
     public static function errorHandler($errno, $errstr, $errfile, $errline)
     {
@@ -122,7 +122,7 @@ class ErrorHandler
         return array_slice(file($filename, $flags), $offset, $length, true);
     }
 
-    public static function getSrcCode($errfile, $errline, $errclass)
+    public static function getSrcCode($errfile, $errline, $errclass): string
     {
         $start = max($errline - floor(self::NUM_LINES / 2), 1);
         $start = (int)$start;

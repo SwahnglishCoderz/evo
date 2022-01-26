@@ -4,8 +4,9 @@ namespace Evo\Base;
 
 use App\Auth;
 use App\Flash;
-use Evo\Base\Exception\BaseBadMethodCallException;
 use Evo\Base\BaseApplication;
+use Evo\Base\Exception\BaseBadMethodCallException;
+use Evo\Ash\Exception\FileNotFoundException;
 //use Evo\Base\Events\BeforeRenderActionEvent;
 //use Evo\Base\Events\BeforeControllerActionEvent;
 use Evo\Base\Traits\ControllerMenuTrait;
@@ -111,5 +112,18 @@ class BaseController extends AbstractBaseController
 
             $this->redirect('/login');
         }
+    }
+
+    /**
+     * Return and instance of the base application class
+     */
+    public function baseApp()
+    {
+        return new BaseApplication();
+    }
+
+    public function getRouteParams(): array
+    {
+        return $this->routeParams;
     }
 }

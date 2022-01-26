@@ -14,7 +14,7 @@ namespace Evo\UserManager\Rbac\Role\EventSubscriber;
 
 use Evo\UserManager\Rbac\Role\Event\RoleActionEvent;
 use Exception;
-use JetBrains\PhpStorm\ArrayShape;
+//use JetBrains\PhpStorm\ArrayShape;
 use Evo\EventDispatcher\EventDispatcherTrait;
 use Evo\EventDispatcher\EventSubscriberInterface;
 
@@ -34,8 +34,6 @@ class RoleActionSubscriber implements EventSubscriberInterface
      * Subscribe multiple listeners to listen for the NewActionEvent. This will fire
      * each time a new user is added to the database. Listeners can then perform
      * additional tasks on that return object.
-     *
-     * @return array
      */
     #[ArrayShape([RoleActionEvent::NAME => "array[]"])] public static function getSubscribedEvents(): array
     {

@@ -14,7 +14,7 @@ namespace Evo\UserManager;
 
 use Evo\Fillable\FillableSchema;
 use Evo\Fillable\FillableSchemaInterface;
-use JetBrains\PhpStorm\Pure;
+//use JetBrains\PhpStorm\Pure;
 
 class UserFillable extends FillableSchema implements FillableSchemaInterface
 {

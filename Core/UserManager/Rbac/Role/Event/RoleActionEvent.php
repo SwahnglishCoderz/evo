@@ -17,6 +17,6 @@ use Evo\Base\BaseActionEvent;
 class RoleActionEvent extends BaseActionEvent
 {
 
-    /** @var string - name of the event */
+    /** name of the event */
     public const NAME = 'evo.usermanager.rbac.role.event.role_action_event';
 }

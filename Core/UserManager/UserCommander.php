@@ -54,8 +54,6 @@ class UserCommander extends UserModel implements ApplicationCommanderInterface
     /**
      * Get the specific yaml file which helps to render some text within the specified
      * html template.
-     *
-     * @return array
      * @throws Exception
      */
     public function getYml(): array
@@ -65,8 +63,6 @@ class UserCommander extends UserModel implements ApplicationCommanderInterface
 
     /**
      * Display a sparkline graph for this controller index route
-     *
-     * @return string
      */
     public function getGraphs(): string
     {

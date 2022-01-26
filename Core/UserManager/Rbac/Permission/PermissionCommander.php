@@ -47,8 +47,6 @@ class PermissionCommander extends PermissionModel implements ApplicationCommande
     /**
      * Get the specific yaml file which helps to render some text within the specified
      * html template.
-     *
-     * @return array
      * @throws Exception
      */
     public function getYml(): array
@@ -58,8 +56,6 @@ class PermissionCommander extends PermissionModel implements ApplicationCommande
 
     /**
      * Display a sparkline graph for this controller index route
-     *
-     * @return string
      */
     public function getGraphs(): string
     {

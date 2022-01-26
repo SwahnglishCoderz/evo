@@ -83,8 +83,6 @@ class MenuValidate extends AbstractDataRepositoryValidation
 
     /**
      * Returns the error if any was generated
-     *
-     * @return array
      */
     public function getErrors(): array
     {
@@ -93,8 +91,6 @@ class MenuValidate extends AbstractDataRepositoryValidation
 
     /**
      * Add additional fields
-     *
-     * @return array
      */
     public function fields(): array
     {
@@ -103,8 +99,6 @@ class MenuValidate extends AbstractDataRepositoryValidation
 
     /**
      * Provides a redirect path for the validation class to use.
-     *
-     * @return string
      */
     public function validationRedirect(): string
     {

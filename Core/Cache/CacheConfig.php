@@ -12,7 +12,7 @@ declare(strict_types = 1);
 
 namespace Evo\Cache;
 
-use JetBrains\PhpStorm\ArrayShape;
+//use JetBrains\PhpStorm\ArrayShape;
 
 class CacheConfig
 {

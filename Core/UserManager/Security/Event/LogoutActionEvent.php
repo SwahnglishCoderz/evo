@@ -17,6 +17,6 @@ use Evo\Base\BaseActionEvent;
 class LogoutActionEvent extends BaseActionEvent
 {
 
-    /** @var string - name of the event */
+    /** name of the event */
     public const NAME = 'evo.usermanager.security.event.logout_action_event';
 }

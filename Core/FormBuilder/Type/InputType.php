@@ -7,6 +7,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 declare(strict_types = 1);
 
 namespace Evo\FormBuilder\Type;
@@ -23,26 +24,19 @@ class InputType implements FormBuilderTypeInterface
 
     use FormBuilderTrait;
 
-    /** @var string - returns the name of the extension. IMPORTANT */
+    /** returns the name of the extension. IMPORTANT */
     protected string $type = '';
-     /** @var array - returns the combined attr options from extensions and constructor fields */
+     /** returns the combined attr options from extensions and constructor fields */
     protected array $attr = [];
-    /** @var array - return an array of form fields attributes */
+    /** return an array of form fields attributes */
     protected $fields;
-    /** @var array returns an array of form settings */
+    /** returns an array of form settings */
     protected array $settings = [];
-    /** @var */
+    
     protected $options = null;
-    /** @var array returns an array of default options set */
+    /** returns an array of default options set */
     protected array $baseOptions = [];
 
-    /**
-     * Main class constructor
-     *
-     * @param array $fields
-     * @param mixed|null $options
-     * @param array $settings
-     */
     public function __construct(array $fields, $options = null, array $settings = [])
     {
         $this->fields = $this->filterArray($fields);
@@ -55,8 +49,6 @@ class InputType implements FormBuilderTypeInterface
     
     /**
      * Returns an array of base options.
-     *
-     * @return array
      */
     public function getBaseOptions() : array
     {
@@ -77,8 +69,6 @@ class InputType implements FormBuilderTypeInterface
      * Construct the name of the extension type using the upper camel case
      * naming convention. Extension type name i.e Text will also be suffix
      * with the string (Type) so becomes TextType
-     *
-     * @return string
      */
     private function buildExtensionName() : string
     {
@@ -91,8 +81,6 @@ class InputType implements FormBuilderTypeInterface
      * the buildExtensionName() method name. Extension objects are also instantiated
      * from this method and check to ensure its implementing the correct interface
      * else will throw an invalid argument exception.
-     *
-     * @return void
      */
     private function buildExtensionObject() : void
     {
@@ -104,12 +92,6 @@ class InputType implements FormBuilderTypeInterface
 
     }
 
-    /**
-     * @inheritdoc
-     *
-     * @param array $options
-     * @return void
-     */
     public function configureOptions(array $options = []) : void
     {
         if (empty($this->type)) {
@@ -132,31 +114,16 @@ class InputType implements FormBuilderTypeInterface
         }
     }
 
-    /**
-     * @inheritdoc
-     *
-     * @return string
-     */
     public function getType() : string
     {
         return $this->type;
     }
 
-    /**
-     * @inheritdoc
-     *
-     * @return array
-     */
     public function getOptions() : array
     {
         return $this->attr;
     }
 
-    /**
-     * @inheritdoc
-     *
-     * @return array
-     */
     public function getSettings() : array
     {
         $defaults = [
@@ -177,11 +144,6 @@ class InputType implements FormBuilderTypeInterface
         return $this->renderHtmlElement($this->attr, $this->options);
     }
 
-    /**
-     * @inheritdoc
-     *
-     * @return string
-     */
     public function view() : string
     {
         switch ($this->getType()) :

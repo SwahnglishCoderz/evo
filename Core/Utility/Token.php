@@ -47,9 +47,7 @@ class Token
     }
 
     /**
-     * Get the hashed token value
-     *
-     * @return string The hashed value
+     * Get the hashed token value The hashed value
      * @throws Exception
      */
     public function getHash() : string

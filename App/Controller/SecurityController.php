@@ -28,7 +28,7 @@ class SecurityController extends \Evo\UserManager\Security\SecurityController
     public function index()
     {
         echo '<pre>';
-        print_r('Home Controller');
+        print_r('Security Controller');
         
 //         $sections = (new SectionModel())->getRepository()->findAll();
 //         $menus = (new MenuModel())->getRepository()->findAll();
@@ -40,7 +40,7 @@ class SecurityController extends \Evo\UserManager\Security\SecurityController
 //        print_r($menus);
 //        exit;
 
-         View::renderTemplate('home/index.html', [
+         View::renderTemplate('login/new.html', [
         //     'sections' => $sections,
         //     'menus' => $menus,
          ]);
