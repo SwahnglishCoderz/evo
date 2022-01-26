@@ -77,6 +77,43 @@ abstract class AbstractBaseBootLoader extends Singleton
     }
 
     /**
+     * Return the session global variable through a static method which should make
+     * accessing the global variable much simpler
+     * returns the session object
+     * @throws GlobalManagerException
+     */
+    public static function getSession(): Object
+    {
+        return GlobalManager::get('session_global');
+    }
+
+    /**
+     * Get the default session driver defined with the session.yml file
+     */
+    protected function getDefaultSessionDriver(): string
+    {
+        return $this->getDefaultSettings($this->app()->getSessions());
+    }
+
+    /**
+     * Builds the application session component and returns the configured object. Based
+     * on the session configuration array.
+     */
+    protected function loadSession(): Object
+    {
+        $session = (new SessionFacade(
+            $this->app()->getSessions(),
+            $this->app()->getSessions()['session_name'],
+            $this->app()->getSessionDriver()
+        ))->setSession();
+        if ($this->application->isSessionGlobal() === true) {
+            GlobalManager::set($this->application->getGlobalSessionKey(), $session);
+
+        }
+        return $session;
+    }
+
+    /**
      * Initialise the pass our classes to be loaded by the framework dependency
      * container using PHP Reflection
      */
@@ -89,17 +126,6 @@ abstract class AbstractBaseBootLoader extends Singleton
     }
 
     // /**
-    //  * Return the session global variable through a static method which should make
-    //  * accessing the global variable much simpler
-    //  * returns the session object
-    //  * @throws GlobalManagerException
-    //  */
-    // public static function getSession(): Object
-    // {
-    //     return GlobalManager::get('session_global');
-    // }
-
-    // /**
     //  * Returns an array of the application set providers which will be loaded
     //  * by the dependency container. Which uses PHP Reflection class to
     //  * create objects. With a key property which is defined within the yaml
@@ -110,41 +136,12 @@ abstract class AbstractBaseBootLoader extends Singleton
     //     return $this->app()->getContainerProviders();
     // }
 
-    
-
-    /**
-     * Get the default session driver defined with the session.yml file
-     */
-    // protected function getDefaultSessionDriver(): string
-    // {
-    //     return $this->getDefaultSettings($this->app()->getSessions());
-    // }
-
     // /**
     //  * Get the default cache driver defined with the cache.yml file
     //  */
     // protected function getDefaultCacheDriver(): string
     // {
     //     return $this->getDefaultSettings($this->app()->getCache());
-    // }
-
-
-    // /**
-    //  * Builds the application session component and returns the configured object. Based
-    //  * on the session configuration array.
-    //  */
-    // protected function loadSession(): Object
-    // {
-    //     $session = (new SessionFacade(
-    //         $this->app()->getSessions(),
-    //         $this->app()->getSessions()['session_name'],
-    //         $this->app()->getSessionDriver()
-    //     ))->setSession();
-    //     if ($this->application->isSessionGlobal() === true) {
-    //         GlobalManager::set($this->application->getGlobalSessionKey(), $session);
-
-    //     }
-    //     return $session;
     // }
 
     // public function loadCache()
@@ -174,5 +171,4 @@ abstract class AbstractBaseBootLoader extends Singleton
     //             $this->app()->getLoggerOptions()
     //         );
     // }
-
 }

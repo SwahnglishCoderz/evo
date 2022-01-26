@@ -119,61 +119,61 @@ class BaseApplication extends AbstractBaseBootLoader
         return $this->newRouter;
     }
 
-    // /**
-    //  * Set the application session configuration from the session.yml file else
-    //  * load the core session configuration class
-    //  */
-    // public function setSession(array $ymlSession = [], ?string $newSessionDriver = null, bool $isGlobal = false, ?string $globalKey = null): self
-    // {
-    //     $this->session = (!empty($ymlSession) ? $ymlSession : (new SessionConfig())->baseConfiguration());
-    //     $this->newSessionDriver = ($newSessionDriver !== null) ? $newSessionDriver : $this->getDefaultSessionDriver();
-    //     $this->isSessionGlobal = $isGlobal;
-    //     $this->globalSessionKey = $globalKey;
-    //     return $this;
-    // }
+     /**
+      * Set the application session configuration from the session.yml file else
+      * load the core session configuration class
+      */
+     public function setSession(array $ymlSession = [], ?string $newSessionDriver = null, bool $isGlobal = false, ?string $globalKey = null): self
+     {
+         $this->session = (!empty($ymlSession) ? $ymlSession : (new SessionConfig())->baseConfiguration());
+         $this->newSessionDriver = ($newSessionDriver !== null) ? $newSessionDriver : $this->getDefaultSessionDriver();
+         $this->isSessionGlobal = $isGlobal;
+         $this->globalSessionKey = $globalKey;
+         return $this;
+     }
 
-    // /**
-    //  * If session yml is set from using the setSession from the application
-    //  * bootstrap. Use the user defined session.yml else revert to the core
-    //  * session configuration.
-    //  */
-    // public function getSessions(): array
-    // {
-    //     if (empty($this->session)) {
-    //         throw new BaseInvalidArgumentException('You have no session configuration. This is required.');
-    //     }
-    //     return $this->session;
-    // }
+     /**
+      * If session yml is set from using the setSession from the application
+      * bootstrap. Use the user defined session.yml else revert to the core
+      * session configuration.
+      */
+     public function getSessions(): array
+     {
+         if (empty($this->session)) {
+             throw new BaseInvalidArgumentException('You have no session configuration. This is required.');
+         }
+         return $this->session;
+     }
 
-    // /**
-    //  * Returns the default session driver from either the core or user defined
-    //  * session configuration. Throws an exception if neither configuration
-    //  * was found
-    //  */
-    // public function getSessionDriver(): string
-    // {
-    //     if (empty($this->session)) {
-    //         throw new BaseInvalidArgumentException('You have no session configuration. This is required.');
-    //     }
-    //     return $this->newSessionDriver;
-    // }
+     /**
+      * Returns the default session driver from either the core or user defined
+      * session configuration. Throws an exception if neither configuration
+      * was found
+      */
+     public function getSessionDriver(): string
+     {
+         if (empty($this->session)) {
+             throw new BaseInvalidArgumentException('You have no session configuration. This is required.');
+         }
+         return $this->newSessionDriver;
+     }
 
-    // /**
-    //  * Turn on global session from public/index.php bootstrap file to make the session
-    //  * object available globally throughout the application using the GlobalManager object
-    //  */
-    // public function isSessionGlobal(): bool
-    // {
-    //     return isset($this->isSessionGlobal) && $this->isSessionGlobal === true;
-    // }
+     /**
+      * Turn on global session from public/index.php bootstrap file to make the session
+      * object available globally throughout the application using the GlobalManager object
+      */
+     public function isSessionGlobal(): bool
+     {
+         return isset($this->isSessionGlobal) && $this->isSessionGlobal === true;
+     }
 
-    // public function getGlobalSessionKey(): string
-    // {
-    //     if ($this->globalSessionKey !==null && strlen($this->globalSessionKey) < 3) {
-    //         throw new BaseLengthException($this->globalSessionKey . ' is invalid this needs to be more than 3 characters long');
-    //     }
-    //     return ($this->globalSessionKey !==null) ? $this->globalSessionKey : 'session_global';
-    // }
+     public function getGlobalSessionKey(): string
+     {
+         if ($this->globalSessionKey !==null && strlen($this->globalSessionKey) < 3) {
+             throw new BaseLengthException($this->globalSessionKey . ' is invalid this needs to be more than 3 characters long');
+         }
+         return ($this->globalSessionKey !==null) ? $this->globalSessionKey : 'session_global';
+     }
 
     // /**
     //  * Set the application cookie configuration from the session.yml file.
@@ -195,11 +195,11 @@ class BaseApplication extends AbstractBaseBootLoader
     // /**
     //  * Set the application cache configuration from the session.yml file
     //  */
-    // public function setCache(array $ymlCache = [], string $newCacheDriver = null, bool $isGloabl = false, ?string $globalKey = null): self
+    // public function setCache(array $ymlCache = [], string $newCacheDriver = null, bool $isGlobal = false, ?string $globalKey = null): self
     // {
     //     $this->cache = (!empty($ymlCache) ? $ymlCache : (new CacheConfig())->baseConfiguration());
     //     $this->newCacheDriver = ($newCacheDriver !== null) ? $newCacheDriver : $this->getDefaultCacheDriver();
-    //     $this->isCacheGlobal = $isGloabl;
+    //     $this->isCacheGlobal = $isGlobal;
     //     $this->globalCacheKey = $globalKey;
     //     return $this;
     // }
@@ -331,7 +331,7 @@ class BaseApplication extends AbstractBaseBootLoader
         BaseConstants::load($this->app());
         $this->phpVersion();
         // $this->loadErrorHandlers();
-        // $this->loadSession();
+         $this->loadSession();
         // $this->loadCache();
         // $this->loadLogger();
         $this->loadEnvironment();

@@ -23,11 +23,13 @@ class Auth
 
     public static function login(object $user, bool $remember_me, int $id = null)
     {
-        echo '<pre>';
-        echo "About to login<br />";
-//        print_r($_SESSION);
+//        echo '<pre>';
+//        echo "About to login<br />";
+        print_r($_SESSION);
 //        exit;
         session_regenerate_id(true);
+        print_r($_SESSION);
+        exit;
 
         $_SESSION['user_id'] = $user->id;
 
@@ -76,6 +78,7 @@ class Auth
     public static function rememberRequestedPage()
     {
         $_SESSION['return_to'] = $_SERVER['REQUEST_URI'];
+//        $_SESSION['return_to'] = $_SERVER['QUERY_STRING'];
     }
 
     /**

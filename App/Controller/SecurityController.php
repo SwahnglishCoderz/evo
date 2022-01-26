@@ -55,10 +55,9 @@ class SecurityController extends \Evo\UserManager\Security\SecurityController
 //        exit;
 
         if ($user) {
-            echo "User yupo.";
+//            echo "User yupo.";
 //            exit;
-            print_r(Auth::login($user, $remember_me));
-            exit;
+            Auth::login($user, $remember_me);
 
             Flash::addMessageToFlashNotifications('Login successful');
 

@@ -2,22 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c275ede-d842-4bd5-89bf-c02fd23aab03" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/App/Controller/RegistrationController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Config.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Config.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Models/UserModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Models/UserModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/home/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/home/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/login/new.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/login/new.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/signup/new.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/signup/new.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Base/Domain/DomainTraits.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/Domain/DomainTraits.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/FormBuilder/FormBuilderBlueprint.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/FormBuilder/FormBuilderBlueprint.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/FormBuilder/FormBuilderBlueprintInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/FormBuilder/FormBuilderBlueprintInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Orm/ClientRepository/ClientRepositoryFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/ClientRepository/ClientRepositoryFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Orm/DataMapper/DataMapperFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/DataMapper/DataMapperFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Router/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Router/Router.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Base/AbstractBaseBootLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/AbstractBaseBootLoader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Base/BaseApplication.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/BaseApplication.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +146,7 @@
       <updated>1643104755276</updated>
       <workItem from="1643111592476" duration="2248000" />
       <workItem from="1643113909839" duration="6357000" />
-      <workItem from="1643173356688" duration="8965000" />
+      <workItem from="1643173356688" duration="10420000" />
     </task>
     <servers />
   </component>
