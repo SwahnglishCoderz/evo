@@ -15,6 +15,7 @@ namespace App\Controllers;
 use App\Models\MenuModel;
 use App\Models\SectionModel;
 use Evo\View;
+use Throwable;
 
 class Section extends Authenticated
 {
@@ -30,7 +31,7 @@ class Section extends Authenticated
         ]);
     }
 
-    public function new()
+    public function create()
     {
         // display a form to create a new section
         View::renderTemplate('section/create.html');
@@ -42,9 +43,16 @@ class Section extends Authenticated
         View::renderTemplate('section/show.html');
     }
 
+    /**
+     * @throws Throwable
+     */
     public function add()
     {
-        // add new section to DB
+        echo '<pre>';
+        echo "<br />Passing the data to the SectionModel<br />";
+        print_r($_POST);
+        $posted_data = new SectionModel($_POST);
+
     }
 
     public function edit()

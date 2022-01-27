@@ -1,0 +1,183 @@
+{% extends 'base.html' %}
+
+{% block title %}Menus{% endblock %}
+
+{% block heading %}All Menus{% endblock %}
+
+{% block add_button %}
+    <a href="/menu/create" class="float-right mr-10 inline-flex items-center justify-center space-x-2 py-3 px-4 border border-transparent text-sm font-medium rounded text-green-600 hover:text-green-700 bg-green-50 hover:bg-green-100 transition-colors">
+        <i class='fas fa-plus-circle'></i>
+        <div>Add Menu</div>
+    </a>
+{% endblock %}
+
+{% block body %}
+
+<!--    <h1 class="text-4xl text-center">All Menus</h1>-->
+
+    <div class="flex flex-col">
+        <div class="overflow-x-auto sm:-mx-6 lg:-mx-4">
+            <div class="inline-block py-2 min-w-full sm:px-6 lg:px-8">
+                <div class="overflow-hidden shadow-md sm:rounded-lg">
+                    {% if menus %}
+                        <table class="min-w-full">
+                            <thead class="bg-gray-50 dark:bg-gray-700">
+                            <tr>
+                                <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                    Menu Name
+                                </th>
+                                <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                    Description
+                                </th>
+                                <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                    Link
+                                </th>
+                                <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                    Title Tag
+                                </th>
+                                <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                    Icon
+                                </th>
+                                <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                    Position
+                                </th>
+                                <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-center text-gray-700 uppercase dark:text-gray-400">
+                                    Actions
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Product 1 -->
+                                {% for menu in menus %}
+                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                        <td class="py-4 px-6 text-sm capitalize font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            {{ menu.name }}
+                                        </td>
+                                        <td class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                            {{ menu.description }}
+                                        </td>
+                                        <td class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                            {{ menu.link }}
+                                        </td>
+                                        <td class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                            {{ menu.title_tag }}
+                                        </td>
+                                        <td class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                            {{ menu.icon }}
+                                        </td>
+                                        <td class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                            {{ menu.position }}
+                                        </td>
+                                        <td class="py-4 px-6 text-sm font-medium text-center whitespace-nowrap">
+                                            <!-- Modal toggle -->
+                                            <button class="mx-3 text-green-600 hover:text-green-400 dark:text-green-500" type="button" data-modal-toggle="view-menu">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="mx-3 text-blue-600 hover:text-blue-400 dark:text-blue-500" type="button" data-modal-toggle="edit-menu">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="mx-3 text-red-600 hover:text-red-400 dark:text-red-500" type="button" data-modal-toggle="delete-menu">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    {% else %}
+                        <div class="bg-white rounded-lg p-8 text-center">
+                            <h1 class="text-2xl text-gray-600">No menus found.</h1>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- View modal -->
+    <div id="view-menu" aria-hidden="true" class="hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-4 left-0 right-0 md:inset-0 z-50 justify-center items-center">
+        <div class="relative w-full max-w-2xl px-4 h-full md:h-auto">
+            <!-- Modal content -->
+            <div class="bg-white rounded-lg shadow relative dark:bg-gray-700">
+                <!-- Modal header -->
+                <div class="flex items-start justify-between p-5 border-b rounded-t bg-green-600 border-gray-600">
+                    <h3 class="text-gray-900 text-xl lg:text-2xl font-semibold dark:text-white">
+                        View Menu Details
+                    </h3>
+                    <button type="button" class="text-gray-600 bg-transparent hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:text-gray-900" data-modal-toggle="view-menu">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="text-white p-6 space-y-6">
+                    Modal content
+                </div>
+
+                <!-- Modal footer -->
+                <div class="flex space-x-2 items-center p-6 border-t border-gray-200 rounded-b dark:border-gray-600">
+                    <button data-modal-toggle="view-menu" type="button" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 rounded-lg border border-red-200 text-sm font-medium px-5 py-2.5 hover:text-red-900 focus:z-10 dark:bg-red-700 dark:text-red-300 dark:border-red-500 dark:hover:text-white dark:hover:bg-red-600">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit modal -->
+    <div id="edit-menu" aria-hidden="true" class="hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-4 left-0 right-0 md:inset-0 z-50 justify-center items-center">
+        <div class="relative w-full max-w-2xl px-4 h-full md:h-auto">
+            <!-- Modal content -->
+            <div class="bg-white rounded-lg shadow relative dark:bg-gray-700">
+                <!-- Modal header -->
+                <div class="flex items-start justify-between p-5 border-b rounded-t bg-blue-600 border-gray-600">
+                    <h3 class="text-gray-900 text-xl lg:text-2xl font-semibold dark:text-white">
+                        Edit Menu
+                    </h3>
+                    <button type="button" class="text-gray-600 bg-transparent hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:text-gray-900" data-modal-toggle="edit-menu">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="text-white p-6 space-y-6">
+                    Modal content
+                </div>
+
+                <!-- Modal footer -->
+                <div class="flex space-x-2 items-center p-6 border-t border-gray-200 rounded-b dark:border-gray-600">
+                    <button data-modal-toggle="edit-menu" type="button" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Update</button>
+                    <button data-modal-toggle="edit-menu" type="button" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 rounded-lg border border-red-200 text-sm font-medium px-5 py-2.5 hover:text-red-900 focus:z-10 dark:bg-red-700 dark:text-red-300 dark:border-red-500 dark:hover:text-white dark:hover:bg-red-600">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit modal -->
+    <div id="delete-menu" aria-hidden="true" class="hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-4 left-0 right-0 md:inset-0 z-50 justify-center items-center">
+        <div class="relative w-full max-w-2xl px-4 h-full md:h-auto">
+            <!-- Modal content -->
+            <div class="bg-white rounded-lg shadow relative dark:bg-gray-700">
+                <!-- Modal header -->
+                <div class="flex items-start justify-between p-5 border-b rounded-t bg-red-600 border-gray-600">
+                    <h3 class="text-gray-900 text-xl lg:text-2xl font-semibold dark:text-white">
+                        Delete Confirmation
+                    </h3>
+                    <button type="button" class="text-gray-600 bg-transparent hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:text-gray-900" data-modal-toggle="delete-menu">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="text-white p-6 space-y-6">
+                    Modal content
+                </div>
+
+                <!-- Modal footer -->
+                <div class="flex space-x-2 items-center p-6 border-t border-gray-200 rounded-b dark:border-gray-600">
+                    <button data-modal-toggle="delete-menu" type="button" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Yes</button>
+                    <button data-modal-toggle="delete-menu" type="button" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 rounded-lg border border-red-200 text-sm font-medium px-5 py-2.5 hover:text-red-900 focus:z-10 dark:bg-red-700 dark:text-red-300 dark:border-red-500 dark:hover:text-white dark:hover:bg-red-600">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
