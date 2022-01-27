@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 26, 2022 at 03:06 PM
+-- Generation Time: Jan 27, 2022 at 03:13 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.23
 
@@ -177,7 +177,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `email`, `password_hash`, `created_at`, `updated_at`, `activation_hash`, `status_id`, `is_active`, `password_reset_hash`, `password_reset_expires_at`) VALUES
 (20, 'John Andrew', 'john@example.com', '$2y$10$MOb5mkUXsJ8DsRBJQwlPluMKk47/4LRvSQIkDmS/EZPF1zxW91OAO', '2022-01-17 14:46:31', '0000-00-00 00:00:00', NULL, 2, 1, NULL, NULL),
 (21, 'Sarah John', 'sarah@example.com', '$2y$10$PwTaIneiKpKisoC.rl83L.uy4LlL2xh3DyQ64mIxJh6zPRNaZZ1gK', '2022-01-17 14:50:45', '0000-00-00 00:00:00', NULL, 2, 1, NULL, NULL),
-(41, 'Sige Boy', 'sige@example.com', '$2y$10$Y15F6YiTnoIEsPN1cHqPNeZ4ix.zpgI88K7M/a9uJDSccSIYtJlDu', '2022-01-26 09:44:01', '0000-00-00 00:00:00', 'a7498c04a97d73d51c62f4e0c9a1728d3276a5ec12bf4f8a44afb9be96e97508', 2, 0, NULL, NULL);
+(41, 'Sige Boy', 'sige@example.com', '$2y$10$Y15F6YiTnoIEsPN1cHqPNeZ4ix.zpgI88K7M/a9uJDSccSIYtJlDu', '2022-01-26 09:44:01', '0000-00-00 00:00:00', 'a7498c04a97d73d51c62f4e0c9a1728d3276a5ec12bf4f8a44afb9be96e97508', 2, 0, NULL, NULL),
+(42, 'jsjsj hdask', 'jadf@drfjk.df', '$2y$10$91EJsYM8S5KqVe0nGqQgAuYCVRO/7KFgvxAq3noJzyOX2ZSQWayoW', '2022-01-27 15:02:16', '0000-00-00 00:00:00', '1d1c77a24ab23b044fba7bc2ebdd704866939a1a6cc6d9ab3b1b215e44f76d1e', 2, 0, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -280,7 +281,7 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- Constraints for dumped tables
