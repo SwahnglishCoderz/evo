@@ -12,6 +12,7 @@ declare (strict_types = 1);
 
 namespace App\Controllers;
 
+use App\Models\MenuModel;
 use App\Models\SectionModel;
 use Evo\View;
 
@@ -21,7 +22,12 @@ class Section extends Authenticated
     {
         // retrieve details of all sections from the DB
         $sections = (new SectionModel)->getRepository()->findAll();
-        View::renderTemplate('section/index.html', ['sections' => $sections]);
+        $menus = (new MenuModel)->getRepository()->findAll();
+
+        View::renderTemplate('section/index.html', [
+            'sections' => $sections,
+            'menus' => $menus,
+        ]);
     }
 
     public function new()
