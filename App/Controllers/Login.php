@@ -24,11 +24,8 @@ class Login extends BaseController
     public function create()
     {
         $user = new UserModel($_POST);
-//        print_r($_POST);
-//        exit;
         $auth = $user->authenticate($_POST['email'], $_POST['password']);
-//        print_r($auth);
-//        exit;
+
         if ($auth)
             $user->id = $auth->id;
 

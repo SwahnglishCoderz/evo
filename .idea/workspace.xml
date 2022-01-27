@@ -2,12 +2,53 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c275ede-d842-4bd5-89bf-c02fd23aab03" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/App/Controllers/Menu.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/App/Views/section/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Base/BaseRedirect.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/mbonea.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mbonea.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controller/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Base/AbstractBaseBootLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/AbstractBaseBootLoader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/Home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/Login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Models/MenuModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Models/MenuModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Models/SectionModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Models/SectionModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Models/UserModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Models/UserModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/adam_dashboard_template.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/adam_dashboard_template.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/error.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/home/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/home/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/includes/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/includes/sidebar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/item/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/item/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/login/new.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/login/new.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/profile/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/profile/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/profile/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/profile/show.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/role/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/role/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/section/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/section/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/table_template.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/table_template.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Auth/Authenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Auth/Authenticator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Auth/Authorized.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Auth/Authorized.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Base/AbstractBaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/AbstractBaseController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Base/BaseApplication.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/BaseApplication.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Base/BaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/BaseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Base/Domain/Actions/LoginAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/Domain/Actions/LoginAction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Collection/Collection.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Collection/Collection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Orm/ClientRepository/AbstractClientRepositoryValidation.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/ClientRepository/AbstractClientRepositoryValidation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Orm/ClientRepository/ClientRepositoryFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/ClientRepository/ClientRepositoryFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Session/SessionConfig.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Session/SessionConfig.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Session/SessionTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Session/SessionTrait.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/UserManager/Security/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/UserManager/Security/SecurityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/UserManager/UserModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/UserManager/UserModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Utility/Sanitizer.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Utility/Sanitizer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Utility/Validator.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Utility/Validator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evo.sql" beforeDir="false" afterPath="$PROJECT_DIR$/evo.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/tailwind_cdn.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/tailwind_cdn.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +59,13 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -26,18 +74,36 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/vendor/clue/stream-filter" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/vendor/phpmailer/phpmailer" />
+      <path value="$PROJECT_DIR$/vendor/php-http/promise" />
+      <path value="$PROJECT_DIR$/vendor/php-http/message-factory" />
+      <path value="$PROJECT_DIR$/vendor/php-http/message" />
+      <path value="$PROJECT_DIR$/vendor/php-http/httplug" />
+      <path value="$PROJECT_DIR$/vendor/php-http/guzzle6-adapter" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/dotenv" />
       <path value="$PROJECT_DIR$/vendor/symfony/string" />
       <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/property-info" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
       <path value="$PROJECT_DIR$/vendor/symfony/property-access" />
       <path value="$PROJECT_DIR$/vendor/symfony/yaml" />
       <path value="$PROJECT_DIR$/vendor/symfony/serializer" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
       <path value="$PROJECT_DIR$/vendor/paragonie/constant_time_encoding" />
-      <path value="$PROJECT_DIR$/vendor/symfony/dotenv" />
       <path value="$PROJECT_DIR$/vendor/paragonie/anti-csrf" />
-      <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/phar-io/version" />
       <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
       <path value="$PROJECT_DIR$/vendor/psr/cache" />
@@ -49,7 +115,6 @@
       <path value="$PROJECT_DIR$/vendor/phpunit/php-invoker" />
       <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
       <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
-      <path value="$PROJECT_DIR$/vendor/phpmailer/phpmailer" />
       <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
       <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
       <path value="$PROJECT_DIR$/vendor/mockery/mockery" />
@@ -78,31 +143,14 @@
       <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
       <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />
       <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
       <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
-      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
       <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
       <path value="$PROJECT_DIR$/vendor/symfony/console" />
       <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
       <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
       <path value="$PROJECT_DIR$/vendor/symfony/serializer-pack" />
-      <path value="$PROJECT_DIR$/vendor/php-http/guzzle6-adapter" />
-      <path value="$PROJECT_DIR$/vendor/php-http/httplug" />
-      <path value="$PROJECT_DIR$/vendor/php-http/message" />
-      <path value="$PROJECT_DIR$/vendor/php-http/message-factory" />
-      <path value="$PROJECT_DIR$/vendor/php-http/promise" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php72" />
-      <path value="$PROJECT_DIR$/vendor/clue/stream-filter" />
-      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
-      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
-      <path value="$PROJECT_DIR$/vendor/twig/twig" />
-      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
-      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
-      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
     </include_path>
   </component>
   <component name="ProjectId" id="24BX3AtFeUC4gCNZyyWzU3P0s1F" />
@@ -116,21 +164,25 @@
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="sqlserver&#10;mariadb" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/App/Controller" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/App/Views" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\mbonea\App\Controller" />
+      <recent name="C:\xampp\htdocs\mbonea\App\Views" />
+      <recent name="C:\xampp\htdocs\mbonea\App\Controllers" />
+      <recent name="C:\xampp\htdocs\mbonea\App\Models" />
       <recent name="C:\xampp\htdocs\mbonea\App" />
+      <recent name="C:\xampp\htdocs\mbonea\App\Controller" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\mbonea\Core" />
       <recent name="C:\xampp\htdocs\mbonea\Core\Base" />
       <recent name="C:\xampp\htdocs\mbonea\Core\Base\Traits" />
       <recent name="C:\xampp\htdocs\mbonea\App\Entity" />
@@ -145,8 +197,8 @@
       <option name="presentableId" value="Default" />
       <updated>1643104755276</updated>
       <workItem from="1643111592476" duration="2248000" />
-      <workItem from="1643113909839" duration="6357000" />
-      <workItem from="1643173356688" duration="10420000" />
+      <workItem from="1643113909839" duration="5621000" />
+      <workItem from="1643260720883" duration="21069000" />
     </task>
     <servers />
   </component>
@@ -164,20 +216,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php-line-method">
-          <url>file://$PROJECT_DIR$/Core/Router/Router.php</url>
-          <line>86</line>
-          <properties>
-            <option name="className" value="\Evo\Router\Router" />
-            <option name="methodName" value="dispatchWithException" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

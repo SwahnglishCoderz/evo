@@ -17,6 +17,7 @@ use App\Flash;
 use App\Models\MenuModel;
 use App\Models\SectionModel;
 use App\Models\UserModel;
+use Evo\Auth\Authorized;
 use Evo\Base\BaseController;
 use Evo\View;
 use Evo\Base\Exception\BaseInvalidArgumentException;
@@ -41,31 +42,29 @@ class SecurityController extends \Evo\UserManager\Security\SecurityController
     public function login()
     {
         $user = new UserModel($_POST);
+
+        $cleanData = $user->cleanSubmittedData();
+        $auth = $this->authenticator->authenticate($cleanData['email'], $cleanData['password']);
+
         echo '<pre>';
-//        print_r($_POST);
-//        exit;
-        $auth = $user->authenticate($_POST['email'], $_POST['password']);
 //        print_r($auth);
 //        exit;
-        if ($auth)
-            $user->id = $auth->id;
 
         $remember_me = isset($_POST['remember_me']);
-//        print_r($user);
-//        exit;
 
-        if ($user) {
-//            echo "User yupo.";
+        if ($auth) {
+            Auth::login($auth, $remember_me);
+//            print_r($_SESSION);
 //            exit;
-            Auth::login($user, $remember_me);
+//            Authorized::login($auth, $remember_me);
 
             Flash::addMessageToFlashNotifications('Login successful');
 
             $this->redirect(Auth::getReturnToPage());
-
-        } else {
-//            echo "user hayupo";
+//            print_r($_SESSION);
 //            exit;
+//            $this->redirect(Authorized::getReturnToPage());
+        } else {
             Flash::addMessageToFlashNotifications('Login unsuccessful, please try again', Flash::WARNING);
 
             View::renderTemplate('login/new.html', [
@@ -78,11 +77,12 @@ class SecurityController extends \Evo\UserManager\Security\SecurityController
     /**
      * @throws Exception
      */
-    public function destroy()
+    public function logout()
     {
         Auth::logout();
+//        Authorized::logout();
 
-        $this->redirect('/login/show-logout-message');
+        $this->redirect('/security/show-logout-message');
     }
 
     /**

@@ -24,13 +24,6 @@ class Home extends BaseController
         $sections = (new SectionModel())->getRepository()->findAll();
         $menus = (new MenuModel())->getRepository()->findAll();
 
-//        echo '<pre>';
-//        print_r($sections);
-//
-//        echo '<pre>';
-//        print_r($menus);
-//        exit;
-
         View::renderTemplate('home/index.html', [
             'sections' => $sections,
             'menus' => $menus,

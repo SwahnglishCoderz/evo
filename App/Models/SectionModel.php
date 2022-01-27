@@ -13,6 +13,7 @@ declare (strict_types = 1);
 namespace App\Models;
 
 use App\Entity\SectionEntity;
+use App\Token;
 use Evo\Base\AbstractBaseModel;
 use Evo\Base\Exception\BaseInvalidArgumentException;
 use Evo\View;
@@ -40,5 +41,10 @@ class SectionModel extends AbstractBaseModel
     public function guardedID(): array
     {
         return [];
+    }
+
+    public function save(): bool
+    {
+        echo '<pre>Saving the data';
     }
 }

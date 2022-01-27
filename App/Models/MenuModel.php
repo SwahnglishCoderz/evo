@@ -12,7 +12,7 @@ declare (strict_types = 1);
 
 namespace App\Models;
 
-use App\Entity\SectionEntity;
+use App\Entity\MenuEntity;
 use Evo\Base\AbstractBaseModel;
 use Evo\Base\Exception\BaseInvalidArgumentException;
 use Evo\View;
@@ -31,7 +31,7 @@ class MenuModel extends AbstractBaseModel
      */
     public function __construct()
     {
-        parent::__construct(self::TABLESCHEMA, self::TABLESCHEMAID, SectionEntity::class);
+        parent::__construct(self::TABLESCHEMA, self::TABLESCHEMAID, MenuEntity::class);
     }
 
     /**

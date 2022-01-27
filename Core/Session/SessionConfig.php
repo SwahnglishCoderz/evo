@@ -47,7 +47,6 @@ class SessionConfig
                 'pdo_storage' => [
                     'class' => '\Evo\Session\Storage\PdoSessionStorage',
                     'default' => false
-
                 ]
             ]
         ];

@@ -5,6 +5,7 @@ namespace Evo\Base;
 use App\Auth;
 use App\Flash;
 use Evo\Base\BaseApplication;
+use Evo\Base\BaseRedirect;
 use Evo\Base\Exception\BaseBadMethodCallException;
 use Evo\Ash\Exception\FileNotFoundException;
 //use Evo\Base\Events\BeforeRenderActionEvent;
@@ -14,7 +15,6 @@ use Evo\Base\Traits\ControllerPrivilegeTrait;
 use Evo\Utility\Yaml;
 use Evo\Base\BaseView;
 use Evo\Auth\Authorized;
-use Evo\Base\BaseRedirect;
 //use Evo\Session\Flash\Flash;
 use Evo\Session\SessionTrait;
 use Evo\Ash\TemplateExtension;
@@ -92,10 +92,29 @@ class BaseController extends AbstractBaseController
     /**
      * Redirect to a different page
      */
-    public function redirect(string $url)
+//    public function redirect(string $url)
+//    {
+//        header('Location: http://' . $_SERVER['HTTP_HOST'] . $url, true, 303);
+//        exit;
+//    }
+
+    public function redirect(string $url, bool $replace = true, int $responseCode = 303)
     {
-        header('Location: http://' . $_SERVER['HTTP_HOST'] . $url, true, 303);
-        exit;
+//        print_r($_SESSION);
+//        exit;
+        $this->redirect = new BaseRedirect(
+            $url,
+            $this->routeParams,
+            $replace,
+            $responseCode
+        );
+
+//        print_r($this->redirect);
+//        exit;
+
+        if ($this->redirect) {
+            $this->redirect->redirect();
+        }
     }
 
     /**
@@ -125,5 +144,93 @@ class BaseController extends AbstractBaseController
     public function getRouteParams(): array
     {
         return $this->routeParams;
+    }
+
+    public function getRoutes(): array
+    {
+        return $this->routeParams;
+    }
+
+    /**
+     * Returns the session object for use throughout any controller. Can be used
+     * to call any of the methods defined with the session class
+     */
+    public function getSession(): object
+    {
+        return SessionTrait::sessionFromGlobal();
+    }
+
+
+
+    public function onSelf()
+    {
+        if (isset($_SERVER['REQUEST_URI'])) {
+            return $_SERVER['REQUEST_URI'];
+        }
+    }
+
+    public function getSiteUrl(?string $path = null): string
+    {
+        return sprintf(
+            "%s://%s%s",
+            isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
+            $_SERVER['SERVER_NAME'],
+            ($path !== null) ? $path : $_SERVER['REQUEST_URI']
+        );
+    }
+
+    /**
+     * Combination method which encapsulate the flashing and redirecting all within
+     * a single method. Use the relevant arguments to customize the output
+     */
+    public function flashAndRedirect(bool $action, ?string $redirect = null, string $message, string $type = FlashType::SUCCESS): void
+    {
+        if (is_bool($action)) {
+            $this->flashMessage($message, $type);
+            $this->redirect(($redirect === null) ? $this->onSelf() : $redirect);
+        }
+    }
+
+    /**
+     * Returns the session based flash message
+     */
+    public function flashMessage(string $message, string $type = FlashType::SUCCESS)
+    {
+        $flash = (new Flash(SessionTrait::sessionFromGlobal()))->add($message, $type);
+        if ($flash) {
+            return $flash;
+        }
+    }
+
+    /**
+     * Returns the session based flash message type warning as string
+     */
+    public function flashWarning(): string
+    {
+        return FlashType::WARNING;
+    }
+
+    /**
+     * Returns the session based flash message type success as string
+     */
+    public function flashSuccess(): string
+    {
+        return FlashType::SUCCESS;
+    }
+
+    /**
+     * Returns the session based flash message type danger as string
+     */
+    public function flashDanger(): string
+    {
+        return FlashType::DANGER;
+    }
+
+    /**
+     * Returns the session based flash message type info as string
+     */
+    public function flashInfo(): string
+    {
+        return FlashType::INFO;
     }
 }

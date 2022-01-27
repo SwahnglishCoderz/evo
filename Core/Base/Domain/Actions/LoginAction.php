@@ -24,7 +24,6 @@ use Evo\Base\Domain\DomainActionLogicInterface;
  */
 class LoginAction implements DomainActionLogicInterface
 {
-
     use DomainTraits;
 
     /**

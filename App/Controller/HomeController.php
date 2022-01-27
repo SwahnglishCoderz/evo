@@ -30,8 +30,8 @@ class HomeController extends BaseController
 //        echo '<pre>';
 //        print_r('Home Controller');
         
-//         $sections = (new SectionModel())->getRepository()->findAll();
-//         $menus = (new MenuModel())->getRepository()->findAll();
+         $sections = (new SectionModel())->getRepository()->findAll();
+         $menus = (new MenuModel())->getRepository()->findAll();
 
 //        echo '<pre>';
 //        print_r($sections);
@@ -39,10 +39,15 @@ class HomeController extends BaseController
 //        echo '<pre>';
 //        print_r($menus);
 //        exit;
+//        $session = $_SESSION;
+//        echo '<pre>';
+//        print_r($session);
+//        exit;
 
          View::renderTemplate('home/index.html', [
-        //     'sections' => $sections,
-        //     'menus' => $menus,
+             'sections' => $sections,
+             'menus' => $menus,
+//             'session' => $session,
          ]);
     }
 }

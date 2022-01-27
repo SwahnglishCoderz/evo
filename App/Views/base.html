@@ -44,31 +44,6 @@
 
                     {% include 'includes/sidebar.html' %}
 
-<!--                    <div class="sidebar-content px-4 py-6">-->
-<!--                        <ul class="flex flex-col w-full">-->
-<!--                            <li class="my-px">-->
-<!--                                <a href="/" class="flex flex-row items-center h-10 px-3 rounded-lg text-white">-->
-<!--                                <i class="fas fa-home text-white"></i>-->
-<!--                                <span class="ml-3">Home</span></a>-->
-<!--                            </li>-->
-<!--                            {% for section in sections %}-->
-<!--                                <li class="my-px"><span class="flex font-medium text-lg text-gray-300 px-4 mt-3 capitalize">{{ section.name }}</span></li>-->
-<!--                                &lt;!&ndash; check if menus are available &ndash;&gt;-->
-<!--                                {% for menu in menus %}-->
-<!--                                    {% if menu.section_id == section.id %}-->
-<!--                                        <li class="my-px ml-3">-->
-<!--                                            <a href="{{ menu.link }}" class="flex flex-row items-center h-4 px-3 mt-3 rounded-lg text-gray-300 hover:text-white">-->
-<!--                                                    <span class="flex items-center justify-center text-sm ml-3 text-green-400">-->
-<!--                                                        <i class="{{ menu.icon }} text-sm text-gray-300"></i>-->
-<!--                                                    </span>-->
-<!--                                                <span class="ml-2 capitalize">{{ menu.name }}</span>-->
-<!--                                            </a>-->
-<!--                                        </li>-->
-<!--                                    {% endif %}-->
-<!--                                {% endfor %}-->
-<!--                            {% endfor %}-->
-<!--                        </ul>-->
-<!--                    </div>-->
                 </aside>
             {% endif %}
 
@@ -110,7 +85,7 @@
                                     </a>
                                 </li>
                                 <li class="mr-6">
-                                    <a href="/logout" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900  hover:border-pink-400">
+                                    <a href="/security/logout" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900  hover:border-pink-400">
                                         <i class="fas fa-sign-out-alt fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Logout</span>
                                     </a>
                                 </li>
@@ -148,11 +123,15 @@
                 </header>
 
                 <div class="main-content flex flex-col flex-grow p-4">
-                    <h1 class="font-bold text-4xl text-gray-700">
-                        {% if current_user %}
-                            {% block heading %}{% endblock %}
-                        {% endif %}
-                    </h1>
+
+                    {% if current_user %}
+                        <div class="bg-white rounded-lg p-8 text-center">
+                            <h1 class="font-bold text-4xl float-left text-gray-700">
+                                    {% block heading %}{% endblock %}
+                            </h1>
+                            {% block add_button %}{% endblock %}
+                        </div>
+                    {% endif %}
 
                     <div class="flex flex-col flex-grow bg-gray-100 rounded">
                         <!--error-->
@@ -200,7 +179,7 @@
             </main>
 
             <div class="text-white py-3 px-4 text-center fixed left-0 bottom-0 right-0 z-40">
-                 <span class="text-blue-900 text-base xl:text-xl no-underline hover:no-underline font-bold"  href="#">
+                 <span class="text-blue-900 text-base xl:text-xl no-underline hover:no-underline font-bold">
                      <i class="fas fa-snowflake text-blue-900 pr-3"></i> evo
                  </span>
             </div>

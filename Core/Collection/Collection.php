@@ -138,8 +138,6 @@ class Collection implements CollectionInterface
 
     /**
      * Shift the first element of the collection items
-     *
-     * @return mixed
      */
     public function shift()
     {

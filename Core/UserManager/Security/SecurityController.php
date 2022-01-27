@@ -22,12 +22,11 @@ use Evo\Auth\Authenticator;
 use Evo\Base\BaseController;
 use Evo\Base\Domain\Actions\LoginAction;
 use Evo\Base\Domain\Actions\LogoutAction;
-//use Evo\Base\Domain\Actions\SessionExpiredAction;
+use Evo\Base\Domain\Actions\SessionExpiredAction;
 use Evo\Base\Exception\BaseInvalidArgumentException;
 
 class SecurityController extends BaseController
 {
-
     /**
      * Extends the base constructor method. Which gives us access to all the base
      * methods implemented within the base controller class.
@@ -39,7 +38,7 @@ class SecurityController extends BaseController
     {
         parent::__construct($routeParams);
         /**
-         * Dependencies are defined within a associative array like example below
+         * Dependencies are defined within an associative array like example below
          * [ userModel => \App\Model\UserModel::class ]. Where the key becomes the
          * property for the userModel object like so $this->userModel->getRepo();
          */
@@ -47,10 +46,10 @@ class SecurityController extends BaseController
             [
                 'loginForm' => LoginForm::class,
                 'logoutForm' => LogoutForm::class,
-//                'sessionExpiredAction' => SessionExpiredAction::class,
+                'sessionExpiredAction' => SessionExpiredAction::class,
                 'authenticator' => Authenticator::class,
                 'loginAction' => LoginAction::class,
-//                'logoutAction' => LogoutAction::class,
+                'logoutAction' => LogoutAction::class,
             ]
         );
     }
@@ -77,12 +76,13 @@ class SecurityController extends BaseController
      */
     protected function indexAction()
     {
-        $this->loginAction
-            ->execute($this, NULL, LoginActionEvent::class, NULL, __METHOD__)
-            ->render()
-            ->with()
-            ->form($this->loginForm)
-            ->end();
+        echo "Security/SecurityController@indexAction";
+//        $this->loginAction
+//            ->execute($this, NULL, LoginActionEvent::class, NULL, __METHOD__)
+//            ->render()
+//            ->with()
+//            ->form($this->loginForm)
+//            ->end();
 
     }
 

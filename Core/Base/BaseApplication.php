@@ -62,7 +62,6 @@ class BaseApplication extends AbstractBaseBootLoader
      */
     public function setConfig(): self
     {
-        // $this->appConfig = $ymlApp ?? Config::APP;
         $this->appConfig = Config::APP;
         return $this;
     }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 23, 2022 at 03:25 PM
+-- Generation Time: Jan 26, 2022 at 03:06 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.23
 
@@ -58,7 +58,9 @@ CREATE TABLE `menu` (
 INSERT INTO `menu` (`id`, `name`, `description`, `link`, `title_tag`, `icon`, `position`, `parent`, `section_id`) VALUES
 (1, 'role', 'All roles available, to which users are assigned', '/role/index', 'Roles', 'fas fa-tasks', 1, NULL, 2),
 (2, 'permissions', 'All available permissions, that can be assigned to specific roles.', '/permission/index', 'Permissions', 'fas fa-lock', 2, NULL, 2),
-(4, 'all users', 'This the users index page', '/user/index', 'Users', 'fas fa-users', 0, NULL, 1);
+(4, 'all users', 'This the users index page', '/user/index', 'Users', 'fas fa-users', 1, NULL, 1),
+(5, 'section management', 'All sections will be managed here', '/section/index', 'Sections', 'fas fa-chart-pie', 1, NULL, 3),
+(6, 'menu management', 'All menus will be managed here', '/menu/index', 'Menus', 'fas fa-bars', 2, NULL, 3);
 
 -- --------------------------------------------------------
 
@@ -173,9 +175,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password_hash`, `created_at`, `updated_at`, `activation_hash`, `status_id`, `is_active`, `password_reset_hash`, `password_reset_expires_at`) VALUES
-(20, 'Jean Kyle', 'john@example.com', '$2y$10$MOb5mkUXsJ8DsRBJQwlPluMKk47/4LRvSQIkDmS/EZPF1zxW91OAO', '2022-01-17 14:46:31', '0000-00-00 00:00:00', NULL, 2, 1, NULL, NULL),
+(20, 'John Andrew', 'john@example.com', '$2y$10$MOb5mkUXsJ8DsRBJQwlPluMKk47/4LRvSQIkDmS/EZPF1zxW91OAO', '2022-01-17 14:46:31', '0000-00-00 00:00:00', NULL, 2, 1, NULL, NULL),
 (21, 'Sarah John', 'sarah@example.com', '$2y$10$PwTaIneiKpKisoC.rl83L.uy4LlL2xh3DyQ64mIxJh6zPRNaZZ1gK', '2022-01-17 14:50:45', '0000-00-00 00:00:00', NULL, 2, 1, NULL, NULL),
-(35, 'Sige Boy', 'sige@example.com', '$2y$10$fgYL6Q/VCprefMdOUpoci.ZzY1HoyiY92zeqVc1ILr1ufeM77bHIi', '2022-01-23 11:59:52', '0000-00-00 00:00:00', '6f083605a48b1db7d5c86c0d5d544ce18335bc16d8128a4fc0273c62141f1104', 2, 0, NULL, NULL);
+(41, 'Sige Boy', 'sige@example.com', '$2y$10$Y15F6YiTnoIEsPN1cHqPNeZ4ix.zpgI88K7M/a9uJDSccSIYtJlDu', '2022-01-26 09:44:01', '0000-00-00 00:00:00', 'a7498c04a97d73d51c62f4e0c9a1728d3276a5ec12bf4f8a44afb9be96e97508', 2, 0, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -248,7 +250,7 @@ ALTER TABLE `access`
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `permission`
@@ -278,7 +280,7 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- Constraints for dumped tables

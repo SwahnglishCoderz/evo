@@ -47,7 +47,9 @@ class Authorized
     {
         /* Set userID Session here */
         session_regenerate_id(true);
+
         SessionTrait::registerUserSession($userModel->id ?? false);
+
         if ($rememberMe) {
             $rememberLogin = new RememberedLogin();
             list($token, $timestampExpiry) = $rememberLogin->rememberedLogin($userModel->id);
@@ -75,7 +77,7 @@ class Authorized
     {
         $userSessionID = self::getCurrentSessionID();
         if (isset($userSessionID)) {
-            return (new UserModel())->getRepo()->findObjectBy(['id' => $userSessionID], self::FIELD_SESSIONS);
+            return (new UserModel())->getRepository()->findObjectBy(['id' => $userSessionID], self::FIELD_SESSIONS);
         } else {
             $user = self::loginFromRemembermeCookie();
             if ($user) {
@@ -94,7 +96,6 @@ class Authorized
         if (self::getCurrentSessionID() !=null) {
             SessionTrait::SessionFromGlobal()->invalidate();
             self::forgetLogin();
-
         }
     }
 
@@ -113,6 +114,8 @@ class Authorized
     public static function getReturnToPage() : string
     {
         $page = SessionTrait::sessionFromGlobal()->get('return_to');
+//        print_r($page);
+//        exit;
         return $page ?? '/';
     }
 

@@ -2,11 +2,9 @@
 
 {% block title %}Home{% endblock %}
 
-
-
 {% block body %}
 
-    {% if current_user %}
+    {% if session %}
         {% block heading %}Dashboard{% endblock %}
 
         <div class="w-full px-4 md:px-0 md:mt-8 mb-16 text-gray-800 leading-normal">

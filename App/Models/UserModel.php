@@ -14,7 +14,8 @@ namespace App\Models;
 
 use App\Entity\UserEntity;
 use Evo\Base\AbstractBaseModel;
-use Evo\Model;
+//use Evo\Model;
+use Evo\Base\Exception\BaseException;
 use Evo\Status;
 use Exception;
 use PDO;
@@ -30,6 +31,8 @@ class UserModel extends AbstractBaseModel
 
     public array $errors = [];
 
+    protected array $dirtyData = [];
+
     /**
      * Main constructor class which passes the relevant information to the
      * base model parent constructor. This allows the repository to fetch the
@@ -40,9 +43,10 @@ class UserModel extends AbstractBaseModel
     {
         parent::__construct(self::TABLESCHEMA, self::TABLESCHEMAID, UserEntity::class);
 
-        foreach ($data as $key => $value) {
-            $this->$key = $value;
-        };
+        $this->dirtyData = $data;
+//        echo '<pre>';
+//        print_r($this->entity);
+//        exit;
     }
 
     /**
@@ -51,6 +55,14 @@ class UserModel extends AbstractBaseModel
     public function guardedID(): array
     {
         return ['id'];
+    }
+
+    /**
+     * @throws BaseException
+     */
+    public function cleanSubmittedData(): \Evo\Collection\Collection
+    {
+        return $this->entity->wash($this->dirtyData)->rinse()->dry();
     }
 
     public function getNameForSelectField($id, $field_names = [])
@@ -138,10 +150,10 @@ class UserModel extends AbstractBaseModel
     {
         return (new UserModel)->getRepository()->findObjectBy(['email' => $email]);
     }
-
-    /**
-     * Authenticate a user by email and password. User account has to be active.
-     */
+//
+//    /**
+//     * Authenticate a user by email and password. User account has to be active.
+//     */
     public static function authenticate(string $email, string $password)
     {
         $user = static::findByEmail($email);

@@ -9,9 +9,6 @@ class Validator
 
     /**
      * Undocumented function
-     *
-     * @param string $email
-     * @return mixed
      */
     public static function email(string $email)
     {

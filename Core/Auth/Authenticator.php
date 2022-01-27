@@ -18,10 +18,10 @@ use Evo\Utility\Validator;
 use Evo\Utility\UtilityTrait;
 use Evo\UserManager\UserModel;
 use Evo\Base\Exception\BaseException;
+use Exception;
 
 class Authenticator
 {
-
     use UtilityTrait;
 
     protected array $errors = [];
@@ -38,33 +38,42 @@ class Authenticator
     private function getUserModel(): ?UserModel
     {
         if (!class_exists(UserModel::class)) {
-            throw new BaseException(UserModel::class . ' class does not exists. This class is required for this component');
+            throw new BaseException(UserModel::class . ' class does not exist. This class is required for this component.');
         } else {
             return (new UserModel());
         }
-
     }
 
     /**
-     * Authenticate the user by their email and password and only if their account 
+     * Authenticate the user by their email and password and only if their account
      * status is active
+     * @throws BaseException
      */
     public function authenticate(string $email, string $password): ?object
     {
         $this->repository = $this->getUserModel();
+//        echo '<pre>';
+//        print_r($this->repository);
+//        exit;
 
         /* check for validation errors */
+//        echo '<pre>';
+//        print_r($this->validate(['email' => $email, 'password_hash' => $password]));
+//        exit;
         $this->validate(['email' => $email, 'password_hash' => $password]);
-        $this->user = $this->repository->getRepo()->findObjectBy(['email' => $email]);
+        $this->user = $this->repository->getRepository()->findObjectBy(['email' => $email]);
         if (empty($this->errors)) {
-            if ($this->user && $this->user->status === 'active') {
-                if (password_verify($password, $this->user->password_hash)) {            
+//            if ($this->user && $this->user->status === 'active') {
+            if ($this->user && $this->user->is_active === 1) {
+                if (password_verify($password, $this->user->password_hash)) {
                     $this->action = true;
-                    if ($this->user->user_failed_logins !==0) {
-                        $this->forceReset();
-                    }
+//                    echo 'Password verified';
+//                    exit;
+//                    if ($this->user->user_failed_logins !== 0) {
+//                        $this->forceReset();
+//                    }
                     return $this->user;
-                } 
+                }
             }
         } else {
             $this->forceDetected($this->user->email);
@@ -126,7 +135,7 @@ class Authenticator
 
     public function forceDetected(string $email)
     {
-        return $this->repository->getRepo()
+        return $this->repository->getRepository()
             ->getEm()
             ->getCrud()
             ->rawQuery(
@@ -138,7 +147,7 @@ class Authenticator
     public function forceReset()
     {
         // reset the failed login counter for that user
-        return $this->repository->getRepo()
+        return $this->repository->getRepository()
             ->getEm()
             ->getCrud()
             ->rawQuery(
@@ -153,45 +162,61 @@ class Authenticator
      * ensuring that both password and email is not left empty. This a second defence
      * layer has HTML5 would have already validated the inputs for the correct
      * information.
+     * @throws Exception
      */
     public function validate(array $dirtyData): array
     {
         $cleanData = Sanitizer::clean($dirtyData);
+//        echo '<pre>';
+//        print_r($cleanData);
+//        exit;
         if (is_array($cleanData)) {
             foreach ($cleanData as $key => $value) {
+//                echo '<pre>';
+//                print_r($key);
                 switch ($key) {
                     case 'email':
                         if (!Validator::email($value)) {
                             $this->errors[] = Error::display('err_invalid_email');
+//                            echo 'Email is invalid';
                         }
                         if (!$this->repository->emailExists($value, null)) {
                             $this->errors[] = Error::display('err_invalid_account');
                             $this->bruteForce = true;
+//                            echo 'Email does not exist';
                         }
-
+//                        echo 'Tuko hapa';
+//                        exit;
                         if (!$this->repository->accountActive($value)) {
                             $this->errors[] = Error::display('err_account_not_active');
+//                            echo 'Account is not active';
                         }
                         $this->email = $value;
+//                        echo '<pre>';
+//                        print_r($this->email);
                         break;
                     case 'password_hash':
-                        
-                        $user = $this->repository->getRepo()->findObjectBy(['email' => $this->email], ['password_hash', 'user_failed_logins', 'user_last_failed_login']);
-
+                        $user = $this->repository->getRepository()->findObjectBy(['email' => $this->email], ['password_hash'/*, 'user_failed_logins', 'user_last_failed_login'*/]);
+//                        print_r($user);
+//                        exit;
                         if (empty($value)) {
                             $this->errors[] = Error::display('err_password_require');
                             $this->bruteForce = true;
                         }
 
-                        if (($user->user_failed_logins >= (int)$this->security('login_attempts')) && ($user->user_last_failed_login > (time() - (int)$this->security('login_timeout')))) {
-                            $this->errors[] = Error::display('err_password_force');
-                            $this->bruteForce = true;
-                        }
-                        
+//                        if (($user->user_failed_logins >= (int)$this->security('login_attempts')) && ($user->user_last_failed_login > (time() - (int)$this->security('login_timeout')))) {
+//                            $this->errors[] = Error::display('err_password_force');
+//                            $this->bruteForce = true;
+//                        }
+
                         if (isset($user->password_hash)) {
+//                            echo '<pre>';
+//                            echo 'Password hash is set';
+//                            exit;
                             if (!password_verify($value, $user->password_hash)) {
+//                                echo 'Password failed to verify';
                                 $this->errors[] = Error::display('err_invalid_credentials');
-                            }    
+                            }
                         }
                         break;
                     default:

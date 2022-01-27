@@ -4,8 +4,14 @@
 
 {% block heading %}All Sections{% endblock %}
 
-{% block body %}
+{% block add_button %}
+    <a href="/section/create" class="float-right mr-10 inline-flex items-center justify-center space-x-2 py-3 px-4 border border-transparent text-sm font-medium rounded text-green-600 hover:text-green-700 bg-green-50 hover:bg-green-100 transition-colors">
+        <i class='fas fa-plus-circle'></i>
+        <div>Add Section</div>
+    </a>
+{% endblock %}
 
+{% block body %}
 
 <!--    <h1 class="text-4xl text-center">All Sections</h1>-->
 

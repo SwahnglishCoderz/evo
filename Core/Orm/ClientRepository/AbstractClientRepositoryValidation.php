@@ -109,10 +109,10 @@ Abstract class AbstractClientRepositoryValidation implements ClientRepositoryVal
      *
      * @param array $cleanData
      * @param string $field
-     * @param mixed $default
+     * @param $default
      * @return mixed
      */
-    public function setDefaultValue(array $cleanData, string $field, mixed $default)
+    public function setDefaultValue(array $cleanData, string $field, $default)
     {
         $value = $default;
         if (isset($cleanData[$field]) && $cleanData[$field] !='') {
@@ -153,11 +153,11 @@ Abstract class AbstractClientRepositoryValidation implements ClientRepositoryVal
      * are passing back the same value if nothing was set or changed within the submitted form.
      *
      * @param string $key
-     * @param mixed $cleanData
-     * @param mixed $dataRepository
+     * @param $cleanData
+     * @param $dataRepository
      * @return mixed
      */
-    public function isSet(string $key, mixed $cleanData, mixed $dataRepository = null)
+    public function isSet(string $key, $cleanData, $dataRepository = null)
     {
         if (is_object($cleanData)) {
             return $cleanData->$key ?? (($dataRepository !== null) ? $dataRepository->$key : null);
@@ -168,7 +168,7 @@ Abstract class AbstractClientRepositoryValidation implements ClientRepositoryVal
         }
     }
 
-    public function errorIfExists(string $model, string $fieldName, mixed $value)
+    public function errorIfExists(string $model, string $fieldName, $value)
     {
         if (is_string($fieldName)) {
             $result = (new $model())->getRepo()->findObjectBy([$fieldName => $value], ['*']);
