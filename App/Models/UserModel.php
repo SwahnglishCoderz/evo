@@ -15,7 +15,6 @@ namespace App\Models;
 use App\Entity\UserEntity;
 use Evo\Base\AbstractBaseModel;
 //use Evo\Model;
-use Evo\Base\Exception\BaseException;
 use Evo\Status;
 use Exception;
 use PDO;
@@ -31,8 +30,6 @@ class UserModel extends AbstractBaseModel
 
     public array $errors = [];
 
-    protected array $dirtyData = [];
-
     /**
      * Main constructor class which passes the relevant information to the
      * base model parent constructor. This allows the repository to fetch the
@@ -43,10 +40,9 @@ class UserModel extends AbstractBaseModel
     {
         parent::__construct(self::TABLESCHEMA, self::TABLESCHEMAID, UserEntity::class);
 
-        $this->dirtyData = $data;
-//        echo '<pre>';
-//        print_r($this->entity);
-//        exit;
+        foreach ($data as $key => $value) {
+            $this->$key = $value;
+        };
     }
 
     /**
@@ -55,14 +51,6 @@ class UserModel extends AbstractBaseModel
     public function guardedID(): array
     {
         return ['id'];
-    }
-
-    /**
-     * @throws BaseException
-     */
-    public function cleanSubmittedData(): \Evo\Collection\Collection
-    {
-        return $this->entity->wash($this->dirtyData)->rinse()->dry();
     }
 
     public function getNameForSelectField($id, $field_names = [])
@@ -150,10 +138,10 @@ class UserModel extends AbstractBaseModel
     {
         return (new UserModel)->getRepository()->findObjectBy(['email' => $email]);
     }
-//
-//    /**
-//     * Authenticate a user by email and password. User account has to be active.
-//     */
+
+    /**
+     * Authenticate a user by email and password. User account has to be active.
+     */
     public static function authenticate(string $email, string $password)
     {
         $user = static::findByEmail($email);
@@ -271,7 +259,7 @@ class UserModel extends AbstractBaseModel
         $text = View::getTemplate('Password/reset_email.txt', ['url' => $url]);
         $html = View::getTemplate('Password/reset_email.html', ['url' => $url]);
 
-        Mail::sendMessage($this->email, 'Password reset', $text, $html);
+        Mail::send($this->email, 'Password reset', $text, $html);
     }
 
     /**
@@ -344,12 +332,12 @@ class UserModel extends AbstractBaseModel
      */
     public function sendActivationEmail()
     {
-        $url = 'http://' . $_SERVER['HTTP_HOST'] . '/registration/activate/' . $this->activation_token;
+        $url = 'http://' . $_SERVER['HTTP_HOST'] . '/signup/activate/' . $this->activation_token;
 
-        $text = View::getTemplate('signup/activation_email.txt', ['url' => $url]);
-        $html = View::getTemplate('signup/activation_email.html', ['url' => $url]);
+        $text = View::getTemplate('Signup/activation_email.txt', ['url' => $url]);
+        $html = View::getTemplate('Signup/activation_email.html', ['url' => $url]);
 
-        Mail::sendMessage($this->email, 'Account activation', $text, $html);
+//        Mail::send($this->email, 'Account activation', $text, $html);
     }
 
     /**
@@ -365,15 +353,13 @@ class UserModel extends AbstractBaseModel
                 SET is_active = 1,
                     activation_hash = null
                 WHERE activation_hash = :hashed_token';
-//        print_r($sql);
-//        exit;
 
-//        $db = static::getDB();
-//        $stmt = $db->prepare($sql);
-//
-//        $stmt->bindValue(':hashed_token', $hashed_token, PDO::PARAM_STR);
-//
-//        $stmt->execute();
+        $db = static::getDB();
+        $stmt = $db->prepare($sql);
+
+        $stmt->bindValue(':hashed_token', $hashed_token, PDO::PARAM_STR);
+
+        $stmt->execute();
     }
 
     public function updateProfile(array $data, $id): bool

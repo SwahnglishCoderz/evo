@@ -28,7 +28,8 @@
         <div class="bg-gray-100 rounded-b-lg py-12 px-4 lg:px-24">
             <!--            <p class="text-center text-sm text-gray-500 font-light"> Or sign in with credentials </p>-->
             <p class="text-center text-sm text-gray-500 font-light"> Login with credentials </p>
-            <form method="post" action="/security/login" class="mt-6">
+<!--            <form method="post" action="/security/login" class="mt-6">-->
+            <form method="post" action="/login/create" class="mt-6">
 
                 <div class="relative">
                     <label for="inputEmail"></label>
@@ -51,10 +52,10 @@
                     </div>
                 </div>
 
-<!--                <div class="mt-4 flex items-center text-gray-500">-->
-<!--                    <input name="remember_me" {% if remember_me %} checked="checked"{% endif %} type="checkbox" id="remember" class="mr-3" />-->
-<!--                    <label for="remember">Remember me</label>-->
-<!--                </div>-->
+                <div class="mt-4 flex items-center text-gray-500">
+                    <input name="remember_me" {% if remember_me %} checked="checked"{% endif %} type="checkbox" id="remember" class="mr-3" />
+                    <label for="remember">Remember me</label>
+                </div>
 
                 <div class="flex items-center justify-center mt-8">
                     <button type="submit" class="text-white py-2 px-4 uppercase rounded bg-indigo-500 hover:bg-indigo-600 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5"> Log in </button>

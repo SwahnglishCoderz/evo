@@ -2,53 +2,56 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c275ede-d842-4bd5-89bf-c02fd23aab03" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/App/Controllers/Menu.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Views/section/create.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Base/BaseRedirect.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/mbonea.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mbonea.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/Home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/Login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Models/MenuModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Models/MenuModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Models/SectionModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Models/SectionModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Config.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Config.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Models/UserModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Models/UserModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/adam_dashboard_template.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/adam_dashboard_template.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Views/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/error.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Views/home/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/home/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/includes/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/includes/sidebar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/item/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/item/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Views/login/new.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/login/new.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/profile/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/profile/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/profile/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/profile/show.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/role/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/role/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/section/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/section/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/table_template.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/table_template.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Auth/Authenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Auth/Authenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Auth/Authorized.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Auth/Authorized.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Base/AbstractBaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/AbstractBaseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Base/BaseApplication.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/BaseApplication.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Base/BaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/BaseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Base/Domain/Actions/LoginAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/Domain/Actions/LoginAction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/signup/new.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/signup/new.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Collection/Collection.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Collection/Collection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Collection/CollectionProxy.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Collection/CollectionProxy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Collection/CollectionTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Collection/CollectionTrait.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Container/Container.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Container/Container.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Container/ContainerServicesInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Container/ContainerServicesInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/DataSchema/AbstractDataSchema.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/DataSchema/AbstractDataSchema.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/DataSchema/DataSchemaBaseType.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/DataSchema/DataSchemaBaseType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/DataSchema/DataSchemaBlueprint.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/DataSchema/DataSchemaBlueprint.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/DataSchema/Types/DatetimeType.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/DataSchema/Types/DatetimeType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Orm/ClientRepository/AbstractClientRepositoryValidation.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/ClientRepository/AbstractClientRepositoryValidation.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Orm/ClientRepository/ClientRepositoryFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/ClientRepository/ClientRepositoryFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Session/SessionConfig.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Session/SessionConfig.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Session/SessionTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Session/SessionTrait.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/UserManager/Security/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/UserManager/Security/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/UserManager/UserModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/UserManager/UserModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Utility/Sanitizer.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Utility/Sanitizer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Utility/Validator.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Utility/Validator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evo.sql" beforeDir="false" afterPath="$PROJECT_DIR$/evo.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/tailwind_cdn.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/tailwind_cdn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Orm/DataLayerConfiguration.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/DataLayerConfiguration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Orm/DataLayerEnvironment.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/DataLayerEnvironment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Orm/DataLayerFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/DataLayerFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Orm/DataLayerTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/DataLayerTrait.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Orm/DataMapper/DataMapper.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/DataMapper/DataMapper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Orm/DataMapper/DataMapperFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/DataMapper/DataMapperFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Orm/DataMapper/DataMapperInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/DataMapper/DataMapperInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Orm/DataRepository/DataRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/DataRepository/DataRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Orm/DataRepository/DataRepositoryFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/DataRepository/DataRepositoryFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Orm/DataRepository/DataRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/DataRepository/DataRepositoryInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Orm/DatabaseTransaction/DatabaseTransaction.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/DatabaseTransaction/DatabaseTransaction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Orm/DatabaseTransaction/DatabaseTransactionInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/DatabaseTransaction/DatabaseTransactionInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Orm/Drivers/AbstractDatabaseDriver.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/Drivers/AbstractDatabaseDriver.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Orm/Drivers/DatabaseDriverFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/Drivers/DatabaseDriverFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Orm/Drivers/DatabaseDriverInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/Drivers/DatabaseDriverInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Orm/Drivers/MysqlDatabaseConnection.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/Drivers/MysqlDatabaseConnection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Orm/Drivers/PgsqlDatabaseConnection.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/Drivers/PgsqlDatabaseConnection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Orm/Drivers/SqliteDatabaseConnection.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/Drivers/SqliteDatabaseConnection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Orm/EntityManager/Crud.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/EntityManager/Crud.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Orm/EntityManager/CrudInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/EntityManager/CrudInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Orm/EntityManager/EntityManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/EntityManager/EntityManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Orm/EntityManager/EntityManagerFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/EntityManager/EntityManagerFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Orm/EntityManager/EntityManagerInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/EntityManager/EntityManagerInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Orm/QueryBuilder/AbstractQueryBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/QueryBuilder/AbstractQueryBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Orm/QueryBuilder/Drivers/MysqlQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/QueryBuilder/Drivers/MysqlQuery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Orm/QueryBuilder/Drivers/PqsqlQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/QueryBuilder/Drivers/PqsqlQuery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Orm/QueryBuilder/Drivers/SqliteQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/QueryBuilder/Drivers/SqliteQuery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Orm/QueryBuilder/QueryBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/QueryBuilder/QueryBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Orm/QueryBuilder/QueryBuilderFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/QueryBuilder/QueryBuilderFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Orm/QueryBuilder/QueryBuilderInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/QueryBuilder/QueryBuilderInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,6 +202,8 @@
       <workItem from="1643111592476" duration="2248000" />
       <workItem from="1643113909839" duration="5621000" />
       <workItem from="1643260720883" duration="21069000" />
+      <workItem from="1643282435235" duration="160000" />
+      <workItem from="1643282934740" duration="1235000" />
     </task>
     <servers />
   </component>

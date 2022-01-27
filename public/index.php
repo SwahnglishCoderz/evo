@@ -20,36 +20,36 @@ require_once 'include.php';
 /**
  * Error and Exception handling
  */
-//error_reporting(E_ALL);
-//set_error_handler('Evo\Error::errorHandler');
-//set_exception_handler('Evo\Error::exceptionHandler');
-//
-//
-///**
-// * Sessions
-// */
-//session_start();
-//
-//
-///**
-// * Routing
-// */
-//$router = new Evo\Router();
-//
-//// Authentication routes
-//$router->add('', ['controller' => 'Home', 'action' => 'index']);
-//$router->add('login', ['controller' => 'Login', 'action' => 'new']);
-//$router->add('logout', ['controller' => 'Login', 'action' => 'destroy']);
-//$router->add('password/reset/{token:[\da-f]+}', ['controller' => 'Password', 'action' =>'reset']);
-//$router->add('signup/activate/{token:[\da-f]+}', ['controller' => 'Signup', 'action' => 'activate']);
-//
-//// Dashboard route
-////$router->add('dashboard', ['controller' => 'Dashboard', 'action' => 'index']);
-//
-//// General route pattern
-//$router->add('{controller}/{action}');
-//
-//$router->dispatch($_SERVER['QUERY_STRING']);
+error_reporting(E_ALL);
+set_error_handler('Evo\Error::errorHandler');
+set_exception_handler('Evo\Error::exceptionHandler');
+
+
+/**
+ * Sessions
+ */
+session_start();
+
+
+/**
+ * Routing
+ */
+$router = new Evo\Router();
+
+// Authentication routes
+$router->add('', ['controller' => 'Home', 'action' => 'index']);
+$router->add('login', ['controller' => 'Login', 'action' => 'new']);
+$router->add('logout', ['controller' => 'Login', 'action' => 'destroy']);
+$router->add('password/reset/{token:[\da-f]+}', ['controller' => 'Password', 'action' =>'reset']);
+$router->add('signup/activate/{token:[\da-f]+}', ['controller' => 'Signup', 'action' => 'activate']);
+
+// Dashboard route
+//$router->add('dashboard', ['controller' => 'Dashboard', 'action' => 'index']);
+
+// General route pattern
+$router->add('{controller}/{action}');
+
+$router->dispatch($_SERVER['QUERY_STRING']);
 
 
 /**
@@ -58,27 +58,27 @@ require_once 'include.php';
 
 // print_r(ROOT_PATH);
 
-use Evo\Utility\Yaml;
-use Evo\Logger\LogLevel;
-use Evo\Base\BaseApplication;
-
-try {
-   /* Attempting to run a single instance of the application */
-    BaseApplication::getInstance()
-    ->setPath(ROOT_PATH)
-    ->setConfig()
-////->setErrorHandler(\App\Config::ERROR_HANDLER, E_ALL)
-    ->setSession(\App\Config::SESSION, null, true)
-////->setCookie([])
-////->setCache(\App\Config::CACHE, null, true)
-    ->setRoutes()
-////->setLogger(LOG_PATH, \App\Config::LOGGER_HANDLER['file'], LogLevel::DEBUG, [])
-////->setContainerProviders(\App\Config::PROVIDERS)
-////->setThemeBuilder(Yaml::file('app')['theme_builder'])
-    ->run();
-} catch (Exception $e) {
-    echo $e->getMessage();
-}
+//use Evo\Utility\Yaml;
+//use Evo\Logger\LogLevel;
+//use Evo\Base\BaseApplication;
+//
+//try {
+//   /* Attempting to run a single instance of the application */
+//    BaseApplication::getInstance()
+//    ->setPath(ROOT_PATH)
+//    ->setConfig()
+//////->setErrorHandler(\App\Config::ERROR_HANDLER, E_ALL)
+//    ->setSession(\App\Config::SESSION, null, true)
+//////->setCookie([])
+//////->setCache(\App\Config::CACHE, null, true)
+//    ->setRoutes()
+//////->setLogger(LOG_PATH, \App\Config::LOGGER_HANDLER['file'], LogLevel::DEBUG, [])
+//////->setContainerProviders(\App\Config::PROVIDERS)
+//////->setThemeBuilder(Yaml::file('app')['theme_builder'])
+//    ->run();
+//} catch (Exception $e) {
+//    echo $e->getMessage();
+//}
 
 
 /**

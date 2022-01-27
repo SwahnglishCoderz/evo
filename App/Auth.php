@@ -16,29 +16,22 @@ use App\Models\UserModel;
 use App\Models\RememberedLogin;
 use Evo\Base\AbstractBaseModel;
 use Evo\Base\BaseModel;
-use Evo\Session\SessionFactory;
 use Exception;
 
 class Auth
 {
-
     public static function login(object $user, bool $remember_me, int $id = null)
     {
         session_regenerate_id(true);
-        $_SESSION['user_id'] = $user->id;
 
-//        $factory = new SessionFactory();
-//        $session = $factory->create('session_name', \Evo\Session\Storage\NativeSessionStorage::class, Config::APP['session']);
-//        $session->set('name', '3vo');
-//        echo $session->get('name');
-//        exit;
+        $_SESSION['user_id'] = $user->id;
 
         if ($remember_me) {
 
             if ($user->rememberLogin()) {
 
                 setcookie('remember_me', $user->remember_token, $user->expiry_timestamp, '/');
-
+                
             }
         }
     }
@@ -48,12 +41,8 @@ class Auth
      */
     public static function logout()
     {
-//        print_r($_SESSION);
         // Unset all the session variables
         $_SESSION = [];
-
-//        print_r($_SESSION);
-//        exit;
 
         // Delete the session cookie
         if (ini_get('session.use_cookies')) {
@@ -82,7 +71,6 @@ class Auth
     public static function rememberRequestedPage()
     {
         $_SESSION['return_to'] = $_SERVER['REQUEST_URI'];
-//        $_SESSION['return_to'] = $_SERVER['QUERY_STRING'];
     }
 
     /**
@@ -90,8 +78,6 @@ class Auth
      */
     public static function getReturnToPage()
     {
-//        print_r($_SESSION);
-//        exit;
         return $_SESSION['return_to'] ?? '/';
     }
 

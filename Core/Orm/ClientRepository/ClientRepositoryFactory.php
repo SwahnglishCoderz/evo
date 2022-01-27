@@ -7,7 +7,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 declare(strict_types = 1);
 
 namespace Evo\Orm\ClientRepository;
@@ -61,13 +60,15 @@ class ClientRepositoryFactory
             Dotenv::class,
             ($dataLayerConfiguration !==null) ? $dataLayerConfiguration : NULL,
             ),
-            Config::APP['database']['default_driver'] /* second argument */
+//            Yaml::file('app')['database']['default_driver'] /* second argument */
+            Config::DATABASE['default_driver'] /* second argument */
 
         );
         $factory = new DataLayerFactory($dataLayerEnvironment, $this->tableSchema, $this->tableSchemaID);
         if ($factory) {
             return $factory->dataEntityManagerObject();
         }
+
     }
 
 }

@@ -26,6 +26,8 @@ interface ContainerServicesInterface
 
     /**
      * Get class service or services
+     *
+     * @return array
      */
     public function getServices(): array;
 
@@ -39,6 +41,8 @@ interface ContainerServicesInterface
 
     /**
      * Register service or services with auto-wiring
+     *
+     * @return void
      */
     public function register();
 }

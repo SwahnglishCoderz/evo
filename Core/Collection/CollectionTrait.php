@@ -20,7 +20,7 @@ use Evo\Base\Exception\BaseException;
 trait CollectionTrait
 {
 
-    /** support collection methods */
+    /** @var array - support collection methods */
     protected static array $proxies = [
         'all',
         'avg',

@@ -17,7 +17,7 @@ use Evo\DataSchema\Exception\DataSchemaInvalidArgumentException;
 abstract class AbstractDataSchema implements DataSchemaInterface
 {
 
-    /** database schema settings */
+    /** @var array - database schema settings */
     protected const DEFAULT_SCHEMA = [
         'collate' => 'utf8mb4_unicode_ci',
         'engine' => 'innoDB',
