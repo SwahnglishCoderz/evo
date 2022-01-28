@@ -18,7 +18,6 @@ use PHPMailer\PHPMailer\Exception;
 
 class Mail
 {
-
     public static function sendMessage($to, $subject, $text, $html)
     {
         $mail = new PHPMailer(true);

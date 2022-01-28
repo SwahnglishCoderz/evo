@@ -50,16 +50,13 @@ class Section extends Authenticated
      */
     public function add()
     {
-        echo '<pre>';
         $clean_data = (new SectionModel)->cleanData($_POST)->save();
 
         if ($clean_data) {
             Flash::addMessageToFlashNotifications('Section added successfully');
-
+            $this->redirect(Auth::getReturnToPage());
         } else {
-
             Flash::addMessageToFlashNotifications('Failed to add the section', Flash::WARNING);
-
         }
     }
 

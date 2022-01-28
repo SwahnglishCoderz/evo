@@ -51,20 +51,34 @@ class SectionModel extends AbstractBaseModel
     /**
      * @throws BaseException
      */
-    public function cleanData(array $dirtyData): self
+    public function cleanData($dirtyData): self
     {
         $this->sanitizedData = $this->entity->wash($dirtyData)->rinse()->dry();
         return $this;
     }
 
-    public function getSanitizedData()
+    public function getSanitizedData(): array
     {
         $data = $this->sanitizedData;
+        $assoc_array = [];
+
+        foreach($this->sanitizedData as $key => $value)
+        {
+//            print_r($key);
+//            echo '    ';
+//            print_r($value);
+//            echo '<br />';
+            $assoc_array[$key] = $value;
+        }
+        return $assoc_array;
     }
 
     public function save()
     {
-        echo '<pre>Saving the data<br />';
-//        print_r($this->sanitizedData);
+        $data_array = $this->getSanitizedData();
+//        echo '<pre>Saving the data';
+//        print_r($data_array);
+        return $this->repository->getEm()->getCrud()->create($data_array);
+
     }
 }

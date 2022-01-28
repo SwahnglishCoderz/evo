@@ -43,59 +43,7 @@ $router->add('logout', ['controller' => 'Login', 'action' => 'destroy']);
 $router->add('password/reset/{token:[\da-f]+}', ['controller' => 'Password', 'action' =>'reset']);
 $router->add('signup/activate/{token:[\da-f]+}', ['controller' => 'Signup', 'action' => 'activate']);
 
-// Dashboard route
-//$router->add('dashboard', ['controller' => 'Dashboard', 'action' => 'index']);
-
 // General route pattern
 $router->add('{controller}/{action}');
 
 $router->dispatch($_SERVER['QUERY_STRING']);
-
-
-/**
- * END OF mothercode
- */
-
-// print_r(ROOT_PATH);
-
-//use Evo\Utility\Yaml;
-//use Evo\Logger\LogLevel;
-//use Evo\Base\BaseApplication;
-//
-//try {
-//   /* Attempting to run a single instance of the application */
-//    BaseApplication::getInstance()
-//    ->setPath(ROOT_PATH)
-//    ->setConfig()
-//////->setErrorHandler(\App\Config::ERROR_HANDLER, E_ALL)
-//    ->setSession(\App\Config::SESSION, null, true)
-//////->setCookie([])
-//////->setCache(\App\Config::CACHE, null, true)
-//    ->setRoutes()
-//////->setLogger(LOG_PATH, \App\Config::LOGGER_HANDLER['file'], LogLevel::DEBUG, [])
-//////->setContainerProviders(\App\Config::PROVIDERS)
-//////->setThemeBuilder(Yaml::file('app')['theme_builder'])
-//    ->run();
-//} catch (Exception $e) {
-//    echo $e->getMessage();
-//}
-
-
-/**
- * AREA FOR TESTING BaseApplication LOADED COMPONENTS ABOVE
- * JUST COMMENT THE mothercode LINES TO EXECUTE THIS
- */
-// echo '<pre>';
-// print_r(
-//     BaseApplication::getInstance()
-//     ->setPath(ROOT_PATH)
-//     ->setConfig()
-// //     // ->setErrorHandler(\App\Config::ERROR_HANDLER, E_ALL)
-//     ->setSession(\App\Config::SESSION, null, true)
- //     // ->setCookie([])
-// //     // ->setCache(\App\Config::CACHE, null, true)
-//         ->setRoutes()
-// //     // ->setLogger(LOG_PATH, \App\Config::LOGGER_HANDLER['file'], LogLevel::DEBUG, [])
-// //     // ->setContainerProviders(\App\Config::PROVIDERS)
-// )
-// ;
