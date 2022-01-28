@@ -15,44 +15,21 @@ namespace Evo\Base;
 use Evo\Base\Exception\BaseInvalidArgumentException;
 
 class BaseRedirect
-{ 
-
-    /**
-     * @var string
-     */
+{
     protected string $url;
 
     /**
-     * @var bool
      * Optional. Indicates whether the header should replace a previous similar header or add a new  *
      * header of the same type. Default is TRUE (will replace). FALSE allows multiple headers of the *
      * same type
      */
     protected bool $replace = true;
 
-    /**
-     * @var int
-     * Optional. Forces the HTTP response code to the specified value
-     */
     protected int $responseCode = 303;
-
-    /**
-     * @var array
-     * Returns an array of route parameters from the routing table
-     */
     protected array $routeParams = [];
 
-    /** @var array */
-    protected const ROUTEPARAMS = ['namespace', 'controller', 'action', 'id', 'token'];
+    protected const ROUTE_PARAMS = ['namespace', 'controller', 'action', 'id', 'token'];
 
-    /**
-     * Main constructor class
-     * 
-     * @param string $url
-     * @param bool $replace
-     * @param int $responseCode
-     * @return void
-     */
     public function __construct(string $url, array $routeParams, bool $replace, int $responseCode)
     {
         if (empty($url)) {
@@ -64,16 +41,11 @@ class BaseRedirect
         $this->routeParams = $routeParams;
     }
 
-    /**
-     * Undocumented function
-     *
-     * @return boolean
-     */
     public function validateRouteUrl() : bool
     {   
         $parts = explode('/', $this->url);
         if (count($parts) > 0) {
-            foreach (self::ROUTEPARAMS as $route) {
+            foreach (self::ROUTE_PARAMS as $route) {
                 if (isset($this->routeParams[$route]) && $this->routeParams[$route] !='') {
                     if (!in_array(strtolower($this->routeParams[$route]), array_filter($parts))) {
                         throw new BaseInvalidArgumentException('The controller redirect method is returning an invalid url');
@@ -85,11 +57,6 @@ class BaseRedirect
         return false;
     }
 
-    /**
-     * Undocumented function
-     *
-     * @return void
-     */
     public function redirect() : void
     {
         //$this->validateRouteUrl();
@@ -101,11 +68,9 @@ class BaseRedirect
     }
 
     /**
-     * Determin the entire route string when using this method. In order to
+     * Determine the entire route string when using this method. In order to
      * simply the process return a string path which when pass to the redirect
      * method will attempt to redirect to the given string path
-     *
-     * @return string
      */
     public function _onSelf() : string
     {
@@ -135,5 +100,4 @@ class BaseRedirect
         }*/
     
     }
-
 }

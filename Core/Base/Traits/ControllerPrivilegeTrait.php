@@ -140,7 +140,7 @@ trait ControllerPrivilegeTrait
     /**
      * Return an array of the current route parameters
      */
-    private function getRouteParams()
+    private function getRouteParams(): array
     {
         return $this->routeParams;
     }

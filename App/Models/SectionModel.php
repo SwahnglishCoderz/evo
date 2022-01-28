@@ -17,6 +17,7 @@ use App\Token;
 use Evo\Base\AbstractBaseModel;
 use Evo\Base\Exception\BaseException;
 use Evo\Base\Exception\BaseInvalidArgumentException;
+use Evo\Collection\CollectionInterface;
 use Evo\View;
 use Throwable;
 
@@ -25,7 +26,7 @@ class SectionModel extends AbstractBaseModel
     protected const TABLESCHEMA = 'section';
     protected const TABLESCHEMAID = 'id';
     protected array $dirtyData = [];
-    protected array $sanitizedData = [];
+    protected CollectionInterface $sanitizedData;
 
     /**
      * Main constructor class which passes the relevant information to the
@@ -33,11 +34,10 @@ class SectionModel extends AbstractBaseModel
      * correct information from the database based on the model/entity
      * @throws Throwable
      */
-    public function __construct(array $dirtyData)
+    public function __construct()
     {
         parent::__construct(self::TABLESCHEMA, self::TABLESCHEMAID, SectionEntity::class);
 //        print_r($this->entity);
-        $this->dirtyData = $dirtyData;
     }
 
     /**
@@ -51,9 +51,10 @@ class SectionModel extends AbstractBaseModel
     /**
      * @throws BaseException
      */
-    private function cleanData(){
-        print_r($this->entity->wash($this->dirtyData)->rinse()->dry());
-        exit;
+    public function cleanData(array $dirtyData): self
+    {
+        $this->sanitizedData = $this->entity->wash($dirtyData)->rinse()->dry();
+        return $this;
     }
 
     public function getSanitizedData()
@@ -61,10 +62,9 @@ class SectionModel extends AbstractBaseModel
         $data = $this->sanitizedData;
     }
 
-    public function save(): bool
+    public function save()
     {
-        echo '<pre>Saving the data';
-        print_r($this->sanitizedData);
-
+        echo '<pre>Saving the data<br />';
+//        print_r($this->sanitizedData);
     }
 }

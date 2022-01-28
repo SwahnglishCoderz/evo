@@ -12,6 +12,8 @@ declare (strict_types = 1);
 
 namespace App\Controllers;
 
+use App\Auth;
+use App\Flash;
 use App\Models\MenuModel;
 use App\Models\SectionModel;
 use Evo\View;
@@ -49,10 +51,16 @@ class Section extends Authenticated
     public function add()
     {
         echo '<pre>';
-        echo "<br />Passing the data to the SectionModel<br />";
-        print_r($_POST);
-        $posted_data = new SectionModel($_POST);
+        $clean_data = (new SectionModel)->cleanData($_POST)->save();
 
+        if ($clean_data) {
+            Flash::addMessageToFlashNotifications('Section added successfully');
+
+        } else {
+
+            Flash::addMessageToFlashNotifications('Failed to add the section', Flash::WARNING);
+
+        }
     }
 
     public function edit()
