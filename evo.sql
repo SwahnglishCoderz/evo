@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 27, 2022 at 03:13 PM
+-- Generation Time: Jan 28, 2022 at 04:30 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.23
 
@@ -128,7 +128,13 @@ CREATE TABLE `section` (
 INSERT INTO `section` (`id`, `name`, `description`, `position`, `icon`) VALUES
 (1, 'users', 'Section description', 1, ''),
 (2, 'utility', 'Section description', 99, ''),
-(3, 'system', 'All the system configuration, including database setup, themes, emails, sms and so on. ', 98, '');
+(3, 'system', 'All the system configuration, including database setup, themes, emails, sms and so on. ', 98, ''),
+(5, 'dfgg', 'srdttfg@ex.gg', 45, NULL),
+(6, 'dfgg', 'srdttfg@ex.gg', 45, NULL),
+(7, 'dfgg', 'srdttfg@ex.gg', 45, NULL),
+(8, 'ddddddddd', 'sssssssssssssss', 4444, NULL),
+(9, 'sample sec', 'lalalalaalalalalalalaaaaaaa', 435, NULL),
+(10, 'dfjfj', 'hjghjgjghjgh', 5664, NULL);
 
 -- --------------------------------------------------------
 
@@ -175,10 +181,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password_hash`, `created_at`, `updated_at`, `activation_hash`, `status_id`, `is_active`, `password_reset_hash`, `password_reset_expires_at`) VALUES
-(20, 'John Andrew', 'john@example.com', '$2y$10$MOb5mkUXsJ8DsRBJQwlPluMKk47/4LRvSQIkDmS/EZPF1zxW91OAO', '2022-01-17 14:46:31', '0000-00-00 00:00:00', NULL, 2, 1, NULL, NULL),
+(20, 'Jean Kyle', 'john@example.com', '$2y$10$MOb5mkUXsJ8DsRBJQwlPluMKk47/4LRvSQIkDmS/EZPF1zxW91OAO', '2022-01-17 14:46:31', '0000-00-00 00:00:00', NULL, 2, 1, NULL, NULL),
 (21, 'Sarah John', 'sarah@example.com', '$2y$10$PwTaIneiKpKisoC.rl83L.uy4LlL2xh3DyQ64mIxJh6zPRNaZZ1gK', '2022-01-17 14:50:45', '0000-00-00 00:00:00', NULL, 2, 1, NULL, NULL),
 (41, 'Sige Boy', 'sige@example.com', '$2y$10$Y15F6YiTnoIEsPN1cHqPNeZ4ix.zpgI88K7M/a9uJDSccSIYtJlDu', '2022-01-26 09:44:01', '0000-00-00 00:00:00', 'a7498c04a97d73d51c62f4e0c9a1728d3276a5ec12bf4f8a44afb9be96e97508', 2, 0, NULL, NULL),
-(42, 'jsjsj hdask', 'jadf@drfjk.df', '$2y$10$91EJsYM8S5KqVe0nGqQgAuYCVRO/7KFgvxAq3noJzyOX2ZSQWayoW', '2022-01-27 15:02:16', '0000-00-00 00:00:00', '1d1c77a24ab23b044fba7bc2ebdd704866939a1a6cc6d9ab3b1b215e44f76d1e', 2, 0, NULL, NULL);
+(42, 'jsjsj hdask', 'jadf@drfjk.df', '$2y$10$91EJsYM8S5KqVe0nGqQgAuYCVRO/7KFgvxAq3noJzyOX2ZSQWayoW', '2022-01-27 15:02:16', '0000-00-00 00:00:00', '1d1c77a24ab23b044fba7bc2ebdd704866939a1a6cc6d9ab3b1b215e44f76d1e', 2, 0, NULL, NULL),
+(43, 'JAhs Kdhja', 'dhj@ewj.sldk', '$2y$10$A.UPDImNDzULuGBVhQTAZ.Bzjc.WfG2TN2UVonpWCCMIiD/eZ9IAa', '2022-01-28 16:57:02', '0000-00-00 00:00:00', 'ffbc29b9145d2301e4219fa87024ffbecdd39a93ad2b4619eacbd14567322096', 2, 0, NULL, NULL),
+(44, 'Jodhhn OSIH', 'osih@example.com', '$2y$10$e0EutoX9HcpY0ntmrU3tgO2WQxMhPEPMR6vZeNDr0wLsLZMsszvay', '2022-01-28 18:06:15', '0000-00-00 00:00:00', 'e237d9925e90c30f6b3f9f3497cb30f8477cd1addaa91ed0451f041149d28006', 2, 0, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -269,7 +277,7 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `section`
 --
 ALTER TABLE `section`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `status`
@@ -281,7 +289,7 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- Constraints for dumped tables

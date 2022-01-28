@@ -2,6 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c275ede-d842-4bd5-89bf-c02fd23aab03" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Core/Middleware/AfterMiddleware.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Middleware/BeforeMiddleware.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Middleware/Exception/MiddlewareInvalidArgumentException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Middleware/Middleware.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Middleware/MiddlewareInterface.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Controllers/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/Home.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Controllers/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/Login.php" afterDir="false" />
@@ -150,17 +155,17 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/App/Views/includes" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Core" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\mbonea\Core" />
       <recent name="C:\xampp\htdocs\mbonea\App\Views\includes" />
       <recent name="C:\xampp\htdocs\mbonea\App\Models" />
       <recent name="C:\xampp\htdocs\mbonea\App\Views" />
       <recent name="C:\xampp\htdocs\mbonea\App\Controllers" />
-      <recent name="C:\xampp\htdocs\mbonea\App" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\mbonea\Core\Base" />
@@ -183,7 +188,7 @@
       <workItem from="1643282435235" duration="160000" />
       <workItem from="1643282934740" duration="9457000" />
       <workItem from="1643348841892" duration="4455000" />
-      <workItem from="1643377972958" duration="5118000" />
+      <workItem from="1643377972958" duration="5629000" />
     </task>
     <servers />
   </component>
