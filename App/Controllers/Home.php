@@ -15,7 +15,7 @@ namespace App\Controllers;
 use App\Models\MenuModel;
 use App\Models\SectionModel;
 use Evo\Base\BaseController;
-use Evo\View;
+use Evo\Base\BaseView;
 
 class Home extends BaseController
 {
@@ -24,7 +24,7 @@ class Home extends BaseController
         $sections = (new SectionModel())->getRepository()->findAll();
         $menus = (new MenuModel())->getRepository()->findAll();
 
-        View::renderTemplate('home/index.html', [
+        BaseView::renderTemplate('home/index.html', [
             'sections' => $sections,
             'menus' => $menus,
         ]);

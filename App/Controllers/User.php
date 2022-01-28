@@ -15,7 +15,7 @@ namespace App\Controllers;
 use App\Models\MenuModel;
 use App\Models\SectionModel;
 use App\Models\UserModel;
-use Evo\View;
+use Evo\Base\BaseView;
 
 class User extends Authenticated
 {
@@ -26,19 +26,19 @@ class User extends Authenticated
         $sections = (new SectionModel())->getRepository()->findAll();
         $menus = (new MenuModel())->getRepository()->findAll();
 
-        View::renderTemplate('user/index.html', ['users' => $users, 'sections' => $sections, 'menus' => $menus]);
+        BaseView::renderTemplate('user/index.html', ['users' => $users, 'sections' => $sections, 'menus' => $menus]);
     }
 
     public function new()
     {
         // display a form to create a new user
-        View::renderTemplate('user/create.html');
+        BaseView::renderTemplate('user/create.html');
     }
 
     public function show()
     {
         // retrieve details of a single user from the DB
-        View::renderTemplate('user/show.html');
+        BaseView::renderTemplate('user/show.html');
     }
 
     public function add()
@@ -49,7 +49,7 @@ class User extends Authenticated
     public function edit()
     {
         // display a form to update a user
-        View::renderTemplate('user/edit.html');
+        BaseView::renderTemplate('user/edit.html');
     }
 
     public function update()

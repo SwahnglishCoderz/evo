@@ -15,7 +15,7 @@ namespace App\Models;
 use App\Entity\MenuEntity;
 use Evo\Base\AbstractBaseModel;
 use Evo\Base\Exception\BaseInvalidArgumentException;
-use Evo\View;
+use Evo\Base\BaseView;
 use Throwable;
 
 class MenuModel extends AbstractBaseModel

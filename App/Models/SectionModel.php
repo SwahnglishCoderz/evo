@@ -18,7 +18,7 @@ use Evo\Base\AbstractBaseModel;
 use Evo\Base\Exception\BaseException;
 use Evo\Base\Exception\BaseInvalidArgumentException;
 use Evo\Collection\CollectionInterface;
-use Evo\View;
+use Evo\Base\BaseView;
 use Throwable;
 
 class SectionModel extends AbstractBaseModel

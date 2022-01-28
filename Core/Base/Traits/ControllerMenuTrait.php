@@ -18,9 +18,9 @@ use ReflectionException;
 use Evo\Utility\Yaml;
 use Evo\Utility\ClientIP;
 use Evo\Utility\Stringify;
-use Evo\Auth\Model\MenuModel;
+//use Evo\Auth\Model\MenuModel;
 //use Evo\Base\Events\EventLogger;
-use Evo\Auth\Model\MenuItemModel;
+//use Evo\Auth\Model\MenuItemModel;
 use Evo\Orm\DataLayerTrait;
 //use Evo\System\Event\SystemActionEvent;
 use Evo\Base\Traits\BaseReflectionTrait;
@@ -35,7 +35,7 @@ trait ControllerMenuTrait
     use ControllerTrait;
 
     private array $usables = [
-        'index' => 'View All',
+        'index' => 'BaseView All',
         'new' => 'Add New',
         'log' => 'Logs',
         'statistics' => 'Statistics'
@@ -46,7 +46,7 @@ trait ControllerMenuTrait
      */
     public function getMenuItem(): object
     {
-        return new MenuItemModel();
+//        return new MenuItemModel();
     }
 
     /**
@@ -54,7 +54,7 @@ trait ControllerMenuTrait
      */
     private function getMenu(): object
     {
-        return new MenuModel();
+//        return new MenuModel();
     }
 
     /**
@@ -79,6 +79,7 @@ trait ControllerMenuTrait
      * Automatically build a parent menu and parent menu items when a controller is requested.
      * This process only happens once. i.e. It will not rebuild an already built menu and
      * menu items.
+     * @throws ReflectionException
      */
     public function buildControllerMenu(array $routeParams): bool
     {

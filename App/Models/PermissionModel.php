@@ -16,7 +16,7 @@ use App\Entity\PermissionEntity;
 use App\Entity\RoleEntity;
 use Evo\Base\AbstractBaseModel;
 use Evo\Base\Exception\BaseInvalidArgumentException;
-use Evo\View;
+use Evo\Base\BaseView;
 use Throwable;
 
 class PermissionModel extends AbstractBaseModel

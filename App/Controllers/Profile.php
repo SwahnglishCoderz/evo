@@ -14,7 +14,7 @@ namespace App\Controllers;
 
 use App\Models\UserModel;
 use Evo\Status;
-use Evo\View;
+use Evo\Base\BaseView;
 use \App\Auth;
 use \App\Flash;
 use Exception;
@@ -34,7 +34,7 @@ class Profile extends Authenticated
 //        $this->user->is_active_color = self::isUserActive($this->user->is_active)['color'];
 //        $this->user->is_active_name = self::isUserActive($this->user->is_active)['name'];
 
-        View::renderTemplate('profile/show.html', [
+        BaseView::renderTemplate('profile/show.html', [
             'user' => $this->user
         ]);
     }
@@ -47,7 +47,7 @@ class Profile extends Authenticated
     {
         $this->user = Auth::getUser();
 
-        View::renderTemplate('profile/edit.html', [
+        BaseView::renderTemplate('profile/edit.html', [
             'user' => $this->user
         ]);
     }
@@ -70,7 +70,7 @@ class Profile extends Authenticated
         } else {
             echo "Imefeli";
             exit;
-            View::renderTemplate('profile/edit.html', [
+            BaseView::renderTemplate('profile/edit.html', [
                 'user' => $this->user
             ]);
 

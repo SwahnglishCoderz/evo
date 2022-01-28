@@ -15,7 +15,7 @@ namespace App\Controllers;
 use App\Models\MenuModel;
 use App\Models\RoleModel;
 use App\Models\SectionModel;
-use Evo\View;
+use Evo\Base\BaseView;
 
 class Role extends Authenticated
 {
@@ -26,19 +26,19 @@ class Role extends Authenticated
         $sections = (new SectionModel())->getRepository()->findAll();
         $menus = (new MenuModel())->getRepository()->findAll();
 
-        View::renderTemplate('role/index.html', ['roles' => $roles, 'sections' => $sections, 'menus' => $menus]);
+        BaseView::renderTemplate('role/index.html', ['roles' => $roles, 'sections' => $sections, 'menus' => $menus]);
     }
 
     public function new()
     {
         // display a form to create a new role
-        View::renderTemplate('role/create.html');
+        BaseView::renderTemplate('role/create.html');
     }
 
     public function show()
     {
         // retrieve details of a single role from the DB
-        View::renderTemplate('role/show.html');
+        BaseView::renderTemplate('role/show.html');
     }
 
     public function add()
@@ -49,7 +49,7 @@ class Role extends Authenticated
     public function edit()
     {
         // display a form to update a role
-        View::renderTemplate('role/edit.html');
+        BaseView::renderTemplate('role/edit.html');
     }
 
     public function update()

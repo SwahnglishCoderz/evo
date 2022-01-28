@@ -20,7 +20,7 @@ use Exception;
 use PDO;
 use \App\Token;
 use \App\Mail;
-use Evo\View;
+use Evo\Base\BaseView;
 use Throwable;
 
 class UserModel extends AbstractBaseModel
@@ -256,8 +256,8 @@ class UserModel extends AbstractBaseModel
     {
         $url = 'http://' . $_SERVER['HTTP_HOST'] . '/password/reset/' . $this->password_reset_token;
 
-        $text = View::getTemplate('Password/reset_email.txt', ['url' => $url]);
-        $html = View::getTemplate('Password/reset_email.html', ['url' => $url]);
+        $text = BaseView::getTemplate('Password/reset_email.txt', ['url' => $url]);
+        $html = BaseView::getTemplate('Password/reset_email.html', ['url' => $url]);
 
         Mail::send($this->email, 'Password reset', $text, $html);
     }
@@ -334,8 +334,8 @@ class UserModel extends AbstractBaseModel
     {
         $url = 'http://' . $_SERVER['HTTP_HOST'] . '/signup/activate/' . $this->activation_token;
 
-        $text = View::getTemplate('Signup/activation_email.txt', ['url' => $url]);
-        $html = View::getTemplate('Signup/activation_email.html', ['url' => $url]);
+        $text = BaseView::getTemplate('Signup/activation_email.txt', ['url' => $url]);
+        $html = BaseView::getTemplate('Signup/activation_email.html', ['url' => $url]);
 
 //        Mail::send($this->email, 'Account activation', $text, $html);
     }

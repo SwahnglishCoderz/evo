@@ -14,7 +14,7 @@ namespace App\Controllers;
 
 use App\Models\MenuModel;
 use App\Models\SectionModel;
-use Evo\View;
+use Evo\Base\BaseView;
 
 class Menu extends Authenticated
 {
@@ -24,19 +24,19 @@ class Menu extends Authenticated
         $sections = (new SectionModel())->getRepository()->findAll();
         $menus = (new MenuModel())->getRepository()->findAll();
 
-        View::renderTemplate('menu/index.html', ['sections' => $sections, 'menus' => $menus]);
+        BaseView::renderTemplate('menu/index.html', ['sections' => $sections, 'menus' => $menus]);
     }
 
     public function new()
     {
         // display a form to create a new menu
-        View::renderTemplate('menu/create.html');
+        BaseView::renderTemplate('menu/create.html');
     }
 
     public function show()
     {
         // retrieve details of a single menu from the DB
-        View::renderTemplate('menu/show.html');
+        BaseView::renderTemplate('menu/show.html');
     }
 
     public function add()
@@ -47,7 +47,7 @@ class Menu extends Authenticated
     public function edit()
     {
         // display a form to update a menu
-        View::renderTemplate('menu/edit.html');
+        BaseView::renderTemplate('menu/edit.html');
     }
 
     public function update()

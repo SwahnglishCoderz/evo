@@ -15,7 +15,7 @@ namespace App\Controllers;
 use App\Models\UserModel;
 use Evo\Base\BaseController;
 use Evo\Controller;
-use Evo\View;
+use Evo\Base\BaseView;
 use \App\Models\User;
 use Exception;
 
@@ -27,7 +27,7 @@ class Password extends BaseController
      */
     public function forgot()
     {
-        View::renderTemplate('password/forgot.html');
+        BaseView::renderTemplate('password/forgot.html');
     }
 
     /**
@@ -37,7 +37,7 @@ class Password extends BaseController
     {
         UserModel::sendPasswordReset($_POST['email']);
 
-        View::renderTemplate('password/reset_requested.html');
+        BaseView::renderTemplate('password/reset_requested.html');
     }
 
     /**
@@ -50,7 +50,7 @@ class Password extends BaseController
 
         $user = $this->getUserOrExit($token);
 
-        View::renderTemplate('password/reset.html', [
+        BaseView::renderTemplate('password/reset.html', [
             'token' => $token
         ]);
     }
@@ -68,11 +68,11 @@ class Password extends BaseController
         if ($user->resetPassword($_POST['password'])) {
 
             //echo "password valid";
-            View::renderTemplate('password/reset_success.html');
+            BaseView::renderTemplate('password/reset_success.html');
         
         } else {
 
-            View::renderTemplate('password/reset.html', [
+            BaseView::renderTemplate('password/reset.html', [
                 'token' => $token,
                 'user' => $user
             ]);
@@ -93,7 +93,7 @@ class Password extends BaseController
 
         } else {
 
-            View::renderTemplate('password/token_expired.html');
+            BaseView::renderTemplate('password/token_expired.html');
             exit;
         }
     }

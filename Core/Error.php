@@ -4,6 +4,7 @@ namespace Evo;
 
 use App\Config;
 use ErrorException;
+use Evo\Base\BaseView;
 use Exception;
 
 class Error
@@ -50,7 +51,7 @@ class Error
 
             error_log($message);
 
-            View::renderTemplate("$code.html");
+            BaseView::renderTemplate("$code.html");
         }
     }
 
@@ -75,6 +76,6 @@ class Error
 ////        echo '</pre>';
 ////        exit;
 //
-//        View::renderTemplate('error.html', $exception);
+//        BaseView::renderTemplate('error.html', $exception);
 //    }
 }

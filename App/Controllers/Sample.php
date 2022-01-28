@@ -12,7 +12,7 @@ declare (strict_types = 1);
 
 namespace App\Controllers;
 
-use Evo\View;
+use Evo\Base\BaseView;
 
 /**
  * Sample controller (example)
@@ -38,7 +38,7 @@ class Sample extends Authenticated
      */
     public function indexAction()
     {
-        View::renderTemplate('sample/index.html');
+        BaseView::renderTemplate('sample/index.html');
     }
 
     /**

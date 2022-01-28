@@ -16,7 +16,7 @@ use App\Auth;
 use App\Flash;
 use App\Models\MenuModel;
 use App\Models\SectionModel;
-use Evo\View;
+use Evo\Base\BaseView;
 use Throwable;
 
 class Section extends Authenticated
@@ -27,7 +27,7 @@ class Section extends Authenticated
         $sections = (new SectionModel)->getRepository()->findAll();
         $menus = (new MenuModel)->getRepository()->findAll();
 
-        View::renderTemplate('section/index.html', [
+        BaseView::renderTemplate('section/index.html', [
             'sections' => $sections,
             'menus' => $menus,
         ]);
@@ -36,13 +36,13 @@ class Section extends Authenticated
     public function create()
     {
         // display a form to create a new section
-        View::renderTemplate('section/create.html');
+        BaseView::renderTemplate('section/create.html');
     }
 
     public function show()
     {
         // retrieve details of a single section from the DB
-        View::renderTemplate('section/show.html');
+        BaseView::renderTemplate('section/show.html');
     }
 
     /**
@@ -63,7 +63,7 @@ class Section extends Authenticated
     public function edit()
     {
         // display a form to update a section
-        View::renderTemplate('section/edit.html');
+        BaseView::renderTemplate('section/edit.html');
     }
 
     public function update()

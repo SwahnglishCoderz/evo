@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use Evo\Base\BaseController;
 use Evo\Controller;
-use Evo\View;
+use Evo\Base\BaseView;
 use App\Models\UserModel;
 use App\Auth;
 use App\Flash;
@@ -15,7 +15,7 @@ class Login extends BaseController
 {
     public function new()
     {
-        View::renderTemplate('Login/new.html');
+        BaseView::renderTemplate('Login/new.html');
     }
 
     /**
@@ -42,7 +42,7 @@ class Login extends BaseController
 
             Flash::addMessageToFlashNotifications('Login unsuccessful, please try again', Flash::WARNING);
 
-            View::renderTemplate('Login/new.html', [
+            BaseView::renderTemplate('Login/new.html', [
                 'email' => $_POST['email'],
                 'remember_me' => $remember_me
             ]);

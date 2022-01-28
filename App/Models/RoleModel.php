@@ -15,7 +15,7 @@ namespace App\Models;
 use App\Entity\RoleEntity;
 use Evo\Base\AbstractBaseModel;
 use Evo\Base\Exception\BaseInvalidArgumentException;
-use Evo\View;
+use Evo\Base\BaseView;
 use Throwable;
 
 class RoleModel extends AbstractBaseModel

@@ -15,7 +15,7 @@ namespace App\Controllers;
 use App\Models\MenuModel;
 use App\Models\PermissionModel;
 use App\Models\SectionModel;
-use Evo\View;
+use Evo\Base\BaseView;
 
 class Permission extends Authenticated
 {
@@ -26,19 +26,19 @@ class Permission extends Authenticated
         $sections = (new SectionModel())->getRepository()->findAll();
         $menus = (new MenuModel())->getRepository()->findAll();
 
-        View::renderTemplate('permission/index.html', ['permissions' => $permissions, 'sections' => $sections, 'menus' => $menus]);
+        BaseView::renderTemplate('permission/index.html', ['permissions' => $permissions, 'sections' => $sections, 'menus' => $menus]);
     }
 
     public function new()
     {
         // display a form to create a new permission
-        View::renderTemplate('permission/create.html');
+        BaseView::renderTemplate('permission/create.html');
     }
 
     public function show()
     {
         // retrieve details of a single permission from the DB
-        View::renderTemplate('permission/show.html');
+        BaseView::renderTemplate('permission/show.html');
     }
 
     public function add()
@@ -49,7 +49,7 @@ class Permission extends Authenticated
     public function edit()
     {
         // display a form to update a permission
-        View::renderTemplate('permission/edit.html');
+        BaseView::renderTemplate('permission/edit.html');
     }
 
     public function update()

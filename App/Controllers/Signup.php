@@ -14,7 +14,7 @@ namespace App\Controllers;
 
 use App\Models\UserModel;
 use Evo\Base\BaseController;
-use Evo\View;
+use Evo\Base\BaseView;
 use Exception;
 use Throwable;
 
@@ -26,7 +26,7 @@ class Signup extends BaseController
      */
     public function new()
     {
-        View::renderTemplate('signup/new.html');
+        BaseView::renderTemplate('signup/new.html');
     }
 
     /**
@@ -45,7 +45,7 @@ class Signup extends BaseController
 
         } else {
 
-            View::renderTemplate('signup/new.html', [
+            BaseView::renderTemplate('signup/new.html', [
                 'user' => $user
             ]);
 
@@ -57,7 +57,7 @@ class Signup extends BaseController
      */
     public function success()
     {
-        View::renderTemplate('signup/success.html');
+        BaseView::renderTemplate('signup/success.html');
     }
 
     /**
@@ -76,6 +76,6 @@ class Signup extends BaseController
      */
     public function activated()
     {
-        View::renderTemplate('signup/activated.html');
+        BaseView::renderTemplate('signup/activated.html');
     }
 }
