@@ -16,7 +16,7 @@ use App\Models\UserModel;
 use Evo\Base\BaseController;
 
 
-class Account extends BaseController
+class AccountController extends BaseController
 {
 
     /**

@@ -38,7 +38,7 @@ trait ClientRelationshipTrait
         
                     if (is_string($tableName)) {
                         $modelNameSuffix = $tableName . $suffix;
-                        $modelName = Stringify::studlyCaps($modelNameSuffix);
+                        $modelName = Stringify::convertToStudlyCaps($modelNameSuffix);
                         if (class_exists($newModelClass = $namespace . $modelName)) {
                             $newModelObject = BaseApplication::diGet($newModelClass);
                             if (!$newModelObject) {

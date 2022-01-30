@@ -12,7 +12,7 @@ declare(strict_types = 1);
 
 namespace Evo\Base\Domain\Actions;
 
-use App\Config;
+use Evo\System\Config;;
 use Evo\Base\Domain\DomainTraits;
 use Evo\Base\Domain\DomainActionLogicInterface;
 

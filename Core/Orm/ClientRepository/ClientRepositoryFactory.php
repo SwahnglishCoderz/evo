@@ -12,7 +12,7 @@ declare (strict_types = 1);
 
 namespace Evo\Orm\ClientRepository;
 
-use App\Config;
+use Evo\System\Config;;
 use Evo\Utility\Yaml;
 use Evo\Orm\DataLayerFactory;
 use Evo\Orm\DataLayerEnvironment;

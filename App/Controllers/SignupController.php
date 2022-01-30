@@ -18,7 +18,7 @@ use Evo\Base\BaseView;
 use Exception;
 use Throwable;
 
-class Signup extends BaseController
+class SignupController extends BaseController
 {
 
     /**

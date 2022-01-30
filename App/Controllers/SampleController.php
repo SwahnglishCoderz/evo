@@ -20,7 +20,7 @@ use Evo\Base\BaseView;
  * PHP version 7.0
  */
 
-class Sample extends Authenticated
+class SampleController extends Authenticated
 {
 
     /**

@@ -12,7 +12,7 @@ declare(strict_types = 1);
 
 namespace Evo\Base\Domain;
 
-use App\Config;
+use Evo\System\Config;;
 use Exception;
 use Evo\Utility\Yaml;
 use Evo\Utility\Stringify;
@@ -363,7 +363,7 @@ trait DomainTraits
                         $rules,
                         function ($callbackValue, $callbackKey, $controller) {
                             if ($callbackValue) {
-                                $validCallback = (new Stringify())->camelCase($callbackValue);
+                                $validCallback = (new Stringify())->convertToCamelCase($callbackValue);
                                 if (!method_exists(new DomainLogicRules, $validCallback)) {
                                     throw new BaseBadMethodCallException(
                                         $validCallback . '() does not exists within ' . __CLASS__

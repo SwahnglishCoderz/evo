@@ -10,7 +10,7 @@
 
 declare (strict_types = 1);
 
-namespace Evo;
+namespace Evo\System;
 
 class Status
 {

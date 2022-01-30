@@ -13,13 +13,13 @@ declare (strict_types = 1);
 namespace App\Controllers;
 
 use App\Models\UserModel;
-use Evo\Status;
+use Evo\System\Status;
 use Evo\Base\BaseView;
-use \App\Auth;
-use \App\Flash;
+use App\Auth;
+use App\Flash;
 use Exception;
 
-class Profile extends Authenticated
+class ProfileController extends Authenticated
 {
     /**
      * Show the profile
@@ -68,8 +68,6 @@ class Profile extends Authenticated
             $this->redirect('/profile/show');
 //
         } else {
-            echo "Imefeli";
-            exit;
             BaseView::renderTemplate('profile/edit.html', [
                 'user' => $this->user
             ]);

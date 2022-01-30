@@ -37,7 +37,8 @@ trait LoggerTrait
             if ($val !=null && !is_array($val) && (!is_object($val) || method_exists($val, '__toString'))) {
                 $replace['{' . $key . '}'] = $val;
             } elseif ($val instanceof DateTimeInterface) {
-                $replace['{' . $key . '}'] = $val->format(DateTime::RFC3339);
+//                $replace['{' . $key . '}'] = $val->format(DateTime::RFC3339); OG
+                $replace['{' . $key . '}'] = $val->format(DateTimeInterface::RFC3339);
             } elseif (is_object($val)) {
                 $replace['{' . $key . '}'] = '[object ' . get_class($val) . ']';
             } else {

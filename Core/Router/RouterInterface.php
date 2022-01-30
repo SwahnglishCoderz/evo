@@ -16,17 +16,14 @@ use Closure;
 
 interface RouterInterface
 {
-
     /**
      * Add a route to the routing table
-     *
      */
-    public function add(string $route, array $params = [], Closure $cb = null);
+    public function add(string $route, array $params = []);
 
     /**
      * Dispatch the route, creating the controller object and running the
      * action method
-     *
      */
     public function dispatch(string $url);
 
@@ -38,9 +35,6 @@ interface RouterInterface
 
     /**
      * Get all the routes from the routing table
-     *
      */
     public function getRoutes() : array;
-
-
 }

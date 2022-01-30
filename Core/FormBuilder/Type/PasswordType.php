@@ -12,7 +12,7 @@ declare(strict_types = 1);
 
 namespace Evo\FormBuilder\Type;
 
-use App\Config;
+use Evo\System\Config;;
 use Evo\FormBuilder\FormExtensionTypeInterface;
 use Evo\Utility\Yaml;
 

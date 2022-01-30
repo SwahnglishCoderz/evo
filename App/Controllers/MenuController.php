@@ -14,51 +14,49 @@ namespace App\Controllers;
 
 use App\Models\MenuModel;
 use App\Models\SectionModel;
-use App\Models\UserModel;
 use Evo\Base\BaseView;
 
-class User extends Authenticated
+class MenuController extends Authenticated
 {
     public function index()
     {
-        // retrieve details of all users from the DB
-        $users = (new UserModel())->getRepository()->findAll();
+        // retrieve details of all menus from the DB
         $sections = (new SectionModel())->getRepository()->findAll();
         $menus = (new MenuModel())->getRepository()->findAll();
 
-        BaseView::renderTemplate('user/index.html', ['users' => $users, 'sections' => $sections, 'menus' => $menus]);
+        BaseView::renderTemplate('menu/index.html', ['sections' => $sections, 'menus' => $menus]);
     }
 
     public function new()
     {
-        // display a form to create a new user
-        BaseView::renderTemplate('user/create.html');
+        // display a form to create a new menu
+        BaseView::renderTemplate('menu/create.html');
     }
 
     public function show()
     {
-        // retrieve details of a single user from the DB
-        BaseView::renderTemplate('user/show.html');
+        // retrieve details of a single menu from the DB
+        BaseView::renderTemplate('menu/show.html');
     }
 
     public function add()
     {
-        // add new user to DB
+        // add new menu to DB
     }
 
     public function edit()
     {
-        // display a form to update a user
-        BaseView::renderTemplate('user/edit.html');
+        // display a form to update a menu
+        BaseView::renderTemplate('menu/edit.html');
     }
 
     public function update()
     {
-        // updates a user in the DB
+        // updates a menu in the DB
     }
 
     public function delete()
     {
-        // deletes a user from the DB
+        // deletes a menu from the DB
     }
 }

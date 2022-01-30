@@ -12,6 +12,7 @@ declare(strict_types = 1);
 
 namespace Evo\Logger;
 
+use Evo\Logger\Exception\LoggerException;
 use Evo\Logger\Handler\LoggerHandlerInterface;
 use Evo\Logger\LoggerInterface;
 use Throwable;
@@ -69,21 +70,15 @@ class Logger implements LoggerInterface
      */
     public const EMERGENCY = 600;
 
-    /* @var LoggerHandlerInterface $loggerHandler */
     private LoggerHandlerInterface $loggerHandler;
 
-    /**
-     * Logger constructor.
-     * @param LoggerHandlerInterface $loggerHandler
-     */
     public function __construct(LoggerHandlerInterface $loggerHandler)
     {
         $this->loggerHandler = $loggerHandler;
     }
 
     /**
-     * @param string $message
-     * @param array $context
+     * @throws LoggerException
      */
     private function writeLog(string $message, array $context): void
     {
@@ -97,6 +92,7 @@ class Logger implements LoggerInterface
 
     /**
      * System is unusable.
+     * @throws LoggerException
      */
     public function emergency(string $message, array $context = array()): void
     {
@@ -108,6 +104,7 @@ class Logger implements LoggerInterface
      *
      * Example: Entire website down, database unavailable, etc. This should
      * trigger the SMS alerts and wake you up.
+     * @throws LoggerException
      */
     public function alert(string $message, array $context = array()): void
     {
@@ -118,6 +115,7 @@ class Logger implements LoggerInterface
      * Critical conditions.
      *
      * Example: Application component unavailable, unexpected exception.
+     * @throws LoggerException
      */
     public function critical(string $message, array $context = array()): void
     {
@@ -127,6 +125,7 @@ class Logger implements LoggerInterface
     /**
      * Runtime errors that do not require immediate action but should typically
      * be logged and monitored.
+     * @throws LoggerException
      */
     public function error(string $message, array $context = array()): void
     {
@@ -138,6 +137,7 @@ class Logger implements LoggerInterface
      *
      * Example: Use of deprecated APIs, poor use of an API, undesirable things
      * that are not necessarily wrong.
+     * @throws LoggerException
      */
     public function warning(string $message, array $context = array()): void
     {
@@ -146,6 +146,7 @@ class Logger implements LoggerInterface
 
     /**
      * Normal but significant events.
+     * @throws LoggerException
      */
     public function notice(string $message, array $context = array()): void
     {
@@ -156,6 +157,7 @@ class Logger implements LoggerInterface
      * Interesting events.
      *
      * Example: User logs in, SQL logs.
+     * @throws LoggerException
      */
     public function info(string $message, array $context = array()): void
     {
@@ -164,6 +166,7 @@ class Logger implements LoggerInterface
 
     /**
      * Detailed debug information.
+     * @throws LoggerException
      */
     public function debug(string $message, array $context = array()): void
     {

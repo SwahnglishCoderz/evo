@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use Evo\Base\BaseController;
-use Evo\Controller;
 use Evo\Base\BaseView;
 use App\Models\UserModel;
 use App\Auth;
@@ -11,7 +10,7 @@ use App\Flash;
 use Exception;
 use Throwable;
 
-class Login extends BaseController
+class LoginController extends BaseController
 {
     public function new()
     {

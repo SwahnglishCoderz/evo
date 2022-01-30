@@ -25,7 +25,7 @@ class Singleton
     private static array $instance = [];
 
     /**
-     * Cloning and unserialization are not permitted for singletons
+     * Cloning and un-serialization are not permitted for singletons
      */
     protected final function __clone(){}
 
@@ -34,7 +34,7 @@ class Singleton
      */
     public final function __wakeup()
     { 
-        throw new Exception("Cannot unserialize a singleton.");
+        throw new Exception("Cannot un-serialize a singleton.");
     }
     
     /**

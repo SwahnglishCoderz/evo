@@ -2,7 +2,7 @@
 
 namespace Evo;
 
-use App\Config;
+use Evo\System\Config;;
 use ErrorException;
 use Evo\Base\BaseView;
 use Exception;

@@ -17,7 +17,7 @@ use App\Models\SectionModel;
 use Evo\Base\BaseController;
 use Evo\Base\BaseView;
 
-class Home extends BaseController
+class HomeController extends BaseController
 {
     public function index()
     {

@@ -10,6 +10,8 @@
 
 declare(strict_types = 1);
 
+use Evo\Base\BaseApplication;
+
 /**
  * Load the composer autoloader library which enables us to bootstrap the application
  * and initialize the necessary components.
@@ -24,17 +26,15 @@ error_reporting(E_ALL);
 set_error_handler('Evo\Error::errorHandler');
 set_exception_handler('Evo\Error::exceptionHandler');
 
-
 /**
  * Sessions
  */
 session_start();
 
-
 /**
  * Routing
  */
-$router = new Evo\Router();
+$router = new Evo\Router\Router();
 
 // Authentication routes
 $router->add('', ['controller' => 'Home', 'action' => 'index']);
@@ -47,3 +47,14 @@ $router->add('signup/activate/{token:[\da-f]+}', ['controller' => 'Signup', 'act
 $router->add('{controller}/{action}');
 
 $router->dispatch($_SERVER['QUERY_STRING']);
+
+try {
+    /* Attempting to run a single instance of the application */
+    BaseApplication::getInstance()
+        ->setPath(ROOT_PATH)
+        ->setConfig(\Evo\System\Config::APP)
+        ->setRoutes(Yaml::file('routes'))
+        ->run();
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
