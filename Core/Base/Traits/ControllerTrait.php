@@ -12,7 +12,7 @@ declare(strict_types = 1);
 
 namespace Evo\Base\Traits;
 
-use App\Config;
+use Evo\System\Config;;
 use Evo\Utility\Yaml;
 use Evo\Base\BaseApplication;
 use Evo\Base\Exception\BaseRuntimeException;

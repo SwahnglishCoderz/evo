@@ -107,14 +107,22 @@ class Stringify
         return false;
     }
 
-    public static function studlyCaps(string $string) : string
+    /**
+     * Convert the string with hyphens to StudlyCaps,
+     * e.g. post-authors => PostAuthors
+     */
+    public static function convertToStudlyCaps(string $string) : string
     {
         return str_replace(' ', '', ucwords(str_replace(['-', '_'], ' ', $string)));
     }
 
-    public static function camelCase(string $string) : string
+    /**
+     * Convert the string with hyphens to camelCase,
+     * e.g. add-new => addNew
+     */
+    public static function convertToCamelCase(string $string) : string
     {
-        return lcfirst(self::studlyCaps($string));
+        return lcfirst(self::convertToStudlyCaps($string));
     }
 
     /**

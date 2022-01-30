@@ -17,7 +17,7 @@ use App\Models\RoleModel;
 use App\Models\SectionModel;
 use Evo\Base\BaseView;
 
-class Role extends Authenticated
+class RoleController extends Authenticated
 {
     public function index()
     {

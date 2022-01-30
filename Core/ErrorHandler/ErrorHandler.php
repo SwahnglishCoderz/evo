@@ -12,10 +12,8 @@ declare(strict_types = 1);
 
 namespace Evo\ErrorHandler;
 
-use App\Config;
-use Evo\Ash\TemplateEnvironment;
+use Evo\System\Config;;
 use Evo\Base\BaseView;
-use Evo\Utility\Yaml;
 use ErrorException;
 
 class ErrorHandler

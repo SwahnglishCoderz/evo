@@ -14,12 +14,10 @@ namespace App\Controllers;
 
 use App\Models\UserModel;
 use Evo\Base\BaseController;
-use Evo\Controller;
 use Evo\Base\BaseView;
-use \App\Models\User;
 use Exception;
 
-class Password extends BaseController
+class PasswordController extends BaseController
 {
 
     /**

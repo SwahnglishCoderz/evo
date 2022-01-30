@@ -15,7 +15,7 @@ namespace App\Models;
 use Evo\Model;
 use Exception;
 use PDO;
-use \App\Token;
+use App\Token;
 
 class RememberedLogin extends Model
 {

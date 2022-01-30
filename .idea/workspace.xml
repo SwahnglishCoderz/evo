@@ -2,38 +2,51 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c275ede-d842-4bd5-89bf-c02fd23aab03" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Core/Middleware/AfterMiddleware.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Middleware/BeforeMiddleware.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Middleware/Exception/MiddlewareInvalidArgumentException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Middleware/Middleware.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Middleware/MiddlewareInterface.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/Home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/Login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/Menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/Menu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/Password.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/Password.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/Permission.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/Permission.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/Profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/Role.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/Sample.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/Sample.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/Section.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/Section.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/Signup.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/Signup.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Models/MenuModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Models/MenuModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Models/PermissionModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Models/PermissionModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Models/RoleModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Models/RoleModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Models/SectionModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Models/SectionModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Config.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/System/Config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/Account.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/AccountController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/Menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/MenuController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/Password.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/PasswordController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/Permission.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/PermissionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/ProfileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/RoleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/Sample.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/SampleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/Section.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/SectionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/Signup.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/SignupController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Models/RememberedLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Models/RememberedLogin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Models/UserModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Models/UserModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/menu/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/menu/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/permission/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/permission/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/role/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/role/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/section/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/section/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/user/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/user/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Base/BaseView.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/BaseView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Token.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Token.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Base/AbstractBaseBootLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/AbstractBaseBootLoader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Base/Administrator/AdminController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Base/BaseApplication.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/BaseApplication.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Base/Domain/Actions/ControllerSettingsAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/Domain/Actions/ControllerSettingsAction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Base/Domain/DomainTraits.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/Domain/DomainTraits.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Base/Traits/ControllerMenuTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/Traits/ControllerMenuTrait.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Base/Traits/ControllerPrivilegeTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/Traits/ControllerPrivilegeTrait.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Base/Traits/ControllerTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/Traits/ControllerTrait.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Base/Traits/TableSettingsTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/Traits/TableSettingsTrait.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Error.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Error.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/View.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Error/Error.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Error/Error.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/ErrorHandler/ErrorHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/ErrorHandler/ErrorHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/FormBuilder/Type/PasswordType.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/FormBuilder/Type/PasswordType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Logger/Logger.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Logger/Logger.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Logger/LoggerInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Logger/LoggerInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Logger/LoggerTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Logger/LoggerTrait.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Orm/ClientRepository/ClientRelationshipTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/ClientRepository/ClientRelationshipTrait.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Orm/ClientRepository/ClientRepositoryFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/ClientRepository/ClientRepositoryFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Orm/DataMapper/DataMapperFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/DataMapper/DataMapperFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Router.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Router/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Router/Router.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Router/RouterFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Router/RouterFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Router/RouterInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Router/RouterInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Status.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/System/Status.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Utility/Singleton.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Utility/Singleton.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Utility/Stringify.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Utility/Stringify.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/include.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/include.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +66,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -168,10 +189,11 @@
       <recent name="C:\xampp\htdocs\mbonea\App\Controllers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\mbonea\Core\System" />
+      <recent name="C:\xampp\htdocs\mbonea\Core\System\Config" />
       <recent name="C:\xampp\htdocs\mbonea\Core\Base" />
       <recent name="C:\xampp\htdocs\mbonea\Core" />
       <recent name="C:\xampp\htdocs\mbonea\Core\Base\Traits" />
-      <recent name="C:\xampp\htdocs\mbonea\App\Entity" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -188,7 +210,8 @@
       <workItem from="1643282435235" duration="160000" />
       <workItem from="1643282934740" duration="9457000" />
       <workItem from="1643348841892" duration="4455000" />
-      <workItem from="1643377972958" duration="5629000" />
+      <workItem from="1643377972958" duration="5766000" />
+      <workItem from="1643522597631" duration="6645000" />
     </task>
     <servers />
   </component>

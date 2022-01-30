@@ -19,7 +19,7 @@ use App\Models\SectionModel;
 use Evo\Base\BaseView;
 use Throwable;
 
-class Section extends Authenticated
+class SectionController extends Authenticated
 {
     public function index()
     {

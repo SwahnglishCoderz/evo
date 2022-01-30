@@ -17,7 +17,7 @@ use App\Models\PermissionModel;
 use App\Models\SectionModel;
 use Evo\Base\BaseView;
 
-class Permission extends Authenticated
+class PermissionController extends Authenticated
 {
     public function index()
     {

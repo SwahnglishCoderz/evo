@@ -46,7 +46,7 @@ trait ControllerPrivilegeTrait
     private function getClassNamespace(): string
     {
         $routeParams = $this->getRouteParams();
-        $className = Stringify::studlyCaps($routeParams['controller'] . 'Controller');
+        $className = Stringify::convertToStudlyCaps($routeParams['controller'] . 'Controller');
         if (isset($routeParams['namespace'])) {
             $namespace = "\App\Controller\Admin\\" . $className;
         } else {
@@ -102,7 +102,7 @@ trait ControllerPrivilegeTrait
             foreach ($permissions as $key => $permission) {
                 $permissionArray = $permission;
             }
-            $className = Stringify::studlyCaps($permissionRoutes['controller'] . 'Controller');
+            $className = Stringify::convertToStudlyCaps($permissionRoutes['controller'] . 'Controller');
             if (isset($permissionRoutes['namespace'])) {
                 $namespace = "\App\Controller\Admin\\" . $className;
             } else {

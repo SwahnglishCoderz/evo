@@ -12,45 +12,39 @@ declare(strict_types = 1);
 
 namespace Evo\Router;
 
-use App\Config;
-use Closure;
+use Evo\System\Config;
 use Exception;
-use ReflectionException;
-use ReflectionMethod;
-use Evo\Utility\Yaml;
 use Evo\Utility\Stringify;
-use Evo\Base\BaseApplication;
 use Evo\Router\Exception\RouterNoRoutesFound;
 use Evo\Router\Exception\NoActionFoundException;
 use Evo\Router\Exception\RouterBadFunctionCallException;
 
 class Router implements RouterInterface
 {
-
-    /** returns extended router methods */
-    use RouterTrait;
-
     /** Associative array of routes (the routing table) */
     protected array $routes = [];
     /** Parameters from the matched route */
     protected array $params = [];
-
     protected string $controllerSuffix = "Controller";
     private string $actionSuffix = 'Action';
     protected string $namespace = 'App\Controller\\';
 
-    public function add(string $route, array $params = [], Closure $cb = null)
+    /**
+     * Add a route to the routing table
+     */
+    // see if it's possible to set 'index' as the default method if a URL is passed with just the controller name
+    public function add(string $route, array $params = [])
     {
-        if ($cb != null) {
-            return $cb($params);
-        }
         // Convert the route to a regular expression: escape forward slashes
         $route = preg_replace('/\//', '\\/', $route);
+
         // Convert variables e.g. {controller}
         $route = preg_replace('/\{([a-z]+)\}/', '(?P<\1>[a-z-]+)', $route);
+
         // Convert variables with custom regular expressions e.g. {id:\d+}
         $route = preg_replace('/\{([a-z]+):([^\}]+)\}/', '(?P<\1>\2)', $route);
-        // Add start and end delimiters, and case insensitive flag
+
+        // Add start and end delimiters, and case-insensitive flag
         $route = '/^' . $route . '$/i';
 
         $this->routes[$route] = $params;
@@ -61,21 +55,64 @@ class Router implements RouterInterface
      * the yaml configuration file. Route parameters are accessible using
      * the $this->params property and can fetch any key defined. ie
      * `controller, action, namespace, id etc...`
+     *
+     * @return string
      */
     private function createController(): string
     {
         $controllerName = $this->params['controller'] . $this->controllerSuffix;
-        $controllerName = Stringify::studlyCaps($controllerName);
+        $controllerName = Stringify::convertToStudlyCaps($controllerName);
         return $this->getNamespace() . $controllerName;
     }
 
     /**
      * Create a camel case method name for the controllers
+     *
+     * @return string
      */
     public function createAction(): string
     {
         $action = $this->params['action'];
-        return Stringify::camelCase($action);
+        return Stringify::convertToCamelCase($action);
+    }
+
+    /**
+     * Match the route to the routes in the routing table, setting the $params
+     * property if a route is found.
+     */
+    public function isRouteInRoutingTable(string $url): bool
+    {
+        foreach ($this->routes as $route => $params) {
+            if (preg_match($route, $url, $matches)) {
+                // Get named capture role values
+                foreach ($matches as $key => $match) {
+                    if (is_string($key)) {
+                        $params[$key] = $match;
+                    }
+                }
+
+                $this->params = $params;
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Get all the routes from the routing table
+     */
+    public function getRoutes(): array
+    {
+        return $this->routes;
+    }
+
+    /**
+     * Get the currently matched parameters
+     */
+    public function getParams(): array
+    {
+        return $this->params;
     }
 
     /**
@@ -87,7 +124,8 @@ class Router implements RouterInterface
     private function dispatchWithException(string $url): array
     {
         $url = $this->removeQueryStringVariables($url);
-        if (!$this->match($url)) {
+
+        if (!$this->isRouteInRoutingTable($url)) {
             http_response_code(404);
             throw new RouterNoRoutesFound("Route " . $url . " does not match any valid route.", 404);
         }
@@ -98,87 +136,23 @@ class Router implements RouterInterface
     }
 
     /**
-     * Dispatch the request route by calling the controller class matching the controller
-     * parameter from the url
+     * Dispatch the route, creating the controller object and running the
+     * action method
      * @throws Exception
      */
     public function dispatch(string $url)
     {
         list($controller) = $this->dispatchWithException($url);
-//        print_r($url);
-//        exit;
-        $controllerObject = new $controller($this->params);
+
+        $controller_object = new $controller($this->params);
+
         $action = $this->createAction();
-        if (preg_match('/action$/i', $action) == 0) {
-            // if (Config::SYSTEM['use_resolvable_action'] === true) {
-                if (Config::APP['system']['use_resolvable_action'] === true) {
-                $this->resolveControllerActionDependencies($controllerObject, $action);
-            } else {
-                $controllerObject->$action();
-            }
+
+        if (is_callable([$controller_object, $action])) {
+            $controller_object->$action();
         } else {
-            throw new NoActionFoundException("Method $action in controller $controller cannot be called directly - remove the Action suffix to call this method");
+            throw new Exception("Method $action (in controller $controller) not found");
         }
-    }
-
-    /**
-     * Using the reflection api to resolve controller methods. Meaning we can pass multiple arguments to
-     * an action method. argument variables which reflects the dependencies within the providers.yml
-     * file.
-     * @throws ReflectionException
-     */
-    private function resolveControllerActionDependencies(object $controllerObject, string $newAction)
-    {
-        $newAction = $newAction . $this->actionSuffix;
-        $reflectionMethod = new ReflectionMethod($controllerObject, $newAction);
-        $reflectionMethod->setAccessible(true);
-        if ($reflectionMethod) {
-            $dependencies = [];
-            foreach ($reflectionMethod->getParameters() as $param) {
-                $newAction = BaseApplication::diGet(Yaml::file('providers')[$param->getName()]);
-                if (isset($newAction)) {
-                    $dependencies[] = $newAction;
-                } else if ($param->isDefaultValueAvailable()) {
-                    $dependencies[] = $param->getDefaultValue();
-                }
-            }
-            $reflectionMethod->setAccessible(false);
-            return $reflectionMethod->invokeArgs(
-                $controllerObject,
-                $dependencies
-            );
-        }
-    }
-
-    /**
-     * Match the route to the routes in the routing table, setting the $params
-     * property if a route is found.
-     */
-    public function match(string $url): bool
-    {
-        foreach ($this->routes as $route => $params) {
-            if (preg_match($route, $url, $matches)) {
-                // Get named capture group values
-                foreach ($matches as $key => $match) {
-                    if (is_string($key)) {
-                        $params[$key] = $match;
-                    }
-                }
-                $this->params = $params;
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public function getParams(): array
-    {
-        return $this->params;
-    }
-
-    public function getRoutes(): array
-    {
-        return $this->routes;
     }
 
     /**
@@ -186,6 +160,7 @@ class Router implements RouterInterface
      * query string is used for the route, any variables at the end will need
      * to be removed before the route is matched to the routing table. For
      * example:
+     *
      *
      * A URL of the format localhost/?page (one variable name, no value) won't
      * work, however. (NB. The .htaccess file converts the first ? to a & when
@@ -196,20 +171,14 @@ class Router implements RouterInterface
         if ($url != '') {
             $parts = explode('&', $url, 2);
 
-//            if (!str_contains($parts[0], '=')) {
-//                $url = $parts[0];
-//            } else {
-//                $url = '';
-//            }
-
-            if (!strpos($parts[0], '=')) {
+            if (strpos($parts[0], '=') === false) {
                 $url = $parts[0];
             } else {
                 $url = '';
             }
         }
 
-        return rtrim($url, '/');
+        return $url;
     }
 
     /**
@@ -218,9 +187,12 @@ class Router implements RouterInterface
      */
     protected function getNamespace(): string
     {
+        $namespace = 'App\Controllers\\';
+
         if (array_key_exists('namespace', $this->params)) {
-            $this->namespace .= $this->params['namespace'] . '\\';
+            $namespace .= $this->params['namespace'] . '\\';
         }
-        return $this->namespace;
+
+        return $namespace;
     }
 }

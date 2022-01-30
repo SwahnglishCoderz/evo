@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Evo\System\Config;
 use Exception;
 
 /**

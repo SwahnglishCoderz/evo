@@ -27,15 +27,13 @@ class RouterFactory
         $this->url = $_SERVER['QUERY_STRING'];
     }
 
-    public function getRequest()
+//    public function getRequest() OG
+    public function getRequest(): ?object
     {
         return $this->request;
     }
 
-    /**
-     * Undocumented function
-     */
-    public function create(?string $routerString = null) : RouterInterface
+    public function createRouterObject(?string $routerString = null) : RouterInterface
     {
         $this->routerObject = ($routerString !=null) ? new $routerString() : new Router();
         if (!$this->routerObject instanceof RouterInterface) {
@@ -45,9 +43,6 @@ class RouterFactory
         return $this->routerObject;
     }
 
-    /**
-     * Undocumented function
-     */
     public function buildRoutes(array $definedRoutes = [])
     {
         if (empty($definedRoutes)) {
@@ -80,29 +75,17 @@ class RouterFactory
             $appendNamespace = array_key_exists('namespace', $param) ? '/' . $param['namespace'] : '/';
             $prefix = $param['name_prefix'];
             if (is_string($prefix)) {
-//                if (str_contains($prefix, '.')) {
-//                    $parts = explode('.', $prefix);
-//                    if (isset($parts) && count($parts) > 0) {
-//                        $elController = array_shift($parts);
-//                        $elAction = array_pop($parts);
-//                        $newArray = Array($prefix => $appendNamespace . $elController . '/' . $elAction);
-//                        if ($newArray) {
-//                            return $newArray;
-//                        }
-//
-//                    }
-//                }
-
                 if (strpos($prefix, '.')) {
                     $parts = explode('.', $prefix);
+
                     if (isset($parts) && count($parts) > 0) {
                         $elController = array_shift($parts);
                         $elAction = array_pop($parts);
                         $newArray = array($prefix => $appendNamespace . $elController . '/' . $elAction);
+
                         if ($newArray) {
                             return $newArray;
                         }
-
                     }
                 }
             }

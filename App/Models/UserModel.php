@@ -18,8 +18,8 @@ use Evo\Base\AbstractBaseModel;
 use Evo\Status;
 use Exception;
 use PDO;
-use \App\Token;
-use \App\Mail;
+use App\Token;
+use App\Mail;
 use Evo\Base\BaseView;
 use Throwable;
 

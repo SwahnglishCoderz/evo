@@ -12,7 +12,7 @@ declare(strict_types = 1);
 
 namespace Evo\Error;
 
-use App\Config;
+use Evo\System\Config;;
 use Evo\Utility\Yaml;
 use Exception;
 

@@ -8,7 +8,7 @@ use Evo\Base\BaseConstants;
 use Evo\Session\SessionConfig;
 use Evo\Base\AbstractBaseBootLoader;
 use Evo\Base\Exception\BaseInvalidArgumentException;
-use App\Config;
+use Evo\System\Config;;
 
 class BaseApplication extends AbstractBaseBootLoader
 {

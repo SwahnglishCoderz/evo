@@ -13,7 +13,7 @@ declare(strict_types = 1);
 namespace Evo\Orm\DataMapper;
 
 use Evo\Utility\Yaml;
-use App\Config;
+use Evo\System\Config;;
 use Evo\Orm\DataLayerEnvironment;
 
 class DataMapperFactory

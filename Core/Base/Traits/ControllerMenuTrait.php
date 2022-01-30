@@ -12,7 +12,7 @@ declare(strict_types = 1);
 
 namespace Evo\Base\Traits;
 
-use App\Config;
+use Evo\System\Config;;
 use ReflectionMethod;
 use ReflectionException;
 use Evo\Utility\Yaml;
@@ -129,7 +129,7 @@ trait ControllerMenuTrait
     {
         $parentMenu = $this->getControllerMenu(['id' => $lastMenuID]);
         if (isset($parentMenu->menu_name) && $parentMenu->menu_name !==null ) {
-            $controllerName = Stringify::studlyCaps($parentMenu->menu_name . 'Controller');
+            $controllerName = Stringify::convertToStudlyCaps($parentMenu->menu_name . 'Controller');
             $namespace = (isset($routeParams['namespace']) ? '\App\Controller\Admin\\' . $controllerName : '\App\Controller\\' . $controllerName);
             $reflectionClass = $this->reflection($namespace ?? null);
             /* We only want the protected methods */
