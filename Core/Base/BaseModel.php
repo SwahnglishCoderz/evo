@@ -1,4 +1,14 @@
 <?php
+/*
+ * This file is part of the Evo package.
+ *
+ * (c) John Andrew <simplygenius78@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+declare (strict_types = 1);
 
 namespace Evo\Base;
 
@@ -7,6 +17,11 @@ use Evo\Base\Exception\BaseInvalidArgumentException;
 use Evo\DataSchema\DataSchemaBuilderInterface;
 use Evo\Orm\ClientRepository\ClientRepository;
 use Evo\Orm\ClientRepository\ClientRepositoryFactory;
+use Exception;
+use InvalidArgumentException;
+use ReflectionClass;
+use ReflectionException;
+use ReflectionProperty;
 use Throwable;
 
 class BaseModel
@@ -86,9 +101,6 @@ class BaseModel
      * Allows models to retrieve other models. Simple pass in the qualified namespace of the model
      * we want an object of ie getOtherModel(RoleModel::class)->getRepository() which will give access
      * to the repository for the other model
-     *
-     * @param string $model
-     * @return BaseModel
      */
     public function getOtherModel(string $model): BaseModel
     {
@@ -107,26 +119,21 @@ class BaseModel
      * Return the name object from within the app namespace. i,e validate.user
      * will instantiate the App\Validate\UserValidate Object. We only call the object
      * on the fly and use it when we want.
-     *
-     * @param string $objectName - the name of the object with the dot notation
-     * @return object
-     * @throws InvalidArgumentException
-     * @throws ReflectionException
      */
     public function get(string $objectName, string $optionalNamespace = null)
     {
         if (empty($objectName)) {
-            throw new \InvalidArgumentException('Please provide the name of your object');
+            throw new InvalidArgumentException('Please provide the name of your object');
         }
         if (strpos($objectName, '.') === false) {
-            throw new \InvalidArgumentException('Invalid object name ensure you are referencing the object using the correct notation i.e validate.user');
+            throw new InvalidArgumentException('Invalid object name ensure you are referencing the object using the correct notation i.e validate.user');
         }
         // As we are expecting the object name using dot notations we need to convert it
         if (is_string($objectName)) {
 
             if ($optionalNamespace !==null) {
                 $pieces = explode('.', $objectName);
-                $name = isset($pieces[1]) ? $pieces[1] : '';
+                $name = $pieces[1] ?? '';
                 $modelName = ucwords($optionalNamespace . $name);
 
             } else {
@@ -142,11 +149,8 @@ class BaseModel
     /**
      * Create method which initialize the schema object and return its result
      * within the set class property.
-     *
-     * @param string $dataSchema
-     * @return static
      */
-    public function create(string $dataSchema = null)
+    public function create(string $dataSchema = null): BaseModel
     {
         if ($dataSchema !== null) {
             $newSchema = BaseApplication::diGet($dataSchema);
@@ -161,10 +165,6 @@ class BaseModel
     /**
      * Return an array of database column name matching the object schema
      * and model
-     *
-     * @param string $schema
-     * @return array
-     * @throws BaseInvalidArgumentException
      */
     public function getColumns(string $schema): array
     {
@@ -175,9 +175,6 @@ class BaseModel
      * Allows each model to return a $fillable array of database column names which
      * must never be null. Each model must define a class property of $fillable which
      * returns an array of fillable fields
-     *
-     * @param string $model
-     * @return array
      */
     public function getFillables(?string $model = null): array
     {
@@ -189,10 +186,8 @@ class BaseModel
 
     /**
      * Return the schema object database column name as an array. Which can be used
-     * to mapp the columns within the dataColumn object. To construct the datatable
-     *
-     * @param integer $indexPosition
-     * @return array
+     * to map the columns within the dataColumn object. To construct the datatable
+     * @throws ReflectionException
      */
     public function getSchemaColumns(int $indexPosition = 2): array
     {
@@ -218,11 +213,8 @@ class BaseModel
     }
 
     /**
-     * Unserialize any serialize data coming from the database
-     *
-     * @param array $conditions
-     * @param $data
-     * @return mixed
+     * Un-serialize any serialize data coming from the database
+     * @throws Exception
      */
     public function unserializeData(array $conditions, $data = null)
     {
@@ -231,7 +223,7 @@ class BaseModel
             if ($serializeData) {
                 foreach ($serializeData as $serialData) {
                     if (is_null($data)) {
-                        throw new \Exception();
+                        throw new Exception();
                     }
                     if (is_array($data)) {
                         return array_map(fn($d) => unserialize($serialData[$d]), $data);
@@ -247,11 +239,8 @@ class BaseModel
 
     /**
      * Unset the database column which is not cloneable
-     *
-     * @param array $cloneArray
-     * @return void
      */
-    public function unsetCloneKeys(array $cloneArray)
+    public function unsetCloneKeys(array $cloneArray): array
     {
         if (is_array($this->unsettableClone) && count($this->unsettableClone) > 0) {
             foreach ($this->unsettableClone as $unsettable) {
@@ -263,8 +252,6 @@ class BaseModel
 
     /**
      * returns an array of database column which should be unique when cloning
-     *
-     * @return array
      */
     public function getClonableKeys(): ?array
     {
@@ -277,10 +264,6 @@ class BaseModel
     /**
      * Get the value of a column[name] for the current queried ID. The name of the column must
      * be specified within the second argument.
-     *
-     * @param int $id
-     * @param string $field
-     * @return mixed
      */
     public function getSelectedNameField(int $id, string $field = null, ?string $model = null)
     {

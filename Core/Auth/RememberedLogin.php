@@ -4,49 +4,101 @@ namespace Evo\Auth;
 
 use App\Models\UserModel;
 use App\Token;
+use Evo\Base\AbstractBaseModel;
 use Evo\Base\BaseModel;
 use Exception;
 use PDO;
+use Throwable;
 
-class RememberedLogin extends BaseModel
+//class RememberedLogin extends BaseModel
+class RememberedLogin extends AbstractBaseModel implements RememberedLoginInterface
 {
+    protected const TABLESCHEMA = 'remembered_logins';
+    protected const TABLESCHEMAID = 'id';
+
+    public function __construct()
+    {
+        parent::__construct(self::TABLESCHEMA, self::TABLESCHEMAID);
+    }
+
+    public function guardedID(): array
+    {
+        return [];
+    }
+
+    public function getSchemaID(): string
+    {
+        return self::TABLESCHEMAID;
+    }
+
+    public function getSchema(): string
+    {
+        return self::TABLESCHEMA;
+    }
+
     /**
      * Find a remembered login model by the token
-     * @throws Exception
+     * @throws Exception|Throwable
      */
-    public static function findByToken(string $remembered_login_token)
+    public function findByToken(string $remembered_login_token): Object // OG
     {
-        $remembered_login_token = new Token($remembered_login_token);
-        $token_hash = $remembered_login_token->getHash();
+        try {
+            $remembered_login_token = new Token($remembered_login_token);
+            $token_hash = $remembered_login_token->getHash();
 
-        $sql = 'SELECT * FROM remembered_logins
-                WHERE token_hash = :token_hash';
-
-        $db = static::getDB();
-        $stmt = $db->prepare($sql);
-        $stmt->bindValue(':token_hash', $token_hash, PDO::PARAM_STR);
-
-        $stmt->setFetchMode(PDO::FETCH_CLASS, get_called_class());
-
-        $stmt->execute();
-
-        return $stmt->fetch();
+            $tokenUser = $this->getRepository()->findObjectBy(['token_hash' => $tokenHash], []);
+            if ($tokenUser !=null) {
+                return $tokenUser;
+            }
+        } catch(Throwable $th) {
+            throw $th;
+        }
     }
 
-    /**
-     * Get the user model associated with this remembered login
-     */
-    public function getUser(): UserModel
-    {
-        return (new UserModel)->getNameForSelectField($_SESSION['user_id']);
-    }
+//    public function findByToken(string $token) : Object // MAGMA
+//    {
+//        try {
+//            $token = new \Evo\Utility\Token($token);
+//            $tokenHash = $token->getHash();
+//            $tokenUser = $this->getRepository()->findObjectBy(['token_hash' => $tokenHash], []);
+//            if ($tokenUser !=null) {
+//                return $tokenUser;
+//            }
+//        }catch(Throwable $th) {
+//            throw $th;
+//        }
+//    }
 
     /**
      * See if the remember_token has expired or not, based on the current system time
      */
-    public function hasExpired(): bool
+    public function hasExpired(): bool // OG
     {
         return strtotime($this->expires_at) < time();
+    }
+
+//    public function hasExpired(string $expires) : bool // MAGMA
+//    {
+//        if (!empty($expires)) {
+//            return strtotime($expires) < time();
+//        }
+//    }
+
+    public function destroy(string $tokenHash) : bool
+    {
+        try {
+            $destroy = $this
+                ->getRepository()
+                ->getEm() /* Access entity manager object */
+                ->getCrud()
+                ->delete(['token_hash' => $tokenHash]);
+            if ($destroy) {
+                return $destroy;
+            }
+            return false;
+        } catch(Throwable $th) {
+            throw $th;
+        }
     }
 
     /**
@@ -63,4 +115,50 @@ class RememberedLogin extends BaseModel
 
         $stmt->execute();
     }
+
+    /**
+     * Get the user model associated with this remembered login
+     */
+    public function getUser(): UserModel // OG
+    {
+        return (new UserModel)->getNameForSelectField($_SESSION['user_id']);
+    }
+
+//    public function getUser(int $userID) : Object // MAGMA
+//    {
+//        if (!empty($userID)) {
+//            return $this->getRepository()->findObjectBy([], ['id' => $userID]);
+//        }
+//    }
+
+    /**
+     * @throws Exception
+     */
+    public function rememberedLogin(int $userID) : array
+    {
+        $token = new \Evo\Utility\Token();
+        $tokenHash = $token->getHash();
+        $tokenValue = $token->getValue();
+        $timestampExpiry = time() + 60 * 60 * 24 * 30; // 30 days from now
+
+        $fields = [
+            'token_hash' => $tokenHash,
+            'expires_at' => date('Y-m-d H:i:s', $timestampExpiry),
+            'id' => $userID
+        ];
+
+        $persisted = $this
+            ->getRepository()
+            ->getEm()
+            ->getCrud()
+            ->create($fields);
+        if ($persisted) {
+            return [
+                $tokenValue,
+                $timestampExpiry
+            ];
+        }
+    }
+
+
 }

@@ -2,25 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c275ede-d842-4bd5-89bf-c02fd23aab03" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Core/Auth/Authorized.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Auth/RememberedLogin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Auth/RememberedLoginInterface.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/Authenticated.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/Authenticated.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/MenuController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/MenuController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/SectionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/SectionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/SignupController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/SignupController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Models/PermissionModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Models/PermissionModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Models/RememberedLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Models/RememberedLogin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/home/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/home/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/includes/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/includes/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Base/AbstractBaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/AbstractBaseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Base/BaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/BaseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Auth/Authorized.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Auth/Authorized.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Auth/RememberedLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Auth/RememberedLogin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Base/AbstractBaseBootLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/AbstractBaseBootLoader.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Base/BaseModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/BaseModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Base/BaseView.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/BaseView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Base/Traits/ControllerMenuTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/Traits/ControllerMenuTrait.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Base/BaseProtectedRoutes.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/BaseProtectedRoutes.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,6 +140,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Core" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">

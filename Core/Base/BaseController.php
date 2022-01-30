@@ -149,8 +149,8 @@ class BaseController extends AbstractBaseController
         }
         return array_merge(
             ['current_user' => Authorized::grantedUser()],
-            ['privilege_user' => PrivilegedUser::getUser()],
-            ['func' => new TemplateExtension($this)],
+//            ['privilege_user' => PrivilegedUser::getUser()],
+//            ['func' => new TemplateExtension($this)],
         );
     }
 

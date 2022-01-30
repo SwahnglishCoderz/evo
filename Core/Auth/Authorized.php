@@ -1,13 +1,24 @@
 <?php
+/*
+ * This file is part of the Evo package.
+ *
+ * (c) John Andrew <simplygenius78@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+declare (strict_types = 1);
 
 namespace Evo\Auth;
 
+use App\Models\UserModel;
 use Evo\Auth\RememberedLogin;
 use Evo\Base\Exception\BaseUnexpectedValueException;
 use Evo\Cookie\CookieFacade;
 use Evo\Session\SessionTrait;
-use Evo\UserManager\UserModel;
 use Exception;
+use Throwable;
 
 class Authorized
 {
@@ -29,11 +40,11 @@ class Authorized
     /**
      * Login the user
      */
-    public static function login(Object $userModel, bool $rememberMe) // MAGMA
-    {
-        /* Set userID Session here */
-        session_regenerate_id(true);
-        SessionTrait::registerUserSession($userModel->id ?? false);
+//    public static function login(Object $userModel, bool $rememberMe) // MAGMA
+//    {
+//        /* Set userID Session here */
+//        session_regenerate_id(true);
+//        SessionTrait::registerUserSession($userModel->id ?? false);
 //        if ($rememberMe) {
 //            $rememberLogin = new RememberedLogin();
 //            list($token, $timestampExpiry) = $rememberLogin->rememberedLogin($userModel->id);
@@ -42,22 +53,22 @@ class Authorized
 //                $cookie->set($token);
 //            }
 //        }
-    }
-
-//    public static function login(object $user, bool $remember_me, int $id = null) // OG
-//    {
-//        session_regenerate_id(true);
-//        SessionTrait::registerUserSession($user->id);
-//
-//        if ($remember_me) {
-//
-//            if ($user->rememberLogin()) {
-//
-//                setcookie('remember_me', $user->remember_token, $user->expiry_timestamp, '/');
-//
-//            }
-//        }
 //    }
+
+    public static function login(object $user, bool $remember_me, int $id = null) // OG
+    {
+        session_regenerate_id(true);
+        SessionTrait::registerUserSession($user->id);
+
+        if ($remember_me) {
+
+            if ($user->rememberLogin()) {
+
+                setcookie('remember_me', $user->remember_token, $user->expiry_timestamp, '/');
+
+            }
+        }
+    }
 
     /**
      * Helper function for getting the current user ID from the active session
@@ -69,18 +80,20 @@ class Authorized
 
     /**
      * Register the current logged-in user to the Session so there info can
+     * @throws Throwable
      */
     public static function grantedUser()
     {
         $userSessionID = self::getCurrentSessionID();
-//        if (isset($userSessionID)) {
-//            return (new UserModel())->getRepository()->findObjectBy(['id' => $userSessionID], self::FIELD_SESSIONS);
-//        } else {
+        if (isset($userSessionID)) {
+            return (new UserModel())->getRepository()->findObjectBy(['id' => $userSessionID], self::FIELD_SESSIONS);
+        } else {
 //            $user = self::loginFromRemembermeCookie();
-//            if ($user) {
-//                return $user;
-//            }
-//        }
+            $user = self::loginFromRememberCookie();
+            if ($user) {
+                return $user;
+            }
+        }
     }
 
     /**
@@ -163,6 +176,7 @@ class Authorized
      *
      * returns the user model or null if not logged in
      * @throws Exception
+     * @throws Throwable
      */
     public static function getUser()
     {
@@ -198,14 +212,15 @@ class Authorized
      *
      * returns the user model if login cookie found; null otherwise
      * @throws Exception
+     * @throws Throwable
      */
-    protected static function loginFromRememberCookie()
+    protected static function loginFromRememberCookie() // OG
     {
         $cookie = $_COOKIE['remember_me'] ?? false;
 
         if ($cookie) {
 
-            $remembered_login = RememberedLogin::findByToken($cookie);
+            $remembered_login = (new RememberedLogin)->findByToken($cookie);
 
             //if ($remembered_login) {
             if ($remembered_login && ! $remembered_login->hasExpired()) {
