@@ -15,9 +15,13 @@ namespace App\Controllers;
 use App\Models\MenuModel;
 use App\Models\SectionModel;
 use Evo\Base\BaseView;
+use Exception;
 
 class MenuController extends Authenticated
 {
+    /**
+     * @throws Exception
+     */
     public function index()
     {
         // retrieve details of all menus from the DB
@@ -27,12 +31,18 @@ class MenuController extends Authenticated
         BaseView::renderTemplate('menu/index.html', ['sections' => $sections, 'menus' => $menus]);
     }
 
+    /**
+     * @throws Exception
+     */
     public function new()
     {
         // display a form to create a new menu
         BaseView::renderTemplate('menu/create.html');
     }
 
+    /**
+     * @throws Exception
+     */
     public function show()
     {
         // retrieve details of a single menu from the DB
@@ -44,6 +54,9 @@ class MenuController extends Authenticated
         // add new menu to DB
     }
 
+    /**
+     * @throws Exception
+     */
     public function edit()
     {
         // display a form to update a menu

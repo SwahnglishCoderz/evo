@@ -31,7 +31,6 @@ trait ControllerMenuTrait
 
     use DataLayerTrait;
     use BaseReflectionTrait;
-//    use SystemEventTrait;
     use ControllerTrait;
 
     private array $usables = [
@@ -192,11 +191,10 @@ trait ControllerMenuTrait
         $url .= '/';
         $url .= $routeParams['controller'] ?? '';
 
+        $url .= '/';
+
         if (isset($routeParams['id']) && $routeParams['id'] !=='') {
-            $url .= '/';
             $url .= $routeParams['id'];
-        } else {
-            $url .= '/';
         }
 
         $url .= $itemName;

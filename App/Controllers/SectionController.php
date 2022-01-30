@@ -16,6 +16,7 @@ use App\Auth;
 use App\Flash;
 use App\Models\MenuModel;
 use App\Models\SectionModel;
+use Evo\Auth\Authorized;
 use Evo\Base\BaseView;
 use Throwable;
 
@@ -54,7 +55,8 @@ class SectionController extends Authenticated
 
         if ($clean_data) {
             Flash::addMessageToFlashNotifications('Section added successfully');
-            $this->redirect(Auth::getReturnToPage());
+//            $this->redirect(Auth::getReturnToPage());
+            $this->redirect(Authorized::getReturnToPage());
         } else {
             Flash::addMessageToFlashNotifications('Failed to add the section', Flash::WARNING);
         }
