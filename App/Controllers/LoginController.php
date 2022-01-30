@@ -12,7 +12,7 @@ use Throwable;
 
 class LoginController extends BaseController
 {
-    public function new()
+    public function indexAction()
     {
         BaseView::renderTemplate('Login/new.html');
     }

@@ -16,6 +16,7 @@ use App\Models\UserModel;
 use App\Models\RememberedLogin;
 use Evo\Base\AbstractBaseModel;
 use Evo\Base\BaseModel;
+use Evo\Session\SessionTrait;
 use Exception;
 
 class Auth
@@ -24,7 +25,7 @@ class Auth
     {
         session_regenerate_id(true);
 
-        $_SESSION['user_id'] = $user->id;
+        SessionTrait::registerUserSession($user->id);
 
         if ($remember_me) {
 

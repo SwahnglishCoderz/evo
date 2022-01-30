@@ -103,6 +103,5 @@ trait SessionTrait
         $_SESSION['user_id'] = $userID;
         $_SESSION['last_login'] = time();
         $_SESSION['is_login'] = true;
-//        print_r($_SESSION);
     }
 }

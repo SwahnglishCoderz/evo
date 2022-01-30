@@ -7,24 +7,15 @@ use App\Flash;
 use Evo\Base\BaseApplication;
 use Evo\Base\BaseRedirect;
 use Evo\Base\Exception\BaseBadMethodCallException;
-use Evo\Ash\Exception\FileNotFoundException;
-//use Evo\Base\Events\BeforeRenderActionEvent;
-//use Evo\Base\Events\BeforeControllerActionEvent;
 use Evo\Base\Traits\ControllerMenuTrait;
 use Evo\Base\Traits\ControllerPrivilegeTrait;
 use Evo\Utility\Yaml;
 use Evo\Base\BaseView;
-use Evo\Auth\Authorized;
-//use Evo\Session\Flash\Flash;
 use Evo\Session\SessionTrait;
-use Evo\Ash\TemplateExtension;
 use Evo\Middleware\Middleware;
 use Evo\Session\Flash\FlashType;
 use Evo\Base\Exception\BaseLogicException;
 use Evo\Base\Traits\ControllerCastingTrait;
-use Evo\Auth\Roles\PrivilegedUser;
-use Evo\UserManager\UserModel;
-use Evo\UserManager\Rbac\Permission\PermissionModel;
 use Exception;
 
 class BaseController extends AbstractBaseController
@@ -47,7 +38,7 @@ class BaseController extends AbstractBaseController
     {
         parent::__construct($routeParams);
         $this->routeParams = $routeParams;
-//        $this->templateEngine = new BaseView();
+        $this->templateEngine = new BaseView();
 
 //        $this->diContainer(Config::PROVIDERS);
 //        $this->initEvents();

@@ -37,23 +37,23 @@ session_start();
 $router = new Evo\Router\Router();
 
 // Authentication routes
-$router->add('', ['controller' => 'Home', 'action' => 'index']);
-$router->add('login', ['controller' => 'Login', 'action' => 'new']);
-$router->add('logout', ['controller' => 'Login', 'action' => 'destroy']);
-$router->add('password/reset/{token:[\da-f]+}', ['controller' => 'Password', 'action' =>'reset']);
-$router->add('signup/activate/{token:[\da-f]+}', ['controller' => 'Signup', 'action' => 'activate']);
+//$router->add('', ['controller' => 'Home', 'action' => 'index']);
+//$router->add('login', ['controller' => 'Login', 'action' => 'index']);
+//$router->add('logout', ['controller' => 'Login', 'action' => 'destroy']);
+//$router->add('password/reset/{token:[\da-f]+}', ['controller' => 'Password', 'action' =>'reset']);
+//$router->add('signup/activate/{token:[\da-f]+}', ['controller' => 'Signup', 'action' => 'activate']);
 
 // General route pattern
-$router->add('{controller}/{action}');
+//$router->add('{controller}/{action}');
 
-$router->dispatch($_SERVER['QUERY_STRING']);
+//$router->dispatch($_SERVER['QUERY_STRING']);
 
 try {
     /* Attempting to run a single instance of the application */
     BaseApplication::getInstance()
         ->setPath(ROOT_PATH)
         ->setConfig(\Evo\System\Config::APP)
-        ->setRoutes(Yaml::file('routes'))
+        ->setRoutes()
         ->run();
 } catch (Exception $e) {
     echo $e->getMessage();

@@ -66,7 +66,7 @@ abstract class AbstractBaseBootLoader extends Singleton
             return $factory->buildRoutes($this->app()->getRoutes());
         }
     }
-//
+
 //    /**
 //     * Return the session global variable through a static method which should make
 //     * accessing the global variable much simpler
@@ -77,7 +77,7 @@ abstract class AbstractBaseBootLoader extends Singleton
 //    {
 //        return GlobalManager::get('session_global');
 //    }
-//
+
 //    /**
 //     * Get the default session driver defined with the session.yml file
 //     */
@@ -85,7 +85,7 @@ abstract class AbstractBaseBootLoader extends Singleton
 //    {
 //        return $this->getDefaultSettings($this->app()->getSessions());
 //    }
-//
+
 //    /**
 //     * Builds the application session component and returns the configured object. Based
 //     * on the session configuration array.
@@ -103,7 +103,7 @@ abstract class AbstractBaseBootLoader extends Singleton
 //        }
 //        return $session;
 //    }
-//
+
     /**
      * Initialise the pass our classes to be loaded by the framework dependency
      * container using PHP Reflection

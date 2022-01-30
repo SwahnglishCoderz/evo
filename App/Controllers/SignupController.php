@@ -24,7 +24,7 @@ class SignupController extends BaseController
     /**
      * Show the signup page
      */
-    public function new()
+    public function index()
     {
         BaseView::renderTemplate('signup/new.html');
     }

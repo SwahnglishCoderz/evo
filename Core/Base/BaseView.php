@@ -30,6 +30,7 @@ class BaseView
 
     /**
      * Render a view template using Twig
+     * @throws Exception
      */
     public static function renderTemplate(string $template, array $optional_view_data = [])
     {
@@ -38,6 +39,7 @@ class BaseView
 
     /**
      * Get the contents of a view template using Twig
+     * @throws Exception
      */
     public static function getTemplate(string $template, array $optional_view_data = []): string
     {
