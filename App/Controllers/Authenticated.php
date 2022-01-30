@@ -13,11 +13,13 @@ declare (strict_types = 1);
 namespace App\Controllers;
 
 use Evo\Base\BaseController;
+use Exception;
 
 abstract class Authenticated extends BaseController
 {
     /**
      * Require the user to be authenticated before giving access to all methods in the controller
+     * @throws Exception
      */
     protected function before()
     {

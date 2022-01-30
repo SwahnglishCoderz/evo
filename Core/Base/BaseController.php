@@ -4,28 +4,26 @@ namespace Evo\Base;
 
 use App\Auth;
 use App\Flash;
+use App\Models\PermissionModel;
+use App\Models\UserModel;
+use Evo\Auth\Authorized;
+use Evo\Auth\PrivilegedUser;
 use Evo\Base\BaseApplication;
 use Evo\Base\BaseRedirect;
 use Evo\Base\Exception\BaseBadMethodCallException;
-use Evo\Ash\Exception\FileNotFoundException;
-//use Evo\Base\Events\BeforeRenderActionEvent;
-//use Evo\Base\Events\BeforeControllerActionEvent;
 use Evo\Base\Traits\ControllerMenuTrait;
 use Evo\Base\Traits\ControllerPrivilegeTrait;
+use Evo\Error\Error;
+use Evo\System\Config;
 use Evo\Utility\Yaml;
 use Evo\Base\BaseView;
-use Evo\Auth\Authorized;
-//use Evo\Session\Flash\Flash;
 use Evo\Session\SessionTrait;
-use Evo\Ash\TemplateExtension;
 use Evo\Middleware\Middleware;
 use Evo\Session\Flash\FlashType;
 use Evo\Base\Exception\BaseLogicException;
 use Evo\Base\Traits\ControllerCastingTrait;
-use Evo\Auth\Roles\PrivilegedUser;
-use Evo\UserManager\UserModel;
-use Evo\UserManager\Rbac\Permission\PermissionModel;
 use Exception;
+use Throwable;
 
 class BaseController extends AbstractBaseController
 {
@@ -47,11 +45,24 @@ class BaseController extends AbstractBaseController
     {
         parent::__construct($routeParams);
         $this->routeParams = $routeParams;
-//        $this->templateEngine = new BaseView();
+        $this->templateEngine = new BaseView();
 
 //        $this->diContainer(Config::PROVIDERS);
 //        $this->initEvents();
 //        $this->buildControllerMenu($routeParams);
+    }
+
+    /**
+     * Return and instance of the base application class
+     */
+    public function baseApp(): \Evo\Base\BaseApplication
+    {
+        return new BaseApplication();
+    }
+
+    public function getRouteParams(): array
+    {
+        return $this->routeParams;
     }
 
     /**
@@ -75,11 +86,47 @@ class BaseController extends AbstractBaseController
         }
     }
 
+    protected function defineCoreMiddleware(): array
+    {
+        return [
+//            'error404' => Error404::class
+        ];
+    }
+
+    /**
+     * Returns an array of middlewares for the current object which will
+     * execute before the action is called. Middlewares are also resolved
+     * via the container object. So you can also type hint any dependency
+     * you need within your middleware constructor. Note constructor arguments
+     * cannot be resolved only other objects
+     */
+    protected function callBeforeMiddlewares(): array
+    {
+//        return array_merge($this->defineCoreMiddeware(), $this->callBeforeMiddlewares);
+    }
+
+    /**
+     * Returns an array of middlewares for the current object which will
+     * execute before the action is called. Middlewares are also resolved
+     * via the container object. So you can also type hint any dependency
+     * you need within your middleware constructor. Note constructor arguments
+     * cannot be resolved only other objects
+     */
+    protected function callAfterMiddlewares(): array
+    {
+        return $this->callAfterMiddlewares;
+    }
+
     /**
      * Before filter - called before an action method.
      */
     protected function before()
     {
+//        $object = new self($this->routeParams);
+//        (new Middleware())->middlewares($this->callBeforeMiddlewares())
+//            ->middleware($object, function ($object) {
+//                return $object;
+//            });
     }
 
     /**
@@ -87,30 +134,55 @@ class BaseController extends AbstractBaseController
      */
     protected function after()
     {
+//        $object = new self($this->routeParams);
+//        (new Middleware())->middlewares($this->callAfterMiddlewares())
+//            ->middleware($object, function ($object) {
+//                return $object;
+//            });
+    }
+
+    /**
+     * Template context which relies on the application owning a user and permission
+     * model before providing any data to the rendered template
+     * @throws Throwable
+     */
+    private function templateModelContext(): array
+    {
+        if (!class_exists(UserModel::class) || !class_exists(PermissionModel::class)) {
+            return array();
+        }
+        return array_merge(
+            ['current_user' => Authorized::grantedUser()],
+            ['privilege_user' => PrivilegedUser::getUser()],
+//            ['func' => new TemplateExtension($this)],
+        );
+    }
+
+    /**
+     * Return some global context to all rendered templates
+     *
+     * @return array
+     */
+    private function templateGlobalContext(): array
+    {
+        return array_merge(
+            ['app' => Config::APP],
+            ['menu' => Config::MENU],
+            ['routes' => ($this->routeParams ?? [])]
+        );
     }
 
     /**
      * Redirect to a different page
      */
-//    public function redirect(string $url)
-//    {
-//        header('Location: http://' . $_SERVER['HTTP_HOST'] . $url, true, 303);
-//        exit;
-//    }
-
     public function redirect(string $url, bool $replace = true, int $responseCode = 303)
     {
-//        print_r($_SESSION);
-//        exit;
         $this->redirect = new BaseRedirect(
             $url,
             $this->routeParams,
             $replace,
             $responseCode
         );
-
-//        print_r($this->redirect);
-//        exit;
 
         if ($this->redirect) {
             $this->redirect->redirect();
@@ -120,30 +192,21 @@ class BaseController extends AbstractBaseController
     /**
      * Require the user to be logged in before giving access to the requested page.
      * Remember the requested page for later, then redirect to the login page.
+     * @throws Exception
+     * @throws Throwable
      */
     public function requireLogin()
     {
-        if (! Auth::getUser()) {
+//        if (! Auth::getUser()) {
+        if (! Authorized::getUser()) {
 
             Flash::addMessageToFlashNotifications('Please log in to access that page', Flash::INFO);
 
-            Auth::rememberRequestedPage();
+//            Auth::rememberRequestedPage();
+            Authorized::rememberRequestedPage();
 
             $this->redirect('/login');
         }
-    }
-
-    /**
-     * Return and instance of the base application class
-     */
-    public function baseApp()
-    {
-        return new BaseApplication();
-    }
-
-    public function getRouteParams(): array
-    {
-        return $this->routeParams;
     }
 
     public function getRoutes(): array

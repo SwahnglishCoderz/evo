@@ -13,6 +13,7 @@ declare (strict_types = 1);
 namespace App\Controllers;
 
 use App\Models\UserModel;
+use Evo\Auth\Authorized;
 use Evo\System\Status;
 use Evo\Base\BaseView;
 use App\Auth;
@@ -27,7 +28,8 @@ class ProfileController extends Authenticated
      */
     public function show()
     {
-        $this->user = Auth::getUser();
+//        $this->user = Auth::getUser();
+        $this->user = Authorized::getUser();
 //        print_r($this->user);
 //        exit;
 
@@ -45,7 +47,8 @@ class ProfileController extends Authenticated
      */
     public function edit()
     {
-        $this->user = Auth::getUser();
+//        $this->user = Auth::getUser();
+        $this->user = Authorized::getUser();
 
         BaseView::renderTemplate('profile/edit.html', [
             'user' => $this->user

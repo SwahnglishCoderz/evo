@@ -18,9 +18,11 @@ class AbstractBaseController
             $this->routeParams = $routeParams;
     }
 
-    public function toArray(Object $data): array
+    public function setContainer(ContainerInterface $container): ContainerInterface
     {
-        return (array)$data;
+        $previous = $this->container;
+        $this->container = $container;
+        return $previous;
     }
 
     /**
@@ -65,10 +67,9 @@ class AbstractBaseController
         return intval($ID);
     }
 
-    public function setContainer(ContainerInterface $container)
+    public function toArray(Object $data): array
     {
-        $previous = $this->container;
-        $this->container = $container;
-        return $previous;
+        return (array)$data;
     }
+
 }

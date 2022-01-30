@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use Evo\Auth\Authorized;
 use Evo\Base\BaseController;
 use Evo\Base\BaseView;
 use App\Models\UserModel;
@@ -12,7 +13,10 @@ use Throwable;
 
 class LoginController extends BaseController
 {
-    public function new()
+    /**
+     * @throws Exception
+     */
+    public function indexAction()
     {
         BaseView::renderTemplate('Login/new.html');
     }
@@ -31,11 +35,13 @@ class LoginController extends BaseController
         $remember_me = isset($_POST['remember_me']);
 
         if ($user) {
-            Auth::login($user, $remember_me);
+//            Auth::login($user, $remember_me); // OG
+            Authorized::login($user, $remember_me);
 
             Flash::addMessageToFlashNotifications('Login successful');
 
-            $this->redirect(Auth::getReturnToPage());
+//            $this->redirect(Auth::getReturnToPage());
+            $this->redirect(Authorized::getReturnToPage());
 
         } else {
 
@@ -53,7 +59,8 @@ class LoginController extends BaseController
      */
     public function destroy()
     {
-        Auth::logout();
+//        Auth::logout();
+        Authorized::logout();
 
         $this->redirect('/login/show-logout-message');
     }
