@@ -13,11 +13,14 @@ declare (strict_types = 1);
 
 namespace Evo\Base;
 
-use Evo\Auth\Roles\PrivilegedUser;
+use Evo\Auth\PrivilegedUser;
+use Throwable;
 
 class BaseProtectedRoutes
 {
-
+    /**
+     * @throws Throwable
+     */
     public function __invoke(): BaseProtectedRoutes
     {
         $privilege = PrivilegedUser::getUser();
@@ -26,8 +29,5 @@ class BaseProtectedRoutes
             $controller->redirect('/admin/accessDenied/index');
         }
         return $this;
-
     }
-
-
 }

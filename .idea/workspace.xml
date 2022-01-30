@@ -2,13 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c275ede-d842-4bd5-89bf-c02fd23aab03" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Core/Auth/RememberedLoginInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Auth/PrivilegedUser.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Auth/Role.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Auth/RolePermissionEntity.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Auth/RolePermissionModel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Auth/UserRoleEntity.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Auth/UserRoleModel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Middleware/Before/AdminAuthentication.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Middleware/Before/AuthorizedIsNull.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Middleware/Before/IntegrityConstraints.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Middleware/Before/LoginRequired.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Middleware/Before/SessionExpires.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Auth/Authorized.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Auth/Authorized.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Auth/RememberedLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Auth/RememberedLogin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Base/AbstractBaseBootLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/AbstractBaseBootLoader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Base/BaseModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/BaseModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Base/BaseApplication.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/BaseApplication.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Base/BaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/BaseController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Base/BaseProtectedRoutes.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/BaseProtectedRoutes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/System/Config.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/System/Config.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,18 +148,18 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Core" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Core/Auth" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\mbonea\Core\Auth" />
+      <recent name="C:\xampp\htdocs\mbonea\Core\Middleware\Before" />
       <recent name="C:\xampp\htdocs\mbonea\Core" />
       <recent name="C:\xampp\htdocs\mbonea\App\Views\includes" />
       <recent name="C:\xampp\htdocs\mbonea\App\Models" />
-      <recent name="C:\xampp\htdocs\mbonea\App\Views" />
-      <recent name="C:\xampp\htdocs\mbonea\App\Controllers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\mbonea\Core\System" />

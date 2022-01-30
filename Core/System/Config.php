@@ -737,4 +737,5 @@ class Config
             "path" => "cache/"
         ]
     ];
+    const MENU = [];
 }

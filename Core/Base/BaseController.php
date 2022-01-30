@@ -7,12 +7,14 @@ use App\Flash;
 use App\Models\PermissionModel;
 use App\Models\UserModel;
 use Evo\Auth\Authorized;
+use Evo\Auth\PrivilegedUser;
 use Evo\Base\BaseApplication;
 use Evo\Base\BaseRedirect;
 use Evo\Base\Exception\BaseBadMethodCallException;
 use Evo\Base\Traits\ControllerMenuTrait;
 use Evo\Base\Traits\ControllerPrivilegeTrait;
 use Evo\Error\Error;
+use Evo\System\Config;
 use Evo\Utility\Yaml;
 use Evo\Base\BaseView;
 use Evo\Session\SessionTrait;
@@ -21,6 +23,7 @@ use Evo\Session\Flash\FlashType;
 use Evo\Base\Exception\BaseLogicException;
 use Evo\Base\Traits\ControllerCastingTrait;
 use Exception;
+use Throwable;
 
 class BaseController extends AbstractBaseController
 {
@@ -141,6 +144,7 @@ class BaseController extends AbstractBaseController
     /**
      * Template context which relies on the application owning a user and permission
      * model before providing any data to the rendered template
+     * @throws Throwable
      */
     private function templateModelContext(): array
     {
@@ -149,7 +153,7 @@ class BaseController extends AbstractBaseController
         }
         return array_merge(
             ['current_user' => Authorized::grantedUser()],
-//            ['privilege_user' => PrivilegedUser::getUser()],
+            ['privilege_user' => PrivilegedUser::getUser()],
 //            ['func' => new TemplateExtension($this)],
         );
     }
@@ -162,9 +166,9 @@ class BaseController extends AbstractBaseController
     private function templateGlobalContext(): array
     {
         return array_merge(
-            ['app' => Yaml::file('app')],
-            ['menu' => Yaml::file('menu')],
-            ['routes' => (isset($this->routeParams) ? $this->routeParams : [])]
+            ['app' => Config::APP],
+            ['menu' => Config::MENU],
+            ['routes' => ($this->routeParams ?? [])]
         );
     }
 
@@ -189,6 +193,7 @@ class BaseController extends AbstractBaseController
      * Require the user to be logged in before giving access to the requested page.
      * Remember the requested page for later, then redirect to the login page.
      * @throws Exception
+     * @throws Throwable
      */
     public function requireLogin()
     {
