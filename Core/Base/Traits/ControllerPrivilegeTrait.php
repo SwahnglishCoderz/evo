@@ -12,10 +12,9 @@ declare(strict_types = 1);
 
 namespace Evo\Base\Traits;
 
-use Evo\UserManager\UserController;
-use Evo\UserManager\Rbac\Permission\PermissionModel;
+use App\Models\PermissionModel;
 use Evo\Auth\Authorized;
-use Evo\Auth\Roles\PrivilegedUser;
+use Evo\Auth\PrivilegedUser;
 use Evo\Base\BaseModel;
 use Evo\Utility\Stringify;
 use ReflectionException;
@@ -23,6 +22,7 @@ use ReflectionMethod;
 use ReflectionClass;
 use Evo\Base\Traits\BaseReflectionTrait;
 use Evo\Base\BaseProtectedRoutes;
+use Throwable;
 
 trait ControllerPrivilegeTrait
 {
@@ -91,6 +91,7 @@ trait ControllerPrivilegeTrait
 
     /**
      * @throws ReflectionException
+     * @throws Throwable
      */
     public function checkPermission()
     {
@@ -153,7 +154,7 @@ trait ControllerPrivilegeTrait
         if (class_exists($permissions = PermissionModel::class)) {
             $results = new $permissions();
             if ($results instanceof BaseModel) {
-                $perms = $results->getRepo()->findAll();
+                $perms = $results->getRepository()->findAll();
                 if (is_array($perms) && count($perms) > 0) {
                     return $perms;
                 }

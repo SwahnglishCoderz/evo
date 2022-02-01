@@ -14,12 +14,13 @@ namespace App\Controllers;
 
 use Evo\Base\BaseController;
 use Exception;
+use Throwable;
 
 abstract class Authenticated extends BaseController
 {
     /**
      * Require the user to be authenticated before giving access to all methods in the controller
-     * @throws Exception
+     * @throws Exception|Throwable
      */
     protected function before()
     {

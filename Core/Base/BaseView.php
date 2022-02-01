@@ -2,10 +2,10 @@
 
 namespace Evo\Base;
 
-use App\Auth;
 use App\Flash;
 use Evo\Auth\Authorized;
 use Exception;
+use Throwable;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
@@ -32,6 +32,7 @@ class BaseView
     /**
      * Render a view template using Twig
      * @throws Exception
+     * @throws Throwable
      */
     public static function renderTemplate(string $template, array $optional_view_data = [])
     {
@@ -40,7 +41,7 @@ class BaseView
 
     /**
      * Get the contents of a view template using Twig
-     * @throws Exception
+     * @throws Exception|Throwable
      */
     public static function getTemplate(string $template, array $optional_view_data = []): string
     {

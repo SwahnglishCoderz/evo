@@ -33,7 +33,7 @@ class Authorized
         'lastname',
         'password_hash',
         'gravatar',
-        'status'
+        'status_id'
 
     ];
 
@@ -88,7 +88,7 @@ class Authorized
         if (isset($userSessionID)) {
             return (new UserModel())->getRepository()->findObjectBy(['id' => $userSessionID], self::FIELD_SESSIONS);
         } else {
-//            $user = self::loginFromRemembermeCookie();
+//            $user = self::loginFromRemembermeCookie(); // MAGMA
             $user = self::loginFromRememberCookie();
             if ($user) {
                 return $user;
@@ -109,7 +109,7 @@ class Authorized
 //    }
 
     /**
-     * @throws Exception
+     * @throws Exception|Throwable
      */
     public static function logout()
     {
@@ -181,7 +181,7 @@ class Authorized
     public static function getUser()
     {
         if (isset($_SESSION['user_id'])) {
-            return (new \App\Models\UserModel)->getNameForSelectField($_SESSION['user_id'], ['name', 'email']);
+            return (new \App\Models\UserModel)->getNameForSelectField($_SESSION['user_id'], ['firstname', 'lastname', 'email']);
         } else {
             return static::loginFromRememberCookie();
         }
@@ -257,6 +257,7 @@ class Authorized
     /**
      * Forget the remembered login, if present
      * @throws Exception
+     * @throws Throwable
      */
     protected static function forgetLogin() // OG
     {
@@ -264,7 +265,7 @@ class Authorized
 
         if ($cookie) {
 
-            $remembered_login = RememberedLogin::findByToken($cookie);
+            $remembered_login = (new RememberedLogin)->findByToken($cookie);
 
             if ($remembered_login) {
 

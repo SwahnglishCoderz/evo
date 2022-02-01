@@ -38,7 +38,7 @@
             </div>
             <div class="mt-20 text-center border-b pb-12">
                 <h1 class="text-4xl font-medium text-gray-700">
-                    {{ user.name }}
+                    {{ user.firstname }} {{ user.lastname }}
                     <span class="rounded-full bg-{{ user.is_active_color }}-900 border-{{ user.is_active_color }}-300 px-2 py-1 text-white uppercase text-sm"> {{ user.is_active_name }} </span>
                 </h1>
                 <p class="font-light text-gray-600 mt-3">{{ user.email }}</p>

@@ -253,8 +253,8 @@ trait ControllerTrait
         return false;
     }
 
-    public function dispatchEvent(string $event, string $method, array $context = [], object $controller)
-    {
+//    public function dispatchEvent(string $event, string $method, array $context = [], object $controller)
+//    {
 //        if (empty($event) || !is_string($event)) {
 //            throw new BaseUnexpectedValueException('Please specify the required argument for the method ' . __METHOD__);
 //        }
@@ -265,5 +265,5 @@ trait ControllerTrait
 //                $event::NAME
 //            );
 //        }
-    }
+//    }
 }

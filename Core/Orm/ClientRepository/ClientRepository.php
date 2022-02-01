@@ -146,7 +146,7 @@ class ClientRepository implements ClientRepositoryInterface
         try {
             return $this->em->getCrud()->get($selectors, $conditions);
         } catch (Throwable $ex) {
-            throw new DataLayerNoValueException('The method should have returned an object. But instead nothing has come back. Check that your source contains values.');
+            throw new DataLayerNoValueException('The method should have returned an object. But instead nothing has come back. Check that your source contains values. ' . $ex->getMessage());
         }
     }
 

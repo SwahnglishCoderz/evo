@@ -16,9 +16,15 @@ use App\Models\MenuModel;
 use App\Models\SectionModel;
 use Evo\Base\BaseController;
 use Evo\Base\BaseView;
+use Exception;
+use Throwable;
 
 class HomeController extends BaseController
 {
+    /**
+     * @throws Exception
+     * @throws Throwable
+     */
     public function index()
     {
         $sections = (new SectionModel())->getRepository()->findAll();

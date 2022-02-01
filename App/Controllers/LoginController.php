@@ -1,4 +1,14 @@
 <?php
+/*
+ * This file is part of the Evo package.
+ *
+ * (c) John Andrew <simplygenius78@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+declare (strict_types = 1);
 
 namespace App\Controllers;
 
@@ -6,7 +16,6 @@ use Evo\Auth\Authorized;
 use Evo\Base\BaseController;
 use Evo\Base\BaseView;
 use App\Models\UserModel;
-use App\Auth;
 use App\Flash;
 use Exception;
 use Throwable;
@@ -18,7 +27,7 @@ class LoginController extends BaseController
      */
     public function indexAction()
     {
-        BaseView::renderTemplate('Login/new.html');
+        BaseView::renderTemplate('login/new.html');
     }
 
     /**
@@ -47,7 +56,7 @@ class LoginController extends BaseController
 
             Flash::addMessageToFlashNotifications('Login unsuccessful, please try again', Flash::WARNING);
 
-            BaseView::renderTemplate('Login/new.html', [
+            BaseView::renderTemplate('login/new.html', [
                 'email' => $_POST['email'],
                 'remember_me' => $remember_me
             ]);
@@ -56,6 +65,7 @@ class LoginController extends BaseController
 
     /**
      * @throws Exception
+     * @throws Throwable
      */
     public function destroy()
     {

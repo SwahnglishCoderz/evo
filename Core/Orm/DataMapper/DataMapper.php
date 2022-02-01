@@ -190,12 +190,12 @@ class DataMapper extends DatabaseTransaction implements DataMapperInterface
      */
     public function persist(string $sqlQuery, array $parameters): void
     {
-        $this->start();
+        //$this->start();
         try {
             $this->prepare($sqlQuery)->bindParameters($parameters)->execute();
-            $this->commit();
+            //$this->commit();
         } catch (Exception $e) {
-            $this->revert();
+            //$this->revert();
 //            throw new DataLayerException($e->getMessage());
             throw new Exception($e->getMessage());
         }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 28, 2022 at 04:30 PM
+-- Generation Time: Jan 31, 2022 at 08:20 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.23
 
@@ -40,27 +40,19 @@ CREATE TABLE `access` (
 --
 
 CREATE TABLE `menu` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `description` text DEFAULT NULL,
-  `link` varchar(100) NOT NULL,
-  `title_tag` varchar(100) NOT NULL,
-  `icon` varchar(100) NOT NULL,
-  `position` int(11) NOT NULL,
-  `parent` int(11) DEFAULT NULL,
-  `section_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `menu`
---
-
-INSERT INTO `menu` (`id`, `name`, `description`, `link`, `title_tag`, `icon`, `position`, `parent`, `section_id`) VALUES
-(1, 'role', 'All roles available, to which users are assigned', '/role/index', 'Roles', 'fas fa-tasks', 1, NULL, 2),
-(2, 'permissions', 'All available permissions, that can be assigned to specific roles.', '/permission/index', 'Permissions', 'fas fa-lock', 2, NULL, 2),
-(4, 'all users', 'This the users index page', '/user/index', 'Users', 'fas fa-users', 1, NULL, 1),
-(5, 'section management', 'All sections will be managed here', '/section/index', 'Sections', 'fas fa-chart-pie', 1, NULL, 3),
-(6, 'menu management', 'All menus will be managed here', '/menu/index', 'Menus', 'fas fa-bars', 2, NULL, 3);
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `section_id` int(11) NOT NULL,
+  `parent` tinyint(1) NOT NULL,
+  `position` int(10) DEFAULT NULL,
+  `link` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title_tag` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `icon` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `modified_at` datetime DEFAULT NULL ON UPDATE current_timestamp(),
+  `created_byid` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -69,23 +61,27 @@ INSERT INTO `menu` (`id`, `name`, `description`, `link`, `title_tag`, `icon`, `p
 --
 
 CREATE TABLE `permission` (
-  `id` int(11) NOT NULL,
-  `name` varchar(300) NOT NULL,
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `section_id` int(11) NOT NULL,
-  `display_name` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `display_name` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `modified_at` datetime DEFAULT NULL ON UPDATE current_timestamp(),
+  `created_byid` int(10) UNSIGNED DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `remembered_logins`
+-- Table structure for table `remembered_login`
 --
 
-CREATE TABLE `remembered_logins` (
-  `token_hash` varchar(64) NOT NULL,
+CREATE TABLE `remembered_login` (
+  `token_hash` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
   `expires_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -94,18 +90,24 @@ CREATE TABLE `remembered_logins` (
 --
 
 CREATE TABLE `role` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `added_by` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(64) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `modified_at` datetime DEFAULT NULL ON UPDATE current_timestamp(),
+  `created_byid` int(10) UNSIGNED DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
 
 --
--- Dumping data for table `role`
+-- Table structure for table `role_permission`
 --
 
-INSERT INTO `role` (`id`, `name`, `added_by`) VALUES
-(1, 'developer', 0),
-(2, 'subscriber', 0);
+CREATE TABLE `role_permission` (
+  `role_id` int(10) UNSIGNED NOT NULL,
+  `permission_id` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -120,21 +122,6 @@ CREATE TABLE `section` (
   `position` int(11) NOT NULL,
   `icon` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `section`
---
-
-INSERT INTO `section` (`id`, `name`, `description`, `position`, `icon`) VALUES
-(1, 'users', 'Section description', 1, ''),
-(2, 'utility', 'Section description', 99, ''),
-(3, 'system', 'All the system configuration, including database setup, themes, emails, sms and so on. ', 98, ''),
-(5, 'dfgg', 'srdttfg@ex.gg', 45, NULL),
-(6, 'dfgg', 'srdttfg@ex.gg', 45, NULL),
-(7, 'dfgg', 'srdttfg@ex.gg', 45, NULL),
-(8, 'ddddddddd', 'sssssssssssssss', 4444, NULL),
-(9, 'sample sec', 'lalalalaalalalalalalaaaaaaa', 435, NULL),
-(10, 'dfjfj', 'hjghjgjghjgh', 5664, NULL);
 
 -- --------------------------------------------------------
 
@@ -159,34 +146,40 @@ INSERT INTO `status` (`id`, `name`, `color`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Table structure for table `user`
 --
 
-CREATE TABLE `users` (
+CREATE TABLE `user` (
   `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(256) NOT NULL,
-  `email` varchar(256) NOT NULL,
-  `password_hash` varchar(256) NOT NULL,
-  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
-  `updated_at` datetime NOT NULL,
-  `activation_hash` varchar(256) DEFAULT NULL,
+  `firstname` varchar(150) CHARACTER SET utf8mb4 NOT NULL,
+  `lastname` varchar(150) CHARACTER SET utf8mb4 NOT NULL,
+  `email` varchar(190) CHARACTER SET utf8mb4 NOT NULL,
+  `gravatar` varchar(190) CHARACTER SET utf8mb4 DEFAULT NULL,
   `status_id` int(11) DEFAULT 2,
-  `is_active` int(1) NOT NULL,
-  `password_reset_hash` varchar(64) DEFAULT NULL,
-  `password_reset_expires_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `password_hash` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+  `password_reset_hash` varchar(64) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `password_reset_expires_at` datetime DEFAULT NULL,
+  `activation_token` varchar(64) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `created_byid` int(10) UNSIGNED DEFAULT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `modified_at` datetime DEFAULT NULL,
+  `deleted_at` tinyint(1) DEFAULT NULL,
+  `deleted_at_datetime` datetime DEFAULT NULL,
+  `remote_addr` varchar(65) CHARACTER SET utf8mb4 NOT NULL,
+  `user_failed_logins` tinyint(1) NOT NULL,
+  `user_last_failed_login` int(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
 
 --
--- Dumping data for table `users`
+-- Table structure for table `user_role`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `password_hash`, `created_at`, `updated_at`, `activation_hash`, `status_id`, `is_active`, `password_reset_hash`, `password_reset_expires_at`) VALUES
-(20, 'Jean Kyle', 'john@example.com', '$2y$10$MOb5mkUXsJ8DsRBJQwlPluMKk47/4LRvSQIkDmS/EZPF1zxW91OAO', '2022-01-17 14:46:31', '0000-00-00 00:00:00', NULL, 2, 1, NULL, NULL),
-(21, 'Sarah John', 'sarah@example.com', '$2y$10$PwTaIneiKpKisoC.rl83L.uy4LlL2xh3DyQ64mIxJh6zPRNaZZ1gK', '2022-01-17 14:50:45', '0000-00-00 00:00:00', NULL, 2, 1, NULL, NULL),
-(41, 'Sige Boy', 'sige@example.com', '$2y$10$Y15F6YiTnoIEsPN1cHqPNeZ4ix.zpgI88K7M/a9uJDSccSIYtJlDu', '2022-01-26 09:44:01', '0000-00-00 00:00:00', 'a7498c04a97d73d51c62f4e0c9a1728d3276a5ec12bf4f8a44afb9be96e97508', 2, 0, NULL, NULL),
-(42, 'jsjsj hdask', 'jadf@drfjk.df', '$2y$10$91EJsYM8S5KqVe0nGqQgAuYCVRO/7KFgvxAq3noJzyOX2ZSQWayoW', '2022-01-27 15:02:16', '0000-00-00 00:00:00', '1d1c77a24ab23b044fba7bc2ebdd704866939a1a6cc6d9ab3b1b215e44f76d1e', 2, 0, NULL, NULL),
-(43, 'JAhs Kdhja', 'dhj@ewj.sldk', '$2y$10$A.UPDImNDzULuGBVhQTAZ.Bzjc.WfG2TN2UVonpWCCMIiD/eZ9IAa', '2022-01-28 16:57:02', '0000-00-00 00:00:00', 'ffbc29b9145d2301e4219fa87024ffbecdd39a93ad2b4619eacbd14567322096', 2, 0, NULL, NULL),
-(44, 'Jodhhn OSIH', 'osih@example.com', '$2y$10$e0EutoX9HcpY0ntmrU3tgO2WQxMhPEPMR6vZeNDr0wLsLZMsszvay', '2022-01-28 18:06:15', '0000-00-00 00:00:00', 'e237d9925e90c30f6b3f9f3497cb30f8477cd1addaa91ed0451f041149d28006', 2, 0, NULL, NULL);
+CREATE TABLE `user_role` (
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `role_id` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Indexes for dumped tables
@@ -203,6 +196,8 @@ ALTER TABLE `access`
 --
 ALTER TABLE `menu`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `position` (`position`),
+  ADD KEY `name` (`name`),
   ADD KEY `section_id` (`section_id`);
 
 --
@@ -210,20 +205,22 @@ ALTER TABLE `menu`
 --
 ALTER TABLE `permission`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`),
   ADD KEY `section_id` (`section_id`);
-
---
--- Indexes for table `remembered_logins`
---
-ALTER TABLE `remembered_logins`
-  ADD PRIMARY KEY (`token_hash`),
-  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `role`
 --
 ALTER TABLE `role`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`);
+
+--
+-- Indexes for table `role_permission`
+--
+ALTER TABLE `role_permission`
+  ADD KEY `permission` (`permission_id`),
+  ADD KEY `role` (`role_id`);
 
 --
 -- Indexes for table `section`
@@ -238,12 +235,21 @@ ALTER TABLE `status`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Indexes for table `user`
 --
-ALTER TABLE `users`
+ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `password_reset_hash` (`password_reset_hash`),
+  ADD UNIQUE KEY `activation_token` (`activation_token`),
   ADD KEY `status_id` (`status_id`);
+
+--
+-- Indexes for table `user_role`
+--
+ALTER TABLE `user_role`
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `role_id` (`role_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -259,25 +265,25 @@ ALTER TABLE `access`
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `permission`
 --
 ALTER TABLE `permission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `section`
 --
 ALTER TABLE `section`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `status`
@@ -286,10 +292,10 @@ ALTER TABLE `status`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT for table `user`
 --
-ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+ALTER TABLE `user`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
@@ -308,16 +314,24 @@ ALTER TABLE `permission`
   ADD CONSTRAINT `permission_ibfk_1` FOREIGN KEY (`section_id`) REFERENCES `section` (`id`);
 
 --
--- Constraints for table `remembered_logins`
+-- Constraints for table `role_permission`
 --
-ALTER TABLE `remembered_logins`
-  ADD CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `role_permission`
+  ADD CONSTRAINT `permission` FOREIGN KEY (`permission_id`) REFERENCES `permission` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `role` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `users`
+-- Constraints for table `user`
 --
-ALTER TABLE `users`
+ALTER TABLE `user`
   ADD CONSTRAINT `status_id` FOREIGN KEY (`status_id`) REFERENCES `status` (`id`);
+
+--
+-- Constraints for table `user_role`
+--
+ALTER TABLE `user_role`
+  ADD CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `user_role_id` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

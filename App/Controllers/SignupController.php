@@ -35,16 +35,18 @@ class SignupController extends BaseController
      */
     public function create()
     {
-        $user = new UserModel($_POST);
+//        echo '<pre>';
+        $user = new UserModel();
 
-        if ($user->save()) {
+        if ($user->save($_POST)) {
+//            echo "Success";
+//            exit;
 
             $user->sendActivationEmail();
 
             $this->redirect('/signup/success');
 
         } else {
-
             BaseView::renderTemplate('signup/new.html', [
                 'user' => $user
             ]);
@@ -67,7 +69,6 @@ class SignupController extends BaseController
      */
     public function activate()
     {
-//        UserModel::activateAccount($this->route_params['token']);
         UserModel::activateAccount($this->routeParams['token']);
 
         $this->redirect('/signup/activated');

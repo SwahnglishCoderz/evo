@@ -25,8 +25,8 @@ class HashGenerator
     {
 
         $token = new Token();
-        $tokenhash = $token->getHash();
-        $activationHash = $token->getValue();
+        $tokenhash = $token->getHashedTokenValue();
+        $activationHash = $token->getTokenValue();
 
         return [
             $tokenhash, 

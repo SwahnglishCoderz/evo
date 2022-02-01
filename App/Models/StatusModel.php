@@ -13,6 +13,7 @@ declare (strict_types = 1);
 namespace App\Models;
 
 use App\Entity\SectionEntity;
+use App\Entity\StatusEntity;
 use Evo\Base\AbstractBaseModel;
 use Evo\Base\Exception\BaseException;
 use Evo\Base\Exception\BaseInvalidArgumentException;
@@ -20,9 +21,9 @@ use Evo\Collection\CollectionInterface;
 use Evo\Base\BaseView;
 use Throwable;
 
-class SectionModel extends AbstractBaseModel
+class StatusModel extends AbstractBaseModel
 {
-    protected const TABLESCHEMA = 'section';
+    protected const TABLESCHEMA = 'status';
     protected const TABLESCHEMAID = 'id';
     protected array $dirtyData = [];
     protected CollectionInterface $sanitizedData;
@@ -35,7 +36,7 @@ class SectionModel extends AbstractBaseModel
      */
     public function __construct()
     {
-        parent::__construct(self::TABLESCHEMA, self::TABLESCHEMAID, SectionEntity::class);
+        parent::__construct(self::TABLESCHEMA, self::TABLESCHEMAID, StatusEntity::class);
 //        print_r($this->entity);
     }
 

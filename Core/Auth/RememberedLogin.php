@@ -3,9 +3,9 @@
 namespace Evo\Auth;
 
 use App\Models\UserModel;
-use App\Token;
 use Evo\Base\AbstractBaseModel;
 use Evo\Base\BaseModel;
+use Evo\Utility\Token;
 use Exception;
 use PDO;
 use Throwable;
@@ -13,7 +13,7 @@ use Throwable;
 //class RememberedLogin extends BaseModel
 class RememberedLogin extends AbstractBaseModel implements RememberedLoginInterface
 {
-    protected const TABLESCHEMA = 'remembered_logins';
+    protected const TABLESCHEMA = 'remembered_login';
     protected const TABLESCHEMAID = 'id';
 
     public function __construct()
@@ -44,9 +44,9 @@ class RememberedLogin extends AbstractBaseModel implements RememberedLoginInterf
     {
         try {
             $remembered_login_token = new Token($remembered_login_token);
-            $token_hash = $remembered_login_token->getHash();
+            $token_hash = $remembered_login_token->getHashedTokenValue();
 
-            $tokenUser = $this->getRepository()->findObjectBy(['token_hash' => $tokenHash], []);
+            $tokenUser = $this->getRepository()->findObjectBy(['token_hash' => $token_hash], []);
             if ($tokenUser !=null) {
                 return $tokenUser;
             }
@@ -136,9 +136,9 @@ class RememberedLogin extends AbstractBaseModel implements RememberedLoginInterf
      */
     public function rememberedLogin(int $userID) : array
     {
-        $token = new \Evo\Utility\Token();
-        $tokenHash = $token->getHash();
-        $tokenValue = $token->getValue();
+        $token = new Token();
+        $tokenHash = $token->getHashedTokenValue();
+        $tokenValue = $token->getTokenValue();
         $timestampExpiry = time() + 60 * 60 * 24 * 30; // 30 days from now
 
         $fields = [

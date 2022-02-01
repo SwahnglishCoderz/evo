@@ -12,6 +12,7 @@ declare (strict_types = 1);
 
 namespace Evo\Utility;
 
+use Evo\System\Config;
 use Exception;
 
 class Token
@@ -22,9 +23,6 @@ class Token
 
     /**
      * Class constructor. Create a new random token or assign an existing one if passed in.
-     *
-     * @param ?string $tokenValue
-     * @param int $bytes
      * @throws Exception
      */
     public function __construct(string $tokenValue = null, int $bytes = 16)
@@ -42,7 +40,7 @@ class Token
      * @return string the token value
      * @throws Exception
      */
-    public function getValue() : string
+    public function getTokenValue() : string
     {
         return $this->token;
     }
@@ -51,9 +49,11 @@ class Token
      * Get the hashed token value The hashed value
      * @throws Exception
      */
-    public function getHash() : string
+    public function getHashedTokenValue() : string
     {
-        return hash_hmac('sha256', $this->token, Yaml::file('app')['settings']['secret_key']);
+        // sha256 = 64 chars
+//        return hash_hmac('sha256', $this->token, Yaml::file('app')['settings']['secret_key']);
+        return hash_hmac('sha256', $this->token, Config::HASHING_SECRET_KEY);
     }
 
 }

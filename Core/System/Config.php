@@ -251,7 +251,7 @@ class Config
         ],
         "activation" => [
             "title" => "Activate Your Account!",
-            "message" => "Thanks for registering on LavaStudio. Please click the activation button below to activate your account in order to access your profile page.",
+            "message" => "Thanks for registering on Evo. Please click the activation button below to activate your account in order to access your profile page.",
             "call_to_action" => "Activate Now"
         ],
         "password_recovery" => [
@@ -297,7 +297,7 @@ class Config
 
     const COMMANDS = [
         "make" => [
-            "name" => "magma =>make",
+            "name" => "evo =>make",
             "class" => "\\Evo\\Console\\Commands\\MakeCommand",
             "help" => "help for making controller",
             "description" => "describe the make controller command",

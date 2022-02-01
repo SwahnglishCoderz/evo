@@ -1,8 +1,18 @@
 <?php
+/*
+ * This file is part of the Evo package.
+ *
+ * (c) John Andrew <simplygenius78@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+declare(strict_types = 1);
 
 namespace Evo\Base;
 
-use App\Auth;
+use App\Controllers\Authenticated;
 use App\Flash;
 use App\Models\PermissionModel;
 use App\Models\UserModel;
@@ -11,6 +21,7 @@ use Evo\Auth\PrivilegedUser;
 use Evo\Base\BaseApplication;
 use Evo\Base\BaseRedirect;
 use Evo\Base\Exception\BaseBadMethodCallException;
+use Evo\Base\Middlewares\Error404;
 use Evo\Base\Traits\ControllerMenuTrait;
 use Evo\Base\Traits\ControllerPrivilegeTrait;
 use Evo\Error\Error;
@@ -89,7 +100,7 @@ class BaseController extends AbstractBaseController
     protected function defineCoreMiddleware(): array
     {
         return [
-//            'error404' => Error404::class
+            'error404' => Error404::class
         ];
     }
 
@@ -102,7 +113,7 @@ class BaseController extends AbstractBaseController
      */
     protected function callBeforeMiddlewares(): array
     {
-//        return array_merge($this->defineCoreMiddeware(), $this->callBeforeMiddlewares);
+        return array_merge($this->defineCoreMiddleware(), $this->callBeforeMiddlewares);
     }
 
     /**
@@ -122,11 +133,11 @@ class BaseController extends AbstractBaseController
      */
     protected function before()
     {
-//        $object = new self($this->routeParams);
-//        (new Middleware())->middlewares($this->callBeforeMiddlewares())
-//            ->middleware($object, function ($object) {
-//                return $object;
-//            });
+        $object = new self($this->routeParams);
+        (new Middleware())->middlewares($this->callBeforeMiddlewares())
+            ->middleware($object, function ($object) {
+                return $object;
+            });
     }
 
     /**
@@ -134,11 +145,11 @@ class BaseController extends AbstractBaseController
      */
     protected function after()
     {
-//        $object = new self($this->routeParams);
-//        (new Middleware())->middlewares($this->callAfterMiddlewares())
-//            ->middleware($object, function ($object) {
-//                return $object;
-//            });
+        $object = new self($this->routeParams);
+        (new Middleware())->middlewares($this->callAfterMiddlewares())
+            ->middleware($object, function ($object) {
+                return $object;
+            });
     }
 
     /**
@@ -160,8 +171,6 @@ class BaseController extends AbstractBaseController
 
     /**
      * Return some global context to all rendered templates
-     *
-     * @return array
      */
     private function templateGlobalContext(): array
     {

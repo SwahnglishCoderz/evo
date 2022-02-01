@@ -16,15 +16,15 @@ use App\Models\UserModel;
 use Evo\Auth\Authorized;
 use Evo\System\Status;
 use Evo\Base\BaseView;
-use App\Auth;
 use App\Flash;
 use Exception;
+use Throwable;
 
 class ProfileController extends Authenticated
 {
     /**
      * Show the profile
-     * @throws Exception
+     * @throws Exception|Throwable
      */
     public function show()
     {
@@ -44,6 +44,7 @@ class ProfileController extends Authenticated
     /**
      * Show the form for editing the profile
      * @throws Exception
+     * @throws Throwable
      */
     public function edit()
     {
@@ -57,6 +58,7 @@ class ProfileController extends Authenticated
 
     /**
      * Update the profile
+     * @throws Exception
      */
     public function update()
     {

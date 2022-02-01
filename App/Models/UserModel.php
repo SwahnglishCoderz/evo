@@ -14,18 +14,19 @@ namespace App\Models;
 
 use App\Entity\UserEntity;
 use Evo\Base\AbstractBaseModel;
-//use Evo\Model;
-use Evo\Status;
+use Evo\System\Config;
+use Evo\System\Status;
+use Evo\Utility\ClientIP;
+use Evo\Utility\Token;
 use Exception;
 use PDO;
-use App\Token;
 use App\Mail;
 use Evo\Base\BaseView;
 use Throwable;
 
 class UserModel extends AbstractBaseModel
 {
-    protected const TABLESCHEMA = 'users';
+    protected const TABLESCHEMA = 'user';
     protected const TABLESCHEMAID = 'id';
 
     public array $errors = [];
@@ -36,13 +37,10 @@ class UserModel extends AbstractBaseModel
      * correct information from the database based on the model/entity
      * @throws Throwable
      */
-    public function __construct(array $data = [])
+    public function __construct()
     {
         parent::__construct(self::TABLESCHEMA, self::TABLESCHEMAID, UserEntity::class);
 
-        foreach ($data as $key => $value) {
-            $this->$key = $value;
-        };
     }
 
     /**
@@ -60,24 +58,35 @@ class UserModel extends AbstractBaseModel
 
     /**
      * Save the user model with the current property values
+     * @throws Exception
      */
-    public function save(): bool
+    public function save(array $data = []): bool
     {
+        $remote_address = ClientIP::getClientIp();
+
+        foreach ($data as $key => $value) {
+            $this->$key = $value;
+        };
+
+        $this->remote_addr = $remote_address;
+
         $this->validate();
 
         if (empty($this->errors)) {
             $password_hash = password_hash($this->password, PASSWORD_DEFAULT);
 
             $token = new Token();
-            $hashed_token = $token->getHash();
-            $this->activation_token = $token->getValue();
+            $hashed_token = $token->getHashedTokenValue();
+            $this->activation_token = $token->getTokenValue();
 
             return $this->repository->getEm()->getCrud()->create(
                 [
-                    'name' => $this->name,
+                    'firstname' => $this->firstname,
+                    'lastname' => $this->lastname,
                     'email' => $this->email,
                     'password_hash' => $password_hash,
                     'activation_hash' => $hashed_token,
+                    'remote_addr' => $this->remote_addr,
                 ]
             );
         }
@@ -90,21 +99,22 @@ class UserModel extends AbstractBaseModel
      */
     public function validate()
     {
-        // Name
-        if ($this->name == '') {
-            $this->errors[] = 'Name is required';
+
+        if ($this->firstname == '' || $this->lastname == '') {
+            $this->errors[] = 'Both names are required';
         }
 
         // email address
         if (filter_var($this->email, FILTER_VALIDATE_EMAIL) === false) {
             $this->errors[] = 'Invalid email';
         }
-        if (static::doesEmailExist($this->email, $this->id ?? null)) {
+//        if (static::doesEmailExist($data['email'], $this->id ?? null)) {
+        if (self::doesEmailExist($this->email, $this->id ?? null)) {
             $this->errors[] = 'Email already taken';
         }
 
         // Password
-        if (isset($this->password)) {
+        if (isset($this->password) && isset($this->confirm_password)) {
 
             if (strlen($this->password) < 6) {
                 $this->errors[] = 'Please enter at least 6 characters for the password';
@@ -118,25 +128,27 @@ class UserModel extends AbstractBaseModel
                 $this->errors[] = 'Password needs at least one number';
             }
 
+            if ($this->password !== $this->confirm_password) {
+                $this->errors[] = 'The passwords must match';
+            }
+
         }
     }
 
     public static function doesEmailExist(string $email, string $ignore_id = null): bool
     {
         $user = static::findByEmail($email);
-
         if ($user) {
             if ($user->id != $ignore_id) {
                 return true;
             }
         }
-
         return false;
     }
 
     public static function findByEmail(string $email)
     {
-        return (new UserModel)->getRepository()->findObjectBy(['email' => $email]);
+        return (new UserModel())->getRepository()->findObjectBy(['email' => $email]);
     }
 
     /**
@@ -145,17 +157,9 @@ class UserModel extends AbstractBaseModel
     public static function authenticate(string $email, string $password)
     {
         $user = static::findByEmail($email);
-//        echo '<pre>';
-//        print_r($user);
-//        exit;
 
-        if ($user && $user->is_active) {
-//            echo "user is active<br />";
-//            echo "Password: $password<br />Hash: $user->password_hash";
-//            print_r(password_verify($password, $user->password_hash));
+        if ($user && ($user->status_id == Status::ACTIVE)) {
             if (password_verify($password, $user->password_hash)) {
-//                print_r($user);
-//                exit;
                 return $user;
             }
         }
@@ -164,32 +168,15 @@ class UserModel extends AbstractBaseModel
     }
 
     /**
-     * Find a user model by ID
-     */
-    public static function findByID(string $id)
-    {
-        $sql = 'SELECT * FROM users WHERE id = :id';
-
-        $db = static::getDB();
-        $stmt = $db->prepare($sql);
-        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-
-        $stmt->setFetchMode(PDO::FETCH_CLASS, get_called_class());
-
-        $stmt->execute();
-
-        return $stmt->fetch();
-    }
-
-    /**
      * Remember the login by inserting a new unique token into the remembered_logins table
      * for this user record
+     * @throws Exception
      */
     public function rememberLogin(): bool
     {
         $token = new Token();
-        $hashed_token = $token->getHash();
-        $this->remember_token = $token->getValue();
+        $hashed_token = $token->getHashedTokenValue();
+        $this->remember_token = $token->getTokenValue();
 
         $this->expiry_timestamp = time() + 60 * 60 * 24 * 30;  // 30 days from now
 
@@ -225,12 +212,13 @@ class UserModel extends AbstractBaseModel
 
     /**
      * Start the password reset process by generating a new token and expiry
+     * @throws Exception
      */
     protected function startPasswordReset(): bool
     {
         $token = new Token();
-        $hashed_token = $token->getHash();
-        $this->password_reset_token = $token->getValue();
+        $hashed_token = $token->getHashedTokenValue();
+        $this->password_reset_token = $token->getTokenValue();
 
         $expiry_timestamp = time() + 60 * 60 * 2;  // 2 hours from now
 
@@ -251,15 +239,16 @@ class UserModel extends AbstractBaseModel
 
     /**
      * Send password reset instructions in an email to the user
+     * @throws Exception
      */
     protected function sendPasswordResetEmail()
     {
         $url = 'http://' . $_SERVER['HTTP_HOST'] . '/password/reset/' . $this->password_reset_token;
 
-        $text = BaseView::getTemplate('Password/reset_email.txt', ['url' => $url]);
-        $html = BaseView::getTemplate('Password/reset_email.html', ['url' => $url]);
+        $text = BaseView::getTemplate('password/reset_email.txt', ['url' => $url]);
+        $html = BaseView::getTemplate('password/reset_email.html', ['url' => $url]);
 
-        Mail::send($this->email, 'Password reset', $text, $html);
+        Mail::sendMessage($this->email, 'Password Reset', $text, $html);
     }
 
     /**
@@ -269,7 +258,7 @@ class UserModel extends AbstractBaseModel
     public static function findByPasswordReset(string $password_reset_token)
     {
         $password_reset_token = new Token($password_reset_token);
-        $hashed_token = $password_reset_token->getHash();
+        $hashed_token = $password_reset_token->getHashedTokenValue();
 
         $sql = 'SELECT * FROM users
                 WHERE password_reset_hash = :token_hash';
@@ -329,42 +318,55 @@ class UserModel extends AbstractBaseModel
 
     /**
      * Email the user containing the activation link
+     * @throws Exception
      */
     public function sendActivationEmail()
     {
         $url = 'http://' . $_SERVER['HTTP_HOST'] . '/signup/activate/' . $this->activation_token;
 
-        $text = BaseView::getTemplate('Signup/activation_email.txt', ['url' => $url]);
-        $html = BaseView::getTemplate('Signup/activation_email.html', ['url' => $url]);
+        $text = BaseView::getTemplate('signup/activation_email.txt', ['url' => $url]);
+        $html = BaseView::getTemplate('signup/activation_email.html', ['url' => $url]);
 
-//        Mail::send($this->email, 'Account activation', $text, $html);
+        Mail::sendMessage($this->email, 'Account activation', $text, $html);
     }
 
     /**
      * Activate the user account with the specified activation token
      * @throws Exception
      */
-    public static function activateAccount(string $activation_token)
+    public static function activateAccount(string $activation_token): bool
     {
         $token = new Token($activation_token);
-        $hashed_token = $token->getHash();
+        $hashed_token = $token->getHashedTokenValue();
+        echo '<pre>';
+        echo "Passed In: $activation_token";
+        echo "Hashed: $hashed_token";
+        exit;
 
-        $sql = 'UPDATE users
-                SET is_active = 1,
-                    activation_hash = null
-                WHERE activation_hash = :hashed_token';
+//        $sql = 'UPDATE users
+//                SET is_active = 1,
+//                    activation_hash = null
+//                WHERE activation_hash = :hashed_token';
 
-        $db = static::getDB();
-        $stmt = $db->prepare($sql);
+//        $db = static::getDB();
+//        $stmt = $db->prepare($sql);
+//
+//        $stmt->bindValue(':hashed_token', $hashed_token, PDO::PARAM_STR);
 
-        $stmt->bindValue(':hashed_token', $hashed_token, PDO::PARAM_STR);
+//        $stmt->execute();
 
-        $stmt->execute();
+        return (new UserModel())
+        ->getRepository()
+        ->findByIdAndUpdate(['activation_token' => null, 'status_id' => Status::ACTIVE], self::TABLESCHEMAID
+//            [here an ID is required, while the original SQL passes in WHERE activation_hash = :hashed_token]
+//            [how do I do that?]
+        );
     }
 
     public function updateProfile(array $data, $id): bool
     {
-        $this->name = $data['name'];
+        $this->firstname = $data['firstname'];
+        $this->lastname = $data['lastname'];
         $this->email = $data['email'];
 
         // Only validate and update the password if a value provided
@@ -375,7 +377,8 @@ class UserModel extends AbstractBaseModel
         $this->validate();
 
         $data_changed = [
-            'name' => $this->name,
+            'firstname' => $this->firstname,
+            'lastname' => $this->lastname,
             'email' => $this->email,
         ];
 

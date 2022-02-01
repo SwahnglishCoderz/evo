@@ -20,14 +20,11 @@ use Throwable;
 
 class PrivilegedUser
 {
-
-    /** @var array  */
     protected array $roles = [];
 
     /**
      * return an array of the current logged-in user data. user id is fetch from the
      * session from the grantedUser() method
-     * @return false|PrivilegedUser
      * @throws Throwable
      */
     public static function getUser(int $userID = null)
@@ -37,13 +34,13 @@ class PrivilegedUser
             $privilegeUser = new PrivilegedUser();
             $privilegeUser->user_id = $user->id;
             $privilegeUser->email = $user->email;
-            $privilegeUser->name = $user->name;
-//            $privilegeUser->firstname = $user->firstname;
-//            $privilegeUser->lastname = $user->lastname;
-//            $privilegeUser->fullname = $user->firstname . ' ' . $user->lastname;
-//            $privilegeUser->gravatar = $user->gravatar;
-//            $privilegeUser->status = $user->status;
-            $privilegeUser->is_active = $user->is_active;
+//            $privilegeUser->name = $user->name;
+            $privilegeUser->firstname = $user->firstname;
+            $privilegeUser->lastname = $user->lastname;
+            $privilegeUser->fullname = $user->firstname . ' ' . $user->lastname;
+            $privilegeUser->gravatar = $user->gravatar;
+            $privilegeUser->status_id = $user->status_id;
+//            $privilegeUser->is_active = $user->is_active;
             $privilegeUser->initRoles($userID ?: $user->id);
             return $privilegeUser;
         } else {
@@ -76,8 +73,6 @@ class PrivilegedUser
 
     /**
      * Check is a user has a specific privilege
-     * @param $permission
-     * @return bool
      */
     public function hasPrivilege($permission): bool
     {
@@ -91,18 +86,14 @@ class PrivilegedUser
 
     /**
      * Check whether the current role ID is link to any permission
-     * @param int $roldID
-     * @return bool
      */
-    public function hasRolePrivilege(int $roldID): bool
+    public function hasRolePrivilege(int $roleID): bool
     {
         return $this->getPermissionByRoleID($roleID);
     }
 
     /**
      * Check if a user a specific role
-     * @param $role
-     * @return bool
      */
     public function hasRole($role): bool
     {
@@ -124,7 +115,7 @@ class PrivilegedUser
     }
 
     /**
-     * Returns an array of the current log in user assigned permissions
+     * Returns an array of the current logged-in user assigned permissions
      * @return array
      */
     public function getPermissions(): array

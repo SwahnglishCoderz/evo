@@ -12,6 +12,7 @@ declare (strict_types = 1);
 
 namespace App;
 
+use Evo\System\Config;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -34,7 +35,7 @@ class Mail
             $mail->Port       = Config::SMTP_PORT;
 
             //Recipients
-            $mail->setFrom('from@example.com', 'Mailer');
+            $mail->setFrom('evo@deltabase.inc', 'Evo Mailing System');
             $mail->addAddress($to, 'New User');
 
             // Content
