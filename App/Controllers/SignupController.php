@@ -21,19 +21,17 @@ use Throwable;
 class SignupController extends BaseController
 {
     /**
-     * Show the signup page
-     * @throws Exception|Throwable
+     * @throws Throwable
      */
-    public function index()
+    public function indexAction()
     {
         BaseView::renderTemplate('signup/new.html');
     }
 
     /**
-     * Sign up a new user
      * @throws Throwable
      */
-    public function create()
+    public function createAction()
     {
 //        echo '<pre>';
         $user = new UserModel();
@@ -58,7 +56,7 @@ class SignupController extends BaseController
      * Show the signup success page
      * @throws Exception|Throwable
      */
-    public function success()
+    public function successAction()
     {
         BaseView::renderTemplate('signup/success.html');
     }
@@ -67,7 +65,7 @@ class SignupController extends BaseController
      * Activate a new account
      * @throws Exception
      */
-    public function activate()
+    public function activateAction()
     {
         UserModel::activateAccount($this->routeParams['token']);
 
@@ -78,7 +76,7 @@ class SignupController extends BaseController
      * Show the activation success page
      * @throws Exception|Throwable
      */
-    public function activated()
+    public function activatedAction()
     {
         BaseView::renderTemplate('signup/activated.html');
     }

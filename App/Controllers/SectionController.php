@@ -24,7 +24,7 @@ class SectionController extends Authenticated
     /**
      * @throws Throwable
      */
-    public function index()
+    public function indexAction()
     {
         // retrieve details of all sections from the DB
         $sections = (new SectionModel)->getRepository()->findAll();
@@ -39,7 +39,7 @@ class SectionController extends Authenticated
     /**
      * @throws Throwable
      */
-    public function create()
+    public function createAction()
     {
         // display a form to create a new section
         BaseView::renderTemplate('section/create.html');
@@ -48,7 +48,7 @@ class SectionController extends Authenticated
     /**
      * @throws Throwable
      */
-    public function show()
+    public function showAction()
     {
         // retrieve details of a single section from the DB
         BaseView::renderTemplate('section/show.html');
@@ -57,7 +57,7 @@ class SectionController extends Authenticated
     /**
      * @throws Throwable
      */
-    public function add()
+    public function addAction()
     {
         $clean_data = (new SectionModel)->cleanData($_POST)->save();
 
@@ -73,18 +73,18 @@ class SectionController extends Authenticated
     /**
      * @throws Throwable
      */
-    public function edit()
+    public function editAction()
     {
         // display a form to update a section
         BaseView::renderTemplate('section/edit.html');
     }
 
-    public function update()
+    public function updateAction()
     {
         // updates a section in the DB
     }
 
-    public function delete()
+    public function deleteAction()
     {
         // deletes a section from the DB
     }

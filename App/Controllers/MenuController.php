@@ -23,7 +23,7 @@ class MenuController extends Authenticated
     /**
      * @throws Exception|Throwable
      */
-    public function index()
+    public function indexAction()
     {
         // retrieve details of all menus from the DB
         $sections = (new SectionModel())->getRepository()->findAll();
@@ -35,7 +35,7 @@ class MenuController extends Authenticated
     /**
      * @throws Exception|Throwable
      */
-    public function new()
+    public function newAction()
     {
         // display a form to create a new menu
         BaseView::renderTemplate('menu/create.html');
@@ -44,13 +44,13 @@ class MenuController extends Authenticated
     /**
      * @throws Exception|Throwable
      */
-    public function show()
+    public function showAction()
     {
         // retrieve details of a single menu from the DB
         BaseView::renderTemplate('menu/show.html');
     }
 
-    public function add()
+    public function addAction()
     {
         // add new menu to DB
     }
@@ -58,18 +58,18 @@ class MenuController extends Authenticated
     /**
      * @throws Exception|Throwable
      */
-    public function edit()
+    public function editAction()
     {
         // display a form to update a menu
         BaseView::renderTemplate('menu/edit.html');
     }
 
-    public function update()
+    public function updateAction()
     {
         // updates a menu in the DB
     }
 
-    public function delete()
+    public function deleteAction()
     {
         // deletes a menu from the DB
     }

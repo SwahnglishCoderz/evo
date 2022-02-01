@@ -133,11 +133,11 @@ class BaseController extends AbstractBaseController
      */
     protected function before()
     {
-        $object = new self($this->routeParams);
-        (new Middleware())->middlewares($this->callBeforeMiddlewares())
-            ->middleware($object, function ($object) {
-                return $object;
-            });
+//        $object = new self($this->routeParams);
+//        (new Middleware())->middlewares($this->callBeforeMiddlewares())
+//            ->middleware($object, function ($object) {
+//                return $object;
+//            });
     }
 
     /**
@@ -145,11 +145,11 @@ class BaseController extends AbstractBaseController
      */
     protected function after()
     {
-        $object = new self($this->routeParams);
-        (new Middleware())->middlewares($this->callAfterMiddlewares())
-            ->middleware($object, function ($object) {
-                return $object;
-            });
+//        $object = new self($this->routeParams);
+//        (new Middleware())->middlewares($this->callAfterMiddlewares())
+//            ->middleware($object, function ($object) {
+//                return $object;
+//            });
     }
 
     /**
@@ -305,4 +305,5 @@ class BaseController extends AbstractBaseController
     {
         return FlashType::INFO;
     }
+
 }

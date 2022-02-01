@@ -34,7 +34,6 @@ class Authorized
         'password_hash',
         'gravatar',
         'status_id'
-
     ];
 
     /**
@@ -85,11 +84,15 @@ class Authorized
     public static function grantedUser()
     {
         $userSessionID = self::getCurrentSessionID();
+//        print_r($userSessionID);
+//        exit;
         if (isset($userSessionID)) {
             return (new UserModel())->getRepository()->findObjectBy(['id' => $userSessionID], self::FIELD_SESSIONS);
         } else {
 //            $user = self::loginFromRemembermeCookie(); // MAGMA
             $user = self::loginFromRememberCookie();
+//            print_r($user);
+//            exit;
             if ($user) {
                 return $user;
             }

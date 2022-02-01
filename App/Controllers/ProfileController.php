@@ -26,7 +26,7 @@ class ProfileController extends Authenticated
      * Show the profile
      * @throws Exception|Throwable
      */
-    public function show()
+    public function showAction()
     {
 //        $this->user = Auth::getUser();
         $this->user = Authorized::getUser();
@@ -46,7 +46,7 @@ class ProfileController extends Authenticated
      * @throws Exception
      * @throws Throwable
      */
-    public function edit()
+    public function editAction()
     {
 //        $this->user = Auth::getUser();
         $this->user = Authorized::getUser();
@@ -60,7 +60,7 @@ class ProfileController extends Authenticated
      * Update the profile
      * @throws Exception|Throwable
      */
-    public function update()
+    public function updateAction()
     {
 //        $this->user = Auth::getUser();
 //        print_r($_SESSION['user_id']);
@@ -79,7 +79,7 @@ class ProfileController extends Authenticated
         }
     }
 
-    protected static function isUserActive($is_active): array
+    private static function isUserActive($is_active): array
     {
         $active_status = [];
         // search for status; return name and color and pass it back - all this goes to Model

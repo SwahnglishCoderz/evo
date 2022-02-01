@@ -15,25 +15,9 @@ namespace App\Controllers;
 use Evo\Base\BaseView;
 use Throwable;
 
-/**
- * Sample controller (example)
- *
- * PHP version 7.0
- */
 
 class SampleController extends Authenticated
 {
-
-    /**
-     * Require the user to be authenticated before giving access to all methods in the controller
-     */
-    /*
-    protected function before()
-    {
-        $this->requireLogin();
-    }
-    */
-
     /**
      * Items index
      * @throws Throwable

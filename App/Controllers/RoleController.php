@@ -23,7 +23,7 @@ class RoleController extends Authenticated
     /**
      * @throws Throwable
      */
-    public function index()
+    public function indexAction()
     {
         // retrieve details of all roles from the DB
         $roles = (new RoleModel())->getRepository()->findAll();
@@ -36,7 +36,7 @@ class RoleController extends Authenticated
     /**
      * @throws Throwable
      */
-    public function new()
+    public function newAction()
     {
         // display a form to create a new role
         BaseView::renderTemplate('role/create.html');
@@ -45,13 +45,13 @@ class RoleController extends Authenticated
     /**
      * @throws Throwable
      */
-    public function show()
+    public function showAction()
     {
         // retrieve details of a single role from the DB
         BaseView::renderTemplate('role/show.html');
     }
 
-    public function add()
+    public function addAction()
     {
         // add new role to DB
     }
@@ -59,18 +59,18 @@ class RoleController extends Authenticated
     /**
      * @throws Throwable
      */
-    public function edit()
+    public function editAction()
     {
         // display a form to update a role
         BaseView::renderTemplate('role/edit.html');
     }
 
-    public function update()
+    public function updateAction()
     {
         // updates a role in the DB
     }
 
-    public function delete()
+    public function deleteAction()
     {
         // deletes a role from the DB
     }

@@ -25,7 +25,7 @@ class PasswordController extends BaseController
      * Show the forgotten password page
      * @throws Throwable
      */
-    public function forgot()
+    public function forgotAction()
     {
         BaseView::renderTemplate('password/forgot.html');
     }
@@ -45,7 +45,7 @@ class PasswordController extends BaseController
      * Show the reset password form
      * @throws Exception|Throwable
      */
-    public function reset()
+    public function resetAction()
     {
         $token = $this->route_params['token'];
 

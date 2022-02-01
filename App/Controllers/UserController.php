@@ -18,18 +18,18 @@ use App\Models\StatusModel;
 use App\Models\UserModel;
 use Evo\Base\BaseController;
 use Evo\Base\BaseView;
+use Evo\Middleware\Before\LoginRequired;
 use Evo\System\Status;
 use Exception;
 use Throwable;
 
 class UserController extends Authenticated
-//class UserController extends BaseController
 {
     /**
      * @throws Exception
      * @throws Throwable
      */
-    public function index()
+    public function indexAction()
     {
 //        echo '<pre>';
         $sections = (new SectionModel())->getRepository()->findAll();
@@ -46,7 +46,7 @@ class UserController extends Authenticated
     /**
      * @throws Exception|Throwable
      */
-    public function new()
+    public function newAction()
     {
         // display a form to create a new user
         BaseView::renderTemplate('user/create.html');
@@ -55,13 +55,13 @@ class UserController extends Authenticated
     /**
      * @throws Exception|Throwable
      */
-    public function show()
+    public function showAction()
     {
         // retrieve details of a single user from the DB
         BaseView::renderTemplate('user/show.html');
     }
 
-    public function add()
+    public function addAction()
     {
         // add new user to DB
     }
@@ -69,18 +69,18 @@ class UserController extends Authenticated
     /**
      * @throws Exception|Throwable
      */
-    public function edit()
+    public function editAction()
     {
         // display a form to update a user
         BaseView::renderTemplate('user/edit.html');
     }
 
-    public function update()
+    public function updateAction()
     {
         // updates a user in the DB
     }
 
-    public function delete()
+    public function deleteAction()
     {
         // deletes a user from the DB
     }

@@ -12,6 +12,7 @@ declare (strict_types = 1);
 
 namespace App\Controllers;
 
+use App\Models\UserModel;
 use Evo\Base\BaseController;
 use Exception;
 use Throwable;
@@ -26,4 +27,9 @@ abstract class Authenticated extends BaseController
     {
         $this->requireLogin();
     }
+
+//    public function checkPermission()
+//    {
+//        UserModel::
+//    }
 }

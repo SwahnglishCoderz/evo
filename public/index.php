@@ -11,6 +11,7 @@
 declare(strict_types = 1);
 
 use Evo\Base\BaseApplication;
+use Evo\Router\Router;
 
 /**
  * Load the composer autoloader library which enables us to bootstrap the application
@@ -34,7 +35,7 @@ session_start();
 /**
  * Routing
  */
-$router = new Evo\Router\Router();
+$router = new Router();
 
 // Authentication routes
 //$router->add('', ['controller' => 'Home', 'action' => 'index']);

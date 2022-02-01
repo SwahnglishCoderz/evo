@@ -20,7 +20,7 @@ use Throwable;
 class LoginRequired extends BeforeMiddleware
 {
 
-    protected const MESSAGE = "<strong class=\"uk-text-danger\">Action Required: </strong>Please login for access.";
+    protected const MESSAGE = "<strong class=\"text-red-500\">Action Required: </strong>Please login for access.";
 
     /**
      * Requires basic login when entering protected routes

@@ -33,7 +33,7 @@ class LoginController extends BaseController
     /**
      * @throws Throwable
      */
-    public function create()
+    public function createAction()
     {
         $user = new UserModel($_POST);
         $auth = $user->authenticate($_POST['email'], $_POST['password']);
@@ -67,7 +67,7 @@ class LoginController extends BaseController
      * @throws Exception
      * @throws Throwable
      */
-    public function destroy()
+    public function destroyAction()
     {
 //        Auth::logout();
         Authorized::logout();

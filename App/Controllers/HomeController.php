@@ -25,7 +25,7 @@ class HomeController extends BaseController
      * @throws Exception
      * @throws Throwable
      */
-    public function index()
+    public function indexAction()
     {
         $sections = (new SectionModel())->getRepository()->findAll();
         $menus = (new MenuModel())->getRepository()->findAll();

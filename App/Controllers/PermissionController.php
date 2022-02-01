@@ -23,7 +23,7 @@ class PermissionController extends Authenticated
     /**
      * @throws Throwable
      */
-    public function index()
+    public function indexAction()
     {
         // retrieve details of all permissions from the DB
         $permissions = (new PermissionModel())->getRepository()->findAll();
@@ -36,7 +36,7 @@ class PermissionController extends Authenticated
     /**
      * @throws Throwable
      */
-    public function new()
+    public function newAction()
     {
         // display a form to create a new permission
         BaseView::renderTemplate('permission/create.html');
@@ -45,13 +45,13 @@ class PermissionController extends Authenticated
     /**
      * @throws Throwable
      */
-    public function show()
+    public function showAction()
     {
         // retrieve details of a single permission from the DB
         BaseView::renderTemplate('permission/show.html');
     }
 
-    public function add()
+    public function addAction()
     {
         // add new permission to DB
     }
@@ -59,18 +59,18 @@ class PermissionController extends Authenticated
     /**
      * @throws Throwable
      */
-    public function edit()
+    public function editAction()
     {
         // display a form to update a permission
         BaseView::renderTemplate('permission/edit.html');
     }
 
-    public function update()
+    public function updateAction()
     {
         // updates a permission in the DB
     }
 
-    public function delete()
+    public function deleteAction()
     {
         // deletes a permission from the DB
     }
