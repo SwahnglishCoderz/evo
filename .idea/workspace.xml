@@ -3,30 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="5eafad97-e8ca-4f7a-be39-9b1ffdf1a28c" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/App/Views/base_working.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Views/main_layout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Views/templates/base_template.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Views/welcome_layout.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/Authenticated.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/Authenticated.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/MenuController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/MenuController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/PasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/PasswordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/PermissionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/PermissionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/RoleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/RoleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/SampleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/SampleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/SectionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/SectionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/SignupController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/SignupController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/UserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Views/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/templates/error_template.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/table_template.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/templates/table_template.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Auth/Authorized.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Auth/Authorized.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Base/BaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/BaseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Middleware/Before/LoginRequired.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Middleware/Before/LoginRequired.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Session/GlobalManager/GlobalManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Session/GlobalManager/GlobalManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/base_ui_refactor_in_progress.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/welcome_layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/welcome_layout.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +144,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1643692719821</updated>
-      <workItem from="1643692721705" duration="23763000" />
+      <workItem from="1643692721705" duration="26492000" />
     </task>
     <servers />
   </component>
