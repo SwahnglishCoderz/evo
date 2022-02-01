@@ -338,29 +338,14 @@ class UserModel extends AbstractBaseModel
     {
         $token = new Token($activation_token);
         $hashed_token = $token->getHashedTokenValue();
-        echo '<pre>';
-        echo "Passed In: $activation_token";
-        echo "Hashed: $hashed_token";
-        exit;
-
-//        $sql = 'UPDATE users
-//                SET is_active = 1,
-//                    activation_hash = null
-//                WHERE activation_hash = :hashed_token';
-
-//        $db = static::getDB();
-//        $stmt = $db->prepare($sql);
-//
-//        $stmt->bindValue(':hashed_token', $hashed_token, PDO::PARAM_STR);
-
-//        $stmt->execute();
+        $findByToken = (new UserModel())->getRepository()->findObjectBy(['activation_hash' => $hashed_token]);
 
         return (new UserModel())
-        ->getRepository()
-        ->findByIdAndUpdate(['activation_token' => null, 'status_id' => Status::ACTIVE], self::TABLESCHEMAID
-//            [here an ID is required, while the original SQL passes in WHERE activation_hash = :hashed_token]
-//            [how do I do that?]
-        );
+            ->getRepository()
+            ->findByIdAndUpdate(
+                ['activation_hash' => null, 'status_id' => Status::ACTIVE],
+                $findByToken->id
+            );
     }
 
     public function updateProfile(array $data, $id): bool

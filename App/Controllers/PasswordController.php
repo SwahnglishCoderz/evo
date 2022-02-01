@@ -16,12 +16,14 @@ use App\Models\UserModel;
 use Evo\Base\BaseController;
 use Evo\Base\BaseView;
 use Exception;
+use Throwable;
 
 class PasswordController extends BaseController
 {
 
     /**
      * Show the forgotten password page
+     * @throws Throwable
      */
     public function forgot()
     {
@@ -30,6 +32,7 @@ class PasswordController extends BaseController
 
     /**
      * Send the password reset link to the supplied email
+     * @throws Throwable
      */
     public function requestReset()
     {
@@ -40,7 +43,7 @@ class PasswordController extends BaseController
 
     /**
      * Show the reset password form
-     * @throws Exception
+     * @throws Exception|Throwable
      */
     public function reset()
     {
@@ -55,7 +58,7 @@ class PasswordController extends BaseController
 
     /**
      * Reset the user's password
-     * @throws Exception
+     * @throws Exception|Throwable
      */
     public function resetPassword()
     {
@@ -79,7 +82,7 @@ class PasswordController extends BaseController
 
     /**
      * Find the user model associated with the password reset token, or end the request with a message
-     * @throws Exception
+     * @throws Exception|Throwable
      */
     protected function getUserOrExit(string $token)
     {

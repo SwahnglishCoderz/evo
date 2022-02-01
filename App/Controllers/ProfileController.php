@@ -58,7 +58,7 @@ class ProfileController extends Authenticated
 
     /**
      * Update the profile
-     * @throws Exception
+     * @throws Exception|Throwable
      */
     public function update()
     {
@@ -66,8 +66,7 @@ class ProfileController extends Authenticated
 //        print_r($_SESSION['user_id']);
 //        exit;
 
-
-        if ((new \App\Models\UserModel)->updateProfile($_POST, $_SESSION['user_id'])) {
+        if ((new UserModel)->updateProfile($_POST, $_SESSION['user_id'])) {
             Flash::addMessageToFlashNotifications('Changes saved');
 //
             $this->redirect('/profile/show');

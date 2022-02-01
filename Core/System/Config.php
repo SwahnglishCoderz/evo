@@ -654,33 +654,33 @@ class Config
             "controller" => "signup",
             "action" => "index"
         ],
-        "password/reset/[token =>[\\da-f]+]" => [
+        "password/reset/{token:[\da-f]+}" => [
             "controller" => "password",
             "action" => "reset"
         ],
-        "signup/activate/[token =>[\\da-f]+]" => [
+        "signup/activate/{token:[\da-f]+}" => [
             "controller" => "signup",
             "action" => "activate"
         ],
-        "profile/[controller]/[action]" => [
+        "profile/{controller}/{action}" => [
             "namespace" => "profile"
         ],
-        "profile/[controller]/[id =>[\\da-f]+]/[action]" => [
+        "profile/{controller}/{id:[\da-f]+}/{action}" => [
             "namespace" => "profile"
         ],
-        "admin/[controller]/[action]" => [
+        "admin/{controller}/{action]" => [
             "namespace" => "Admin"
         ],
-        "admin/[controller]/[id =>[\\da-f]+]/[action]" => [
+        "admin/{controller}/{id =>[\da-f]+}/{action}" => [
             "namespace" => "Admin"
         ],
-        "api/[controller]/[action]" => [
+        "api/{controller}/{action]" => [
             "namespace" => "API"
         ],
-        "api/[controller]/[id =>[\\da-f]+]/[action]" => [
+        "api/{controller}/{id =>[\da-f]+}/{action}" => [
             "namespace" => "API"
         ],
-        "installer/[controller]/[action]" => [
+        "installer/{controller}/{action}" => [
             "namespace" => "Installer",
             "controller" => "install",
             "action" => "index"

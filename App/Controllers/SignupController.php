@@ -22,7 +22,7 @@ class SignupController extends BaseController
 {
     /**
      * Show the signup page
-     * @throws Exception
+     * @throws Exception|Throwable
      */
     public function index()
     {
@@ -56,7 +56,7 @@ class SignupController extends BaseController
 
     /**
      * Show the signup success page
-     * @throws Exception
+     * @throws Exception|Throwable
      */
     public function success()
     {
@@ -76,7 +76,7 @@ class SignupController extends BaseController
 
     /**
      * Show the activation success page
-     * @throws Exception
+     * @throws Exception|Throwable
      */
     public function activated()
     {

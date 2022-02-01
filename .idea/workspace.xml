@@ -2,54 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5eafad97-e8ca-4f7a-be39-9b1ffdf1a28c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/App/Entity/StatusEntity.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Models/StatusModel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Auth/Authenticator.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Base/Middlewares/Error404.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Libraries/AdminController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Libraries/PermissionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/mbonea.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mbonea.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/Authenticated.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/Authenticated.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Controllers/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/MenuController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/MenuController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/PasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/PasswordController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/PermissionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/PermissionController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/ProfileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/RoleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/RoleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/SampleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/SampleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/SectionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/SectionController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Controllers/SignupController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/SignupController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Mail.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Mail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Models/RememberedLogin.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Models/SectionModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Models/SectionModel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Models/UserModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Models/UserModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Token.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/includes/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/includes/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/profile/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/profile/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/profile/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/profile/show.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/signup/new.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/signup/new.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/user/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/user/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Auth/Authorized.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Auth/Authorized.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Auth/PrivilegedUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Auth/PrivilegedUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Auth/RememberedLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Auth/RememberedLogin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Base/AbstractBaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/AbstractBaseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Base/BaseApplication.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/BaseApplication.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Base/BaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/BaseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Base/BaseView.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/BaseView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Base/Traits/ControllerPrivilegeTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/Traits/ControllerPrivilegeTrait.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Base/Traits/ControllerTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/Traits/ControllerTrait.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Orm/ClientRepository/ClientRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/ClientRepository/ClientRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Orm/DataMapper/DataMapper.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Orm/DataMapper/DataMapper.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/System/Config.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/System/Config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Utility/HashGenerator.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Utility/HashGenerator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Utility/Token.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Utility/Token.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evo.sql" beforeDir="false" afterPath="$PROJECT_DIR$/evo.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,6 +129,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/App/Entity" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -182,7 +147,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1643692719821</updated>
-      <workItem from="1643692721705" duration="13098000" />
+      <workItem from="1643692721705" duration="18482000" />
     </task>
     <servers />
   </component>

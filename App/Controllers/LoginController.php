@@ -23,7 +23,7 @@ use Throwable;
 class LoginController extends BaseController
 {
     /**
-     * @throws Exception
+     * @throws Exception|Throwable
      */
     public function indexAction()
     {

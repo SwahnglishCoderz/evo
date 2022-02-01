@@ -16,9 +16,13 @@ use App\Models\MenuModel;
 use App\Models\RoleModel;
 use App\Models\SectionModel;
 use Evo\Base\BaseView;
+use Throwable;
 
 class RoleController extends Authenticated
 {
+    /**
+     * @throws Throwable
+     */
     public function index()
     {
         // retrieve details of all roles from the DB
@@ -29,12 +33,18 @@ class RoleController extends Authenticated
         BaseView::renderTemplate('role/index.html', ['roles' => $roles, 'sections' => $sections, 'menus' => $menus]);
     }
 
+    /**
+     * @throws Throwable
+     */
     public function new()
     {
         // display a form to create a new role
         BaseView::renderTemplate('role/create.html');
     }
 
+    /**
+     * @throws Throwable
+     */
     public function show()
     {
         // retrieve details of a single role from the DB
@@ -46,6 +56,9 @@ class RoleController extends Authenticated
         // add new role to DB
     }
 
+    /**
+     * @throws Throwable
+     */
     public function edit()
     {
         // display a form to update a role

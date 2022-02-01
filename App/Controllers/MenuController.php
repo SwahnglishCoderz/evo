@@ -16,11 +16,12 @@ use App\Models\MenuModel;
 use App\Models\SectionModel;
 use Evo\Base\BaseView;
 use Exception;
+use Throwable;
 
 class MenuController extends Authenticated
 {
     /**
-     * @throws Exception
+     * @throws Exception|Throwable
      */
     public function index()
     {
@@ -32,7 +33,7 @@ class MenuController extends Authenticated
     }
 
     /**
-     * @throws Exception
+     * @throws Exception|Throwable
      */
     public function new()
     {
@@ -41,7 +42,7 @@ class MenuController extends Authenticated
     }
 
     /**
-     * @throws Exception
+     * @throws Exception|Throwable
      */
     public function show()
     {
@@ -55,7 +56,7 @@ class MenuController extends Authenticated
     }
 
     /**
-     * @throws Exception
+     * @throws Exception|Throwable
      */
     public function edit()
     {

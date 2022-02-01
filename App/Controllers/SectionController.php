@@ -12,7 +12,6 @@ declare (strict_types = 1);
 
 namespace App\Controllers;
 
-use App\Auth;
 use App\Flash;
 use App\Models\MenuModel;
 use App\Models\SectionModel;
@@ -22,6 +21,9 @@ use Throwable;
 
 class SectionController extends Authenticated
 {
+    /**
+     * @throws Throwable
+     */
     public function index()
     {
         // retrieve details of all sections from the DB
@@ -34,12 +36,18 @@ class SectionController extends Authenticated
         ]);
     }
 
+    /**
+     * @throws Throwable
+     */
     public function create()
     {
         // display a form to create a new section
         BaseView::renderTemplate('section/create.html');
     }
 
+    /**
+     * @throws Throwable
+     */
     public function show()
     {
         // retrieve details of a single section from the DB
@@ -62,6 +70,9 @@ class SectionController extends Authenticated
         }
     }
 
+    /**
+     * @throws Throwable
+     */
     public function edit()
     {
         // display a form to update a section

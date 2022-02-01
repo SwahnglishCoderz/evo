@@ -16,9 +16,13 @@ use App\Models\MenuModel;
 use App\Models\PermissionModel;
 use App\Models\SectionModel;
 use Evo\Base\BaseView;
+use Throwable;
 
 class PermissionController extends Authenticated
 {
+    /**
+     * @throws Throwable
+     */
     public function index()
     {
         // retrieve details of all permissions from the DB
@@ -29,12 +33,18 @@ class PermissionController extends Authenticated
         BaseView::renderTemplate('permission/index.html', ['permissions' => $permissions, 'sections' => $sections, 'menus' => $menus]);
     }
 
+    /**
+     * @throws Throwable
+     */
     public function new()
     {
         // display a form to create a new permission
         BaseView::renderTemplate('permission/create.html');
     }
 
+    /**
+     * @throws Throwable
+     */
     public function show()
     {
         // retrieve details of a single permission from the DB
@@ -46,6 +56,9 @@ class PermissionController extends Authenticated
         // add new permission to DB
     }
 
+    /**
+     * @throws Throwable
+     */
     public function edit()
     {
         // display a form to update a permission

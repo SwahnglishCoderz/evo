@@ -13,6 +13,7 @@ declare (strict_types = 1);
 namespace App\Controllers;
 
 use Evo\Base\BaseView;
+use Throwable;
 
 /**
  * Sample controller (example)
@@ -35,6 +36,7 @@ class SampleController extends Authenticated
 
     /**
      * Items index
+     * @throws Throwable
      */
     public function indexAction()
     {
