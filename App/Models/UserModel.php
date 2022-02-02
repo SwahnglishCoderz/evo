@@ -20,7 +20,7 @@ use Evo\Utility\ClientIP;
 use Evo\Utility\Token;
 use Exception;
 use PDO;
-use App\Mail;
+use Evo\Mail\Mail;
 use Evo\Base\BaseView;
 use Throwable;
 
@@ -57,6 +57,14 @@ class UserModel extends AbstractBaseModel
     }
 
     /**
+     * @throws Exception
+     */
+    private function token(string $token = null): Token
+    {
+        return new Token($token);
+    }
+
+    /**
      * Save the user model with the current property values
      * @throws Exception
      */
@@ -75,9 +83,8 @@ class UserModel extends AbstractBaseModel
         if (empty($this->errors)) {
             $password_hash = password_hash($this->password, PASSWORD_DEFAULT);
 
-            $token = new Token();
-            $hashed_token = $token->getHashedTokenValue();
-            $this->activation_token = $token->getTokenValue();
+            $hashed_token = $this->token()->getHashedTokenValue();
+            $this->activation_token = $this->token()->getTokenValue();
 
             return $this->repository->getEm()->getCrud()->create(
                 [
@@ -108,7 +115,7 @@ class UserModel extends AbstractBaseModel
         if (filter_var($this->email, FILTER_VALIDATE_EMAIL) === false) {
             $this->errors[] = 'Invalid email';
         }
-//        if (static::doesEmailExist($data['email'], $this->id ?? null)) {
+
         if (self::doesEmailExist($this->email, $this->id ?? null)) {
             $this->errors[] = 'Email already taken';
         }
@@ -203,9 +210,7 @@ class UserModel extends AbstractBaseModel
         if ($user) {
 
             if ($user->startPasswordReset()) {
-
                 $user->sendPasswordResetEmail();
-
             }
         }
     }
@@ -374,11 +379,6 @@ class UserModel extends AbstractBaseModel
             unset($data['password_hash']);
         }
 
-//        echo '<pre>';
-//        print_r($data_changed);
-//        exit;
-
         return $this->repository->findByIdAndUpdate($data_changed, intval($id));
-//        }
     }
 }

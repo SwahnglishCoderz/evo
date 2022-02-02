@@ -15,10 +15,12 @@ namespace App\Controllers;
 use App\Models\MenuModel;
 use App\Models\PermissionModel;
 use App\Models\SectionModel;
+use Evo\Base\BaseController;
 use Evo\Base\BaseView;
 use Throwable;
 
-class PermissionController extends Authenticated
+//class PermissionController extends Authenticated
+class PermissionController extends BaseController
 {
     /**
      * @throws Throwable

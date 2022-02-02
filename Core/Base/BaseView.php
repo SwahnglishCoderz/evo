@@ -2,7 +2,7 @@
 
 namespace Evo\Base;
 
-use App\Flash;
+use Evo\Flash\Flash;
 use Evo\Auth\Authorized;
 use Exception;
 use Throwable;
@@ -50,7 +50,6 @@ class BaseView
         if ($twig === null) {
             $loader = new FilesystemLoader(ROOT_PATH . '/App/Views');
             $twig = new Environment($loader);
-//            $twig->addGlobal('current_user', Auth::getUser());
             $twig->addGlobal('current_user', Authorized::getUser());
             $twig->addGlobal('flash_messages', Flash::getAllFlashNotifications());
         }

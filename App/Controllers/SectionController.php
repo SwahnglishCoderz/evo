@@ -12,15 +12,25 @@ declare (strict_types = 1);
 
 namespace App\Controllers;
 
-use App\Flash;
+use Evo\Base\BaseController;
+use Evo\Flash\Flash;
 use App\Models\MenuModel;
 use App\Models\SectionModel;
 use Evo\Auth\Authorized;
 use Evo\Base\BaseView;
+use Evo\Middleware\Before\LoginRequired;
 use Throwable;
 
-class SectionController extends Authenticated
+//class SectionController extends Authenticated
+class SectionController extends BaseController
 {
+    protected function callBeforeMiddlewares(): array
+    {
+        return [
+            'LoginRequired' => LoginRequired::class
+        ];
+    }
+
     /**
      * @throws Throwable
      */
@@ -63,7 +73,6 @@ class SectionController extends Authenticated
 
         if ($clean_data) {
             Flash::addMessageToFlashNotifications('Section added successfully');
-//            $this->redirect(Auth::getReturnToPage());
             $this->redirect(Authorized::getReturnToPage());
         } else {
             Flash::addMessageToFlashNotifications('Failed to add the section', Flash::WARNING);

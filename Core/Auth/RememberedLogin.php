@@ -55,20 +55,6 @@ class RememberedLogin extends AbstractBaseModel implements RememberedLoginInterf
         }
     }
 
-//    public function findByToken(string $token) : Object // MAGMA
-//    {
-//        try {
-//            $token = new \Evo\Utility\Token($token);
-//            $tokenHash = $token->getHash();
-//            $tokenUser = $this->getRepository()->findObjectBy(['token_hash' => $tokenHash], []);
-//            if ($tokenUser !=null) {
-//                return $tokenUser;
-//            }
-//        }catch(Throwable $th) {
-//            throw $th;
-//        }
-//    }
-
     /**
      * See if the remember_token has expired or not, based on the current system time
      */
@@ -76,13 +62,6 @@ class RememberedLogin extends AbstractBaseModel implements RememberedLoginInterf
     {
         return strtotime($this->expires_at) < time();
     }
-
-//    public function hasExpired(string $expires) : bool // MAGMA
-//    {
-//        if (!empty($expires)) {
-//            return strtotime($expires) < time();
-//        }
-//    }
 
     public function destroy(string $tokenHash) : bool
     {
@@ -124,13 +103,6 @@ class RememberedLogin extends AbstractBaseModel implements RememberedLoginInterf
         return (new UserModel)->getNameForSelectField($_SESSION['user_id']);
     }
 
-//    public function getUser(int $userID) : Object // MAGMA
-//    {
-//        if (!empty($userID)) {
-//            return $this->getRepository()->findObjectBy([], ['id' => $userID]);
-//        }
-//    }
-
     /**
      * @throws Exception
      */
@@ -159,6 +131,4 @@ class RememberedLogin extends AbstractBaseModel implements RememberedLoginInterf
             ];
         }
     }
-
-
 }

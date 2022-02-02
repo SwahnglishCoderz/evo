@@ -14,12 +14,22 @@ namespace App\Controllers;
 
 use App\Models\MenuModel;
 use App\Models\SectionModel;
+use Evo\Base\BaseController;
 use Evo\Base\BaseView;
+use Evo\Middleware\Before\LoginRequired;
 use Exception;
 use Throwable;
 
-class MenuController extends Authenticated
+//class MenuController extends Authenticated
+class MenuController extends BaseController
 {
+    protected function callBeforeMiddlewares(): array
+    {
+        return [
+            'LoginRequired' => LoginRequired::class
+        ];
+    }
+
     /**
      * @throws Exception|Throwable
      */
@@ -35,7 +45,7 @@ class MenuController extends Authenticated
     /**
      * @throws Exception|Throwable
      */
-    public function newAction()
+    public function createAction()
     {
         // display a form to create a new menu
         BaseView::renderTemplate('menu/create.html');

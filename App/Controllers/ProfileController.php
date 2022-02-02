@@ -12,29 +12,33 @@ declare (strict_types = 1);
 
 namespace App\Controllers;
 
+
 use App\Models\UserModel;
 use Evo\Auth\Authorized;
+use Evo\Base\BaseController;
+use Evo\Middleware\Before\LoginRequired;
 use Evo\System\Status;
 use Evo\Base\BaseView;
-use App\Flash;
+use Evo\Flash\Flash;
 use Exception;
 use Throwable;
 
-class ProfileController extends Authenticated
+//class ProfileController extends Authenticated
+class ProfileController extends BaseController
 {
+    protected function callBeforeMiddlewares(): array
+    {
+        return [
+            'LoginRequired' => LoginRequired::class
+        ];
+    }
+
     /**
-     * Show the profile
      * @throws Exception|Throwable
      */
     public function showAction()
     {
-//        $this->user = Auth::getUser();
         $this->user = Authorized::getUser();
-//        print_r($this->user);
-//        exit;
-
-//        $this->user->is_active_color = self::isUserActive($this->user->is_active)['color'];
-//        $this->user->is_active_name = self::isUserActive($this->user->is_active)['name'];
 
         BaseView::renderTemplate('profile/show.html', [
             'user' => $this->user
@@ -42,13 +46,11 @@ class ProfileController extends Authenticated
     }
 
     /**
-     * Show the form for editing the profile
      * @throws Exception
      * @throws Throwable
      */
     public function editAction()
     {
-//        $this->user = Auth::getUser();
         $this->user = Authorized::getUser();
 
         BaseView::renderTemplate('profile/edit.html', [
@@ -57,20 +59,13 @@ class ProfileController extends Authenticated
     }
 
     /**
-     * Update the profile
      * @throws Exception|Throwable
      */
     public function updateAction()
     {
-//        $this->user = Auth::getUser();
-//        print_r($_SESSION['user_id']);
-//        exit;
-
         if ((new UserModel)->updateProfile($_POST, $_SESSION['user_id'])) {
             Flash::addMessageToFlashNotifications('Changes saved');
-//
             $this->redirect('/profile/show');
-//
         } else {
             BaseView::renderTemplate('profile/edit.html', [
                 'user' => $this->user
@@ -95,7 +90,7 @@ class ProfileController extends Authenticated
                 $active_status['name'] = 'Inactive';
                 $active_status['color'] = Status::INACTIVE_COLOR;
                 return $active_status;
-            break;
+                break;
         }
     }
 }

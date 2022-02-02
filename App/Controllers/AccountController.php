@@ -14,10 +14,17 @@ namespace App\Controllers;
 
 use App\Models\UserModel;
 use Evo\Base\BaseController;
+use Evo\Middleware\Before\LoginRequired;
 
 
 class AccountController extends BaseController
 {
+    protected function callBeforeMiddlewares(): array
+    {
+        return [
+            'LoginRequired' => LoginRequired::class
+        ];
+    }
 
     /**
      * Validate if email is available (AJAX) for a new signup or an existing user.

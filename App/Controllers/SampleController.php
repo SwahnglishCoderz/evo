@@ -12,14 +12,23 @@ declare (strict_types = 1);
 
 namespace App\Controllers;
 
+use Evo\Base\BaseController;
 use Evo\Base\BaseView;
+use Evo\Middleware\Before\LoginRequired;
 use Throwable;
 
 
-class SampleController extends Authenticated
+//class SampleController extends Authenticated
+class SampleController extends BaseController
 {
+    protected function callBeforeMiddlewares(): array
+    {
+        return [
+            'LoginRequired' => LoginRequired::class
+        ];
+    }
+
     /**
-     * Items index
      * @throws Throwable
      */
     public function indexAction()

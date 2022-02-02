@@ -12,12 +12,10 @@ declare(strict_types = 1);
 
 namespace Evo\Base;
 
-use App\Controllers\Authenticated;
-use App\Flash;
+use Evo\Flash\Flash;
 use App\Models\PermissionModel;
 use App\Models\UserModel;
 use Evo\Auth\Authorized;
-use Evo\Auth\PrivilegedUser;
 use Evo\Base\BaseApplication;
 use Evo\Base\BaseRedirect;
 use Evo\Base\Exception\BaseBadMethodCallException;
@@ -25,12 +23,10 @@ use Evo\Base\Middlewares\Error404;
 use Evo\Base\Traits\ControllerMenuTrait;
 use Evo\Base\Traits\ControllerPrivilegeTrait;
 use Evo\Error\Error;
-use Evo\System\Config;
-use Evo\Utility\Yaml;
-use Evo\Base\BaseView;
-use Evo\Session\SessionTrait;
-use Evo\Middleware\Middleware;
 use Evo\Session\Flash\FlashType;
+use Evo\System\Config;
+use Evo\Base\BaseView;
+use Evo\Middleware\Middleware;
 use Evo\Base\Exception\BaseLogicException;
 use Evo\Base\Traits\ControllerCastingTrait;
 use Exception;
@@ -38,7 +34,6 @@ use Throwable;
 
 class BaseController extends AbstractBaseController
 {
-    use SessionTrait;
     use ControllerCastingTrait;
     use ControllerPrivilegeTrait;
     use ControllerMenuTrait;
@@ -85,7 +80,8 @@ class BaseController extends AbstractBaseController
     public function __call(string $name, array $args)
     {
         $method = $name . 'Action';
-//        $method = $name;
+//        print_r($name);
+//        exit;
 
         if (method_exists($this, $method)) {
             if ($this->before() !== false) {
@@ -133,11 +129,11 @@ class BaseController extends AbstractBaseController
      */
     protected function before()
     {
-//        $object = new self($this->routeParams);
-//        (new Middleware())->middlewares($this->callBeforeMiddlewares())
-//            ->middleware($object, function ($object) {
-//                return $object;
-//            });
+        $object = new self($this->routeParams);
+        (new Middleware())->middlewares($this->callBeforeMiddlewares())
+            ->middleware($object, function ($object) {
+                return $object;
+            });
     }
 
     /**
@@ -145,40 +141,11 @@ class BaseController extends AbstractBaseController
      */
     protected function after()
     {
-//        $object = new self($this->routeParams);
-//        (new Middleware())->middlewares($this->callAfterMiddlewares())
-//            ->middleware($object, function ($object) {
-//                return $object;
-//            });
-    }
-
-    /**
-     * Template context which relies on the application owning a user and permission
-     * model before providing any data to the rendered template
-     * @throws Throwable
-     */
-    private function templateModelContext(): array
-    {
-        if (!class_exists(UserModel::class) || !class_exists(PermissionModel::class)) {
-            return array();
-        }
-        return array_merge(
-            ['current_user' => Authorized::grantedUser()],
-            ['privilege_user' => PrivilegedUser::getUser()],
-//            ['func' => new TemplateExtension($this)],
-        );
-    }
-
-    /**
-     * Return some global context to all rendered templates
-     */
-    private function templateGlobalContext(): array
-    {
-        return array_merge(
-            ['app' => Config::APP],
-            ['menu' => Config::MENU],
-            ['routes' => ($this->routeParams ?? [])]
-        );
+        $object = new self($this->routeParams);
+        (new Middleware())->middlewares($this->callAfterMiddlewares())
+            ->middleware($object, function ($object) {
+                return $object;
+            });
     }
 
     /**
@@ -206,12 +173,10 @@ class BaseController extends AbstractBaseController
      */
     public function requireLogin()
     {
-//        if (! Auth::getUser()) {
         if (! Authorized::getUser()) {
 
             Flash::addMessageToFlashNotifications('Please log in to access that page', Flash::INFO);
 
-//            Auth::rememberRequestedPage();
             Authorized::rememberRequestedPage();
 
             $this->redirect('/login');
@@ -222,17 +187,6 @@ class BaseController extends AbstractBaseController
     {
         return $this->routeParams;
     }
-
-    /**
-     * Returns the session object for use throughout any controller. Can be used
-     * to call any of the methods defined with the session class
-     */
-    public function getSession(): object
-    {
-        return SessionTrait::sessionFromGlobal();
-    }
-
-
 
     public function onSelf()
     {
@@ -252,23 +206,11 @@ class BaseController extends AbstractBaseController
     }
 
     /**
-     * Combination method which encapsulate the flashing and redirecting all within
-     * a single method. Use the relevant arguments to customize the output
-     */
-    public function flashAndRedirect(bool $action, ?string $redirect = null, string $message, string $type = FlashType::SUCCESS): void
-    {
-        if (is_bool($action)) {
-            $this->flashMessage($message, $type);
-            $this->redirect(($redirect === null) ? $this->onSelf() : $redirect);
-        }
-    }
-
-    /**
      * Returns the session based flash message
      */
-    public function flashMessage(string $message, string $type = FlashType::SUCCESS)
+    public function flashMessage(string $message, string $type = Flash::SUCCESS)
     {
-        $flash = (new Flash(SessionTrait::sessionFromGlobal()))->add($message, $type);
+        $flash = Flash::addMessageToFlashNotifications($message, $type);
         if ($flash) {
             return $flash;
         }
@@ -305,5 +247,4 @@ class BaseController extends AbstractBaseController
     {
         return FlashType::INFO;
     }
-
 }

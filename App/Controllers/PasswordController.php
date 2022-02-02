@@ -15,12 +15,12 @@ namespace App\Controllers;
 use App\Models\UserModel;
 use Evo\Base\BaseController;
 use Evo\Base\BaseView;
+use Evo\Middleware\Before\LoginRequired;
 use Exception;
 use Throwable;
 
 class PasswordController extends BaseController
 {
-
     /**
      * Show the forgotten password page
      * @throws Throwable

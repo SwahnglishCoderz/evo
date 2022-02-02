@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Evo\Flash;
 
 /**
  * Flash notification messages: messages for one-time display using the session

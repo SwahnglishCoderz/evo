@@ -24,7 +24,6 @@ class Authorized
 {
     use SessionTrait;
 
-    /** @var string */
     protected const TOKEN_COOKIE_NAME = "remember_me";
     protected const FIELD_SESSIONS = [
         'id',
@@ -39,32 +38,14 @@ class Authorized
     /**
      * Login the user
      */
-//    public static function login(Object $userModel, bool $rememberMe) // MAGMA
-//    {
-//        /* Set userID Session here */
-//        session_regenerate_id(true);
-//        SessionTrait::registerUserSession($userModel->id ?? false);
-//        if ($rememberMe) {
-//            $rememberLogin = new RememberedLogin();
-//            list($token, $timestampExpiry) = $rememberLogin->rememberedLogin($userModel->id);
-//            if ($token !=null) {
-//                $cookie = (new CookieFacade(['name' => self::TOKEN_COOKIE_NAME, 'expires' => $timestampExpiry]))->initialize();
-//                $cookie->set($token);
-//            }
-//        }
-//    }
-
     public static function login(object $user, bool $remember_me, int $id = null) // OG
     {
         session_regenerate_id(true);
         SessionTrait::registerUserSession($user->id);
 
         if ($remember_me) {
-
             if ($user->rememberLogin()) {
-
                 setcookie('remember_me', $user->remember_token, $user->expiry_timestamp, '/');
-
             }
         }
     }
@@ -74,7 +55,8 @@ class Authorized
      */
     protected static function getCurrentSessionID(): int
     {
-        return intval(SessionTrait::sessionFromGlobal()->get('user_id'));
+//        return intval(SessionTrait::sessionFromGlobal()->get('user_id'));
+        return isset($_SESSION['user_id']) ? intval($_SESSION['user_id']) : 0;
     }
 
     /**
@@ -84,32 +66,15 @@ class Authorized
     public static function grantedUser()
     {
         $userSessionID = self::getCurrentSessionID();
-//        print_r($userSessionID);
-//        exit;
-        if (isset($userSessionID)) {
+        if (isset($userSessionID) && $userSessionID !==0) {
             return (new UserModel())->getRepository()->findObjectBy(['id' => $userSessionID], self::FIELD_SESSIONS);
         } else {
-//            $user = self::loginFromRemembermeCookie(); // MAGMA
             $user = self::loginFromRememberCookie();
-//            print_r($user);
-//            exit;
             if ($user) {
                 return $user;
             }
         }
     }
-
-    /**
-     * Logout the user and kill the user session and also delete the cookie
-     * created for user login
-     */
-//    public static function logout() : void // MAGMA
-//    {
-//        if (self::getCurrentSessionID() !=null) {
-//            SessionTrait::SessionFromGlobal()->invalidate();
-////            self::forgetLogin();
-//        }
-//    }
 
     /**
      * @throws Exception|Throwable
@@ -143,28 +108,10 @@ class Authorized
     /**
      * Remember the originally-requested page in the session
      */
-//    public static function rememberRequestedPage() : void // MAGMA
-//    {
-//        SessionTrait::sessionFromGlobal()->set('return_to', $_SERVER['REQUEST_URI']);
-//    }
-
-    /**
-     * Remember the originally-requested page in the session
-     */
     public static function rememberRequestedPage() // OG
     {
         $_SESSION['return_to'] = $_SERVER['REQUEST_URI'];
     }
-
-    /**
-     * Get the originally-requested page to return to after requiring login,
-     * or default to the homepage
-     */
-//    public static function getReturnToPage() : string // MAGMA
-//    {
-//        $page = SessionTrait::sessionFromGlobal()->get('return_to');
-//        return $page ?? '/';
-//    }
 
     /**
      * Get the originally-requested page to return to after requiring login, or default to the homepage
@@ -192,26 +139,6 @@ class Authorized
 
     /**
      * Login the user from a remembered login cookie
-     */
-//    protected static function loginFromRemembermeCookie() : ?object // MAGMA
-//    {
-//        $cookie = $_COOKIE[self::TOKEN_COOKIE_NAME] ?? false;
-//        if ($cookie) {
-//            $rememberLogin = new RememberedLogin();
-//            $cookieToken = $rememberLogin->findByToken($cookie);
-//            if ($cookieToken && !$rememberLogin->hasExpired($cookieToken->expires_at)) {
-//                $user = $rememberLogin->getUser($cookieToken->id);
-//                if ($user) {
-//                    self::login($user, false);
-//                    return $user;
-//                }
-//            }
-//        }
-//        return null;
-//    }
-
-    /**
-     * Login the user from a remembered login cookie
      *
      * returns the user model if login cookie found; null otherwise
      * @throws Exception
@@ -236,26 +163,6 @@ class Authorized
             }
         }
     }
-
-    /**
-     * Forget the remembered login, if present
-     */
-//    protected static function forgetLogin() : bool // MAGMA
-//    {
-//        $cookie = $_COOKIE[self::TOKEN_COOKIE_NAME] ?? false;
-//        if ($cookie) {
-////            $rememberLogin = new RememberedLogin();
-////            $rememberCookie = $rememberLogin->findByToken($cookie);
-////            if ($rememberCookie) {
-////                $rememberLogin->destroy($rememberCookie->token_hash);
-////            }
-////            /* expire cookie here */
-////            $cookie = (new CookieFacade(['name' => self::TOKEN_COOKIE_NAME]))->initialize();
-////            $cookie->delete();
-//            return true;
-//        }
-//        return false;
-//    }
 
     /**
      * Forget the remembered login, if present

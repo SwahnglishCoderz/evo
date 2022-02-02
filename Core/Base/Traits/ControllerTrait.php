@@ -55,111 +55,6 @@ trait ControllerTrait
         return $this->diContainer($args);
     }
 
-    /**
-     * Return only the parameter array of the extended event configurations
-     */
-    private function getExtendedEventServiceParams(): array
-    {
-        $_params = [];
-////        $extendedEvents = Yaml::file('extend_events');
-//        $extendedEvents = Config::EXTENDS_EVENTS;
-//        if (is_array($extendedEvents) && count($extendedEvents) > 0) {
-//            foreach ($extendedEvents as $events) {
-//                foreach ($events as $key => $param) {
-//                    if (is_array($param)) {
-//                        $_params = $param;
-//                    }
-//                }
-//            }
-//        }
-        return $_params;
-    }
-
-    /**
-     * Register all application event subscribers and listeners
-     */
-    public function registerSubscribedServices(array $otherServices = []): void
-    {
-//        $extendedEventsParams = $this->getExtendedEventServiceParams();
-//        $fileServices = Yaml::file('events');
-//        $fileServices = Config::EVENTS;
-//        if (!empty($fileServices)) {
-//            $services = $fileServices ? $fileServices : self::getSubscribedEvents();
-//            if (is_array($services) && count($services) > 0) {
-//                foreach ($services as $serviceParams) {
-//                    foreach ($serviceParams as $key => $params) {
-//                        $extendedParams = array_merge($params, $extendedEventsParams ?? []);
-//                        if (isset($key) && is_string($key) && $key !== '') {
-//                            switch ($key) {
-//                                case 'listeners':
-//                                    $this->resolveListeners($extendedParams);
-//                                    break;
-//                                case 'subscribers':
-//                                    $this->resolveSubscribers($extendedParams);
-//                                    break;
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//        }
-
-    }
-
-    /**
-     * Resolve the event listeners from the events.yml file
-     */
-    private function resolveListeners(array $parameters): void
-    {
-//        foreach ($parameters as $listeners => $values) {
-//            if (isset($listeners)) {
-//
-//                if (!class_exists($values['class'])) {
-//                    throw new BaseBadFunctionCallException($values['class'] . ' Listener class was not found within /App/EventListener');
-//                }
-//                $listenerObject = BaseApplication::diGet($values['class']);
-//                if (!$listenerObject instanceof ListenerProviderInterface) {
-//                    throw new BaseInvalidArgumentException($listenerObject . ' is not a valid Listener Object.');
-//                }
-//                if ($this->eventDispatcher) {
-//                    if (in_array('name', $values['props'])) {
-//                        $this->eventDispatcher->addListener($values['props']['name']::NAME, [$listenerObject, $values['props']['event']]);
-//                    }
-//                }
-//            }
-//        }
-    }
-
-    /**
-     * Resolve the events subscribers from the events.yml file
-     */
-    private function resolveSubscribers(array $parameters): void
-    {
-//        foreach ($parameters as $subscribers => $values) {
-//            if (isset($subscribers)) {
-//                $subscriberObject = BaseApplication::diGet($values['class']);
-//                if (!$subscriberObject instanceof EventSubscriberInterface) {
-//                    throw new BaseInvalidArgumentException($subscriberObject . ' is not a valid subscriber object.');
-//                }
-//                if ($this->eventDispatcher) {
-//                    $this->eventDispatcher->addSubscriber($subscriberObject);
-//                }
-//            }
-//        }
-    }
-
-    /**
-     * Register all events and listeners within the base controller constructor
-     * @throws Exception
-     */
-    public function initEvents(): void
-    {
-        try {
-            $this->registerSubscribedServices();
-        } catch(BaseRuntimeException $ex) {
-
-        }
-    }
 
     /**
      * Undocumented function
@@ -217,7 +112,6 @@ trait ControllerTrait
      */
     public function initializeControllerSettings(string $controller, string $columnString, $menu_id): bool
     {
-//        if (is_array($controllers = Yaml::file('controller'))) {
         if (is_array($controllers = Config::CONTROLLER)) {
             foreach ($controllers as $key => $setting) {
                 if ($key === $controller) {
@@ -252,18 +146,4 @@ trait ControllerTrait
 
         return false;
     }
-
-//    public function dispatchEvent(string $event, string $method, array $context = [], object $controller)
-//    {
-//        if (empty($event) || !is_string($event)) {
-//            throw new BaseUnexpectedValueException('Please specify the required argument for the method ' . __METHOD__);
-//        }
-//        $cloneObject = clone $this;
-//        if (isset($this->eventDispatcher)) {
-//            $this->eventDispatcher->dispatch(
-//                new $event($method, $context, $controller),
-//                $event::NAME
-//            );
-//        }
-//    }
 }

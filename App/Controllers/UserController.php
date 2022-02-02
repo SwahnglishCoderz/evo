@@ -23,8 +23,16 @@ use Evo\System\Status;
 use Exception;
 use Throwable;
 
-class UserController extends Authenticated
+//class UserController extends Authenticated
+class UserController extends BaseController
 {
+    protected function callBeforeMiddlewares(): array
+    {
+        return [
+            'LoginRequired' => LoginRequired::class
+        ];
+    }
+
     /**
      * @throws Exception
      * @throws Throwable

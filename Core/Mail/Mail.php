@@ -10,7 +10,7 @@
 
 declare (strict_types = 1);
 
-namespace App;
+namespace Evo\Mail;
 
 use Evo\System\Config;
 use PHPMailer\PHPMailer\PHPMailer;

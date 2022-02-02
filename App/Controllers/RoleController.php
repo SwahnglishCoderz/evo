@@ -15,11 +15,21 @@ namespace App\Controllers;
 use App\Models\MenuModel;
 use App\Models\RoleModel;
 use App\Models\SectionModel;
+use Evo\Base\BaseController;
 use Evo\Base\BaseView;
+use Evo\Middleware\Before\LoginRequired;
 use Throwable;
 
-class RoleController extends Authenticated
+//class RoleController extends Authenticated
+class RoleController extends BaseController
 {
+    protected function callBeforeMiddlewares(): array
+    {
+        return [
+            'LoginRequired' => LoginRequired::class
+        ];
+    }
+
     /**
      * @throws Throwable
      */

@@ -2,18 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5eafad97-e8ca-4f7a-be39-9b1ffdf1a28c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/App/Views/base_working.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Middleware/Before/Authorization.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/base_ui_refactor_in_progress.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Views/welcome_layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/welcome_layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/AccountController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/AccountController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/Authenticated.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/MenuController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/MenuController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/PasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/PasswordController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/PermissionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/PermissionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/ProfileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/RoleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/RoleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/SampleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/SampleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/SectionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/SectionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/SignupController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/SignupController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Flash.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Flash/Flash.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Mail.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Mail/Mail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Models/UserModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Models/UserModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Auth/Authorized.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Auth/Authorized.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Auth/RememberedLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Auth/RememberedLogin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Base/BaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/BaseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Base/BaseView.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/BaseView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Base/Traits/ControllerTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/Traits/ControllerTrait.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Middleware/Before/AdminAuthentication.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Middleware/Before/AuthorizedIsNull.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Middleware/Before/IntegrityConstraints.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Middleware/Before/LoginRequired.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Middleware/Before/LoginRequired.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Middleware/Before/SessionExpires.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -133,6 +155,8 @@
       <recent name="C:\xampp\htdocs\mbonea\Core\Base" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\mbonea\Core\Mail" />
+      <recent name="C:\xampp\htdocs\mbonea\Core\Flash" />
       <recent name="C:\xampp\htdocs\mbonea\App\Views\templates" />
     </key>
   </component>
@@ -144,7 +168,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1643692719821</updated>
-      <workItem from="1643692721705" duration="26492000" />
+      <workItem from="1643692721705" duration="27354000" />
+      <workItem from="1643777877330" duration="6105000" />
     </task>
     <servers />
   </component>
@@ -161,5 +186,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
